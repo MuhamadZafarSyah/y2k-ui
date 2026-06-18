@@ -1,0 +1,43 @@
+---
+title: Alert
+description: A Y2K banner for info, warning, success, and danger messages. Six pastel variants.
+---
+
+# Alert
+
+A flat banner for inline messages. Six pastel variants, thick navy border, no offset shadow.
+
+<ComponentPreview
+  name="alert-demo"
+  preview={<AlertDemo />}
+  source={`import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
+
+<Alert variant="success">
+  <AlertTitle>Saved</AlertTitle>
+  <AlertDescription>Your changes were saved.</AlertDescription>
+</Alert>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add alert" />
+
+## Usage
+
+```tsx
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: "'info' | 'pink' | 'lilac' | 'success' | 'warning' | 'danger'",
+      default: "'info'",
+      description: "Color style of the alert.",
+    },
+    { prop: "role", type: "string", default: "'alert'", description: "ARIA role. Override only if you know what you are doing." },
+  ]}
+/>

@@ -1,26 +1,188 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "fumadocs-ui/style.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+@source "../node_modules/fumadocs-ui/dist/**/*.{js,ts,jsx,tsx}";
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --color-y2k-ink: var(--y2k-ink);
+  --color-y2k-blue: var(--y2k-blue);
+  --color-y2k-pink: var(--y2k-pink);
+  --color-y2k-lilac: var(--y2k-lilac);
+  --color-y2k-mint: var(--y2k-mint);
+  --color-y2k-lemon: var(--y2k-lemon);
+  --color-y2k-panel: var(--y2k-panel);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: oklch(0.97 0.02 280);
+  --foreground: var(--y2k-ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--y2k-ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--y2k-ink);
+  --primary: var(--y2k-blue);
+  --primary-foreground: var(--y2k-ink);
+  --secondary: var(--y2k-panel);
+  --secondary-foreground: var(--y2k-ink);
+  --muted: var(--y2k-panel);
+  --muted-foreground: oklch(0.45 0.02 280);
+  --accent: var(--y2k-pink);
+  --accent-foreground: var(--y2k-ink);
+  --destructive: oklch(0.6 0.22 27);
+  --border: var(--y2k-ink);
+  --input: var(--y2k-ink);
+  --ring: var(--y2k-pink);
+  --chart-1: var(--y2k-blue);
+  --chart-2: var(--y2k-pink);
+  --chart-3: var(--y2k-lilac);
+  --chart-4: var(--y2k-mint);
+  --chart-5: var(--y2k-lemon);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.99 0.01 280);
+  --sidebar-foreground: var(--y2k-ink);
+  --sidebar-primary: var(--y2k-pink);
+  --sidebar-primary-foreground: var(--y2k-ink);
+  --sidebar-accent: var(--y2k-panel);
+  --sidebar-accent-foreground: var(--y2k-ink);
+  --sidebar-border: var(--y2k-ink);
+  --sidebar-ring: var(--y2k-pink);
+
+  --y2k-ink: #1b1b3a;
+  --y2k-blue: #8ed1fc;
+  --y2k-pink: #ff8fcf;
+  --y2k-lilac: #b69cff;
+  --y2k-mint: #8ff0d0;
+  --y2k-lemon: #ffe45e;
+  --y2k-panel: #d7dde8;
+}
+
+.dark {
+  --background: oklch(0.18 0.03 280);
+  --foreground: oklch(0.96 0.01 280);
+  --card: oklch(0.22 0.03 280);
+  --card-foreground: oklch(0.96 0.01 280);
+  --popover: oklch(0.22 0.03 280);
+  --popover-foreground: oklch(0.96 0.01 280);
+  --primary: var(--y2k-blue);
+  --primary-foreground: var(--y2k-ink);
+  --secondary: oklch(0.28 0.03 280);
+  --secondary-foreground: oklch(0.96 0.01 280);
+  --muted: oklch(0.28 0.03 280);
+  --muted-foreground: oklch(0.7 0.02 280);
+  --accent: var(--y2k-pink);
+  --accent-foreground: var(--y2k-ink);
+  --destructive: oklch(0.6 0.22 27);
+  --border: oklch(0.96 0.01 280 / 25%);
+  --input: oklch(0.96 0.01 280 / 20%);
+  --ring: var(--y2k-pink);
+  --chart-1: var(--y2k-blue);
+  --chart-2: var(--y2k-pink);
+  --chart-3: var(--y2k-lilac);
+  --chart-4: var(--y2k-mint);
+  --chart-5: var(--y2k-lemon);
+  --sidebar: oklch(0.16 0.03 280);
+  --sidebar-foreground: oklch(0.96 0.01 280);
+  --sidebar-primary: var(--y2k-pink);
+  --sidebar-primary-foreground: var(--y2k-ink);
+  --sidebar-accent: oklch(0.25 0.03 280);
+  --sidebar-accent-foreground: oklch(0.96 0.01 280);
+  --sidebar-border: oklch(0.96 0.01 280 / 15%);
+  --sidebar-ring: var(--y2k-pink);
+}
+/* Dark theme is disabled. Y2K UI ships light-only. */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: var(--font-geist-mono);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .y2k-window {
+    border: 2px solid var(--y2k-ink);
+    border-radius: 6px;
+    background: var(--color-card);
+    color: var(--y2k-ink);
+  }
+  .y2k-window-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--y2k-ink);
+    background: var(--y2k-blue);
+    padding: 0.4rem 0.75rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--y2k-ink);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  .y2k-title-dots {
+    display: inline-flex;
+    gap: 4px;
+  }
+  .y2k-title-dots > span {
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid var(--y2k-ink);
+    background: var(--color-card);
+    display: inline-block;
+  }
 }

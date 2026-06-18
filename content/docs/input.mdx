@@ -1,0 +1,52 @@
+---
+title: Input
+description: A flat text input with a thick navy outline and pastel focus ring.
+---
+
+# Input
+
+A flat text input. Thick navy outline, soft pastel focus ring.
+
+<ComponentPreview
+  name="input-demo"
+  preview={
+    <div className="flex w-full max-w-sm flex-col gap-2">
+      <label className="text-xs font-semibold text-y2k-ink">Email</label>
+      <input
+        type="email"
+        placeholder="you@y2k.ui"
+        className="h-9 w-full rounded border-2 border-y2k-ink bg-card px-3 text-sm text-y2k-ink placeholder:text-y2k-ink/50 focus:outline-none focus:ring-2 focus:ring-y2k-pink"
+      />
+    </div>
+  }
+  source={`import { Input } from "@/components/ui/input";
+
+export function InputDemo() {
+  return <Input type="email" placeholder="you@y2k.ui" />;
+}`}
+/>
+
+## Installation
+
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add input"
+/>
+
+## Usage
+
+```tsx
+import { Input } from "@/components/ui/input";
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "type", type: "string", default: "'text'", description: "Native HTML input type (text, email, password, ...)." },
+    { prop: "placeholder", type: "string", description: "Placeholder text." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disable the input." },
+    { prop: "aria-invalid", type: "boolean", default: "false", description: "Mark the input as invalid for accessibility." },
+  ]}
+/>

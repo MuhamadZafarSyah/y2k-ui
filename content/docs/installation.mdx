@@ -1,0 +1,61 @@
+---
+title: Installation
+description: How to install and set up Y2K UI in your project.
+---
+
+# Installation
+
+Y2K UI is a [shadcn](https://ui.shadcn.com/)-style registry. Components are not
+shipped as a dependency — you copy them into your project via the CLI.
+
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code={`# Initialize your project (one time)
+npx y2kui@latest init
+
+# Add a component
+npx y2kui@latest add button`}
+/>
+
+## Prerequisites
+
+- **Next.js 14+** (App Router) or any React framework with Tailwind CSS.
+- **Tailwind CSS 4** or later.
+- **TypeScript** (recommended).
+
+## Manual setup
+
+If you prefer to skip the CLI, copy `components/ui/*` and `lib/utils.ts` from
+this repo into your project and merge the tokens from `app/globals.css`.
+
+## Theming
+
+Y2K UI is built on shadcn tokens. The Y2K palette is exposed as CSS custom
+properties on `:root`:
+
+- `--y2k-ink: #1b1b3a` — outlines & body text
+- `--y2k-blue: #8ed1fc` — primary
+- `--y2k-pink: #ff8fcf` — accent
+- `--y2k-lilac: #b69cff` — secondary
+- `--y2k-mint: #8ff0d0` — success
+- `--y2k-lemon: #ffe45e` — highlight
+- `--y2k-panel: #d7dde8` — surface
+
+<ComponentPreview
+  name="palette-demo"
+  preview={
+    <div className="grid grid-cols-6 gap-3">
+      <div className="h-12 rounded border-2 border-y2k-ink bg-y2k-blue" />
+      <div className="h-12 rounded border-2 border-y2k-ink bg-y2k-pink" />
+      <div className="h-12 rounded border-2 border-y2k-ink bg-y2k-lilac" />
+      <div className="h-12 rounded border-2 border-y2k-ink bg-y2k-mint" />
+      <div className="h-12 rounded border-2 border-y2k-ink bg-y2k-lemon" />
+      <div className="h-12 rounded border-2 border-y2k-ink bg-y2k-panel" />
+    </div>
+  }
+  source={`// Use the design tokens directly in your components
+<div className="bg-y2k-pink text-y2k-ink border-2 border-y2k-ink">
+  Hello!
+</div>`}
+/>

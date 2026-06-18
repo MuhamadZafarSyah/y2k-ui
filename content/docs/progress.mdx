@@ -1,0 +1,35 @@
+---
+title: Progress
+description: A Y2K progress bar with a thick navy border and pastel blue fill.
+---
+
+# Progress
+
+A flat progress bar — thick navy border, pastel blue fill, animated on value change.
+
+<ComponentPreview
+  name="progress-demo"
+  preview={<ProgressDemo />}
+  source={`import { Progress } from "@/components/ui/progress"
+
+<Progress value={66} />`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add progress" />
+
+## Usage
+
+```tsx
+import { Progress } from "@/components/ui/progress"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "value", type: "number", default: "0", description: "Current value (0-100)." },
+    { prop: "max", type: "number", default: "100", description: "Maximum value." },
+  ]}
+/>

@@ -1,0 +1,133 @@
+---
+title: Dialog
+description: A Y2K modal dialog with a flat window-chrome title bar and [_ ▢ ✕] controls.
+---
+
+# Dialog
+
+A modal window with the Y2K flat window-chrome aesthetic. The title bar
+carries **three default controls** — `_` (minimize), `▢` (maximize), `✕`
+(close) — and each can be hidden via prop. The dialog is triggered from a
+**button click**, not auto-opened.
+
+## Default — three controls
+
+Click the button below to open the dialog. By default the title bar shows
+`[minimize] [maximize] [close]`.
+
+<ComponentPreview
+  name="dialog-default-demo"
+  preview={<DialogDefaultDemo />}
+  source={`import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+export function DialogDefaultDemo() {
+  return (
+    <Dialog>
+      <DialogTrigger className="...">Open dialog</DialogTrigger>
+      <DialogContent title="Edit profile">
+        <DialogHeader>
+          <DialogDescription>
+            Make changes to your profile.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <button>Cancel</button>
+          <button>Save</button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
+}`}
+/>
+
+## Hiding individual controls
+
+Each of the three window controls can be hidden via boolean props:
+`hideMinimize`, `hideMaximize`, `hideClose`.
+
+<ComponentPreview
+  name="dialog-hide-controls-demo"
+  preview={<DialogHideControlsDemo />}
+  source={`<DialogContent title="No close ✕" hideClose>
+  {/* Esc / overlay still closes the dialog */}
+</DialogContent>
+
+<DialogContent title="Minimize only" hideMaximize hideClose>
+  {/* Only "_" remains in the title bar */}
+</DialogContent>`}
+/>
+
+## Installation
+
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add dialog"
+/>
+
+## Usage
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+export function Example() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <button>Open</button>
+      </DialogTrigger>
+      <DialogContent title="My window">
+        <DialogHeader>
+          <DialogTitle>My window</DialogTitle>
+          <DialogDescription>Description here.</DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <button>Cancel</button>
+          <button>OK</button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
+}
+```
+
+## Props
+
+### `Dialog`
+
+<PropsTable
+  data={[
+    { prop: "open", type: "boolean", description: "Controlled open state." },
+    { prop: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Called when the dialog open state changes." },
+  ]}
+/>
+
+### `DialogContent`
+
+<PropsTable
+  data={[
+    { prop: "title", type: "ReactNode", description: "Title shown in the Y2K title bar." },
+    { prop: "hideMinimize", type: "boolean", default: "false", description: "Hide the `_` (minimize) window control." },
+    { prop: "hideMaximize", type: "boolean", default: "false", description: "Hide the `▢` (maximize) window control." },
+    { prop: "hideClose", type: "boolean", default: "false", description: "Hide the `✕` (close) window control." },
+    { prop: "onMinimize", type: "() => void", description: "Fired when the user clicks the minimize control." },
+    { prop: "onMaximize", type: "() => void", description: "Fired when the user clicks the maximize control." },
+  ]}
+/>

@@ -1,0 +1,45 @@
+---
+title: Tabs
+description: Y2K file-tab style tabs with a thick navy border and pastel active state.
+---
+
+# Tabs
+
+File-tab style tabs — pastel blue/lilac inactive, lemon yellow active, with
+a thick navy separator and crisp corners.
+
+<ComponentPreview
+  name="tabs-demo"
+  preview={<TabsDemo />}
+  source={`import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+<Tabs defaultValue="account">
+  <TabsList>
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">Account settings</TabsContent>
+  <TabsContent value="password">Password settings</TabsContent>
+</Tabs>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add tabs" />
+
+## Usage
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "defaultValue", type: "string", description: "Initial active tab (uncontrolled)." },
+    { prop: "value", type: "string", description: "Controlled active tab." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Fired when the active tab changes." },
+    { prop: "orientation", type: "'horizontal' | 'vertical'", default: "'horizontal'", description: "Layout direction of the tab list." },
+  ]}
+/>

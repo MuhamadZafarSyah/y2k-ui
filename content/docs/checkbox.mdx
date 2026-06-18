@@ -1,0 +1,39 @@
+---
+title: Checkbox
+description: A Y2K checkbox with a thick navy border and a lemon fill when checked.
+---
+
+# Checkbox
+
+A flat checkbox. White when off, lemon yellow when on, with a thick navy border and a bold check mark.
+
+<ComponentPreview
+  name="checkbox-demo"
+  preview={<CheckboxDemo />}
+  source={`import { Checkbox } from "@/components/ui/checkbox"
+
+const [checked, setChecked] = React.useState(false)
+
+<Checkbox checked={checked} onCheckedChange={setChecked} />`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add checkbox" />
+
+## Usage
+
+```tsx
+import { Checkbox } from "@/components/ui/checkbox"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "checked", type: "boolean | 'indeterminate'", description: "Controlled checked state." },
+    { prop: "defaultChecked", type: "boolean", description: "Initial checked state (uncontrolled)." },
+    { prop: "onCheckedChange", type: "(checked: boolean | 'indeterminate') => void", description: "Fired when the checked state changes." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disable the checkbox." },
+  ]}
+/>

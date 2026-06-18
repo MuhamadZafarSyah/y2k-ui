@@ -1,0 +1,72 @@
+---
+title: Card
+description: A Y2K flat panel with a thick navy border, optional title bar, and content slots.
+---
+
+# Card
+
+A Y2K flat panel — thick navy border, pastel title bar, white content area.
+Use it as the canvas for grouped information.
+
+<ComponentPreview
+  name="card-default-demo"
+  preview={<CardDefaultDemo />}
+  source={`import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+export function CardDefaultDemo() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Welcome back</CardTitle>
+        <CardDescription>Pick up where you left off</CardDescription>
+      </CardHeader>
+      <CardContent>You have 3 unread messages.</CardContent>
+      <CardFooter>
+        <span>Last seen 2h ago</span>
+        <button>Open</button>
+      </CardFooter>
+    </Card>
+  )
+}`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add card" />
+
+## Usage
+
+```tsx
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional Tailwind classes for the outer panel." },
+    { prop: "children", type: "ReactNode", description: "Sub-components: CardHeader, CardContent, CardFooter." },
+  ]}
+/>
+
+### `CardHeader`
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional classes for the pastel title bar." },
+  ]}
+/>

@@ -1,0 +1,39 @@
+---
+title: Avatar
+description: A Y2K retro-square avatar with a thick navy border. Image + fallback slots.
+---
+
+# Avatar
+
+A retro-square avatar (no rounded pills) with a thick navy border. Use `AvatarImage` for a real image, `AvatarFallback` for initials.
+
+<ComponentPreview
+  name="avatar-demo"
+  preview={<AvatarDemo />}
+  source={`import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+
+<Avatar>
+  <AvatarImage src="/me.png" alt="@me" />
+  <AvatarFallback>ME</AvatarFallback>
+</Avatar>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add avatar" />
+
+## Usage
+
+```tsx
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "AvatarImage.src", type: "string", description: "Image source URL." },
+    { prop: "AvatarImage.alt", type: "string", description: "Alt text for accessibility." },
+    { prop: "AvatarFallback", type: "ReactNode", description: "Content shown when the image fails to load (initials, icon, etc)." },
+  ]}
+/>

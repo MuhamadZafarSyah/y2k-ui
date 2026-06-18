@@ -1,0 +1,68 @@
+---
+title: Select
+description: A Y2K dropdown select with a thick navy border and lemon highlight on focus.
+---
+
+# Select
+
+A flat dropdown select. Trigger shows the current value, content panel is a bordered white list with a lemon highlight on the focused item.
+
+<ComponentPreview
+  name="select-demo"
+  preview={<SelectDemo />}
+  source={`import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+<Select>
+  <SelectTrigger className="w-60">
+    <SelectValue placeholder="Pick a flavor" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="blueberry">Blueberry</SelectItem>
+    <SelectItem value="lemon">Lemon</SelectItem>
+  </SelectContent>
+</Select>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add select" />
+
+## Usage
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+```
+
+## Props
+
+### `Select`
+
+<PropsTable
+  data={[
+    { prop: "value", type: "string", description: "Controlled selected value." },
+    { prop: "defaultValue", type: "string", description: "Initial selected value (uncontrolled)." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Fired when the value changes." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disable the select." },
+  ]}
+/>
+
+### `SelectTrigger`
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional Tailwind classes (e.g. width)." },
+    { prop: "children", type: "ReactNode", description: "Must include a `SelectValue`." },
+  ]}
+/>

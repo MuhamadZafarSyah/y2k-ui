@@ -1,0 +1,40 @@
+---
+title: Switch
+description: A Y2K toggle switch with a pastel track and lemon thumb.
+---
+
+# Switch
+
+A flat toggle — pastel mint track when on, white when off, with a lemon
+knob that has a thick navy border.
+
+<ComponentPreview
+  name="switch-demo"
+  preview={<SwitchDemo />}
+  source={`import { Switch } from "@/components/ui/switch"
+
+const [on, setOn] = React.useState(true)
+
+<Switch checked={on} onCheckedChange={setOn} />`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add switch" />
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/ui/switch"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "checked", type: "boolean", description: "Controlled checked state." },
+    { prop: "defaultChecked", type: "boolean", description: "Initial checked state (uncontrolled)." },
+    { prop: "onCheckedChange", type: "(checked: boolean) => void", description: "Fired when the switch state changes." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disable the switch." },
+  ]}
+/>

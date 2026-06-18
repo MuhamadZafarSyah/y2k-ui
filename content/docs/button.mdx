@@ -1,0 +1,82 @@
+---
+title: Button
+description: A flat, thick-outlined Y2K button. Solid pastels, no offset shadow.
+---
+
+# Button
+
+A Y2K-styled button. Thick navy outline, pastel fill, no offset shadow.
+
+<ComponentPreview
+  name="button-demo"
+  preview={
+    <div className="flex flex-wrap items-center gap-3">
+      <button className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-y2k-lemon px-4 text-sm font-semibold text-y2k-ink hover:bg-y2k-pink">
+        Default
+      </button>
+      <button className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-y2k-pink px-4 text-sm font-semibold text-y2k-ink hover:bg-y2k-lemon">
+        Pink
+      </button>
+      <button className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-y2k-mint px-4 text-sm font-semibold text-y2k-ink hover:bg-y2k-blue">
+        Mint
+      </button>
+      <button disabled className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-card px-4 text-sm font-semibold text-y2k-ink/40">
+        Disabled
+      </button>
+    </div>
+  }
+  source={`import { Button } from "@/components/ui/button";
+
+export function ButtonDemo() {
+  return <Button variant="default">Default</Button>;
+}`}
+/>
+
+## Installation
+
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add button"
+/>
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button";
+
+export function Example() {
+  return <Button variant="pink">Click me</Button>;
+}
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "variant", type: "'default' | 'pink' | 'mint' | 'lemon' | 'lilac' | 'ghost' | 'outline' | 'link'", default: "'default'", description: "Pastel color style for the button." },
+    { prop: "size", type: "'sm' | 'md' | 'lg' | 'icon'", default: "'md'", description: "Visual size of the button." },
+    { prop: "asChild", type: "boolean", default: "false", description: "Render as a child element (Radix Slot) so you can compose with your own element." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disable the button." },
+  ]}
+/>
+
+## Examples
+
+### Sizes
+
+<ComponentPreview
+  name="button-sizes"
+  preview={
+    <div className="flex flex-wrap items-end gap-3">
+      <button className="inline-flex h-7 items-center rounded border-2 border-y2k-ink bg-y2k-blue px-3 text-xs font-semibold text-y2k-ink">Small</button>
+      <button className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-y2k-blue px-4 text-sm font-semibold text-y2k-ink">Medium</button>
+      <button className="inline-flex h-11 items-center rounded border-2 border-y2k-ink bg-y2k-blue px-5 text-base font-semibold text-y2k-ink">Large</button>
+    </div>
+  }
+  source={`<div className="flex gap-3">
+  <Button size="sm">Small</Button>
+  <Button size="md">Medium</Button>
+  <Button size="lg">Large</Button>
+</div>`}
+/>

@@ -1,0 +1,193 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "y2k",
+  "homepage": "https://y2k-ui.dev",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A Y2K flat button with thick navy outline and pastel fill.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-slot"],
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A Y2K modal with a [_ ▢ ✕] window-chrome title bar. Each control is hideable via prop.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-dialog"],
+      "files": [
+        {
+          "path": "components/ui/dialog.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/window-controls.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A Y2K text input with thick navy outline and pastel focus ring.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A Y2K flat panel with thick navy border, optional title bar, and content slots.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A Y2K pastel badge with thick outline. Six color variants.",
+      "registryDependencies": [],
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A Y2K flat tooltip with thick navy border, perfect for hints.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-tooltip"],
+      "files": [
+        {
+          "path": "components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A Y2K toggle switch — pastel track + lemon thumb with thick navy border.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-switch"],
+      "files": [
+        {
+          "path": "components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Y2K file-tab style tabs — pastel active state, thick navy borders.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-tabs"],
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "A Y2K banner for info, warning, and danger messages. Six pastel variants.",
+      "registryDependencies": [],
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A Y2K checkbox with thick navy border and lemon fill when checked.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-checkbox", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "A Y2K retro-square avatar with thick navy border. Image + fallback slots.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-avatar"],
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "A Y2K progress bar with thick navy border and pastel blue fill.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-progress"],
+      "files": [
+        {
+          "path": "components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A Y2K dropdown select with thick navy border and lemon highlight on focus.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-select", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
