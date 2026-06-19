@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-const sliderRangeVariants = cva("absolute h-full rounded-sm", {
+const sliderRangeVariants = cva("absolute h-full rounded-sm rounded-none!", {
   variants: {
     variant: {
       default: "bg-[#8ed1fc]",

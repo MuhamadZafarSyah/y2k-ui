@@ -43,3 +43,6 @@ next-env.d.ts
 # fumadocs-mdx generated
 /.source
 /.source/**
+
+AGENTS.md
+/.playwright-mcp
