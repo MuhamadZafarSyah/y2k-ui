@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   },
   description:
     "Modern Y2K / kawaii-retro component library — flat windows, thick navy outlines, pastel fills.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

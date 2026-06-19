@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Y2K text with layered shadow -->
+  <text x="64" y="80" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="56" font-weight="900" fill="#1b1b3a" transform="translate(6, 6)">Y2K</text>
+  <text x="64" y="80" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="56" font-weight="900" fill="#b69cff" stroke="#1b1b3a" stroke-width="5" paint-order="stroke">Y2K</text>
+  <text x="64" y="80" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="56" font-weight="900" fill="#ffe45e" opacity="0.5">Y2K</text>
+  
+  <!-- Big sparkle top right -->
+  <path d="M98 18L102 32L116 36L102 40L98 54L94 40L80 36L94 32L98 18Z" fill="#ff8fcf" stroke="#1b1b3a" stroke-width="3" stroke-linejoin="round"/>
+  
+  <!-- Medium sparkle left -->
+  <path d="M14 50L17 60L27 63L17 66L14 76L11 66L1 63L11 60L14 50Z" fill="#8ed1fc" stroke="#1b1b3a" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <!-- Small sparkle bottom -->
+  <path d="M70 100L72 106L78 108L72 110L70 116L68 110L62 108L68 106L70 100Z" fill="#8ff0d0" stroke="#1b1b3a" stroke-width="2" stroke-linejoin="round"/>
+  
+  <!-- Tiny sparkle right -->
+  <path d="M108 70L110 75L115 77L110 79L108 84L106 79L101 77L106 75L108 70Z" fill="#ffe45e" stroke="#1b1b3a" stroke-width="1.5" stroke-linejoin="round"/>
+  
+  <!-- Tiny sparkle left bottom -->
+  <path d="M22 95L23.5 99L27.5 100.5L23.5 102L22 106L20.5 102L16.5 100.5L20.5 99L22 95Z" fill="#b69cff" stroke="#1b1b3a" stroke-width="1.5" stroke-linejoin="round"/>
+  
+  <!-- Dots -->
+  <circle cx="18" cy="30" r="3" fill="#ffe45e" stroke="#1b1b3a" stroke-width="1.5"/>
+  <circle cx="110" cy="55" r="2.5" fill="#8ff0d0" stroke="#1b1b3a" stroke-width="1.5"/>
+  <circle cx="40" cy="105" r="2" fill="#ff8fcf" stroke="#1b1b3a" stroke-width="1"/>
+  <circle cx="100" cy="100" r="2.5" fill="#b69cff" stroke="#1b1b3a" stroke-width="1.5"/>
+</svg>

@@ -38,7 +38,7 @@ export function CodeBlock({
       )}
       data-slot="code-block"
     >
-      <div className="y2k-window-title">
+      <div className="y2k-window-title rounded-none! bg-y2k-lilac/20 px-3 py-1.5 font-mono text-xs text-y2k-ink">
         {/* <span className="y2k-title-dots" aria-hidden>
           <span />
           <span />
