@@ -192,3 +192,32 @@
     display: inline-block;
   }
 }
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-card);
+    border: 2px solid #1b1b3a !important;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--y2k-blue);
+    border: 2px solid #1b1b3a !important;
+    border-radius: 4px;
+    min-height: 28px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--y2k-pink);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--color-card);
+    border: 2px solid #1b1b3a !important;
+  }
+}
