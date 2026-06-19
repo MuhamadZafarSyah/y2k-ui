@@ -43,6 +43,15 @@ export default function RootLayout({
             enableSystem: false,
             forcedTheme: "light",
           }}
+          search={{
+            links: [
+              ["Home", "/"],
+              ["Installation", "/docs/installation"],
+              ["Button", "/docs/button"],
+              ["Dialog", "/docs/dialog"],
+              ["Components", "/docs"],
+            ],
+          }}
         >
           {children}
         </RootProvider>

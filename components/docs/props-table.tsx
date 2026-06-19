@@ -32,7 +32,7 @@ export function PropsTable({ data, className }: PropsTableProps) {
         <span>props.txt</span>
       </div>
       <div className="overflow-x-auto">
-        <table className="my-0! w-full border-collapse text-left">
+        <table className="my-0! rounded-none! w-full border-collapse text-left">
           <thead>
             <tr className="bg-y2k-panel">
               <th className="border-b-2 border-y2k-ink px-3 py-1.5 font-semibold">
