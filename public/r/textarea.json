@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "title": "Textarea",
+  "description": "A Y2K multiline input with thick navy outline, pastel fill variants, and pink focus ring.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/textarea.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst textareaVariants = cva(\n  \"flex min-h-20 w-full rounded border-2 border-[#1b1b3a] px-3 py-2 text-sm text-[#1b1b3a] outline-none transition-colors placeholder:text-[#1b1b3a]/45 focus-visible:ring-2 focus-visible:ring-[#ff8fcf] disabled:cursor-not-allowed disabled:opacity-50\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-white\",\n        blue: \"bg-[#8ed1fc]/25\",\n        pink: \"bg-[#ff8fcf]/20\",\n        mint: \"bg-[#8ff0d0]/25\",\n        lemon: \"bg-[#ffe45e]/25\",\n      },\n      resize: {\n        none: \"resize-none\",\n        y: \"resize-y\",\n        x: \"resize-x\",\n        both: \"resize\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      resize: \"y\",\n    },\n  }\n)\n\nfunction Textarea({\n  className,\n  variant,\n  resize,\n  ...props\n}: React.ComponentProps<\"textarea\"> & VariantProps<typeof textareaVariants>) {\n  return (\n    <textarea\n      data-slot=\"textarea\"\n      className={cn(textareaVariants({ variant, resize }), className)}\n      {...props}\n    />\n  )\n}\n\nexport { Textarea, textareaVariants }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

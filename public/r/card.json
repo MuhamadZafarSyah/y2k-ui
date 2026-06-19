@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "title": "Card",
+  "description": "A Y2K flat panel with thick navy border, optional title bar, and content slots.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/card.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Card({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card\"\n      className={cn(\n        \"rounded-md border-2 border-[#1b1b3a] bg-white text-[#1b1b3a]\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CardHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-header\"\n      className={cn(\n        \"flex flex-col gap-1 border-b-2 border-[#1b1b3a] bg-[#8ed1fc] px-3 py-2\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps<\"h3\">) {\n  return (\n    <h3\n      data-slot=\"card-title\"\n      className={cn(\"font-heading text-sm font-semibold leading-none\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CardDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"card-description\"\n      className={cn(\"text-xs text-[#1b1b3a]/70\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CardContent({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-content\"\n      className={cn(\"px-3 py-3 text-sm\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-footer\"\n      className={cn(\n        \"flex items-center justify-between gap-2 border-t-2 border-[#1b1b3a] bg-[#d7dde8] px-3 py-2\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

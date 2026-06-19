@@ -32,19 +32,19 @@ export function PropsTable({ data, className }: PropsTableProps) {
         <span>props.txt</span>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-left">
+        <table className="my-0! w-full border-collapse text-left">
           <thead>
             <tr className="bg-y2k-panel">
-              <th className="border-b-2 border-y2k-ink px-3 py-2 font-semibold">
+              <th className="border-b-2 border-y2k-ink px-3 py-1.5 font-semibold">
                 Prop
               </th>
-              <th className="border-b-2 border-y2k-ink px-3 py-2 font-semibold">
+              <th className="border-b-2 border-y2k-ink px-3 py-1.5 font-semibold">
                 Type
               </th>
-              <th className="border-b-2 border-y2k-ink px-3 py-2 font-semibold">
+              <th className="border-b-2 border-y2k-ink px-3 py-1.5 font-semibold">
                 Default
               </th>
-              <th className="border-b-2 border-y2k-ink px-3 py-2 font-semibold">
+              <th className="border-b-2 border-y2k-ink px-3 py-1.5 font-semibold">
                 Description
               </th>
             </tr>
@@ -55,15 +55,15 @@ export function PropsTable({ data, className }: PropsTableProps) {
                 key={row.prop}
                 className="align-top even:bg-y2k-panel/40"
               >
-                <td className="border-b border-y2k-ink/30 px-3 py-2">
+                <td className="border-b border-y2k-ink/30 px-3 py-1.5">
                   <code className="rounded bg-y2k-ink px-1.5 py-0.5 font-mono text-xs text-y2k-lemon">
                     {row.prop}
                   </code>
                 </td>
-                <td className="border-b border-y2k-ink/30 px-3 py-2 font-mono text-xs">
+                <td className="border-b border-y2k-ink/30 px-3 py-1.5 font-mono text-xs">
                   {row.type}
                 </td>
-                <td className="border-b border-y2k-ink/30 px-3 py-2 font-mono text-xs">
+                <td className="border-b border-y2k-ink/30 px-3 py-1.5 font-mono text-xs">
                   {row.default ? (
                     <code className="rounded bg-y2k-panel px-1.5 py-0.5 text-y2k-ink">
                       {row.default}
@@ -72,7 +72,7 @@ export function PropsTable({ data, className }: PropsTableProps) {
                     <span className="text-y2k-ink/50">—</span>
                   )}
                 </td>
-                <td className="border-b border-y2k-ink/30 px-3 py-2">
+                <td className="border-b border-y2k-ink/30 px-3 py-1.5">
                   {row.description}
                 </td>
               </tr>

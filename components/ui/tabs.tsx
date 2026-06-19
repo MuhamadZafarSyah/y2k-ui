@@ -58,7 +58,7 @@ function TabsContent({
     <TabsPrimitive.Content
       data-slot="tabs-content"
       className={cn(
-        "rounded-md border-2 border-[#1b1b3a] bg-white p-3 text-sm text-[#1b1b3a] focus-visible:outline-none",
+        "rounded-md border-2 border-[#1b1b3a] bg-white p-3 text-sm text-[#1b1b3a] focus-visible:outline-none data-[state=active]:animate-in data-[state=active]:fade-in-0 data-[state=active]:zoom-in-95",
         className
       )}
       {...props}

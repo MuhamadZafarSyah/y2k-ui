@@ -21,7 +21,7 @@ function Checkbox({
     >
       <CheckboxPrimitive.Indicator
         data-slot="checkbox-indicator"
-        className="flex items-center justify-center text-current"
+        className="flex items-center justify-center text-current data-[state=checked]:animate-in data-[state=checked]:zoom-in-50 data-[state=checked]:spin-in-15"
       >
         <CheckIcon className="h-3.5 w-3.5 stroke-[3]" />
       </CheckboxPrimitive.Indicator>

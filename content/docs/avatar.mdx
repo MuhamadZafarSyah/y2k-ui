@@ -1,21 +1,45 @@
 ---
 title: Avatar
-description: A Y2K retro-square avatar with a thick navy border. Image + fallback slots.
+description: A Y2K retro-square avatar with a thick navy border. Five sizes, group layout, image + fallback slots.
 ---
 
 # Avatar
 
-A retro-square avatar (no rounded pills) with a thick navy border. Use `AvatarImage` for a real image, `AvatarFallback` for initials.
+A retro-square avatar (no rounded pills) with a thick navy border. Five
+sizes, image + fallback slots, and an `AvatarGroup` overlap layout.
+
+## Sizes
 
 <ComponentPreview
   name="avatar-demo"
   preview={<AvatarDemo />}
   source={`import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 
-<Avatar>
-  <AvatarImage src="/me.png" alt="@me" />
-  <AvatarFallback>ME</AvatarFallback>
-</Avatar>`}
+<div className="flex items-end gap-3">
+  <Avatar size="xs"><AvatarFallback>XS</AvatarFallback></Avatar>
+  <Avatar size="sm"><AvatarFallback>SM</AvatarFallback></Avatar>
+  <Avatar size="md">
+    <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
+    <AvatarFallback>SC</AvatarFallback>
+  </Avatar>
+  <Avatar size="lg"><AvatarFallback>LG</AvatarFallback></Avatar>
+  <Avatar size="xl"><AvatarFallback className="bg-[#ff8fcf]">XL</AvatarFallback></Avatar>
+</div>`}
+/>
+
+## Group
+
+<ComponentPreview
+  name="avatar-group-demo"
+  preview={<AvatarGroupDemo />}
+  source={`import { Avatar, AvatarGroup, AvatarFallback } from "@/components/ui/avatar"
+
+<AvatarGroup>
+  <Avatar><AvatarFallback className="bg-[#ffe45e]">YL</AvatarFallback></Avatar>
+  <Avatar><AvatarFallback className="bg-[#ff8fcf]">KA</AvatarFallback></Avatar>
+  <Avatar><AvatarFallback className="bg-[#8ff0d0]">MI</AvatarFallback></Avatar>
+  <Avatar><AvatarFallback className="bg-[#b69cff]">+5</AvatarFallback></Avatar>
+</AvatarGroup>`}
 />
 
 ## Installation
@@ -25,15 +49,17 @@ A retro-square avatar (no rounded pills) with a thick navy border. Use `AvatarIm
 ## Usage
 
 ```tsx
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarImage, AvatarFallback, AvatarGroup } from "@/components/ui/avatar"
 ```
 
 ## Props
 
 <PropsTable
   data={[
+    { prop: "size", type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'", default: "'md'", description: "Avatar dimensions." },
     { prop: "AvatarImage.src", type: "string", description: "Image source URL." },
     { prop: "AvatarImage.alt", type: "string", description: "Alt text for accessibility." },
-    { prop: "AvatarFallback", type: "ReactNode", description: "Content shown when the image fails to load (initials, icon, etc)." },
+    { prop: "AvatarFallback", type: "ReactNode", description: "Content shown when the image fails to load." },
+    { prop: "AvatarGroup", type: "ReactNode", description: "Stacks avatars with overlapping borders." },
   ]}
 />

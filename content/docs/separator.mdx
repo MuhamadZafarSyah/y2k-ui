@@ -1,0 +1,90 @@
+---
+title: Separator
+description: A simple Y2K divider with thick flat lines, pastel variants, and Radix orientation support.
+---
+
+# Separator
+
+Flat divider lines for grouping content in Y2K panels and menus.
+
+<ComponentPreview
+  name="separator-demo"
+  preview={<SeparatorDemo />}
+  source={`import { Separator } from "@/components/ui/separator"
+
+export function SeparatorDemo() {
+  return (
+    <div>
+      <span>Top</span>
+      <Separator className="my-3" variant="pink" />
+      <span>Bottom</span>
+    </div>
+  )
+}`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add separator" />
+
+## Usage
+
+```tsx
+import { Separator } from "@/components/ui/separator"
+
+export function Example() {
+  return <Separator variant="pink" />
+}
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "variant", type: "'default' | 'blue' | 'pink' | 'mint' | 'lemon'", default: "'default'", description: "Line color variant." },
+    { prop: "orientation", type: "'horizontal' | 'vertical'", default: "'horizontal'", description: "Divider direction." },
+    { prop: "decorative", type: "boolean", default: "true", description: "Marks the separator as decorative for assistive tech." },
+    { prop: "className", type: "string", description: "Additional Tailwind classes for spacing or sizing." },
+  ]}
+/>
+
+## Examples
+
+### Vertical separators
+
+<ComponentPreview
+  name="separator-vertical"
+  preview={<SeparatorVerticalDemo />}
+  source={`import { Separator } from "@/components/ui/separator"
+
+export function SeparatorVerticalDemo() {
+  return (
+    <div className="flex h-12 items-center gap-3 rounded-md border-2 border-[#1b1b3a] bg-white px-3 text-sm text-[#1b1b3a]">
+      <span>Pixel</span>
+      <Separator orientation="vertical" variant="blue" />
+      <span>Pastel</span>
+      <Separator orientation="vertical" variant="lemon" />
+      <span>Retro</span>
+    </div>
+  )
+}`}
+/>
+
+### Color strip
+
+<ComponentPreview
+  name="separator-colors"
+  preview={<SeparatorColorsDemo />}
+  source={`import { Separator } from "@/components/ui/separator"
+
+export function SeparatorColorsDemo() {
+  return (
+    <div className="space-y-2">
+      <Separator variant="blue" />
+      <Separator variant="pink" />
+      <Separator variant="mint" />
+      <Separator variant="lemon" />
+    </div>
+  )
+}`}
+/>

@@ -1,82 +1,107 @@
 ---
 title: Button
-description: A flat, thick-outlined Y2K button. Solid pastels, no offset shadow.
+description: A Y2K flat button with thick navy outline and pastel fill. Supports loading, leading/trailing icons, and 6 color variants.
 ---
 
 # Button
 
-A Y2K-styled button. Thick navy outline, pastel fill, no offset shadow.
+A flat button. Thick navy outline, pastel fill, six color variants, and a
+snappy press feel. Supports `loading`, `leadingIcon`, `trailingIcon`, and
+`asChild` for composing with other elements.
+
+## Variants
 
 <ComponentPreview
-  name="button-demo"
-  preview={
-    <div className="flex flex-wrap items-center gap-3">
-      <button className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-y2k-lemon px-4 text-sm font-semibold text-y2k-ink hover:bg-y2k-pink">
-        Default
-      </button>
-      <button className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-y2k-pink px-4 text-sm font-semibold text-y2k-ink hover:bg-y2k-lemon">
-        Pink
-      </button>
-      <button className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-y2k-mint px-4 text-sm font-semibold text-y2k-ink hover:bg-y2k-blue">
-        Mint
-      </button>
-      <button disabled className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-card px-4 text-sm font-semibold text-y2k-ink/40">
-        Disabled
-      </button>
-    </div>
-  }
-  source={`import { Button } from "@/components/ui/button";
+  name="button-basic-demo"
+  preview={<ButtonBasicDemo />}
+  source={`import { Button } from "@/components/ui/button"
 
-export function ButtonDemo() {
-  return <Button variant="default">Default</Button>;
-}`}
+<Button>Default</Button>
+<Button variant="pink">Pink</Button>
+<Button variant="mint">Mint</Button>
+<Button variant="lemon">Lemon</Button>
+<Button variant="blue">Blue</Button>
+<Button variant="lilac">Lilac</Button>`}
+/>
+
+## With icons
+
+Pass any React node through `leadingIcon` or `trailingIcon`.
+
+<ComponentPreview
+  name="button-icons-demo"
+  preview={<ButtonIconsDemo />}
+  source={`import { Button } from "@/components/ui/button"
+import { PlusIcon, ArrowRightIcon, HeartIcon, StarIcon, DownloadIcon, SendIcon } from "lucide-react"
+
+<Button variant="mint" leadingIcon={<PlusIcon />}>New file</Button>
+<Button variant="blue" trailingIcon={<ArrowRightIcon />}>Continue</Button>
+<Button variant="pink" leadingIcon={<HeartIcon />}>Like</Button>
+<Button variant="lemon" trailingIcon={<StarIcon />}>Star</Button>
+<Button variant="outline" leadingIcon={<DownloadIcon />}>Download</Button>
+<Button variant="ghost" leadingIcon={<SendIcon />}>Send</Button>`}
+/>
+
+## Loading state
+
+When `loading` is `true`, the button becomes disabled, swaps the children for
+a spinner, and sets `aria-busy`. Use `loadingText` to keep a label visible.
+
+<ComponentPreview
+  name="button-loader-demo"
+  preview={<ButtonLoaderDemo />}
+  source={`import { Button } from "@/components/ui/button"
+import { CheckIcon, DownloadIcon } from "lucide-react"
+
+const [loading, setLoading] = React.useState(false)
+
+<Button loading={loading} onClick={() => setLoading(true)} leadingIcon={<CheckIcon />}>
+  Save changes
+</Button>
+
+<Button
+  loading={loading}
+  loadingText="Saving…"
+  variant="mint"
+  onClick={() => setLoading(true)}
+>
+  Save
+</Button>
+
+<Button
+  loading={loading}
+  loadingText="Uploading"
+  variant="blue"
+  onClick={() => setLoading(true)}
+  trailingIcon={<DownloadIcon />}
+>
+  Upload
+</Button>`}
 />
 
 ## Installation
 
-<CodeBlock
-  language="bash"
-  filename="terminal.sh"
-  code="npx y2kui@latest add button"
-/>
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add button" />
 
 ## Usage
 
 ```tsx
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 
-export function Example() {
-  return <Button variant="pink">Click me</Button>;
-}
+<Button onClick={() => console.log("clicked")}>Save</Button>
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "variant", type: "'default' | 'pink' | 'mint' | 'lemon' | 'lilac' | 'ghost' | 'outline' | 'link'", default: "'default'", description: "Pastel color style for the button." },
-    { prop: "size", type: "'sm' | 'md' | 'lg' | 'icon'", default: "'md'", description: "Visual size of the button." },
-    { prop: "asChild", type: "boolean", default: "false", description: "Render as a child element (Radix Slot) so you can compose with your own element." },
-    { prop: "disabled", type: "boolean", default: "false", description: "Disable the button." },
+    { prop: "variant", type: "'default' | 'pink' | 'blue' | 'mint' | 'lilac' | 'lemon' | 'outline' | 'secondary' | 'ghost' | 'destructive' | 'link'", default: "'default'", description: "Pastel color style for the button." },
+    { prop: "size", type: "'xs' | 'sm' | 'default' | 'lg' | 'icon' | 'icon-xs' | 'icon-sm' | 'icon-lg'", default: "'default'", description: "Visual size of the button." },
+    { prop: "loading", type: "boolean", default: "false", description: "Show a spinner, disable the button, and set aria-busy." },
+    { prop: "loadingText", type: "string", description: "Optional label shown while loading (defaults to children)." },
+    { prop: "leadingIcon", type: "ReactNode", description: "Icon rendered before the children." },
+    { prop: "trailingIcon", type: "ReactNode", description: "Icon rendered after the children." },
+    { prop: "asChild", type: "boolean", default: "false", description: "Render as a Radix Slot so you can compose with your own element." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disable the button (also set automatically when loading)." },
   ]}
-/>
-
-## Examples
-
-### Sizes
-
-<ComponentPreview
-  name="button-sizes"
-  preview={
-    <div className="flex flex-wrap items-end gap-3">
-      <button className="inline-flex h-7 items-center rounded border-2 border-y2k-ink bg-y2k-blue px-3 text-xs font-semibold text-y2k-ink">Small</button>
-      <button className="inline-flex h-9 items-center rounded border-2 border-y2k-ink bg-y2k-blue px-4 text-sm font-semibold text-y2k-ink">Medium</button>
-      <button className="inline-flex h-11 items-center rounded border-2 border-y2k-ink bg-y2k-blue px-5 text-base font-semibold text-y2k-ink">Large</button>
-    </div>
-  }
-  source={`<div className="flex gap-3">
-  <Button size="sm">Small</Button>
-  <Button size="md">Medium</Button>
-  <Button size="lg">Large</Button>
-</div>`}
 />

@@ -5,7 +5,6 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       title: "Y2K UI",
     },
-    githubUrl: "https://github.com/y2k-ui",
     themeSwitch: { enabled: false },
   };
 }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "title": "Progress",
+  "description": "A Y2K progress bar with thick navy border and pastel blue fill.",
+  "dependencies": [
+    "@radix-ui/react-progress"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/progress.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Progress as ProgressPrimitive } from \"radix-ui\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Progress({\n  className,\n  value,\n  ...props\n}: React.ComponentProps<typeof ProgressPrimitive.Root>) {\n  return (\n    <ProgressPrimitive.Root\n      data-slot=\"progress\"\n      className={cn(\n        \"relative h-4 w-full overflow-hidden rounded border-2 border-[#1b1b3a] bg-white\",\n        className\n      )}\n      {...props}\n    >\n      <ProgressPrimitive.Indicator\n        data-slot=\"progress-indicator\"\n        className=\"h-full bg-[#8ed1fc] transition-transform\"\n        style={{ transform: `translateX(-${100 - (value ?? 0)}%)` }}\n      />\n    </ProgressPrimitive.Root>\n  )\n}\n\nexport { Progress }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

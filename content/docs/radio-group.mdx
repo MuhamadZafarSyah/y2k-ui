@@ -1,0 +1,91 @@
+---
+title: Radio Group
+description: Y2K radio choices with square retro dots, pastel checked states, and Radix accessibility.
+---
+
+# Radio Group
+
+Single-choice groups with crisp square controls and pastel checked fills.
+
+<ComponentPreview
+  name="radio-group-demo"
+  preview={<RadioGroupDemo />}
+  source={`import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+
+export function RadioGroupDemo() {
+  return (
+    <RadioGroup defaultValue="mint">
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="mint" />
+        Mint mode
+      </label>
+    </RadioGroup>
+  )
+}`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add radio-group" />
+
+## Usage
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+
+export function Example() {
+  return (
+    <RadioGroup defaultValue="blue">
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="blue" variant="blue" />
+        Blueberry
+      </label>
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="pink" variant="pink" />
+        Bubblegum
+      </label>
+    </RadioGroup>
+  )
+}
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "value", type: "string", description: "Controlled selected value." },
+    { prop: "defaultValue", type: "string", description: "Initial selected value." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called when selection changes." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disables the whole group or an item." },
+    { prop: "variant", type: "'default' | 'blue' | 'pink' | 'mint' | 'lilac'", default: "'default'", description: "Pastel checked fill for RadioGroupItem." },
+  ]}
+/>
+
+## Examples
+
+### Color variants
+
+<ComponentPreview
+  name="radio-group-colors"
+  preview={<RadioGroupColorsDemo />}
+  source={`import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+
+export function RadioGroupColorsDemo() {
+  return (
+    <RadioGroup defaultValue="lilac" className="grid grid-cols-2 gap-3">
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="blue" variant="blue" />Blue
+      </label>
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="pink" variant="pink" />Pink
+      </label>
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="mint" variant="mint" />Mint
+      </label>
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="lilac" variant="lilac" />Lilac
+      </label>
+    </RadioGroup>
+  )
+}`}
+/>

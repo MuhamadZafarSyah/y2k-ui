@@ -21,7 +21,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import {
   Select,
@@ -30,6 +30,41 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/components/ui/radio-group"
+import { Slider } from "@/components/ui/slider"
+import { Textarea } from "@/components/ui/textarea"
+import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button"
+import {
+  SearchIcon,
+  MailIcon,
+  EyeIcon,
+  EyeOffIcon,
+  PlusIcon,
+  ArrowRightIcon,
+  CheckIcon,
+  DownloadIcon,
+  HeartIcon,
+  StarIcon,
+  SendIcon,
+} from "lucide-react"
 
 export function CardDefaultDemo() {
   return (
@@ -50,9 +85,7 @@ export function CardDefaultDemo() {
       </CardContent>
       <CardFooter>
         <span className="text-xs text-[#1b1b3a]/70">Last seen 2h ago</span>
-        <button className="inline-flex h-7 items-center rounded border-2 border-[#1b1b3a] bg-[#ffe45e] px-3 text-xs font-semibold text-[#1b1b3a] hover:bg-[#ff8fcf]">
-          Open
-        </button>
+        <Button size="sm" variant="lemon">Open</Button>
       </CardFooter>
     </Card>
   )
@@ -78,9 +111,7 @@ export function TooltipDemo() {
       <div className="flex gap-3">
         <Tooltip>
           <TooltipTrigger asChild>
-            <button className="inline-flex h-9 items-center rounded border-2 border-[#1b1b3a] bg-[#8ed1fc] px-4 text-sm font-semibold text-[#1b1b3a] hover:bg-[#b69cff]">
-              Hover me
-            </button>
+            <Button variant="blue">Hover me</Button>
           </TooltipTrigger>
           <TooltipContent>
             <p>kawaii tip ✨</p>
@@ -88,9 +119,7 @@ export function TooltipDemo() {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger asChild>
-            <button className="inline-flex h-9 items-center rounded border-2 border-[#1b1b3a] bg-[#8ff0d0] px-4 text-sm font-semibold text-[#1b1b3a] hover:bg-[#ffe45e]">
-              Save 💾
-            </button>
+            <Button variant="mint">Save</Button>
           </TooltipTrigger>
           <TooltipContent>
             <p>Save your work (Ctrl+S)</p>
@@ -105,7 +134,7 @@ export function SwitchDemo() {
   const [a, setA] = React.useState(true)
   const [b, setB] = React.useState(false)
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex w-72 flex-col gap-3">
       <label className="flex items-center justify-between gap-4 text-sm text-[#1b1b3a]">
         <span>Wi-Fi</span>
         <Switch checked={a} onCheckedChange={setA} />
@@ -138,6 +167,118 @@ export function TabsDemo() {
         <p>Settings panel placeholder.</p>
       </TabsContent>
     </Tabs>
+  )
+}
+
+export function InputBasicDemo() {
+  return (
+    <div className="flex w-80 flex-col gap-3">
+      <Input placeholder="Default text input" />
+      <Input type="email" placeholder="you@y2k.ui" leadingIcon={<MailIcon />} />
+    </div>
+  )
+}
+
+export function InputIconsDemo() {
+  const [show, setShow] = React.useState(false)
+  return (
+    <div className="flex w-80 flex-col gap-3">
+      <Input placeholder="Search the docs…" leadingIcon={<SearchIcon />} />
+      <Input
+        type={show ? "text" : "password"}
+        placeholder="Password"
+        leadingIcon={<MailIcon />}
+        trailingIcon={
+          <button
+            type="button"
+            onClick={() => setShow((s) => !s)}
+            aria-label={show ? "Hide password" : "Show password"}
+            className="inline-flex"
+          >
+            {show ? <EyeOffIcon /> : <EyeIcon />}
+          </button>
+        }
+      />
+      <Input placeholder="Add a tag" trailingIcon={<PlusIcon />} />
+    </div>
+  )
+}
+
+export function InputPrefixSuffixDemo() {
+  const [price, setPrice] = React.useState(150000)
+  return (
+    <div className="flex w-80 flex-col gap-3">
+      <Input
+        type="number"
+        prefix="Rp"
+        suffix="IDR"
+        placeholder="0"
+        value={price}
+        onChange={(e) => setPrice(Number(e.target.value || 0))}
+        leadingIcon={<DownloadIcon />}
+      />
+      <Input type="number" prefix="$" suffix="USD" placeholder="0" />
+      <Input type="number" suffix="kg" placeholder="0" />
+      <Input type="text" prefix="@" placeholder="username" />
+    </div>
+  )
+}
+
+export function ButtonBasicDemo() {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button>Default</Button>
+      <Button variant="pink">Pink</Button>
+      <Button variant="mint">Mint</Button>
+      <Button variant="lemon">Lemon</Button>
+      <Button variant="blue">Blue</Button>
+      <Button variant="lilac">Lilac</Button>
+    </div>
+  )
+}
+
+export function ButtonIconsDemo() {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button variant="mint" leadingIcon={<PlusIcon />}>New file</Button>
+      <Button variant="blue" trailingIcon={<ArrowRightIcon />}>Continue</Button>
+      <Button variant="pink" leadingIcon={<HeartIcon />}>Like</Button>
+      <Button variant="lemon" trailingIcon={<StarIcon />}>Star</Button>
+      <Button variant="outline" leadingIcon={<DownloadIcon />}>Download</Button>
+      <Button variant="ghost" leadingIcon={<SendIcon />}>Send</Button>
+    </div>
+  )
+}
+
+export function ButtonLoaderDemo() {
+  const [loading, setLoading] = React.useState(false)
+  const trigger = () => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 1800)
+  }
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <Button loading={loading} onClick={trigger} leadingIcon={<CheckIcon />}>
+        Save changes
+      </Button>
+      <Button
+        loading={loading}
+        loadingText="Saving…"
+        onClick={trigger}
+        variant="mint"
+      >
+        Save
+      </Button>
+      <Button
+        loading={loading}
+        loadingText="Uploading"
+        onClick={trigger}
+        variant="blue"
+        trailingIcon={<DownloadIcon />}
+      >
+        Upload
+      </Button>
+    </div>
   )
 }
 
@@ -186,13 +327,32 @@ export function CheckboxDemo() {
 
 export function AvatarDemo() {
   return (
-    <div className="flex items-center gap-3">
-      <Avatar>
+    <div className="flex items-end gap-3">
+      <Avatar size="xs">
+        <AvatarFallback>XS</AvatarFallback>
+      </Avatar>
+      <Avatar size="sm">
+        <AvatarFallback>SM</AvatarFallback>
+      </Avatar>
+      <Avatar size="md">
         <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
         <AvatarFallback>SC</AvatarFallback>
       </Avatar>
+      <Avatar size="lg">
+        <AvatarFallback>LG</AvatarFallback>
+      </Avatar>
+      <Avatar size="xl">
+        <AvatarFallback className="bg-[#ff8fcf]">XL</AvatarFallback>
+      </Avatar>
+    </div>
+  )
+}
+
+export function AvatarGroupDemo() {
+  return (
+    <AvatarGroup>
       <Avatar>
-        <AvatarFallback>YL</AvatarFallback>
+        <AvatarFallback className="bg-[#ffe45e]">YL</AvatarFallback>
       </Avatar>
       <Avatar>
         <AvatarFallback className="bg-[#ff8fcf]">KA</AvatarFallback>
@@ -200,7 +360,10 @@ export function AvatarDemo() {
       <Avatar>
         <AvatarFallback className="bg-[#8ff0d0]">MI</AvatarFallback>
       </Avatar>
-    </div>
+      <Avatar>
+        <AvatarFallback className="bg-[#b69cff]">+5</AvatarFallback>
+      </Avatar>
+    </AvatarGroup>
   )
 }
 
@@ -213,9 +376,16 @@ export function ProgressDemo() {
     return () => clearInterval(t)
   }, [])
   return (
-    <div className="w-80 space-y-2">
+    <div className="w-80 space-y-4">
       <Progress value={value} />
-      <p className="font-mono text-xs text-[#1b1b3a]/70">{value}%</p>
+      <Progress label="Loading assets" showValue value={value} />
+      <Progress
+        label="Upload progress"
+        showValue
+        trailingLabel="24 / 36 MB"
+        value={66}
+        indicatorClassName="bg-[#8ff0d0]"
+      />
     </div>
   )
 }
@@ -234,5 +404,258 @@ export function SelectDemo() {
         <SelectItem value="lychee">Lychee</SelectItem>
       </SelectContent>
     </Select>
+  )
+}
+
+export function AccordionDemo() {
+  return (
+    <Accordion
+      type="single"
+      collapsible
+      className="w-80 rounded-md border-2 border-[#1b1b3a] bg-white"
+      defaultValue="item-1"
+    >
+      <AccordionItem value="item-1">
+        <AccordionTrigger>What is y2k-ui?</AccordionTrigger>
+        <AccordionContent>
+          A modern Y2K / kawaii-retro component library for React. Flat windows,
+          thick navy outlines, pastel fills. No glassmorphism, no Win98 bevel.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>How do I install it?</AccordionTrigger>
+        <AccordionContent>
+          Run <code className="rounded bg-[#d7dde8] px-1">npx y2kui@latest init</code>
+          then add components with{" "}
+          <code className="rounded bg-[#d7dde8] px-1">npx y2kui@latest add &lt;name&gt;</code>.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>
+          Yes. Built on Radix primitives, so keyboard navigation, focus
+          management, and ARIA roles are inherited out of the box.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}
+
+export function PopoverDemo() {
+  return (
+    <div className="flex gap-3">
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button variant="blue">Open popover</Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <PopoverHeader>
+            <PopoverTitle>Dimensions</PopoverTitle>
+            <PopoverDescription>
+              Set the size of the component you&apos;re previewing.
+            </PopoverDescription>
+          </PopoverHeader>
+          <div className="mt-3 grid grid-cols-3 gap-1.5">
+            <Button size="sm" variant="lemon">SM</Button>
+            <Button size="sm" variant="pink">MD</Button>
+            <Button size="sm" variant="mint">LG</Button>
+          </div>
+        </PopoverContent>
+      </Popover>
+    </div>
+  )
+}
+
+export function RadioGroupDemo() {
+  return (
+    <RadioGroup defaultValue="lemon" className="grid gap-2 text-sm text-[#1b1b3a]">
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="blueberry" />
+        Blueberry
+      </label>
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="lemon" />
+        Lemon
+      </label>
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="strawberry" />
+        Strawberry
+      </label>
+    </RadioGroup>
+  )
+}
+
+export function SliderDemo() {
+  return (
+    <Slider value={[42]} onValueChange={() => {}} className="w-72" />
+  )
+}
+
+export function SliderWithLabelDemo() {
+  const [v, setV] = React.useState([42])
+  return (
+    <div className="flex w-72 flex-col gap-4">
+      <Slider
+        label="Volume"
+        showValue
+        trailingLabel="dB"
+        value={v}
+        onValueChange={(x) => setV(x as number[])}
+        min={0}
+        max={100}
+      />
+      <Slider
+        label="Sweetness"
+        showValue
+        value={[30, 70]}
+        min={0}
+        max={100}
+        step={5}
+        variant="pink"
+      />
+    </div>
+  )
+}
+
+export function TextareaDemo() {
+  return (
+    <Textarea
+      className="w-80"
+      placeholder="Tell us about your project…"
+      rows={4}
+    />
+  )
+}
+
+export function SeparatorDemo() {
+  return (
+    <div className="flex w-72 flex-col items-stretch gap-2 text-xs font-semibold text-[#1b1b3a]">
+      <span>Light</span>
+      <Separator variant="default" />
+      <span>Bold</span>
+      <Separator variant="pink" />
+      <span>Cute</span>
+    </div>
+  )
+}
+
+export function AccordionPastelDemo() {
+  return (
+    <Accordion
+      type="single"
+      collapsible
+      defaultValue="one"
+      variant="mint"
+      className="w-80"
+    >
+      <AccordionItem value="one">
+        <AccordionTrigger>Mint shell</AccordionTrigger>
+        <AccordionContent>
+          Use variants to tint the outer panel.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="two">
+        <AccordionTrigger>Second item</AccordionTrigger>
+        <AccordionContent>
+          Content keeps a clean white reading surface.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}
+
+export function RadioGroupColorsDemo() {
+  return (
+    <RadioGroup
+      defaultValue="lilac"
+      className="grid grid-cols-2 gap-3 text-sm text-[#1b1b3a]"
+    >
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="blue" variant="blue" />
+        Blue
+      </label>
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="pink" variant="pink" />
+        Pink
+      </label>
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="mint" variant="mint" />
+        Mint
+      </label>
+      <label className="flex items-center gap-2">
+        <RadioGroupItem value="lilac" variant="lilac" />
+        Lilac
+      </label>
+    </RadioGroup>
+  )
+}
+
+export function SliderPinkDemo() {
+  return (
+    <Slider variant="pink" defaultValue={[28]} className="w-72" />
+  )
+}
+
+export function SliderRangeDemo() {
+  return (
+    <Slider
+      variant="mint"
+      defaultValue={[20, 75]}
+      min={0}
+      max={100}
+      step={5}
+      className="w-72"
+    />
+  )
+}
+
+export function TextareaPastelDemo() {
+  return (
+    <Textarea
+      variant="pink"
+      placeholder="Pink textarea"
+      rows={3}
+      className="w-80"
+    />
+  )
+}
+
+export function TextareaDisabledDemo() {
+  return (
+    <Textarea
+      placeholder="Disabled"
+      rows={3}
+      className="w-80"
+      disabled
+    />
+  )
+}
+
+export function SeparatorVerticalDemo() {
+  return (
+    <div className="flex h-32 w-72 items-stretch gap-3 rounded-md border-2 border-[#1b1b3a] bg-white px-3 py-2 text-sm text-[#1b1b3a]">
+      <span className="self-center">Pixel</span>
+      <Separator orientation="vertical" variant="pink" />
+      <span className="self-center">Pastel</span>
+      <Separator orientation="vertical" variant="mint" />
+      <span className="self-center">Retro</span>
+    </div>
+  )
+}
+
+export function SeparatorColorsDemo() {
+  return (
+    <div className="flex w-72 flex-col items-stretch gap-2 text-xs font-semibold text-[#1b1b3a]">
+      <span>Default ink</span>
+      <Separator variant="default" />
+      <span>Blue</span>
+      <Separator variant="blue" />
+      <span>Pink</span>
+      <Separator variant="pink" />
+      <span>Mint</span>
+      <Separator variant="mint" />
+      <span>Lemon</span>
+      <Separator variant="lemon" />
+    </div>
   )
 }

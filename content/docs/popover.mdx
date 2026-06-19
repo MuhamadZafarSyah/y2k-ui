@@ -1,0 +1,60 @@
+---
+title: Popover
+description: A Y2K popover with tw-animate-css fade + zoom + slide animations.
+---
+
+# Popover
+
+A flat popover panel with a thick navy border. Uses Radix Popover under the
+hood with `tw-animate-css` classes — `animate-in fade-in-0 zoom-in-95` on
+open, plus a side-aware `slide-in-from-*`.
+
+<ComponentPreview
+  name="popover-demo"
+  preview={<PopoverDemo />}
+  source={`import {
+  Popover,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+
+<Popover>
+  <PopoverTrigger>Open popover</PopoverTrigger>
+  <PopoverContent>
+    <PopoverHeader>
+      <PopoverTitle>Title</PopoverTitle>
+    </PopoverHeader>
+  </PopoverContent>
+</Popover>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add popover" />
+
+## Usage
+
+```tsx
+import {
+  Popover,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "open", type: "boolean", description: "Controlled open state." },
+    { prop: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Fired when open state changes." },
+    { prop: "side", type: "'top' | 'right' | 'bottom' | 'left'", default: "'bottom'", description: "Preferred side relative to the trigger." },
+    { prop: "align", type: "'start' | 'center' | 'end'", default: "'center'", description: "Alignment along the chosen side." },
+    { prop: "sideOffset", type: "number", default: "6", description: "Distance between the trigger and the panel." },
+  ]}
+/>

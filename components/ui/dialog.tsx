@@ -99,9 +99,12 @@ function DialogContent({
             </DialogPrimitive.Title>
           )}
           <WindowControls
-            onMinimize={hideMinimize ? undefined : onMinimize}
-            onMaximize={hideMaximize ? undefined : onMaximize}
-            onClose={hideClose ? undefined : () => closeRef.current?.click()}
+            hideMinimize={hideMinimize}
+            hideMaximize={hideMaximize}
+            hideClose={hideClose}
+            onMinimize={onMinimize}
+            onMaximize={onMaximize}
+            onClose={() => closeRef.current?.click()}
           />
         </div>
         <div className="bg-[#d7dde8] p-4 text-sm text-[#1b1b3a]">

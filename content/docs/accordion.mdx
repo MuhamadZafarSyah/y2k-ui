@@ -1,0 +1,55 @@
+---
+title: Accordion
+description: A Y2K accordion with smooth height animation powered by tw-animate-css.
+---
+
+# Accordion
+
+A vertically stacked set of collapsible sections. Animations are powered by
+`tw-animate-css` — `animate-accordion-down` on open and `animate-accordion-up`
+on close — so the height transition is buttery smooth.
+
+<ComponentPreview
+  name="accordion-demo"
+  preview={<AccordionDemo />}
+  source={`import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>What is y2k-ui?</AccordionTrigger>
+    <AccordionContent>A modern Y2K component library.</AccordionContent>
+  </AccordionItem>
+</Accordion>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add accordion" />
+
+## Usage
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "type", type: "'single' | 'multiple'", description: "Whether one or multiple items can be open at a time." },
+    { prop: "collapsible", type: "boolean", description: "Allow items to be collapsed when type='single'." },
+    { prop: "defaultValue", type: "string | string[]", description: "Initial open item(s) (uncontrolled)." },
+    { prop: "value", type: "string | string[]", description: "Controlled open item(s)." },
+    { prop: "onValueChange", type: "(value: string | string[]) => void", description: "Fired when the open items change." },
+  ]}
+/>

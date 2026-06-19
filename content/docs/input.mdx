@@ -1,50 +1,94 @@
 ---
 title: Input
-description: A flat text input with a thick navy outline and pastel focus ring.
+description: A Y2K text input with thick navy outline. Supports leadingIcon, trailingIcon, prefix, and suffix add-ons.
 ---
 
 # Input
 
-A flat text input. Thick navy outline, soft pastel focus ring.
+A flat text input. Thick navy outline, soft pink focus ring, with optional
+add-ons for leading/trailing icons and prefix/suffix labels.
+
+## Basic
 
 <ComponentPreview
-  name="input-demo"
-  preview={
-    <div className="flex w-full max-w-sm flex-col gap-2">
-      <label className="text-xs font-semibold text-y2k-ink">Email</label>
-      <input
-        type="email"
-        placeholder="you@y2k.ui"
-        className="h-9 w-full rounded border-2 border-y2k-ink bg-card px-3 text-sm text-y2k-ink placeholder:text-y2k-ink/50 focus:outline-none focus:ring-2 focus:ring-y2k-pink"
-      />
-    </div>
-  }
-  source={`import { Input } from "@/components/ui/input";
+  name="input-basic-demo"
+  preview={<InputBasicDemo />}
+  source={`import { Input } from "@/components/ui/input"
+import { MailIcon } from "lucide-react"
 
-export function InputDemo() {
-  return <Input type="email" placeholder="you@y2k.ui" />;
-}`}
+<div className="flex flex-col gap-3">
+  <Input placeholder="Default text input" />
+  <Input type="email" placeholder="you@y2k.ui" leadingIcon={<MailIcon />} />
+</div>`}
+/>
+
+## With icons
+
+Pass any React node through `leadingIcon` or `trailingIcon` — useful for
+search bars, password reveals, or action shortcuts.
+
+<ComponentPreview
+  name="input-icons-demo"
+  preview={<InputIconsDemo />}
+  source={`import { Input } from "@/components/ui/input"
+import { SearchIcon, MailIcon, EyeIcon, PlusIcon } from "lucide-react"
+
+<Input placeholder="Search the docs…" leadingIcon={<SearchIcon />} />
+
+<Input
+  type="password"
+  placeholder="Password"
+  leadingIcon={<MailIcon />}
+  trailingIcon={<EyeIcon />}
+/>
+
+<Input placeholder="Add a tag" trailingIcon={<PlusIcon />} />`}
+/>
+
+## With prefix & suffix
+
+Use `prefix` for currency / symbol labels and `suffix` for units. They render
+in a small pastel `panel` chip so the value stays readable.
+
+<ComponentPreview
+  name="input-prefix-suffix-demo"
+  preview={<InputPrefixSuffixDemo />}
+  source={`import { Input } from "@/components/ui/input"
+import { DownloadIcon } from "lucide-react"
+
+<Input
+  type="number"
+  prefix="Rp"
+  suffix="IDR"
+  placeholder="0"
+  leadingIcon={<DownloadIcon />}
+/>
+
+<Input type="number" prefix="$" suffix="USD" placeholder="0" />
+<Input type="number" suffix="kg" placeholder="0" />
+<Input type="text" prefix="@" placeholder="username" />`}
 />
 
 ## Installation
 
-<CodeBlock
-  language="bash"
-  filename="terminal.sh"
-  code="npx y2kui@latest add input"
-/>
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add input" />
 
 ## Usage
 
 ```tsx
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/input"
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "type", type: "string", default: "'text'", description: "Native HTML input type (text, email, password, ...)." },
+    { prop: "leadingIcon", type: "ReactNode", description: "Icon rendered on the left inside a pastel add-on chip." },
+    { prop: "trailingIcon", type: "ReactNode", description: "Icon rendered on the right inside a pastel add-on chip." },
+    { prop: "prefix", type: "ReactNode", description: "Short label shown on the left of the value (e.g. 'Rp', '@', '$')." },
+    { prop: "suffix", type: "ReactNode", description: "Short label shown on the right of the value (e.g. 'IDR', 'kg', 'USD')." },
+    { prop: "wrapperClassName", type: "string", description: "Extra classes applied to the outer wrapper when add-ons are present." },
+    { prop: "type", type: "string", default: "'text'", description: "Native HTML input type." },
     { prop: "placeholder", type: "string", description: "Placeholder text." },
     { prop: "disabled", type: "boolean", default: "false", description: "Disable the input." },
     { prop: "aria-invalid", type: "boolean", default: "false", description: "Mark the input as invalid for accessibility." },

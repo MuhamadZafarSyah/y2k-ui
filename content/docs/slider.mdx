@@ -1,0 +1,110 @@
+---
+title: Slider
+description: A Y2K range slider with thick navy border, pastel fill, and optional label / value display.
+---
+
+# Slider
+
+A flat range slider — thick navy border, lemon thumb, five color variants.
+Fully controlled / uncontrolled.
+
+## Bare (no props)
+
+The simplest usage: a single thumb, no label. Useful when the slider sits
+inside a labeled section or when the parent provides context.
+
+<ComponentPreview
+  name="slider-bare-demo"
+  preview={<SliderDemo />}
+  source={`import { Slider } from "@/components/ui/slider"
+
+<Slider value={[42]} onValueChange={() => {}} className="w-72" />`}
+/>
+
+## With props (label, value, trailing unit, range)
+
+Pass `label`, `showValue`, and `trailingLabel` to render a labelled slider.
+Use an array value for a **range slider** with two thumbs (great for min/max).
+
+<ComponentPreview
+  name="slider-with-label-demo"
+  preview={<SliderWithLabelDemo />}
+  source={`import { Slider } from "@/components/ui/slider"
+
+const [volume, setVolume] = React.useState([42])
+
+<Slider
+  label="Volume"
+  showValue
+  trailingLabel="dB"
+  value={volume}
+  onValueChange={setVolume}
+  min={0}
+  max={100}
+/>
+
+<Slider
+  label="Sweetness"
+  showValue
+  value={[30, 70]}
+  min={0}
+  max={100}
+  step={5}
+  variant="pink"
+/>`}
+/>
+
+## Pink variant
+
+<ComponentPreview
+  name="slider-pink-demo"
+  preview={<SliderPinkDemo />}
+  source={`import { Slider } from "@/components/ui/slider"
+
+<Slider variant="pink" defaultValue={[28]} className="w-72" />`}
+/>
+
+## Range (two thumbs)
+
+<ComponentPreview
+  name="slider-range-demo"
+  preview={<SliderRangeDemo />}
+  source={`import { Slider } from "@/components/ui/slider"
+
+<Slider
+  variant="mint"
+  defaultValue={[20, 75]}
+  min={0}
+  max={100}
+  step={5}
+  className="w-72"
+/>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add slider" />
+
+## Usage
+
+```tsx
+import { Slider } from "@/components/ui/slider"
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "variant", type: "'default' | 'pink' | 'mint' | 'lilac' | 'lemon'", default: "'default'", description: "Pastel color for the filled range." },
+    { prop: "value", type: "number[]", description: "Controlled value (one number per thumb)." },
+    { prop: "defaultValue", type: "number[]", description: "Initial value (uncontrolled)." },
+    { prop: "onValueChange", type: "(value: number[]) => void", description: "Fired when the value changes." },
+    { prop: "min", type: "number", default: "0", description: "Minimum value." },
+    { prop: "max", type: "number", default: "100", description: "Maximum value." },
+    { prop: "step", type: "number", default: "1", description: "Step increment." },
+    { prop: "label", type: "ReactNode", description: "Optional label shown above the slider." },
+    { prop: "showValue", type: "boolean", default: "false", description: "Show the current numeric value next to the label." },
+    { prop: "trailingLabel", type: "ReactNode", description: "Right-aligned unit text (e.g. 'dB', 'px')." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disable the slider." },
+  ]}
+/>

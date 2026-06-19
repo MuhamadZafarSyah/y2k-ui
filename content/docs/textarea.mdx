@@ -1,0 +1,70 @@
+---
+title: Textarea
+description: A Y2K multiline input with thick navy outline, pastel fill variants, and crisp focus states.
+---
+
+# Textarea
+
+Multiline text input with thick navy outline and flat pastel focus styling.
+
+<ComponentPreview
+  name="textarea-demo"
+  preview={<TextareaDemo />}
+  source={`import { Textarea } from "@/components/ui/textarea"
+
+export function TextareaDemo() {
+  return <Textarea placeholder="Leave a retro note..." />
+}`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add textarea" />
+
+## Usage
+
+```tsx
+import { Textarea } from "@/components/ui/textarea"
+
+export function Example() {
+  return <Textarea placeholder="Type your message..." />
+}
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "variant", type: "'default' | 'blue' | 'pink' | 'mint' | 'lemon'", default: "'default'", description: "Pastel background style." },
+    { prop: "resize", type: "'none' | 'y' | 'x' | 'both'", default: "'y'", description: "CSS resize behavior." },
+    { prop: "placeholder", type: "string", description: "Placeholder text." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disable the textarea." },
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+  ]}
+/>
+
+## Examples
+
+### Pastel fill
+
+<ComponentPreview
+  name="textarea-pastel"
+  preview={<TextareaPastelDemo />}
+  source={`import { Textarea } from "@/components/ui/textarea"
+
+export function TextareaPastelDemo() {
+  return <Textarea variant="mint" resize="none" placeholder="Mint memo..." />
+}`}
+/>
+
+### Disabled
+
+<ComponentPreview
+  name="textarea-disabled"
+  preview={<TextareaDisabledDemo />}
+  source={`import { Textarea } from "@/components/ui/textarea"
+
+export function TextareaDisabledDemo() {
+  return <Textarea disabled defaultValue="Disabled retro note." />
+}`}
+/>

@@ -39,11 +39,11 @@ export function CodeBlock({
       data-slot="code-block"
     >
       <div className="y2k-window-title">
-        <span className="y2k-title-dots" aria-hidden>
+        {/* <span className="y2k-title-dots" aria-hidden>
           <span />
           <span />
           <span />
-        </span>
+        </span> */}
         <span className="flex-1 truncate">
           {filename ?? `${language}.${language === "bash" ? "sh" : "txt"}`}
         </span>

@@ -1,0 +1,26 @@
+{
+  "title": "Y2K UI",
+  "pages": [
+    "index",
+    "installation",
+    "---Components---",
+    "accordion",
+    "alert",
+    "avatar",
+    "badge",
+    "button",
+    "card",
+    "checkbox",
+    "dialog",
+    "input",
+    "progress",
+    "radio-group",
+    "select",
+    "separator",
+    "slider",
+    "switch",
+    "tabs",
+    "textarea",
+    "tooltip"
+  ]
+}

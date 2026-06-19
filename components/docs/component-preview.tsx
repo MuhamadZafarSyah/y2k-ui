@@ -29,18 +29,11 @@ function PreviewFrame({
   return (
     <div
       className={cn(
-        "y2k-window relative min-h-32 overflow-hidden",
+        "relative min-h-32 overflow-hidden",
       )}
       data-slot="preview-frame"
     >
-      <div className="y2k-window-title">
-        <span className="y2k-title-dots" aria-hidden>
-          <span />
-          <span />
-          <span />
-        </span>
-        <span>preview.app</span>
-      </div>
+
       <div
         className={cn(
           "flex min-h-32 w-full bg-y2k-panel p-8",

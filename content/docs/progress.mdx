@@ -1,18 +1,30 @@
 ---
 title: Progress
-description: A Y2K progress bar with a thick navy border and pastel blue fill.
+description: A Y2K progress bar with thick navy border, optional label, value, and custom indicator color.
 ---
 
 # Progress
 
-A flat progress bar — thick navy border, pastel blue fill, animated on value change.
+A flat progress bar — thick navy border, pastel blue fill. Supports an
+optional `label`, percentage `showValue`, and a `trailingLabel` for unit text.
+The indicator color can be swapped via `indicatorClassName`.
 
 <ComponentPreview
   name="progress-demo"
   preview={<ProgressDemo />}
   source={`import { Progress } from "@/components/ui/progress"
 
-<Progress value={66} />`}
+<Progress value={value} />
+
+<Progress label="Loading assets" showValue value={value} />
+
+<Progress
+  label="Upload progress"
+  showValue
+  trailingLabel="24 / 36 MB"
+  value={66}
+  indicatorClassName="bg-[#8ff0d0]"
+/>`}
 />
 
 ## Installation
@@ -29,7 +41,12 @@ import { Progress } from "@/components/ui/progress"
 
 <PropsTable
   data={[
-    { prop: "value", type: "number", default: "0", description: "Current value (0-100)." },
+    { prop: "value", type: "number", default: "0", description: "Current value." },
     { prop: "max", type: "number", default: "100", description: "Maximum value." },
+    { prop: "label", type: "ReactNode", description: "Optional label shown above the bar." },
+    { prop: "showValue", type: "boolean", default: "false", description: "Show the current percentage to the right of the label." },
+    { prop: "trailingLabel", type: "ReactNode", description: "Right-aligned hint text (e.g. '24 / 36 MB')." },
+    { prop: "indicatorClassName", type: "string", description: "Override the indicator fill color (e.g. 'bg-[#8ff0d0]')." },
+    { prop: "wrapperClassName", type: "string", description: "Classes for the outer wrapper when label/value are shown." },
   ]}
 />

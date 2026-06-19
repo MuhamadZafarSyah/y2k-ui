@@ -1,0 +1,169 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - link "Y2K UI" [ref=e6] [cursor=pointer]:
+            - /url: /
+          - button "Collapse Sidebar" [ref=e7]:
+            - img [ref=e8]
+        - button "Search ⌘ K" [ref=e10]:
+          - img [ref=e11]
+          - text: Search
+          - generic [ref=e14]:
+            - generic [ref=e15]: ⌘
+            - generic [ref=e16]: K
+      - generic [ref=e19]:
+        - link "Y2K UI" [ref=e20] [cursor=pointer]:
+          - /url: /docs
+        - link "Installation" [ref=e21] [cursor=pointer]:
+          - /url: /docs/installation
+        - paragraph [ref=e22]: Components
+        - link "Accordion" [ref=e23] [cursor=pointer]:
+          - /url: /docs/accordion
+        - link "Alert" [ref=e24] [cursor=pointer]:
+          - /url: /docs/alert
+        - link "Avatar" [ref=e25] [cursor=pointer]:
+          - /url: /docs/avatar
+        - link "Badge" [ref=e26] [cursor=pointer]:
+          - /url: /docs/badge
+        - link "Button" [ref=e27] [cursor=pointer]:
+          - /url: /docs/button
+        - link "Card" [ref=e28] [cursor=pointer]:
+          - /url: /docs/card
+        - link "Checkbox" [ref=e29] [cursor=pointer]:
+          - /url: /docs/checkbox
+        - link "Dialog" [ref=e30] [cursor=pointer]:
+          - /url: /docs/dialog
+        - link "Input" [ref=e31] [cursor=pointer]:
+          - /url: /docs/input
+        - link "Progress" [ref=e32] [cursor=pointer]:
+          - /url: /docs/progress
+        - link "Radio Group" [ref=e33] [cursor=pointer]:
+          - /url: /docs/radio-group
+        - link "Select" [ref=e34] [cursor=pointer]:
+          - /url: /docs/select
+        - link "Separator" [ref=e35] [cursor=pointer]:
+          - /url: /docs/separator
+        - link "Slider" [ref=e36] [cursor=pointer]:
+          - /url: /docs/slider
+        - link "Switch" [ref=e37] [cursor=pointer]:
+          - /url: /docs/switch
+        - link "Tabs" [ref=e38] [cursor=pointer]:
+          - /url: /docs/tabs
+        - link "Textarea" [ref=e39] [cursor=pointer]:
+          - /url: /docs/textarea
+        - link "Tooltip" [ref=e40] [cursor=pointer]:
+          - /url: /docs/tooltip
+      - link "GitHub" [ref=e42] [cursor=pointer]:
+        - /url: https://github.com/MuhamadZafarSyah/y2k-ui
+        - img [ref=e43]
+        - generic [ref=e45]: GitHub
+    - generic:
+      - button "Collapse Sidebar":
+        - img
+      - button "Open Search":
+        - img
+    - banner [ref=e47]:
+      - button "0 Installation" [ref=e48]:
+        - progressbar [ref=e49]
+        - generic [ref=e53]: Installation
+        - img [ref=e54]
+    - article [ref=e56]:
+      - heading "Installation" [level=1] [ref=e57]
+      - paragraph [ref=e58]: How to install and set up Y2K UI in your project.
+      - generic [ref=e59]:
+        - heading "Installation Copy Anchor Link" [level=1] [ref=e60]:
+          - link "Installation" [ref=e61] [cursor=pointer]:
+            - /url: "#installation"
+          - button "Copy Anchor Link" [ref=e62]:
+            - img [ref=e63]
+        - paragraph [ref=e66]:
+          - text: Y2K UI is a
+          - link "shadcn" [ref=e67] [cursor=pointer]:
+            - /url: https://ui.shadcn.com/
+          - text: "-style registry. Components are not shipped as a dependency — you copy them into your project via the CLI."
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: terminal.sh
+            - button "Copy code" [ref=e71]:
+              - img [ref=e72]
+          - code [ref=e76]: "# Initialize your project (one time) npx y2kui@latest init # Add a component npx y2kui@latest add button"
+        - heading "Prerequisites Copy Anchor Link" [level=2] [ref=e77]:
+          - link "Prerequisites" [ref=e78] [cursor=pointer]:
+            - /url: "#prerequisites"
+          - button "Copy Anchor Link" [ref=e79]:
+            - img [ref=e80]
+        - list [ref=e83]:
+          - listitem [ref=e84]:
+            - strong [ref=e85]: Next.js 14+
+            - text: (App Router) or any React framework with Tailwind CSS.
+          - listitem [ref=e86]:
+            - strong [ref=e87]: Tailwind CSS 4
+            - text: or later.
+          - listitem [ref=e88]:
+            - strong [ref=e89]: TypeScript
+            - text: (recommended).
+        - heading "Manual setup Copy Anchor Link" [level=2] [ref=e90]:
+          - link "Manual setup" [ref=e91] [cursor=pointer]:
+            - /url: "#manual-setup"
+          - button "Copy Anchor Link" [ref=e92]:
+            - img [ref=e93]
+        - paragraph [ref=e96]:
+          - text: If you prefer to skip the CLI, copy
+          - code [ref=e97]: components/ui/*
+          - text: and
+          - code [ref=e98]: lib/utils.ts
+          - text: from this repo into your project and merge the tokens from
+          - code [ref=e99]: app/globals.css
+          - text: .
+        - heading "Theming Copy Anchor Link" [level=2] [ref=e100]:
+          - link "Theming" [ref=e101] [cursor=pointer]:
+            - /url: "#theming"
+          - button "Copy Anchor Link" [ref=e102]:
+            - img [ref=e103]
+        - paragraph [ref=e106]:
+          - text: Y2K UI is built on shadcn tokens. The Y2K palette is exposed as CSS custom properties on
+          - code [ref=e107]: :root
+          - text: ":"
+        - list [ref=e108]:
+          - listitem [ref=e109]:
+            - code [ref=e110]: "--y2k-ink: #1b1b3a"
+            - text: — outlines & body text
+          - listitem [ref=e111]:
+            - code [ref=e112]: "--y2k-blue: #8ed1fc"
+            - text: — primary
+          - listitem [ref=e113]:
+            - code [ref=e114]: "--y2k-pink: #ff8fcf"
+            - text: — accent
+          - listitem [ref=e115]:
+            - code [ref=e116]: "--y2k-lilac: #b69cff"
+            - text: — secondary
+          - listitem [ref=e117]:
+            - code [ref=e118]: "--y2k-mint: #8ff0d0"
+            - text: — success
+          - listitem [ref=e119]:
+            - code [ref=e120]: "--y2k-lemon: #ffe45e"
+            - text: — highlight
+          - listitem [ref=e121]:
+            - code [ref=e122]: "--y2k-panel: #d7dde8"
+            - text: — surface
+        - tablist "Component preview tabs" [ref=e125]:
+          - tab "Preview" [selected] [ref=e130]
+          - tab "Code" [ref=e131]
+          - generic [ref=e132]: palette-demo
+      - generic [ref=e143]:
+        - link "Y2K UI Modern Y2K / kawaii-retro component library with flat windows, thick navy outlines, and pastel fills." [ref=e144] [cursor=pointer]:
+          - /url: /docs
+          - generic [ref=e145]:
+            - img [ref=e146]
+            - paragraph [ref=e148]: Y2K UI
+          - paragraph [ref=e149]: Modern Y2K / kawaii-retro component library with flat windows, thick navy outlines, and pastel fills.
+        - link "Accordion Collapsible Y2K panels with pastel headers, thick navy borders, and Radix accessibility." [ref=e150] [cursor=pointer]:
+          - /url: /docs/accordion
+          - generic [ref=e151]:
+            - img [ref=e152]
+            - paragraph [ref=e154]: Accordion
+          - paragraph [ref=e155]: Collapsible Y2K panels with pastel headers, thick navy borders, and Radix accessibility.
+  - button "Open Next.js Dev Tools" [ref=e161] [cursor=pointer]:
+    - img [ref=e162]

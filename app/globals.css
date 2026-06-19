@@ -101,6 +101,12 @@
   --y2k-panel: #d7dde8;
 }
 
+/* @media (min-width: 768px) {
+  [data-sidebar-placeholder] {
+    --fd-sidebar-width: 232px;
+  }
+} */
+
 .dark {
   --background: oklch(0.18 0.03 280);
   --foreground: oklch(0.96 0.01 280);

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider",
+  "title": "Slider",
+  "description": "A Y2K range slider with thick navy track border, pastel range fill, and lemon thumb.",
+  "dependencies": [
+    "@radix-ui/react-slider",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/slider.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Slider as SliderPrimitive } from \"radix-ui\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst sliderRangeVariants = cva(\"absolute h-full rounded-sm\", {\n  variants: {\n    variant: {\n      default: \"bg-[#8ed1fc]\",\n      pink: \"bg-[#ff8fcf]\",\n      mint: \"bg-[#8ff0d0]\",\n      lilac: \"bg-[#b69cff]\",\n      lemon: \"bg-[#ffe45e]\",\n    },\n  },\n  defaultVariants: {\n    variant: \"default\",\n  },\n})\n\nfunction Slider({\n  className,\n  variant,\n  value,\n  defaultValue,\n  ...props\n}: React.ComponentProps<typeof SliderPrimitive.Root> &\n  VariantProps<typeof sliderRangeVariants>) {\n  const thumbValues = value ?? defaultValue ?? [props.min ?? 0]\n  const thumbCount = Array.isArray(thumbValues) ? thumbValues.length : 1\n\n  return (\n    <SliderPrimitive.Root\n      data-slot=\"slider\"\n      value={value}\n      defaultValue={defaultValue}\n      className={cn(\n        \"relative flex w-full touch-none select-none items-center data-[disabled]:opacity-50\",\n        className\n      )}\n      {...props}\n    >\n      <SliderPrimitive.Track\n        data-slot=\"slider-track\"\n        className=\"relative h-4 w-full grow overflow-hidden rounded border-2 border-[#1b1b3a] bg-white\"\n      >\n        <SliderPrimitive.Range\n          data-slot=\"slider-range\"\n          className={cn(sliderRangeVariants({ variant }))}\n        />\n      </SliderPrimitive.Track>\n      {Array.from({ length: thumbCount }).map((_, index) => (\n        <SliderPrimitive.Thumb\n          key={index}\n          data-slot=\"slider-thumb\"\n          className=\"block size-5 rounded border-2 border-[#1b1b3a] bg-[#ffe45e] outline-none transition-colors hover:bg-[#ff8fcf] focus-visible:ring-2 focus-visible:ring-[#ff8fcf] disabled:pointer-events-none disabled:opacity-50\"\n        />\n      ))}\n    </SliderPrimitive.Root>\n  )\n}\n\nexport { Slider, sliderRangeVariants }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,224 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - link "Y2K UI" [ref=e6] [cursor=pointer]:
+            - /url: /
+          - button "Collapse Sidebar" [ref=e7]:
+            - img [ref=e8]
+        - button "Search ⌘ K" [ref=e10]:
+          - img [ref=e11]
+          - text: Search
+          - generic [ref=e14]:
+            - generic [ref=e15]: ⌘
+            - generic [ref=e16]: K
+      - generic [ref=e19]:
+        - link "Y2K UI" [ref=e20] [cursor=pointer]:
+          - /url: /docs
+        - link "Installation" [ref=e21] [cursor=pointer]:
+          - /url: /docs/installation
+        - paragraph [ref=e22]: Components
+        - link "Accordion" [ref=e23] [cursor=pointer]:
+          - /url: /docs/accordion
+        - link "Alert" [ref=e24] [cursor=pointer]:
+          - /url: /docs/alert
+        - link "Avatar" [ref=e25] [cursor=pointer]:
+          - /url: /docs/avatar
+        - link "Badge" [ref=e26] [cursor=pointer]:
+          - /url: /docs/badge
+        - link "Button" [ref=e27] [cursor=pointer]:
+          - /url: /docs/button
+        - link "Card" [ref=e28] [cursor=pointer]:
+          - /url: /docs/card
+        - link "Checkbox" [ref=e29] [cursor=pointer]:
+          - /url: /docs/checkbox
+        - link "Dialog" [ref=e30] [cursor=pointer]:
+          - /url: /docs/dialog
+        - link "Input" [ref=e31] [cursor=pointer]:
+          - /url: /docs/input
+        - link "Progress" [ref=e32] [cursor=pointer]:
+          - /url: /docs/progress
+        - link "Radio Group" [ref=e33] [cursor=pointer]:
+          - /url: /docs/radio-group
+        - link "Select" [ref=e34] [cursor=pointer]:
+          - /url: /docs/select
+        - link "Separator" [ref=e35] [cursor=pointer]:
+          - /url: /docs/separator
+        - link "Slider" [ref=e36] [cursor=pointer]:
+          - /url: /docs/slider
+        - link "Switch" [ref=e37] [cursor=pointer]:
+          - /url: /docs/switch
+        - link "Tabs" [ref=e38] [cursor=pointer]:
+          - /url: /docs/tabs
+        - link "Textarea" [ref=e39] [cursor=pointer]:
+          - /url: /docs/textarea
+        - link "Tooltip" [ref=e40] [cursor=pointer]:
+          - /url: /docs/tooltip
+      - link "GitHub" [ref=e42] [cursor=pointer]:
+        - /url: https://github.com/MuhamadZafarSyah/y2k-ui
+        - img [ref=e43]
+        - generic [ref=e45]: GitHub
+    - generic:
+      - button "Collapse Sidebar":
+        - img
+      - button "Open Search":
+        - img
+    - banner [ref=e47]:
+      - button "0 Accordion" [ref=e48]:
+        - progressbar [ref=e49]
+        - generic [ref=e53]: Accordion
+        - img [ref=e54]
+    - article [ref=e56]:
+      - heading "Accordion" [level=1] [ref=e57]
+      - paragraph [ref=e58]: Collapsible Y2K panels with pastel headers, thick navy borders, and Radix accessibility.
+      - generic [ref=e59]:
+        - heading "Accordion Copy Anchor Link" [level=1] [ref=e60]:
+          - link "Accordion" [ref=e61] [cursor=pointer]:
+            - /url: "#accordion"
+          - button "Copy Anchor Link" [ref=e62]:
+            - img [ref=e63]
+        - paragraph [ref=e66]: Collapsible content panels with flat pastel title bars and thick Y2K outlines.
+        - generic [ref=e68]:
+          - tablist "Component preview tabs" [ref=e69]:
+            - tab "Preview" [selected] [ref=e74]
+            - tab "Code" [ref=e75]
+            - generic [ref=e76]: accordion-demo
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - heading "Window chrome" [level=3] [ref=e82]:
+                - button "Window chrome" [expanded] [ref=e83]:
+                  - text: Window chrome
+                  - img [ref=e84]
+              - region "Window chrome" [ref=e86]:
+                - generic [ref=e87]: Flat title bars, crisp borders, and cute controls keep panels feeling playful without Win98 bevels.
+            - heading "Pastel palette" [level=3] [ref=e89]:
+              - button "Pastel palette" [ref=e90]:
+                - text: Pastel palette
+                - img [ref=e91]
+        - heading "Installation Copy Anchor Link" [level=2] [ref=e93]:
+          - link "Installation" [ref=e94] [cursor=pointer]:
+            - /url: "#installation"
+          - button "Copy Anchor Link" [ref=e95]:
+            - img [ref=e96]
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]: terminal.sh
+            - button "Copy code" [ref=e102]:
+              - img [ref=e103]
+          - code [ref=e107]: npx y2kui@latest add accordion
+        - heading "Usage Copy Anchor Link" [level=2] [ref=e108]:
+          - link "Usage" [ref=e109] [cursor=pointer]:
+            - /url: "#usage"
+          - button "Copy Anchor Link" [ref=e110]:
+            - img [ref=e111]
+        - figure [ref=e114]:
+          - button "Copy Text" [ref=e116]:
+            - img [ref=e117]
+          - region [ref=e120]:
+            - code [ref=e122]:
+              - generic [ref=e123]: "import {"
+              - generic [ref=e124]: Accordion,
+              - generic [ref=e125]: AccordionContent,
+              - generic [ref=e126]: AccordionItem,
+              - generic [ref=e127]: AccordionTrigger,
+              - generic [ref=e128]: "} from \"@/components/ui/accordion\""
+              - generic [ref=e130]: "export function Example() {"
+              - generic [ref=e131]: return (
+              - generic [ref=e132]: <Accordion type="single" collapsible>
+              - generic [ref=e133]: <AccordionItem value="item-1">
+              - generic [ref=e134]: <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              - generic [ref=e135]: <AccordionContent>Yes. It wraps Radix Accordion.</AccordionContent>
+              - generic [ref=e136]: </AccordionItem>
+              - generic [ref=e137]: </Accordion>
+              - generic [ref=e138]: )
+              - generic [ref=e139]: "}"
+        - heading "Props Copy Anchor Link" [level=2] [ref=e140]:
+          - link "Props" [ref=e141] [cursor=pointer]:
+            - /url: "#props"
+          - button "Copy Anchor Link" [ref=e142]:
+            - img [ref=e143]
+        - generic [ref=e146]:
+          - generic [ref=e152]: props.txt
+          - table [ref=e154]:
+            - rowgroup [ref=e155]:
+              - row "Prop Type Default Description" [ref=e156]:
+                - columnheader "Prop" [ref=e157]
+                - columnheader "Type" [ref=e158]
+                - columnheader "Default" [ref=e159]
+                - columnheader "Description" [ref=e160]
+            - rowgroup [ref=e161]:
+              - row "variant 'default' | 'blue' | 'pink' | 'mint' | 'lilac' 'default' Pastel background tone for the accordion shell." [ref=e162]:
+                - cell "variant" [ref=e163]:
+                  - code [ref=e164]: variant
+                - cell "'default' | 'blue' | 'pink' | 'mint' | 'lilac'" [ref=e165]
+                - cell "'default'" [ref=e166]:
+                  - code [ref=e167]: "'default'"
+                - cell "Pastel background tone for the accordion shell." [ref=e168]
+              - row "type 'single' | 'multiple' — Radix accordion behavior mode." [ref=e169]:
+                - cell "type" [ref=e170]:
+                  - code [ref=e171]: type
+                - cell "'single' | 'multiple'" [ref=e172]
+                - cell "—" [ref=e173]
+                - cell "Radix accordion behavior mode." [ref=e174]
+              - row "collapsible boolean false Allows a single accordion item to collapse when open." [ref=e175]:
+                - cell "collapsible" [ref=e176]:
+                  - code [ref=e177]: collapsible
+                - cell "boolean" [ref=e178]
+                - cell "false" [ref=e179]:
+                  - code [ref=e180]: "false"
+                - cell "Allows a single accordion item to collapse when open." [ref=e181]
+              - row "defaultValue string | string[] — Initially opened item value." [ref=e182]:
+                - cell "defaultValue" [ref=e183]:
+                  - code [ref=e184]: defaultValue
+                - cell "string | string[]" [ref=e185]
+                - cell "—" [ref=e186]
+                - cell "Initially opened item value." [ref=e187]
+              - row "className string — Additional Tailwind classes." [ref=e188]:
+                - cell "className" [ref=e189]:
+                  - code [ref=e190]: className
+                - cell "string" [ref=e191]
+                - cell "—" [ref=e192]
+                - cell "Additional Tailwind classes." [ref=e193]
+        - heading "Examples Copy Anchor Link" [level=2] [ref=e194]:
+          - link "Examples" [ref=e195] [cursor=pointer]:
+            - /url: "#examples"
+          - button "Copy Anchor Link" [ref=e196]:
+            - img [ref=e197]
+        - heading "Pastel shell Copy Anchor Link" [level=3] [ref=e200]:
+          - link "Pastel shell" [ref=e201] [cursor=pointer]:
+            - /url: "#pastel-shell"
+          - button "Copy Anchor Link" [ref=e202]:
+            - img [ref=e203]
+        - generic [ref=e207]:
+          - tablist "Component preview tabs" [ref=e208]:
+            - tab "Preview" [selected] [ref=e213]
+            - tab "Code" [ref=e214]
+            - generic [ref=e215]: accordion-pastel
+          - generic [ref=e219]:
+            - generic [ref=e220]:
+              - heading "Mint shell" [level=3] [ref=e221]:
+                - button "Mint shell" [expanded] [ref=e222]:
+                  - text: Mint shell
+                  - img [ref=e223]
+              - region "Mint shell" [ref=e225]:
+                - generic [ref=e226]: Use variants to tint the outer panel.
+            - heading "Second item" [level=3] [ref=e228]:
+              - button "Second item" [ref=e229]:
+                - text: Second item
+                - img [ref=e230]
+      - generic [ref=e232]:
+        - link "Installation How to install and set up Y2K UI in your project." [ref=e233] [cursor=pointer]:
+          - /url: /docs/installation
+          - generic [ref=e234]:
+            - img [ref=e235]
+            - paragraph [ref=e237]: Installation
+          - paragraph [ref=e238]: How to install and set up Y2K UI in your project.
+        - link "Alert A Y2K banner for info, warning, success, and danger messages. Six pastel variants." [ref=e239] [cursor=pointer]:
+          - /url: /docs/alert
+          - generic [ref=e240]:
+            - img [ref=e241]
+            - paragraph [ref=e243]: Alert
+          - paragraph [ref=e244]: A Y2K banner for info, warning, success, and danger messages. Six pastel variants.
+  - button "Open Next.js Dev Tools" [ref=e250] [cursor=pointer]:
+    - img [ref=e251]
