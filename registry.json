@@ -195,7 +195,11 @@
       "title": "Accordion",
       "description": "A Y2K collapsible accordion with pastel headers, thick navy outlines, and Radix accessibility.",
       "registryDependencies": [],
-      "dependencies": ["@radix-ui/react-accordion", "lucide-react", "class-variance-authority"],
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react",
+        "class-variance-authority"
+      ],
       "files": [
         {
           "path": "components/ui/accordion.tsx",
@@ -209,7 +213,10 @@
       "title": "Radio Group",
       "description": "A Y2K radio group with square retro dots, pastel checked fills, and Radix keyboard navigation.",
       "registryDependencies": [],
-      "dependencies": ["@radix-ui/react-radio-group", "class-variance-authority"],
+      "dependencies": [
+        "@radix-ui/react-radio-group",
+        "class-variance-authority"
+      ],
       "files": [
         {
           "path": "components/ui/radio-group.tsx",
@@ -255,6 +262,76 @@
       "files": [
         {
           "path": "components/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Charts",
+      "description": "Y2K-styled interactive bar, line, and donut charts powered by Recharts with thick outlines and pastel fills.",
+      "registryDependencies": [],
+      "dependencies": ["recharts"],
+      "files": [
+        {
+          "path": "components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Y2K loading skeleton with thick outlines and pastel pulse animation.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Y2K data table with thick navy borders, pastel header, and lemon hover states.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Y2K breadcrumb navigation with thick outlines and chevron separators.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-slot", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Y2K toggle button with thick outline, shadow press effect, and group support.",
+      "registryDependencies": [],
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/toggle.tsx",
           "type": "registry:ui"
         }
       ]

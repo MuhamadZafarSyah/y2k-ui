@@ -8,8 +8,10 @@
     "alert",
     "avatar",
     "badge",
+    "breadcrumb",
     "button",
     "card",
+    "chart",
     "checkbox",
     "dialog",
     "input",
@@ -18,10 +20,13 @@
     "radio-group",
     "select",
     "separator",
+    "skeleton",
     "slider",
     "switch",
     "tabs",
+    "table",
     "textarea",
+    "toggle",
     "tooltip"
   ]
 }

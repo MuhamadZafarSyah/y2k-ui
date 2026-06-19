@@ -52,6 +52,11 @@ import { Slider } from "@/components/ui/slider"
 import { Textarea } from "@/components/ui/textarea"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
+import { BarChart, LineChart, DonutChart } from "@/components/ui/chart"
+import { Skeleton, SkeletonCard, SkeletonAvatar, SkeletonButton } from "@/components/ui/skeleton"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+import { Toggle, ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle"
 import {
   SearchIcon,
   MailIcon,
@@ -487,7 +492,7 @@ export function RadioGroupDemo() {
 
 export function SliderDemo() {
   return (
-    <Slider value={[42]} onValueChange={() => {}} className="w-72" />
+    <Slider value={[42]} onValueChange={() => { }} className="w-72" />
   )
 }
 
@@ -656,6 +661,136 @@ export function SeparatorColorsDemo() {
       <Separator variant="mint" />
       <span>Lemon</span>
       <Separator variant="lemon" />
+    </div>
+  )
+}
+
+/* ─── Chart Demos ─── */
+
+export function BarChartDemo() {
+  const data = [
+    { label: "Mon", value: 120 },
+    { label: "Tue", value: 250 },
+    { label: "Wed", value: 180 },
+    { label: "Thu", value: 320 },
+    { label: "Fri", value: 210 },
+  ]
+  return <BarChart data={data} className="w-120!" />
+}
+
+export function LineChartDemo() {
+  const data = [
+    { label: "Jan", value: 80 },
+    { label: "Feb", value: 195 },
+    { label: "Mar", value: 130 },
+    { label: "Apr", value: 280 },
+    { label: "May", value: 220 },
+    { label: "Jun", value: 350 },
+  ]
+  return <LineChart data={data} className="w-120!" />
+}
+
+export function DonutChartDemo() {
+  const data = [
+    { label: "Blue", value: 450, color: "var(--y2k-blue)" },
+    { label: "Pink", value: 280, color: "var(--y2k-pink)" },
+    { label: "Mint", value: 180, color: "var(--y2k-mint)" },
+    { label: "Lemon", value: 120, color: "var(--y2k-lemon)" },
+  ]
+  return <DonutChart data={data} className="w-120!" />
+}
+
+/* ─── Skeleton Demos ─── */
+
+export function SkeletonDemo() {
+  return (
+    <div className="w-80 space-y-4">
+      <SkeletonCard />
+      <div className="flex items-center gap-3">
+        <SkeletonAvatar />
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-48" />
+          <Skeleton className="h-3 w-32" />
+        </div>
+      </div>
+      <div className="flex gap-2">
+        <SkeletonButton />
+        <SkeletonButton className="w-24" />
+      </div>
+    </div>
+  )
+}
+
+/* ─── Table Demo ─── */
+
+export function TableDemo() {
+  return (
+    <Table className="w-80">
+      <TableHeader>
+        <TableRow>
+          <TableHead>Name</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Points</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>StarBoy</TableCell>
+          <TableCell>Active</TableCell>
+          <TableCell>1,250</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>MoonChild</TableCell>
+          <TableCell>Idle</TableCell>
+          <TableCell>890</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>SunFlower</TableCell>
+          <TableCell>Online</TableCell>
+          <TableCell>2,100</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  )
+}
+
+/* ─── Breadcrumb Demo ─── */
+
+export function BreadcrumbDemo() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}
+
+/* ─── Toggle Demo ─── */
+
+export function ToggleDemo() {
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex gap-2">
+        <Toggle>Toggle</Toggle>
+        <Toggle variant="pink">Pink</Toggle>
+        <Toggle variant="mint">Mint</Toggle>
+      </div>
+      <ToggleGroup type="multiple" defaultValue={["bold"]}>
+        <ToggleGroupItem value="bold">B</ToggleGroupItem>
+        <ToggleGroupItem value="italic">I</ToggleGroupItem>
+        <ToggleGroupItem value="underline">U</ToggleGroupItem>
+      </ToggleGroup>
     </div>
   )
 }

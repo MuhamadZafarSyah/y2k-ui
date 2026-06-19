@@ -36,6 +36,13 @@ import {
   TextareaDisabledDemo,
   SeparatorVerticalDemo,
   SeparatorColorsDemo,
+  BarChartDemo,
+  LineChartDemo,
+  DonutChartDemo,
+  SkeletonDemo,
+  TableDemo,
+  BreadcrumbDemo,
+  ToggleDemo,
 } from "@/components/demos/all-demos";
 import type { MDXComponents } from "mdx/types";
 
@@ -79,6 +86,13 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     TextareaDisabledDemo,
     SeparatorVerticalDemo,
     SeparatorColorsDemo,
+    BarChartDemo,
+    LineChartDemo,
+    DonutChartDemo,
+    SkeletonDemo,
+    TableDemo,
+    BreadcrumbDemo,
+    ToggleDemo,
     ...components,
   };
 }

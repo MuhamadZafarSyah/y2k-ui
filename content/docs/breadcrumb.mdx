@@ -1,0 +1,67 @@
+---
+title: Breadcrumb
+description: Y2K breadcrumb navigation with thick outlines and chevron separators.
+---
+
+# Breadcrumb
+
+A Y2K-styled breadcrumb navigation with thick navy border, pastel hover states, and chevron separators.
+
+<ComponentPreview
+  name="breadcrumb-demo"
+  preview={<BreadcrumbDemo />}
+  source={`import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add breadcrumb" />
+
+## Usage
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+```
+
+## Parts
+
+| Part | Description |
+|------|-------------|
+| `Breadcrumb` | Nav wrapper with aria-label |
+| `BreadcrumbList` | OL with thick border and card bg |
+| `BreadcrumbItem` | List item wrapper |
+| `BreadcrumbLink` | Clickable link with pink hover |
+| `BreadcrumbPage` | Current page (bold, no link) |
+| `BreadcrumbSeparator` | ChevronRight icon separator |
+| `BreadcrumbEllipsis` | Truncated "···" indicator |

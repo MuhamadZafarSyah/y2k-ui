@@ -1,0 +1,54 @@
+---
+title: Toggle
+description: Y2K toggle button with thick outline, shadow press effect, and group support.
+---
+
+# Toggle
+
+A Y2K-styled toggle button with thick navy outline, lemon active state with shadow offset, and toggle group support.
+
+<ComponentPreview
+  name="toggle-demo"
+  preview={<ToggleDemo />}
+  source={`import { Toggle, ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle"
+
+<Toggle>Toggle</Toggle>
+
+<ToggleGroup type="multiple" defaultValue={["bold"]}>
+  <ToggleGroupItem value="bold">B</ToggleGroupItem>
+  <ToggleGroupItem value="italic">I</ToggleGroupItem>
+  <ToggleGroupItem value="underline">U</ToggleGroupItem>
+</ToggleGroup>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add toggle" />
+
+## Usage
+
+```tsx
+import { Toggle, ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle"
+```
+
+## Toggle Props
+
+<PropsTable
+  data={[
+    { prop: "pressed", type: "boolean", description: "Controlled pressed state." },
+    { prop: "onPressedChange", type: "(pressed: boolean) => void", description: "Callback when toggle is clicked." },
+    { prop: "variant", type: "'default' | 'outline' | 'pink' | 'blue' | 'mint' | 'lemon'", description: "Visual variant." },
+    { prop: "size", type: "'sm' | 'md' | 'lg'", description: "Button size." },
+  ]}
+/>
+
+## Toggle Group Props
+
+<PropsTable
+  data={[
+    { prop: "type", type: "'single' | 'multiple'", description: "Whether one or multiple items can be active." },
+    { prop: "value", type: "string | string[]", description: "Controlled value." },
+    { prop: "defaultValue", type: "string | string[]", description: "Initial value (uncontrolled)." },
+    { prop: "onValueChange", type: "(value: string | string[]) => void", description: "Callback when value changes." },
+  ]}
+/>

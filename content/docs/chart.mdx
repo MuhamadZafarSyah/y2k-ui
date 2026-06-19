@@ -1,0 +1,106 @@
+---
+title: Charts
+description: Y2K-styled interactive charts powered by Recharts with thick outlines and pastel fills.
+---
+
+# Charts
+
+Interactive chart components powered by [Recharts](https://recharts.org) with Y2K styling — thick navy outlines, pastel fills, custom tooltips, and retro window frames.
+
+## Bar Chart
+
+<ComponentPreview
+  name="bar-chart-demo"
+  preview={<BarChartDemo />}
+  source={`import { BarChart } from "@/components/ui/chart"
+
+const data = [
+  { label: "Mon", value: 120 },
+  { label: "Tue", value: 250 },
+  { label: "Wed", value: 180 },
+  { label: "Thu", value: 320 },
+  { label: "Fri", value: 210 },
+]
+
+<BarChart data={data} />`}
+/>
+
+## Line Chart
+
+<ComponentPreview
+  name="line-chart-demo"
+  preview={<LineChartDemo />}
+  source={`import { LineChart } from "@/components/ui/chart"
+
+const data = [
+  { label: "Jan", value: 80 },
+  { label: "Feb", value: 195 },
+  { label: "Mar", value: 130 },
+  { label: "Apr", value: 280 },
+  { label: "May", value: 220 },
+  { label: "Jun", value: 350 },
+]
+
+<LineChart data={data} />`}
+/>
+
+## Donut Chart
+
+<ComponentPreview
+  name="donut-chart-demo"
+  preview={<DonutChartDemo />}
+  source={`import { DonutChart } from "@/components/ui/chart"
+
+const data = [
+  { label: "Blue", value: 450, color: "var(--y2k-blue)" },
+  { label: "Pink", value: 280, color: "var(--y2k-pink)" },
+  { label: "Mint", value: 180, color: "var(--y2k-mint)" },
+  { label: "Lemon", value: 120, color: "var(--y2k-lemon)" },
+]
+
+<DonutChart data={data} />`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add chart" />
+
+## Usage
+
+```tsx
+import { BarChart, LineChart, DonutChart } from "@/components/ui/chart"
+```
+
+## Bar Chart Props
+
+<PropsTable
+  data={[
+    { prop: "data", type: "{ label: string; value: number; color?: string }[]", description: "Array of data points for the chart." },
+    { prop: "height", type: "number", description: "Chart height in pixels. Default 280." },
+    { prop: "showGrid", type: "boolean", description: "Show background grid lines. Default true." },
+    { prop: "showTooltip", type: "boolean", description: "Show interactive tooltip on hover. Default true." },
+  ]}
+/>
+
+## Line Chart Props
+
+<PropsTable
+  data={[
+    { prop: "data", type: "{ label: string; value: number }[]", description: "Array of data points." },
+    { prop: "color", type: "string", description: "Line color. Default y2k-pink." },
+    { prop: "height", type: "number", description: "Chart height in pixels. Default 280." },
+    { prop: "showArea", type: "boolean", description: "Show gradient area fill. Default true." },
+    { prop: "showGrid", type: "boolean", description: "Show background grid lines. Default true." },
+    { prop: "showTooltip", type: "boolean", description: "Show interactive tooltip on hover. Default true." },
+  ]}
+/>
+
+## Donut Chart Props
+
+<PropsTable
+  data={[
+    { prop: "data", type: "{ label: string; value: number; color?: string }[]", description: "Array of segments." },
+    { prop: "size", type: "number", description: "Chart size in pixels. Default 280." },
+    { prop: "showTooltip", type: "boolean", description: "Show interactive tooltip on hover. Default true." },
+  ]}
+/>

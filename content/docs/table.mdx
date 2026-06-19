@@ -1,0 +1,75 @@
+---
+title: Table
+description: Y2K data table with thick navy borders and pastel header.
+---
+
+# Table
+
+A Y2K-styled data table with thick navy borders, pastel blue header, and lemon hover states.
+
+<ComponentPreview
+  name="table-demo"
+  preview={<TableDemo />}
+  source={`import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead>Points</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>StarBoy</TableCell>
+      <TableCell>Active</TableCell>
+      <TableCell>1,250</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>MoonChild</TableCell>
+      <TableCell>Idle</TableCell>
+      <TableCell>890</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add table" />
+
+## Usage
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+```
+
+## Parts
+
+| Part | Description |
+|------|-------------|
+| `Table` | Window-framed wrapper |
+| `TableHeader` | Blue pastel header row |
+| `TableBody` | Main content area |
+| `TableRow` | Individual row with lemon hover |
+| `TableHead` | Bold header cell |
+| `TableCell` | Data cell |
+| `TableFooter` | Panel-colored footer row |
+| `TableCaption` | Caption below table |

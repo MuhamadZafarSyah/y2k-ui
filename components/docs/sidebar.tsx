@@ -10,8 +10,7 @@ import type { SidebarProps } from "fumadocs-ui/layouts/docs/slots/sidebar";
  * The default Sidebar returns `<Fragment>{[<SidebarContent/>, <SidebarDrawer/>]}</Fragment>`
  * where the two top-level children have no `key`. React 19 flags this every render.
  *
- * This wrapper re-emits the same tree but spreads the Fragment's children through
- * `React.cloneElement`, which assigns auto keys (`.0`, `.1`, ...) and silences the warning.
+ * This wrapper re-emits the same tree but assigns explicit keys to each child.
  */
 export function Sidebar(props: SidebarProps) {
   const result = DefaultSidebar(props);
@@ -21,5 +20,9 @@ export function Sidebar(props: SidebarProps) {
   const children = React.Children.toArray(result.props.children);
   if (children.length === 0) return result;
 
-  return React.cloneElement(result, undefined, ...children);
+  const keyedChildren = children.map((child, i) =>
+    React.isValidElement(child) ? React.cloneElement(child, { key: i }) : child
+  );
+
+  return React.cloneElement(result, undefined, ...keyedChildren);
 }

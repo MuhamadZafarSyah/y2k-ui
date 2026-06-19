@@ -1,0 +1,51 @@
+---
+title: Skeleton
+description: Y2K loading skeleton with thick outlines and pastel pulse animation.
+---
+
+# Skeleton
+
+Loading placeholder components with Y2K styling — thick borders, pastel pulse, and window-frame variants.
+
+<ComponentPreview
+  name="skeleton-demo"
+  preview={<SkeletonDemo />}
+  source={`import { Skeleton, SkeletonCard, SkeletonAvatar, SkeletonButton } from "@/components/ui/skeleton"}
+
+<SkeletonCard />
+<div className="flex items-center gap-3">
+  <SkeletonAvatar />
+  <div className="space-y-2">
+    <Skeleton className="h-4 w-48" />
+    <Skeleton className="h-3 w-32" />
+  </div>
+</div>
+<SkeletonButton />`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add skeleton" />
+
+## Usage
+
+```tsx
+import { Skeleton, SkeletonCard, SkeletonAvatar, SkeletonButton } from "@/components/ui/skeleton"
+```
+
+## Skeleton Props
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional CSS classes." },
+  ]}
+/>
+
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| `Skeleton` | Basic pulse skeleton block |
+| `SkeletonCard` | Window-framed card skeleton |
+| `SkeletonAvatar` | Square avatar skeleton |
+| `SkeletonButton` | Button-shaped skeleton |
