@@ -9,7 +9,7 @@ export const seoConfig = {
   siteName,
   siteDescription,
   twitterHandle: "@y2kui",
-  ogImage: `${siteUrl}/og.png`,
+  ogImage: `${siteUrl}/og`,
   keywords: [
     "y2k ui",
     "y2k component library",
