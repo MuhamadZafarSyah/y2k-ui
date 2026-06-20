@@ -5,11 +5,13 @@ export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
       title: (
-        <span className="inline-flex items-center gap-2 font-heading text-base font-semibold">
+        <span className="inline-flex items-center gap-2 font-black tracking-tight text-y2k-ink">
           <span
             aria-hidden
-            className="inline-block h-3.5 w-3.5 rounded-sm border-2 border-y2k-ink bg-y2k-pink"
-          />
+            className="flex size-5 items-center justify-center rounded border-2 border-y2k-ink bg-y2k-lemon text-[10px] font-bold"
+          >
+            Y
+          </span>
           Y2K UI
         </span>
       ),

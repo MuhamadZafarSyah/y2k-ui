@@ -25,10 +25,10 @@ const GitHubLink = (
   <Link
     href="https://github.com/MuhamadZafarSyah/y2k-ui"
     external
-    className="inline-flex items-center gap-2 rounded-lg border bg-fd-secondary/50 p-2 text-fd-muted-foreground transition-colors hover:bg-fd-accent hover:text-fd-accent-foreground"
+    className="inline-flex items-center gap-2 rounded border-2 border-y2k-ink bg-white px-3 py-2 text-xs font-bold text-y2k-ink transition-all hover:bg-y2k-mint hover:-translate-y-px"
   >
     <GitHubIcon />
-    <span className="text-sm font-medium">GitHub</span>
+    <span>GitHub</span>
   </Link>
 );
 

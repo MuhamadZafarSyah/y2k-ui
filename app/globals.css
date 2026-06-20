@@ -222,185 +222,265 @@
   }
 }
 
-/* ===== Y2K Sidebar Redesign ===== */
-aside[data-sidebar="true"] {
-  background-color: var(--y2k-panel) !important;
-  background-image: radial-gradient(
-    var(--y2k-ink) 1px,
-    transparent 1px
-  ) !important;
-  background-size: 14px 14px !important;
-  border-right: 3px solid var(--y2k-ink) !important;
-  box-shadow: none !important;
-  scrollbar-width: thin !important;
-  scrollbar-color: var(--y2k-pink) var(--y2k-ink) !important;
-  transition:
-    width 0.3s ease,
-    transform 0.3s ease !important;
-}
+/* ================================================
+   Y2K FUMADOCS — MINIMALIST MODERN Y2K
+   Design tokens, sidebar, prose, TOC.
+   ================================================ */
+@layer y2k-fd {
+  #nd-docs-layout {
+    --fd-background: #ffffff;
+    --fd-foreground: #1b1b3a;
+    --fd-card: #ffffff;
+    --fd-border: #1b1b3a;
+    --fd-primary: #8ed1fc;
+    --fd-accent: #ff8fcf;
+    --fd-muted: #d7dde8;
+    --fd-secondary: #d7dde8;
+  }
 
-/* Remove default gradients/masks */
-aside[data-sidebar="true"] [class*="mask-"] {
-  mask-image: none !important;
-}
+  /* ── Sidebar ── */
+  #nd-sidebar {
+    background-color: #d7dde8 !important;
+    /* background-image: radial-gradient(
+      #1b1b3a 0.75px,
+      transparent 0.75px
+    ) !important; */
+    background-size: 16px 16px !important;
+    border-right: 3px solid #1b1b3a !important;
+  }
 
-/* Styling for Nav Title / Sidebar Header */
-aside[data-sidebar="true"] .font-semibold {
-  font-family: var(--font-sans);
-  font-weight: 800 !important;
-  color: var(--y2k-ink) !important;
-  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
-}
+  #nd-sidebar [class*="mask-"] {
+    mask-image: none !important;
+  }
 
-/* Style list layout inside viewport */
-aside[data-sidebar="true"] > div {
-  padding: 1.25rem 1rem !important;
-}
+  #nd-sidebar .inline-flex.text-\[0\.9375rem\] {
+    font-weight: 800 !important;
+  }
 
-/* Redesign group headers / category headings to look like mini file folder labels */
-aside[data-sidebar="true"] .text-fd-muted-foreground.text-xs.font-medium {
-  display: inline-block !important;
-  text-transform: uppercase !important;
-  font-family: var(--font-sans) !important;
-  font-weight: 900 !important;
-  font-size: 0.7rem !important;
-  color: var(--y2k-ink) !important;
-  background-color: var(--y2k-mint) !important;
-  border: 2px solid var(--y2k-ink) !important;
-  border-radius: 4px !important;
-  padding: 2px 8px !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 0.75rem !important;
-  letter-spacing: 0.05em !important;
-  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
-  transform: rotate(-1.5deg);
-}
+  /* Sidebar group headers */
+  #nd-sidebar [class*="text-fd-muted-foreground"].text-xs {
+    display: inline-block !important;
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+    font-size: 0.65rem !important;
+    color: #1b1b3a !important;
+    background: #8ff0d0 !important;
+    border: 2px solid #1b1b3a !important;
+    border-radius: 4px !important;
+    padding: 1px 7px !important;
+    margin-top: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.04em !important;
+  }
 
-/* Alternate colors for the group headers */
-aside[data-sidebar="true"]
-  div:nth-child(even)
-  > .text-fd-muted-foreground.text-xs.font-medium {
-  background-color: var(--y2k-lilac) !important;
-  transform: rotate(1deg);
-}
+  .flex.flex-col.gap-3.p-4.pb-2 > .flex {
+    justify-content: space-between;
+    align-items: center;
+  }
 
-aside[data-sidebar="true"]
-  div:nth-child(3n)
-  > .text-fd-muted-foreground.text-xs.font-medium {
-  background-color: var(--y2k-pink) !important;
-  transform: rotate(-1deg);
-}
+  #nd-sidebar a {
+    color: #1b1b3a !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    border-radius: 6px !important;
+    padding: 5px 9px !important;
+    margin: 1px 0 !important;
+  }
+  #nd-sidebar a:hover {
+    background: #ff8fcf !important;
+    color: #1b1b3a !important;
+    text-decoration: none !important;
+  }
+  #nd-sidebar a[data-active="true"] {
+    background: #ffe45e !important;
+    font-weight: 700 !important;
+    border-left: 4px solid #1b1b3a !important;
+  }
 
-/* Styling for folder structures / collapsible nodes */
-aside[data-sidebar="true"] button[data-collapsible-trigger],
-aside[data-sidebar="true"] [role="button"],
-aside[data-sidebar="true"] a {
-  font-family: var(--font-sans) !important;
-  color: var(--y2k-ink) !important;
-  font-weight: 600 !important;
-  font-size: 0.85rem !important;
-  border: 2px solid transparent !important;
-  border-radius: 6px !important;
-  padding: 6px 10px !important;
-  margin: 3px 0 !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  display: flex !important;
-  align-items: center !important;
-}
+  #nd-sidebar button[data-search-full] {
+    border: 2px solid #1b1b3a !important;
+    background: #ffffff !important;
+    border-radius: 6px !important;
+    color: #1b1b3a !important;
+    font-weight: 600 !important;
+  }
+  #nd-sidebar button[data-search-full]:hover {
+    background: #ffe45e !important;
+  }
 
-/* Retro Y2K emojis for Folders vs Pages */
-aside[data-sidebar="true"] button::before {
-  content: "📁 " !important;
-  font-size: 0.95rem !important;
-}
+  #nd-sidebar [class*="border-t"] {
+    border-top: 2px solid #1b1b3a !important;
+  }
 
-aside[data-sidebar="true"] [data-state="open"] > button::before {
-  content: "📂 " !important;
-}
+  /* ── Mobile header ── */
+  [grid-area="header"] {
+    border-bottom: 2px solid #1b1b3a !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+  }
 
-aside[data-sidebar="true"] a::before {
-  content: "📄 " !important;
-  font-size: 0.95rem !important;
-}
+  /* ── Docs title ── */
+  #nd-docs-layout [class*="text-\\[1\\.75em\\]"] {
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    color: #1b1b3a !important;
+  }
+  [class*="mb-8"].text-lg {
+    color: #1b1b3a !important;
+    opacity: 0.65;
+    font-size: 1.05rem !important;
+  }
 
-aside[data-sidebar="true"] a[data-active="true"]::before {
-  content: "⚡ " !important;
-}
+  /* ── Prose ── */
+  .prose h2 {
+    font-size: 1.35rem !important;
+    font-weight: 900 !important;
+    color: #1b1b3a !important;
+    border-bottom: 3px solid #8ed1fc !important;
+    padding-bottom: 0.3rem !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .prose h3 {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: #1b1b3a !important;
+    margin-top: 2rem !important;
+  }
+  .prose p {
+    color: #1b1b3a !important;
+    line-height: 1.75 !important;
+  }
+  .prose a {
+    color: #1b1b3a !important;
+    font-weight: 700 !important;
+    text-decoration: underline 2px #ff8fcf;
+    text-underline-offset: 2px;
+  }
+  .prose a:hover {
+    text-decoration-color: #1b1b3a;
+  }
 
-/* Hide default link/item icons since we are rendering emojis */
-aside[data-sidebar="true"] a svg {
-  display: none !important;
-}
+  figure.shiki .fd-scroll-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .prose code:not(pre code) {
+    font-family: var(--font-geist-mono) !important;
+    background: #d7dde8 !important;
+    color: #1b1b3a !important;
+    font-weight: 700 !important;
+    padding: 0.15em 0.4em !important;
+    /* border-radius: 4px !important; */
+    font-size: 0.85em !important;
+    /* border: 1.5px solid #1b1b3a !important; */
+  }
+  .prose pre {
+    /* border: 2px solid #1b1b3a !important; */
+    /* border-radius: 6px !important; */
+    background: #f5f5fa !important;
+    padding: 1rem !important;
+  }
+  .prose pre code {
+    background: transparent !important;
+    color: #1b1b3a !important;
+    border: none !important;
+    padding: 0 !important;
+    font-weight: 500 !important;
+  }
+  .prose blockquote {
+    border-left: 4px solid #b69cff !important;
+    background: #d7dde8 !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 4px !important;
+    color: #1b1b3a !important;
+  }
+  .prose table {
+    border: 2px solid #1b1b3a !important;
+    border-radius: 6px !important;
+    overflow: hidden;
+  }
+  .prose thead {
+    background: #8ed1fc !important;
+    border-bottom: 2px solid #1b1b3a !important;
+  }
+  .prose th {
+    font-weight: 800 !important;
+    color: #1b1b3a !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+  .prose td {
+    border-top: 1.5px solid #1b1b3a !important;
+    padding: 0.5rem 0.75rem !important;
+    color: #1b1b3a !important;
+    font-size: 0.85rem !important;
+  }
+  .prose tr:nth-child(even) td {
+    background: #d7dde8 !important;
+  }
+  .prose hr {
+    border-color: #b69cff !important;
+    border-width: 2px !important;
+  }
+  .prose li::marker {
+    color: #ff8fcf !important;
+  }
+  .prose img {
+    border: 2px solid #1b1b3a !important;
+    border-radius: 6px !important;
+  }
 
-/* Hover effect on sidebar links & buttons: Y2K raised tab style */
-aside[data-sidebar="true"] button[data-collapsible-trigger]:hover,
-aside[data-sidebar="true"] [role="button"]:hover,
-aside[data-sidebar="true"] a:hover {
-  background-color: var(--y2k-pink) !important;
-  border-color: var(--y2k-ink) !important;
-  color: var(--y2k-ink) !important;
-  transform: translate(-2px, -2px) !important;
-  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
-  text-decoration: none !important;
-}
+  /* ── TOC ── */
+  [grid-area="toc"] {
+    padding-top: 3rem !important;
+  }
+  [grid-area="toc"] [class*="text-fd-muted-foreground"] {
+    color: #1b1b3a !important;
+    font-weight: 800 !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+  [grid-area="toc"] a {
+    color: #1b1b3a !important;
+    opacity: 0.6;
+    font-weight: 600 !important;
+    font-size: 0.82rem !important;
+    border-left: 2px solid transparent !important;
+  }
+  [grid-area="toc"] a:hover {
+    opacity: 1;
+    border-left-color: #ff8fcf !important;
+  }
+  [grid-area="toc"] a[data-active="true"] {
+    opacity: 1 !important;
+    border-left-color: #8ed1fc !important;
+  }
+  [grid-area="toc-popover"] {
+    border-bottom: 2px solid #1b1b3a !important;
+  }
 
-/* Selected/Active item: Yellow pastel highlight */
-aside[data-sidebar="true"] a[data-active="true"] {
-  background-color: var(--y2k-lemon) !important;
-  border-color: var(--y2k-ink) !important;
-  color: var(--y2k-ink) !important;
-  font-weight: 700 !important;
-  transform: translate(-2px, -2px) !important;
-  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
-}
+  /* ── Footer nav ── */
+  [class*="rounded-lg"][class*="border"] a[href^="/docs/"]:not(#nd-sidebar a) {
+    border: 2px solid #1b1b3a !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
+    color: #1b1b3a !important;
+  }
+  [class*="rounded-lg"][class*="border"]
+    a[href^="/docs/"]:hover:not(#nd-sidebar a) {
+    background: #ff8fcf !important;
+    text-decoration: none !important;
+  }
+  [class*="rounded-lg"][class*="border"]
+    a[href^="/docs/"][class*="text-end"]:hover:not(#nd-sidebar a) {
+    background: #8ed1fc !important;
+  }
 
-/* Custom icon sizes and style in sidebar */
-aside[data-sidebar="true"] svg {
-  color: var(--y2k-ink) !important;
-  stroke-width: 2.5px !important;
-}
-
-/* Folders open state - slightly more prominent folder text */
-aside[data-sidebar="true"] [data-state="open"] > button {
-  font-weight: 700 !important;
-}
-
-/* Sidebar Search Input Styling */
-aside[data-sidebar="true"] button[data-search-full] {
-  border: 2px solid var(--y2k-ink) !important;
-  background-color: var(--color-card) !important;
-  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
-  border-radius: 6px !important;
-  color: var(--y2k-ink) !important;
-  font-weight: 700 !important;
-  transition: all 0.2s ease !important;
-}
-
-aside[data-sidebar="true"] button[data-search-full]:hover {
-  background-color: var(--y2k-lemon) !important;
-  transform: translate(-1px, -1px) !important;
-  box-shadow: 3px 3px 0px var(--y2k-ink) !important;
-}
-
-/* Sidebar Footer (e.g. GitHub link) */
-aside[data-sidebar="true"] .flex-col.p-4.pt-2 {
-  border-top: 2px solid var(--y2k-ink) !important;
-  background-color: var(--y2k-panel) !important;
-}
-
-/* Make sure the github link button looks like a Y2K button */
-aside[data-sidebar="true"] .flex-col.p-4.pt-2 a {
-  background-color: var(--color-card) !important;
-  border: 2px solid var(--y2k-ink) !important;
-  border-radius: 6px !important;
-  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
-  transition: all 0.2s ease !important;
-}
-
-aside[data-sidebar="true"] .flex-col.p-4.pt-2 a:hover {
-  background-color: var(--y2k-mint) !important;
-  transform: translate(-1px, -1px) !important;
-  box-shadow: 3px 3px 0px var(--y2k-ink) !important;
+  /* ── Mobile drawer ── */
+  [data-state="open"][class*="fixed"][class*="z-40"]:not(#nd-sidebar) {
+    border-left: 3px solid #1b1b3a !important;
+  }
 }
 
 /* ===== Y2K Next/Previous Page Buttons ===== */
@@ -443,7 +523,8 @@ a[href^="/docs/"][class*="border"][class*="rounded"]:not(aside a)
 
 /* Custom Animations */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
@@ -461,7 +542,8 @@ a[href^="/docs/"][class*="border"][class*="rounded"]:not(aside a)
 }
 
 @keyframes bounce-slow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -475,6 +557,37 @@ a[href^="/docs/"][class*="border"][class*="rounded"]:not(aside a)
   }
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
   }
 }
 
@@ -518,4 +631,17 @@ a[href^="/docs/"][class*="border"][class*="rounded"]:not(aside a)
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
 }

@@ -1,0 +1,248 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Y Y2K UI" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e6]: "Y"
+          - generic [ref=e7]: Y2K UI
+        - navigation [ref=e8]:
+          - link "Docs" [ref=e9] [cursor=pointer]:
+            - /url: /docs
+          - link "GitHub" [ref=e10] [cursor=pointer]:
+            - /url: https://github.com/zafar/y2k-ui
+          - link "Install" [ref=e11] [cursor=pointer]:
+            - /url: /docs/installation
+            - button "Install" [ref=e12]:
+              - img
+              - text: Install
+    - main [ref=e13]:
+      - generic [ref=e16]:
+        - generic [ref=e18]:
+          - img [ref=e19]
+          - text: v0.2 — 30+ components
+        - heading "Build Retro-Future Interfaces" [level=1] [ref=e22]
+        - paragraph [ref=e23]:
+          - text: Modern Y2K / kawaii-retro components built on shadcn + Radix UI.
+          - text: Flat windows, thick navy outlines, pastel fills — zero nostalgia, all personality.
+        - generic [ref=e24]:
+          - link "Get Started" [ref=e25] [cursor=pointer]:
+            - /url: /docs/installation
+            - button "Get Started" [ref=e26]:
+              - img
+              - text: Get Started
+              - img
+          - link "Browse Components" [ref=e27] [cursor=pointer]:
+            - /url: /docs
+            - button "Browse Components" [ref=e28]
+        - code [ref=e34]: npx y2kui@latest init — ready in seconds
+      - generic [ref=e35]:
+        - generic:
+          - generic:
+            - img
+          - generic:
+            - img
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - generic [ref=e38]:
+              - img [ref=e39]
+              - heading "Component Showcase" [level=2] [ref=e41]
+              - img [ref=e42]
+            - paragraph [ref=e44]: Live previews — every component is fully interactive.
+          - generic [ref=e45]:
+            - generic [ref=e46]:
+              - img [ref=e47]
+              - generic [ref=e49]: Core UI
+            - generic [ref=e50]:
+              - generic [ref=e51]:
+                - generic [ref=e57]: buttons.ui
+                - generic [ref=e59]:
+                  - button "Default" [ref=e60]
+                  - button "Pink" [ref=e61]
+                  - button "Blue" [ref=e62]
+                  - button "Mint" [ref=e63]
+                  - button "Lilac" [ref=e64]
+                  - button "Destructive" [ref=e65]
+                  - button "Outline" [ref=e66]
+                  - button "Secondary" [ref=e67]
+              - generic [ref=e68]:
+                - generic [ref=e74]: badges.sys
+                - generic [ref=e76]:
+                  - generic [ref=e77]: Default
+                  - generic [ref=e78]: Blue
+                  - generic [ref=e79]: Pink
+                  - generic [ref=e80]: Lilac
+                  - generic [ref=e81]: Mint
+                  - generic [ref=e82]: Lemon
+                  - generic [ref=e83]: Outline
+              - generic [ref=e84]:
+                - generic [ref=e90]: controls.app
+                - generic [ref=e92]:
+                  - generic [ref=e93]:
+                    - generic [ref=e94]: Airplane Mode
+                    - switch [checked] [ref=e95] [cursor=pointer]
+                  - generic [ref=e96]:
+                    - generic [ref=e97]: Dark Mode
+                    - switch [ref=e98] [cursor=pointer]
+                  - generic [ref=e99]:
+                    - generic [ref=e100]:
+                      - generic [ref=e101]: Storage
+                      - generic [ref=e103]: 72%
+                    - progressbar [ref=e104]
+                  - generic [ref=e106]:
+                    - generic [ref=e107]:
+                      - generic [ref=e108]: Bandwidth
+                      - generic [ref=e110]: 45%
+                    - progressbar [ref=e111]
+          - generic [ref=e113]:
+            - generic [ref=e114]:
+              - img [ref=e115]
+              - generic [ref=e117]: Input & Navigation
+            - generic [ref=e118]:
+              - generic [ref=e119]:
+                - generic [ref=e125]: input.exe
+                - generic [ref=e127]:
+                  - textbox "Type something..." [ref=e128]
+                  - generic [ref=e129]:
+                    - img [ref=e131]
+                    - textbox "Search..." [ref=e134]
+                  - generic [ref=e135]:
+                    - textbox "y2k@retro.dev" [ref=e136]
+                    - img [ref=e138]
+              - generic [ref=e141]:
+                - generic [ref=e147]: tabs.ui
+                - generic [ref=e149]:
+                  - tablist [ref=e150]:
+                    - tab "Code" [selected] [ref=e151]
+                    - tab "Preview" [ref=e152]
+                    - tab "Log" [ref=e153]
+                  - tabpanel "Code" [ref=e155]: npm install y2k-ui
+              - generic [ref=e156]:
+                - generic [ref=e162]: menubar.app
+                - generic [ref=e164]:
+                  - menubar [ref=e165]:
+                    - menuitem "File" [ref=e166]
+                    - menuitem "Edit" [ref=e167]
+                  - paragraph [ref=e168]: Horizontal menu with dropdowns
+          - generic [ref=e169]:
+            - generic [ref=e170]:
+              - img [ref=e171]
+              - generic [ref=e173]: Widgets & Utilities
+            - generic [ref=e174]:
+              - generic [ref=e175]:
+                - generic [ref=e181]: widgets.exe
+                - generic [ref=e183]:
+                  - alert [ref=e184]:
+                    - heading "Update available" [level=5] [ref=e185]
+                    - generic [ref=e186]: Y2K UI v0.3 is ready to install.
+                  - alert [ref=e187]:
+                    - heading "Connection lost" [level=5] [ref=e188]
+                    - generic [ref=e189]: Check your network and try again.
+                  - generic [ref=e190]:
+                    - generic [ref=e191]: "Team:"
+                    - generic [ref=e193]: YZ
+                    - generic [ref=e195]: AK
+                    - generic [ref=e197]: ML
+              - generic [ref=e198]:
+                - generic [ref=e204]: sheet.ui
+                - generic [ref=e206]:
+                  - button "Open Settings Panel" [ref=e207]
+                  - paragraph [ref=e208]: Slide-in panel with Y2K window chrome
+              - generic [ref=e209]:
+                - generic [ref=e215]: misc-controls
+                - generic [ref=e217]:
+                  - generic [ref=e218]:
+                    - paragraph [ref=e219]: Toggle Group
+                    - radiogroup [ref=e220]:
+                      - radio "B" [checked] [ref=e221]
+                      - radio "I" [ref=e222]:
+                        - generic [ref=e223]: I
+                      - radio "U" [ref=e224]:
+                        - generic [ref=e225]: U
+                      - radio "S" [ref=e226]:
+                        - generic [ref=e227]: S
+                  - generic [ref=e228]:
+                    - paragraph [ref=e229]: Collapsible
+                    - button "Show Details" [ref=e231]:
+                      - img [ref=e232]
+                      - generic [ref=e234]: Show Details
+          - link "View All 30+ Components" [ref=e236] [cursor=pointer]:
+            - /url: /docs
+            - button "View All 30+ Components" [ref=e237]:
+              - img
+              - text: View All 30+ Components
+              - img
+      - generic [ref=e238]:
+        - img [ref=e239]
+        - img [ref=e241]
+        - img [ref=e243]
+        - img [ref=e245]
+        - generic [ref=e247]:
+          - generic [ref=e248]:
+            - heading "Everything You Need" [level=2] [ref=e249]
+            - paragraph [ref=e250]: Production-ready components that don't compromise on personality.
+          - generic [ref=e251]:
+            - generic [ref=e253]:
+              - generic [ref=e254]:
+                - generic [ref=e259]: now_playing.exe
+                - generic [ref=e260]: LIVE
+              - generic [ref=e262]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - text: Y2K
+                      - text: UI
+                - img "Y2K vinyl record spinning" [ref=e263]
+                - generic [ref=e264]: ~
+              - generic [ref=e267]: "Now Playing: y2k-retro-vibes.mp3"
+            - generic [ref=e272]:
+              - generic [ref=e273]:
+                - img [ref=e275]
+                - heading "Y2K Design System" [level=3] [ref=e281]
+                - paragraph [ref=e282]: Thick navy outlines, pastel fills, flat windows. Consistent tokens across every component.
+              - generic [ref=e283]:
+                - img [ref=e285]
+                - heading "shadcn Compatible" [level=3] [ref=e289]
+                - paragraph [ref=e290]: Built on shadcn primitives. Drop-in replacement — use the same CLI workflow you already know.
+              - generic [ref=e291]:
+                - img [ref=e293]
+                - heading "Radix-Powered" [level=3] [ref=e297]
+                - paragraph [ref=e298]: Accessible, headless Radix UI under the hood. Keyboard nav, ARIA, focus management.
+              - generic [ref=e299]:
+                - img [ref=e301]
+                - heading "CLI Install" [level=3] [ref=e303]
+                - paragraph [ref=e304]: npx y2kui@latest add &lt;component&gt;. Zero config, tree-shakeable, works with any Next.js app.
+      - generic [ref=e307]:
+        - img [ref=e342]
+        - heading "Ready to Build?" [level=2] [ref=e308]
+        - paragraph [ref=e309]: Start with one command — no config needed.
+        - generic [ref=e310]:
+          - generic [ref=e311]: npx y2kui@latest init
+          - button "Copy command" [ref=e312]:
+            - img [ref=e313]
+        - generic [ref=e316]:
+          - link "Installation Guide" [ref=e317] [cursor=pointer]:
+            - /url: /docs/installation
+            - button "Installation Guide" [ref=e318]:
+              - img
+              - text: Installation Guide
+              - img
+          - link "Full Documentation" [ref=e319] [cursor=pointer]:
+            - /url: /docs
+            - button "Full Documentation" [ref=e320]
+    - contentinfo [ref=e321]:
+      - generic [ref=e322]:
+        - generic [ref=e323]:
+          - generic [ref=e324]: Y2K UI
+          - generic [ref=e325]: ·
+          - generic [ref=e326]: MIT License
+          - generic [ref=e327]: ·
+          - generic [ref=e328]: © 2026
+        - generic [ref=e329]:
+          - link "Docs" [ref=e330] [cursor=pointer]:
+            - /url: /docs
+          - link "GitHub" [ref=e331] [cursor=pointer]:
+            - /url: https://github.com/zafar/y2k-ui
+  - button "Open Next.js Dev Tools" [ref=e337] [cursor=pointer]:
+    - img [ref=e338]
+  - alert [ref=e343]
