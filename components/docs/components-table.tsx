@@ -66,18 +66,7 @@ export function ComponentsTable({
       data-slot="components-table"
       className={cn("not-prose my-6", className)}
     >
-      {header && (
-        <div className="mb-3 flex items-center gap-2">
-          <span className="inline-flex h-6 items-center rounded border-2 border-y2k-ink bg-y2k-mint px-2 font-mono text-[11px] font-black uppercase tracking-wider text-y2k-ink">
-            {header}
-          </span>
-          <span className="font-mono text-[11px] text-y2k-ink/60">
-            {data.length} {data.length === 1 ? "entry" : "entries"}
-          </span>
-        </div>
-      )}
-
-      <div className="overflow-x-auto rounded-[8px] border-2 border-[#1b1b3a] bg-card shadow-[3px_3px_0px_#1b1b3a]">
+      <div className="overflow-x-auto rounded-[8px] border-2 border-[#1b1b3a] bg-card shadow-[1px_1px_0px_#1b1b3a]">
         <table className="w-full border-collapse text-left">
           <thead>
             <tr className="bg-y2k-blue text-y2k-ink">
