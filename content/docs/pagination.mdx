@@ -1,6 +1,6 @@
 ---
-title: Pagination
-description: Y2K-styled pagination with thick navy borders, pastel active states, and monospace numbers.
+title: "Pagination"
+description: "Y2K pagination component with thick navy borders, pastel active states, and monospace numbers. Accessible page navigation."
 ---
 
 # Pagination
@@ -50,7 +50,11 @@ A Y2K-styled pagination component featuring thick navy outlines, pastel highligh
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add pagination" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add pagination"
+/>
 
 ## Usage
 
@@ -63,7 +67,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination"
+} from "@/components/ui/pagination";
 ```
 
 ## Parts
@@ -73,12 +77,27 @@ import {
   columns={2}
   data={[
     { name: "Pagination", description: "Nav wrapper with aria-label." },
-    { name: "PaginationContent", description: "Flex row list container for items." },
+    {
+      name: "PaginationContent",
+      description: "Flex row list container for items.",
+    },
     { name: "PaginationItem", description: "Single list item wrapper." },
-    { name: "PaginationLink", description: "Page number button with active state." },
-    { name: "PaginationPrevious", description: "Previous page link with ChevronLeft icon." },
-    { name: "PaginationNext", description: "Next page link with ChevronRight icon." },
-    { name: "PaginationEllipsis", description: "Collapsed pages indicator (···)." },
+    {
+      name: "PaginationLink",
+      description: "Page number button with active state.",
+    },
+    {
+      name: "PaginationPrevious",
+      description: "Previous page link with ChevronLeft icon.",
+    },
+    {
+      name: "PaginationNext",
+      description: "Next page link with ChevronRight icon.",
+    },
+    {
+      name: "PaginationEllipsis",
+      description: "Collapsed pages indicator (···).",
+    },
   ]}
 />
 

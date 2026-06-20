@@ -1,6 +1,6 @@
 ---
-title: Accordion
-description: A Y2K accordion with smooth height animation powered by tw-animate-css.
+title: "Accordion"
+description: "Y2K accordion component built on Radix UI with smooth height animation powered by tw-animate-css. Collapsible sections."
 ---
 
 # Accordion
@@ -29,7 +29,11 @@ on close — so the height transition is buttery smooth.
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add accordion" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add accordion"
+/>
 
 ## Usage
 
@@ -39,17 +43,37 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion";
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "type", type: "'single' | 'multiple'", description: "Whether one or multiple items can be open at a time." },
-    { prop: "collapsible", type: "boolean", description: "Allow items to be collapsed when type='single'." },
-    { prop: "defaultValue", type: "string | string[]", description: "Initial open item(s) (uncontrolled)." },
-    { prop: "value", type: "string | string[]", description: "Controlled open item(s)." },
-    { prop: "onValueChange", type: "(value: string | string[]) => void", description: "Fired when the open items change." },
+    {
+      prop: "type",
+      type: "'single' | 'multiple'",
+      description: "Whether one or multiple items can be open at a time.",
+    },
+    {
+      prop: "collapsible",
+      type: "boolean",
+      description: "Allow items to be collapsed when type='single'.",
+    },
+    {
+      prop: "defaultValue",
+      type: "string | string[]",
+      description: "Initial open item(s) (uncontrolled).",
+    },
+    {
+      prop: "value",
+      type: "string | string[]",
+      description: "Controlled open item(s).",
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string | string[]) => void",
+      description: "Fired when the open items change.",
+    },
   ]}
 />

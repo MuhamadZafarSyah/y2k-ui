@@ -1,6 +1,6 @@
 ---
 title: Form
-description: A Y2K form component built on Radix primitives with native validation and accessibility.
+description: A Y2K form component built on Radix primitives with native validation, error handling, and full accessibility support.
 ---
 
 # Form
@@ -30,12 +30,23 @@ import { Button } from "@/components/ui/button"
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add form" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add form"
+/>
 
 ## Usage
 
 ```tsx
-import { Form, FormField, FormLabel, FormControl, FormMessage, FormSubmit } from "@/components/ui/form"
+import {
+  Form,
+  FormField,
+  FormLabel,
+  FormControl,
+  FormMessage,
+  FormSubmit,
+} from "@/components/ui/form";
 
 <Form>
   <FormField name="email" serverInvalid>
@@ -48,17 +59,33 @@ import { Form, FormField, FormLabel, FormControl, FormMessage, FormSubmit } from
   <FormSubmit asChild>
     <Button type="submit">Submit</Button>
   </FormSubmit>
-</Form>
+</Form>;
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "FormField", type: "{ name: string }", description: "Wraps a single form field." },
-    { prop: "FormLabel", type: "ReactNode", description: "Styled label (uses Label component)." },
-    { prop: "FormControl", type: "ReactNode", description: "Wraps the input as a child." },
-    { prop: "FormMessage", type: "string", description: "Validation error message." },
+    {
+      prop: "FormField",
+      type: "{ name: string }",
+      description: "Wraps a single form field.",
+    },
+    {
+      prop: "FormLabel",
+      type: "ReactNode",
+      description: "Styled label (uses Label component).",
+    },
+    {
+      prop: "FormControl",
+      type: "ReactNode",
+      description: "Wraps the input as a child.",
+    },
+    {
+      prop: "FormMessage",
+      type: "string",
+      description: "Validation error message.",
+    },
     { prop: "FormSubmit", type: "ReactNode", description: "Submit button." },
   ]}
 />

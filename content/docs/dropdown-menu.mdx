@@ -1,6 +1,6 @@
 ---
-title: Dropdown Menu
-description: A Y2K-styled dropdown menu built on Radix primitives. Supports items, checkboxes, radio groups, sub-menus, and keyboard navigation.
+title: "Dropdown Menu"
+description: "Y2K dropdown menu component built on Radix UI. Supports items, checkboxes, radio groups, sub-menus, and keyboard navigation."
 ---
 
 # Dropdown Menu
@@ -67,7 +67,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 ```
 
 ### Basic menu
@@ -163,12 +163,44 @@ const [value, setValue] = React.useState("asc")
 
 <PropsTable
   data={[
-    { prop: "open", type: "boolean", description: "Controlled open state of the dropdown." },
-    { prop: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
-    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Fired when open state changes." },
-    { prop: "side", type: "'top' | 'right' | 'bottom' | 'left'", default: "'bottom'", description: "Preferred side relative to the trigger." },
-    { prop: "align", type: "'start' | 'center' | 'end'", default: "'center'", description: "Alignment along the chosen side." },
-    { prop: "sideOffset", type: "number", default: "6", description: "Distance between the trigger and the panel." },
-    { prop: "disabled", type: "boolean", default: "false", description: "Disable the menu trigger." },
+    {
+      prop: "open",
+      type: "boolean",
+      description: "Controlled open state of the dropdown.",
+    },
+    {
+      prop: "defaultOpen",
+      type: "boolean",
+      description: "Initial open state (uncontrolled).",
+    },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean) => void",
+      description: "Fired when open state changes.",
+    },
+    {
+      prop: "side",
+      type: "'top' | 'right' | 'bottom' | 'left'",
+      default: "'bottom'",
+      description: "Preferred side relative to the trigger.",
+    },
+    {
+      prop: "align",
+      type: "'start' | 'center' | 'end'",
+      default: "'center'",
+      description: "Alignment along the chosen side.",
+    },
+    {
+      prop: "sideOffset",
+      type: "number",
+      default: "6",
+      description: "Distance between the trigger and the panel.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disable the menu trigger.",
+    },
   ]}
 />

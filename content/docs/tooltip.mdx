@@ -1,6 +1,6 @@
 ---
-title: Tooltip
-description: A Y2K flat tooltip with thick navy border for hints and labels.
+title: "Tooltip"
+description: "Y2K tooltip component built on Radix UI with thick navy border. Accessible hint and label component with flat styling."
 ---
 
 # Tooltip
@@ -28,7 +28,11 @@ A small flat tooltip — white fill, thick navy border. Wrap your app in
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add tooltip" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add tooltip"
+/>
 
 ## Usage
 
@@ -38,7 +42,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip";
 ```
 
 ## Props
@@ -46,8 +50,22 @@ import {
 <PropsTable
   data={[
     { prop: "open", type: "boolean", description: "Controlled open state." },
-    { prop: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
-    { prop: "delayDuration", type: "number", default: "100", description: "Delay in ms before the tooltip opens on hover." },
-    { prop: "sideOffset", type: "number", default: "6", description: "Distance between the trigger and the tooltip." },
+    {
+      prop: "defaultOpen",
+      type: "boolean",
+      description: "Initial open state (uncontrolled).",
+    },
+    {
+      prop: "delayDuration",
+      type: "number",
+      default: "100",
+      description: "Delay in ms before the tooltip opens on hover.",
+    },
+    {
+      prop: "sideOffset",
+      type: "number",
+      default: "6",
+      description: "Distance between the trigger and the tooltip.",
+    },
   ]}
 />

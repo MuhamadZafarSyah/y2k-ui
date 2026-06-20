@@ -35,6 +35,7 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { StructuredData } from "@/components/structured-data"
 
 /* ─── Navigation ─── */
 
@@ -686,6 +687,9 @@ function Footer() {
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-y2k-ink">
+      <StructuredData type="website" />
+      <StructuredData type="software" />
+      <StructuredData type="faq" />
       <Nav />
       <main>
         <Hero />

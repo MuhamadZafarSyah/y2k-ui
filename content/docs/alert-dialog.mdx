@@ -1,6 +1,6 @@
 ---
-title: Alert Dialog
-description: A Y2K confirmation modal with window-chrome styling, action, and cancel buttons.
+title: "Alert Dialog"
+description: "Y2K alert dialog component built on Radix UI. Confirmation modal with window-chrome styling and accessible focus management."
 ---
 
 # Alert Dialog
@@ -44,7 +44,11 @@ import { Button } from "@/components/ui/button"
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add alert-dialog" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add alert-dialog"
+/>
 
 ## Usage
 
@@ -59,27 +63,49 @@ import {
   AlertDialogFooter,
   AlertDialogAction,
   AlertDialogCancel,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
 
 <AlertDialog>
   <AlertDialogTrigger asChild>
     <Button variant="destructive">Delete</Button>
   </AlertDialogTrigger>
-  <AlertDialogContent>
-    ...
-  </AlertDialogContent>
-</AlertDialog>
+  <AlertDialogContent>...</AlertDialogContent>
+</AlertDialog>;
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "AlertDialog", type: "see Radix", description: "Root. Accepts open, defaultOpen, onOpenChange." },
-    { prop: "AlertDialogContent", type: "ReactNode", description: "Modal panel with navy border and pastel panel fill." },
-    { prop: "AlertDialogHeader", type: "ReactNode", description: "Groups title and description." },
-    { prop: "AlertDialogFooter", type: "ReactNode", description: "Groups action/cancel buttons." },
-    { prop: "AlertDialogAction", type: "ReactNode", description: "Primary action button (default variant)." },
-    { prop: "AlertDialogCancel", type: "ReactNode", description: "Cancel button (outline variant)." },
+    {
+      prop: "AlertDialog",
+      type: "see Radix",
+      description: "Root. Accepts open, defaultOpen, onOpenChange.",
+    },
+    {
+      prop: "AlertDialogContent",
+      type: "ReactNode",
+      description: "Modal panel with navy border and pastel panel fill.",
+    },
+    {
+      prop: "AlertDialogHeader",
+      type: "ReactNode",
+      description: "Groups title and description.",
+    },
+    {
+      prop: "AlertDialogFooter",
+      type: "ReactNode",
+      description: "Groups action/cancel buttons.",
+    },
+    {
+      prop: "AlertDialogAction",
+      type: "ReactNode",
+      description: "Primary action button (default variant).",
+    },
+    {
+      prop: "AlertDialogCancel",
+      type: "ReactNode",
+      description: "Cancel button (outline variant).",
+    },
   ]}
 />

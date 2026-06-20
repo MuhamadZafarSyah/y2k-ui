@@ -1,6 +1,6 @@
 ---
-title: Card
-description: A Y2K flat panel with a thick navy border, optional title bar, and content slots.
+title: "Card"
+description: "Y2K card component with thick navy border, optional title bar, and content slots. Flat panel with pastel styling."
 ---
 
 # Card
@@ -39,7 +39,11 @@ export function CardDefaultDemo() {
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add card" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add card"
+/>
 
 ## Usage
 
@@ -51,15 +55,23 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "className", type: "string", description: "Additional Tailwind classes for the outer panel." },
-    { prop: "children", type: "ReactNode", description: "Sub-components: CardHeader, CardContent, CardFooter." },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional Tailwind classes for the outer panel.",
+    },
+    {
+      prop: "children",
+      type: "ReactNode",
+      description: "Sub-components: CardHeader, CardContent, CardFooter.",
+    },
   ]}
 />
 
@@ -67,6 +79,10 @@ import {
 
 <PropsTable
   data={[
-    { prop: "className", type: "string", description: "Additional classes for the pastel title bar." },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes for the pastel title bar.",
+    },
   ]}
 />

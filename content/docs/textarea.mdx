@@ -1,6 +1,6 @@
 ---
-title: Textarea
-description: A Y2K multiline input with thick navy outline, pastel fill variants, and crisp focus states.
+title: "Textarea"
+description: "Y2K textarea component with thick navy outline, pastel fill variants, and crisp focus states. Multiline text input."
 ---
 
 # Textarea
@@ -19,15 +19,19 @@ export function TextareaDemo() {
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add textarea" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add textarea"
+/>
 
 ## Usage
 
 ```tsx
-import { Textarea } from "@/components/ui/textarea"
+import { Textarea } from "@/components/ui/textarea";
 
 export function Example() {
-  return <Textarea placeholder="Type your message..." />
+  return <Textarea placeholder="Type your message..." />;
 }
 ```
 
@@ -35,11 +39,30 @@ export function Example() {
 
 <PropsTable
   data={[
-    { prop: "variant", type: "'default' | 'blue' | 'pink' | 'mint' | 'lemon'", default: "'default'", description: "Pastel background style." },
-    { prop: "resize", type: "'none' | 'y' | 'x' | 'both'", default: "'y'", description: "CSS resize behavior." },
+    {
+      prop: "variant",
+      type: "'default' | 'blue' | 'pink' | 'mint' | 'lemon'",
+      default: "'default'",
+      description: "Pastel background style.",
+    },
+    {
+      prop: "resize",
+      type: "'none' | 'y' | 'x' | 'both'",
+      default: "'y'",
+      description: "CSS resize behavior.",
+    },
     { prop: "placeholder", type: "string", description: "Placeholder text." },
-    { prop: "disabled", type: "boolean", default: "false", description: "Disable the textarea." },
-    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disable the textarea.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional Tailwind classes.",
+    },
   ]}
 />
 

@@ -1,6 +1,6 @@
 ---
 title: Button
-description: A Y2K flat button with thick navy outline and pastel fill. Supports loading, leading/trailing icons, and 6 color variants.
+description: A Y2K flat button component with thick navy outline and pastel fill. Supports loading states, leading/trailing icons, and 6 color variants. Built on Radix UI.
 ---
 
 # Button
@@ -55,7 +55,11 @@ import { CheckIcon, DownloadIcon } from "lucide-react"
 
 const [loading, setLoading] = React.useState(false)
 
-<Button loading={loading} onClick={() => setLoading(true)} leadingIcon={<CheckIcon />}>
+<Button
+  loading={loading}
+  onClick={() => setLoading(true)}
+  leadingIcon={<CheckIcon />}
+>
   Save changes
 </Button>
 
@@ -81,27 +85,69 @@ const [loading, setLoading] = React.useState(false)
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add button" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add button"
+/>
 
 ## Usage
 
 ```tsx
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
-<Button onClick={() => console.log("clicked")}>Save</Button>
+<Button onClick={() => console.log("clicked")}>Save</Button>;
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "variant", type: "'default' | 'pink' | 'blue' | 'mint' | 'lilac' | 'lemon' | 'outline' | 'secondary' | 'ghost' | 'destructive' | 'link'", default: "'default'", description: "Pastel color style for the button." },
-    { prop: "size", type: "'xs' | 'sm' | 'default' | 'lg' | 'icon' | 'icon-xs' | 'icon-sm' | 'icon-lg'", default: "'default'", description: "Visual size of the button." },
-    { prop: "loading", type: "boolean", default: "false", description: "Show a spinner, disable the button, and set aria-busy." },
-    { prop: "loadingText", type: "string", description: "Optional label shown while loading (defaults to children)." },
-    { prop: "leadingIcon", type: "ReactNode", description: "Icon rendered before the children." },
-    { prop: "trailingIcon", type: "ReactNode", description: "Icon rendered after the children." },
-    { prop: "asChild", type: "boolean", default: "false", description: "Render as a Radix Slot so you can compose with your own element." },
-    { prop: "disabled", type: "boolean", default: "false", description: "Disable the button (also set automatically when loading)." },
+    {
+      prop: "variant",
+      type: "'default' | 'pink' | 'blue' | 'mint' | 'lilac' | 'lemon' | 'outline' | 'secondary' | 'ghost' | 'destructive' | 'link'",
+      default: "'default'",
+      description: "Pastel color style for the button.",
+    },
+    {
+      prop: "size",
+      type: "'xs' | 'sm' | 'default' | 'lg' | 'icon' | 'icon-xs' | 'icon-sm' | 'icon-lg'",
+      default: "'default'",
+      description: "Visual size of the button.",
+    },
+    {
+      prop: "loading",
+      type: "boolean",
+      default: "false",
+      description: "Show a spinner, disable the button, and set aria-busy.",
+    },
+    {
+      prop: "loadingText",
+      type: "string",
+      description: "Optional label shown while loading (defaults to children).",
+    },
+    {
+      prop: "leadingIcon",
+      type: "ReactNode",
+      description: "Icon rendered before the children.",
+    },
+    {
+      prop: "trailingIcon",
+      type: "ReactNode",
+      description: "Icon rendered after the children.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Render as a Radix Slot so you can compose with your own element.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disable the button (also set automatically when loading).",
+    },
   ]}
 />

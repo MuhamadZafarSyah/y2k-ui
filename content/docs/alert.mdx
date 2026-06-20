@@ -1,6 +1,6 @@
 ---
-title: Alert
-description: A Y2K banner for info, warning, success, and danger messages. Six pastel variants.
+title: "Alert"
+description: "Y2K alert component with six pastel variants for info, warning, success, and danger messages. Flat banner with thick border."
 ---
 
 # Alert
@@ -20,12 +20,16 @@ A flat banner for inline messages. Six pastel variants, thick navy border, no of
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add alert" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add alert"
+/>
 
 ## Usage
 
 ```tsx
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 ```
 
 ## Props
@@ -38,6 +42,11 @@ import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
       default: "'info'",
       description: "Color style of the alert.",
     },
-    { prop: "role", type: "string", default: "'alert'", description: "ARIA role. Override only if you know what you are doing." },
+    {
+      prop: "role",
+      type: "string",
+      default: "'alert'",
+      description: "ARIA role. Override only if you know what you are doing.",
+    },
   ]}
 />

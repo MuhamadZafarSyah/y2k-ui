@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { RootProvider } from "fumadocs-ui/provider/next";
+import { generateSiteMetadata } from "@/lib/seo-helpers";
+import { Analytics } from "@/components/analytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,17 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Y2K UI",
-    template: "%s — Y2K UI",
-  },
-  description:
-    "Modern Y2K / kawaii-retro component library — flat windows, thick navy outlines, pastel fills.",
-  icons: {
-    icon: "/favicon.svg",
-  },
-};
+export const metadata: Metadata = generateSiteMetadata();
 
 export default function RootLayout({
   children,
@@ -40,6 +32,7 @@ export default function RootLayout({
         className="min-h-full flex flex-col"
         suppressHydrationWarning
       >
+        <Analytics />
         <RootProvider
           theme={{
             defaultTheme: "light",

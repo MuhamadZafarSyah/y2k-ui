@@ -1,6 +1,6 @@
 ---
 title: Dialog
-description: A Y2K modal dialog with a flat window-chrome title bar and [_ ▢ ✕] controls.
+description: A Y2K modal dialog component with a flat window-chrome title bar and [_ ▢ ✕] controls. Built on Radix UI with full keyboard navigation.
 ---
 
 # Dialog
@@ -84,7 +84,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 
 export function Example() {
   return (
@@ -103,7 +103,7 @@ export function Example() {
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 ```
 
@@ -114,8 +114,16 @@ export function Example() {
 <PropsTable
   data={[
     { prop: "open", type: "boolean", description: "Controlled open state." },
-    { prop: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
-    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Called when the dialog open state changes." },
+    {
+      prop: "defaultOpen",
+      type: "boolean",
+      description: "Initial open state (uncontrolled).",
+    },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean) => void",
+      description: "Called when the dialog open state changes.",
+    },
   ]}
 />
 
@@ -123,11 +131,38 @@ export function Example() {
 
 <PropsTable
   data={[
-    { prop: "title", type: "ReactNode", description: "Title shown in the Y2K title bar." },
-    { prop: "hideMinimize", type: "boolean", default: "false", description: "Hide the `_` (minimize) window control." },
-    { prop: "hideMaximize", type: "boolean", default: "false", description: "Hide the `▢` (maximize) window control." },
-    { prop: "hideClose", type: "boolean", default: "false", description: "Hide the `✕` (close) window control." },
-    { prop: "onMinimize", type: "() => void", description: "Fired when the user clicks the minimize control." },
-    { prop: "onMaximize", type: "() => void", description: "Fired when the user clicks the maximize control." },
+    {
+      prop: "title",
+      type: "ReactNode",
+      description: "Title shown in the Y2K title bar.",
+    },
+    {
+      prop: "hideMinimize",
+      type: "boolean",
+      default: "false",
+      description: "Hide the `_` (minimize) window control.",
+    },
+    {
+      prop: "hideMaximize",
+      type: "boolean",
+      default: "false",
+      description: "Hide the `▢` (maximize) window control.",
+    },
+    {
+      prop: "hideClose",
+      type: "boolean",
+      default: "false",
+      description: "Hide the `✕` (close) window control.",
+    },
+    {
+      prop: "onMinimize",
+      type: "() => void",
+      description: "Fired when the user clicks the minimize control.",
+    },
+    {
+      prop: "onMaximize",
+      type: "() => void",
+      description: "Fired when the user clicks the maximize control.",
+    },
   ]}
 />

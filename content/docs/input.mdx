@@ -1,6 +1,6 @@
 ---
 title: Input
-description: A Y2K text input with thick navy outline. Supports leadingIcon, trailingIcon, prefix, and suffix add-ons.
+description: A Y2K text input component with thick navy outline. Supports leadingIcon, trailingIcon, prefix, and suffix add-ons. Accessible and customizable.
 ---
 
 # Input
@@ -71,26 +71,68 @@ import { DownloadIcon } from "lucide-react"
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add input" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add input"
+/>
 
 ## Usage
 
 ```tsx
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/ui/input";
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "leadingIcon", type: "ReactNode", description: "Icon rendered on the left inside a pastel add-on chip." },
-    { prop: "trailingIcon", type: "ReactNode", description: "Icon rendered on the right inside a pastel add-on chip." },
-    { prop: "prefix", type: "ReactNode", description: "Short label shown on the left of the value (e.g. 'Rp', '@', '$')." },
-    { prop: "suffix", type: "ReactNode", description: "Short label shown on the right of the value (e.g. 'IDR', 'kg', 'USD')." },
-    { prop: "wrapperClassName", type: "string", description: "Extra classes applied to the outer wrapper when add-ons are present." },
-    { prop: "type", type: "string", default: "'text'", description: "Native HTML input type." },
+    {
+      prop: "leadingIcon",
+      type: "ReactNode",
+      description: "Icon rendered on the left inside a pastel add-on chip.",
+    },
+    {
+      prop: "trailingIcon",
+      type: "ReactNode",
+      description: "Icon rendered on the right inside a pastel add-on chip.",
+    },
+    {
+      prop: "prefix",
+      type: "ReactNode",
+      description:
+        "Short label shown on the left of the value (e.g. 'Rp', '@', '$').",
+    },
+    {
+      prop: "suffix",
+      type: "ReactNode",
+      description:
+        "Short label shown on the right of the value (e.g. 'IDR', 'kg', 'USD').",
+    },
+    {
+      prop: "wrapperClassName",
+      type: "string",
+      description:
+        "Extra classes applied to the outer wrapper when add-ons are present.",
+    },
+    {
+      prop: "type",
+      type: "string",
+      default: "'text'",
+      description: "Native HTML input type.",
+    },
     { prop: "placeholder", type: "string", description: "Placeholder text." },
-    { prop: "disabled", type: "boolean", default: "false", description: "Disable the input." },
-    { prop: "aria-invalid", type: "boolean", default: "false", description: "Mark the input as invalid for accessibility." },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disable the input.",
+    },
+    {
+      prop: "aria-invalid",
+      type: "boolean",
+      default: "false",
+      description: "Mark the input as invalid for accessibility.",
+    },
   ]}
 />

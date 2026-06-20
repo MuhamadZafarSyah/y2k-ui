@@ -1,6 +1,6 @@
 ---
-title: Sheet
-description: A Y2K slide-in side panel with window-chrome title bar — supports top, bottom, left, and right positions.
+title: "Sheet"
+description: "Y2K sheet component built on Radix UI. Slide-in side panel with window-chrome title bar supporting all four positions."
 ---
 
 # Sheet
@@ -36,7 +36,11 @@ import { Button } from "@/components/ui/button"
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add sheet" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add sheet"
+/>
 
 ## Usage
 
@@ -48,7 +52,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
+} from "@/components/ui/sheet";
 
 <Sheet>
   <SheetTrigger asChild>
@@ -61,16 +65,36 @@ import {
     </SheetHeader>
     {/* Content */}
   </SheetContent>
-</Sheet>
+</Sheet>;
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "side", type: "'top' | 'bottom' | 'left' | 'right'", default: "'right'", description: "Which edge the sheet slides in from." },
-    { prop: "title", type: "ReactNode", default: "—", description: "Title shown in the window chrome title bar." },
-    { prop: "open", type: "boolean", default: "—", description: "Controlled open state." },
-    { prop: "onOpenChange", type: "(open: boolean) => void", default: "—", description: "Callback when open state changes." },
+    {
+      prop: "side",
+      type: "'top' | 'bottom' | 'left' | 'right'",
+      default: "'right'",
+      description: "Which edge the sheet slides in from.",
+    },
+    {
+      prop: "title",
+      type: "ReactNode",
+      default: "—",
+      description: "Title shown in the window chrome title bar.",
+    },
+    {
+      prop: "open",
+      type: "boolean",
+      default: "—",
+      description: "Controlled open state.",
+    },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean) => void",
+      default: "—",
+      description: "Callback when open state changes.",
+    },
   ]}
 />

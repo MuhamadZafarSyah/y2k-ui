@@ -1,6 +1,6 @@
 ---
-title: Select
-description: A Y2K dropdown select with a thick navy border and lemon highlight on focus.
+title: "Select"
+description: "Y2K select component built on Radix UI with thick navy border and lemon highlight on focus. Dropdown with bordered list."
 ---
 
 # Select
@@ -31,7 +31,11 @@ A flat dropdown select. Trigger shows the current value, content panel is a bord
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add select" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add select"
+/>
 
 ## Usage
 
@@ -42,7 +46,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 ```
 
 ## Props
@@ -51,10 +55,27 @@ import {
 
 <PropsTable
   data={[
-    { prop: "value", type: "string", description: "Controlled selected value." },
-    { prop: "defaultValue", type: "string", description: "Initial selected value (uncontrolled)." },
-    { prop: "onValueChange", type: "(value: string) => void", description: "Fired when the value changes." },
-    { prop: "disabled", type: "boolean", default: "false", description: "Disable the select." },
+    {
+      prop: "value",
+      type: "string",
+      description: "Controlled selected value.",
+    },
+    {
+      prop: "defaultValue",
+      type: "string",
+      description: "Initial selected value (uncontrolled).",
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string) => void",
+      description: "Fired when the value changes.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disable the select.",
+    },
   ]}
 />
 
@@ -62,7 +83,15 @@ import {
 
 <PropsTable
   data={[
-    { prop: "className", type: "string", description: "Additional Tailwind classes (e.g. width)." },
-    { prop: "children", type: "ReactNode", description: "Must include a `SelectValue`." },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional Tailwind classes (e.g. width).",
+    },
+    {
+      prop: "children",
+      type: "ReactNode",
+      description: "Must include a `SelectValue`.",
+    },
   ]}
 />

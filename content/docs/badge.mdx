@@ -1,6 +1,6 @@
 ---
 title: Badge
-description: A Y2K pastel badge with thick outline. Six color variants.
+description: A Y2K pastel badge component with thick navy outline. Six color variants for labels, status indicators, and tags.
 ---
 
 # Badge
@@ -22,21 +22,35 @@ A small Y2K label — thick navy outline, pastel fill, six color variants.
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add badge" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add badge"
+/>
 
 ## Usage
 
 ```tsx
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 
-<Badge variant="pink">new</Badge>
+<Badge variant="pink">new</Badge>;
 ```
 
 ## Props
 
 <PropsTable
   data={[
-    { prop: "variant", type: "'default' | 'blue' | 'pink' | 'lilac' | 'mint' | 'lemon' | 'outline'", default: "'default'", description: "Color style of the badge." },
-    { prop: "size", type: "'sm' | 'md' | 'lg'", default: "'md'", description: "Visual size of the badge." },
+    {
+      prop: "variant",
+      type: "'default' | 'blue' | 'pink' | 'lilac' | 'mint' | 'lemon' | 'outline'",
+      default: "'default'",
+      description: "Color style of the badge.",
+    },
+    {
+      prop: "size",
+      type: "'sm' | 'md' | 'lg'",
+      default: "'md'",
+      description: "Visual size of the badge.",
+    },
   ]}
 />
