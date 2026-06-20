@@ -95,14 +95,14 @@ export function ComponentsTable({
                     index % 2 === 0
                       ? "bg-card"
                       : "bg-y2k-panel/40",
-                    "hover:bg-y2k-lemon/60"
+                    "hover:bg-y2k-lemon/40"
                   )}
                 >
 
                   <td className="border-t-2 border-[#1b1b3a]/20 px-4 py-2 align-top">
                     <span
                       className={cn(
-                        "inline-flex items-center rounded-[5px] border-2 border-[#1b1b3a] bg-y2k-panel px-2 py-0.5",
+                        "inline-flex items-center rounded-[5px] border border-[#1b1b3a] bg-y2k-panel px-2 py-0.5",
                         "font-mono text-[13px] font-bold leading-none text-y2k-ink",
                         "transition-colors group-hover:bg-card"
                       )}

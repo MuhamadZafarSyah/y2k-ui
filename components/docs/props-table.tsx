@@ -83,7 +83,6 @@ export function PropsTable({ data, className }: PropsTableProps) {
                     {/* Prop Name styled as a cute folder sticker label */}
                     <td className="px-3 py-3 pl-4">
                       <code className={cn(
-                        "inline-block rounded-lg border-2 border-y2k-ink px-2.5 py-0.5 font-mono text-xs font-black text-y2k-ink shadow-[1.5px_1.5px_0px_#1b1b3a] transform -rotate-1 hover:rotate-0 hover:scale-105 transition-all select-all",
                         tagColor
                       )}>
                         {row.prop}
@@ -100,7 +99,7 @@ export function PropsTable({ data, className }: PropsTableProps) {
                     {/* Default value */}
                     <td className="px-3 py-3 font-mono text-xs align-middle">
                       {row.default ? (
-                        <code className="rounded-lg border border-y2k-ink bg-card px-2 py-0.5 text-y2k-ink font-bold shadow-[1px_1px_0px_#1b1b3a]">
+                        <code className="rounded-lg border border-y2k-ink bg-card px-2 py-0.5 text-y2k-ink font-bold ">
                           {row.default}
                         </code>
                       ) : (

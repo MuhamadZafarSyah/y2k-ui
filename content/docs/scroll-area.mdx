@@ -1,0 +1,221 @@
+---
+title: ScrollArea
+description: A Y2K custom scrollable panel with a thick navy border, white viewport, and blue scrollbar thumb.
+---
+
+# ScrollArea
+
+A flat Y2K-styled scroll area built on top of Radix UI's `ScrollArea`
+primitive. It provides a thick navy border, a white viewport, and a custom
+pastel-blue scrollbar with a thick navy outline.
+
+<ComponentPreview
+  name="scroll-area-demo"
+  preview={<ScrollAreaDemo />}
+  source={`import {
+  ScrollArea,
+  ScrollAreaViewport,
+  Scrollbar,
+} from "@/components/ui/scroll-area"
+
+const ITEMS = Array.from({ length: 30 }, (_, i) => ({
+  id: i + 1,
+  label: \`Item \${i + 1}\`,
+  color: [
+    "bg-[#8ed1fc]",
+    "bg-[#ff8fcf]",
+    "bg-[#b69cff]",
+    "bg-[#8ff0d0]",
+    "bg-[#ffe45e]",
+  ][i % 5],
+}))
+
+export function ScrollAreaDemo() {
+  return (
+    <ScrollArea className="h-60 w-72">
+      <ScrollAreaViewport>
+        <div className="space-y-1.5 p-3">
+          <h4 className="font-bold text-sm text-[#1b1b3a]">
+            Scrollable List
+          </h4>
+          <p className="text-xs text-[#1b1b3a]/70">
+            This panel scrolls — try it out!
+          </p>
+          <div className="mt-2 space-y-1">
+            {ITEMS.map((item) => (
+              <div
+                key={item.id}
+                className={\`flex items-center gap-2 rounded border-2 border-[#1b1b3a] \${item.color} px-2.5 py-1.5 text-sm font-semibold text-[#1b1b3a]\`}
+              >
+                <span className="flex size-5 shrink-0 items-center justify-center rounded border-2 border-[#1b1b3a] bg-white text-[10px] font-bold">
+                  {item.id}
+                </span>
+                {item.label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </ScrollAreaViewport>
+      <Scrollbar orientation="vertical" />
+    </ScrollArea>
+  )
+}`}
+/>
+
+## Installation
+
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add scroll-area"
+/>
+
+## Usage
+
+```tsx
+import {
+  ScrollArea,
+  ScrollAreaViewport,
+  Scrollbar,
+  ScrollThumb,
+  ScrollCorner,
+} from "@/components/ui/scroll-area"
+
+export function Example() {
+  return (
+    <ScrollArea className="h-48 w-80">
+      <ScrollAreaViewport>
+        {/* Your scrollable content goes here */}
+        <div className="space-y-2 p-4">
+          {items.map((item) => (
+            <div key={item.id}>{item.label}</div>
+          ))}
+        </div>
+      </ScrollAreaViewport>
+      <Scrollbar orientation="vertical" />
+    </ScrollArea>
+  )
+}
+```
+
+## Props
+
+### `ScrollArea`
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional CSS classes to merge onto the root container." },
+    { prop: "type", type: "\"auto\" | \"always\" | \"scroll\" | \"hover\"", default: "\"hover\"", description: "Describes the nature of the scrollbar visibility." },
+    { prop: "scrollHideDelay", type: "number", default: "600", description: "Duration (in ms) before the scrollbar hides when type is `\"hover\"`." },
+    { prop: "dir", type: "\"ltr\" | \"rtl\"", description: "Reading direction of the scroll area." },
+  ]}
+/>
+
+### `ScrollAreaViewport`
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional CSS classes to merge onto the viewport." },
+  ]}
+/>
+
+### `Scrollbar`
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional CSS classes to merge onto the scrollbar track." },
+    { prop: "orientation", type: "\"vertical\" | \"horizontal\"", default: "\"vertical\"", description: "The orientation of the scrollbar." },
+  ]}
+/>
+
+### `ScrollThumb`
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional CSS classes to merge onto the scrollbar thumb." },
+  ]}
+/>
+
+### `ScrollCorner`
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional CSS classes to merge onto the corner element." },
+  ]}
+/>
+
+## Examples
+
+### Horizontal scroll
+
+Also supports horizontal scrolling via the `orientation` prop.
+
+<ComponentPreview
+  name="scroll-area-horizontal-demo"
+  preview={
+    <ScrollArea className="h-28 w-80">
+      <ScrollAreaViewport>
+        <div className="flex gap-3 p-3 w-max">
+          {["Star", "Moon", "Sun", "Pixel", "Neon", "Cyber", "Pastel", "Wave", "Spark", "Retro"].map((name) => (
+            <div
+              key={name}
+              className="flex h-20 w-28 shrink-0 items-center justify-center rounded border-2 border-[#1b1b3a] bg-[#ffe45e] text-sm font-bold text-[#1b1b3a]"
+            >
+              {name} ✦
+            </div>
+          ))}
+        </div>
+      </ScrollAreaViewport>
+      <Scrollbar orientation="horizontal" />
+    </ScrollArea>
+  }
+  source={`<ScrollArea className="h-28 w-80">
+  <ScrollAreaViewport>
+    <div className="flex gap-3 p-3 w-max">
+      {items.map((item) => (
+        <div key={item} className="flex h-20 w-28 shrink-0 items-center justify-center rounded border-2 border-[#1b1b3a] bg-[#ffe45e] text-sm font-bold text-[#1b1b3a]">
+          {item} ✦
+        </div>
+      ))}
+    </div>
+  </ScrollAreaViewport>
+  <Scrollbar orientation="horizontal" />
+</ScrollArea>`}
+/>
+
+### Always visible scrollbar
+
+Set `type="always"` to keep the scrollbar always visible.
+
+<ComponentPreview
+  name="scroll-area-always-demo"
+  preview={
+    <ScrollArea className="h-40 w-72" type="always">
+      <ScrollAreaViewport>
+        <div className="space-y-1.5 p-3">
+          {Array.from({ length: 12 }, (_, i) => (
+            <div
+              key={i}
+              className="rounded border-2 border-[#1b1b3a] bg-[#b69cff] px-2.5 py-1.5 text-sm font-semibold text-[#1b1b3a]"
+            >
+              Row #{i + 1}
+            </div>
+          ))}
+        </div>
+      </ScrollAreaViewport>
+      <Scrollbar orientation="vertical" />
+    </ScrollArea>
+  }
+  source={`<ScrollArea className="h-40 w-72" type="always">
+  <ScrollAreaViewport>
+    <div className="space-y-1.5 p-3">
+      {rows.map((row) => (
+        <div className="rounded border-2 border-[#1b1b3a] bg-[#b69cff] px-2.5 py-1.5 text-sm font-semibold text-[#1b1b3a]">
+          {row.label}
+        </div>
+      ))}
+    </div>
+  </ScrollAreaViewport>
+  <Scrollbar orientation="vertical" />
+</ScrollArea>`}
+/>

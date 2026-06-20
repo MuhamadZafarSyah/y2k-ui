@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "title": "Skeleton",
+  "description": "Y2K loading skeleton with thick outlines and pastel pulse animation.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/skeleton.tsx",
+      "content": "import * as React from \"react\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nfunction Skeleton({\r\n  className,\r\n  ...props\r\n}: React.HTMLAttributes<HTMLDivElement>) {\r\n  return (\r\n    <div\r\n      data-slot=\"skeleton\"\r\n      className={cn(\r\n        \"animate-pulse rounded-md border-2 border-y2k-ink/10 bg-y2k-panel\",\r\n        className\r\n      )}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\nfunction SkeletonCard({ className }: { className?: string }) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"y2k-window overflow-hidden\",\r\n        className\r\n      )}\r\n      data-slot=\"skeleton-card\"\r\n    >\r\n      <div className=\"y2k-window-title\">\r\n        <span className=\"y2k-title-dots\" aria-hidden>\r\n          <span /><span /><span />\r\n        </span>\r\n      </div>\r\n      <div className=\"bg-card space-y-3 p-4\">\r\n        <Skeleton className=\"h-4 w-3/4\" />\r\n        <Skeleton className=\"h-3 w-full\" />\r\n        <Skeleton className=\"h-3 w-5/6\" />\r\n        <div className=\"flex gap-2 pt-2\">\r\n          <Skeleton className=\"h-6 w-16 rounded-sm\" />\r\n          <Skeleton className=\"h-6 w-16 rounded-sm\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  )\r\n}\r\n\r\nfunction SkeletonAvatar({ className }: { className?: string }) {\r\n  return (\r\n    <Skeleton\r\n      className={cn(\"h-10 w-10 rounded-sm border-2 border-y2k-ink/20\", className)}\r\n      data-slot=\"skeleton-avatar\"\r\n    />\r\n  )\r\n}\r\n\r\nfunction SkeletonButton({ className }: { className?: string }) {\r\n  return (\r\n    <Skeleton\r\n      className={cn(\"h-8 w-20 rounded-sm border-2 border-y2k-ink/20\", className)}\r\n      data-slot=\"skeleton-button\"\r\n    />\r\n  )\r\n}\r\n\r\nexport { Skeleton, SkeletonAvatar, SkeletonButton, SkeletonCard }\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,79 @@
+---
+title: Toggle Group
+description: A Y2K toggle group for selecting one or more options — navy outline, pastel panel, Radix-powered.
+---
+
+# Toggle Group
+
+A group of toggle buttons for selecting one or more options from a set.
+
+<ComponentPreview
+  name="toggle-group-demo"
+  preview={<ToggleGroupDemo />}
+  source={`import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+
+<ToggleGroup type="single" defaultValue="bold">
+  <ToggleGroupItem value="bold" size="sm">B</ToggleGroupItem>
+  <ToggleGroupItem value="italic" size="sm"><em>I</em></ToggleGroupItem>
+  <ToggleGroupItem value="underline" size="sm"><u>U</u></ToggleGroupItem>
+</ToggleGroup>`}
+/>
+
+## Installation
+
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add toggle-group"
+/>
+
+## Usage
+
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+
+/* Single selection */
+<ToggleGroup type="single" defaultValue="a">
+  <ToggleGroupItem value="a">A</ToggleGroupItem>
+  <ToggleGroupItem value="b">B</ToggleGroupItem>
+  <ToggleGroupItem value="c">C</ToggleGroupItem>
+</ToggleGroup>
+
+/* Multiple selection */
+<ToggleGroup type="multiple" defaultValue={["a", "c"]}>
+  <ToggleGroupItem value="a">A</ToggleGroupItem>
+  <ToggleGroupItem value="b">B</ToggleGroupItem>
+  <ToggleGroupItem value="c">C</ToggleGroupItem>
+</ToggleGroup>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    {
+      prop: "type",
+      type: "'single' | 'multiple'",
+      default: "'single'",
+      description: "Allow single or multiple selection.",
+    },
+    {
+      prop: "value",
+      type: "string | string[]",
+      default: "—",
+      description: "Controlled value.",
+    },
+    {
+      prop: "defaultValue",
+      type: "string | string[]",
+      default: "—",
+      description: "Default value.",
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string) => void",
+      default: "—",
+      description: "Callback when value changes.",
+    },
+  ]}
+/>

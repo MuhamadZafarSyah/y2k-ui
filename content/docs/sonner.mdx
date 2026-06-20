@@ -1,0 +1,128 @@
+---
+title: Sonner (Toast)
+description: A Y2K-window-styled toast notification — pastel title bar, thick navy outline, monospace typography.
+---
+
+# Sonner (Toast)
+
+A toast notification component wrapping the [`sonner`](https://sonner.emilkowal.ski/)
+library. Each toast renders as a **mini Y2K window** — pastel title bar with
+window dots, thick navy border, flat white body, and an ✕ close control.
+
+<ComponentPreview
+  name="sonner-demo"
+  preview={<SonnerDemo />}
+  source={`import { toast } from "sonner"
+import { Button } from "@/components/ui/button"
+
+<Button
+  variant="lemon"
+  onClick={() =>
+    toast.success("Changes saved", {
+      description: "Your preferences have been updated.",
+    })
+  }
+>
+  Success toast
+</Button>
+
+<Button
+  variant="pink"
+  onClick={() =>
+    toast.error("Connection lost", {
+      description: "Check your network and try again.",
+    })
+  }
+>
+  Error toast
+</Button>
+
+<Button
+  variant="blue"
+  onClick={() =>
+    toast.info("New update", {
+      description: "Y2K UI v0.3 is ready to install.",
+    })
+  }
+>
+  Info toast
+</Button>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add sonner" />
+
+You'll also need the `sonner` package installed in your project:
+
+<CodeBlock language="bash" filename="terminal.sh" code="npm install sonner" />
+
+## Usage
+
+Place `<Toaster />` once at the root of your app, then import `toast`
+anywhere to trigger notifications.
+
+```tsx
+// app/layout.tsx — add <Toaster /> inside <body>
+import { Toaster } from "@/components/ui/sonner"
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html>
+      <body>
+        {children}
+        <Toaster />
+      </body>
+    </html>
+  )
+}
+
+// Any client component
+import { toast } from "sonner"
+
+toast.success("Saved!")
+toast.error("Something went wrong")
+toast("Hello world")
+```
+
+## Toast types
+
+| Method | Title bar |
+|--------|-----------|
+| `toast(message)` | Plain white title bar |
+| `toast.success(message)` | Lemon title bar (#ffe45e) |
+| `toast.error(message)` | Pink title bar (#ff8fcf) |
+| `toast.info(message)` | Blue title bar (#8ed1fc) |
+| `toast.warning(message)` | Lilac title bar (#b69cff) |
+
+Each call accepts an options object as the second argument:
+
+```tsx
+toast.success("Title", {
+  description: "Additional detail shown below the body.",
+  duration: 4000,
+  action: {
+    label: "Undo",
+    onClick: () => console.log("Undo"),
+  },
+})
+```
+
+## Props
+
+The `<Toaster />` component accepts all props supported by the underlying
+[Sonner `Toaster`](https://sonner.emilkowal.ski/toaster).
+
+<PropsTable
+  data={[
+    { prop: "closeButton", type: "boolean", default: "true", description: "Show an ✕ close button in the title bar. Enabled by default in Y2K styling." },
+    { prop: "position", type: "'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center'", default: "'bottom-right'", description: "Where toasts appear on screen." },
+    { prop: "duration", type: "number", default: "4000", description: "Time in ms before a toast auto-dismisses. Set to Infinity to disable." },
+    { prop: "expand", type: "boolean", default: "false", description: "Show toasts in an expanded list." },
+    { prop: "visibleToasts", type: "number", default: "3", description: "Maximum number of visible toasts." },
+    { prop: "offset", type: "number | string", default: "24px", description: "Offset from the edge of the screen." },
+    { prop: "gap", type: "number", default: "12", description: "Gap between toasts in px." },
+    { prop: "toastOptions", type: "ToastOptions", description: "Override default styling or add per-toast className." },
+    { prop: "richColors", type: "boolean", default: "false", description: "Use Sonner's built-in rich colors (overrides Y2K styling)." },
+  ]}
+/>

@@ -1,0 +1,76 @@
+---
+title: Sheet
+description: A Y2K slide-in side panel with window-chrome title bar — supports top, bottom, left, and right positions.
+---
+
+# Sheet
+
+A slide-in panel with a Y2K window title bar. Animates from any edge of the screen.
+
+<ComponentPreview
+  name="sheet-demo"
+  preview={<SheetDemo />}
+  source={`import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import { Button } from "@/components/ui/button"
+
+<Sheet>
+  <SheetTrigger asChild>
+    <Button variant="blue">Open Sheet</Button>
+  </SheetTrigger>
+  <SheetContent side="right" title="settings.sys">
+    <SheetHeader>
+      <SheetTitle>Preferences</SheetTitle>
+      <SheetDescription>Adjust your settings.</SheetDescription>
+    </SheetHeader>
+    <p>Sheet content goes here.</p>
+  </SheetContent>
+</Sheet>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add sheet" />
+
+## Usage
+
+```tsx
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
+<Sheet>
+  <SheetTrigger asChild>
+    <Button>Open</Button>
+  </SheetTrigger>
+  <SheetContent side="right" title="panel.app">
+    <SheetHeader>
+      <SheetTitle>Panel Title</SheetTitle>
+      <SheetDescription>Panel description here.</SheetDescription>
+    </SheetHeader>
+    {/* Content */}
+  </SheetContent>
+</Sheet>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "side", type: "'top' | 'bottom' | 'left' | 'right'", default: "'right'", description: "Which edge the sheet slides in from." },
+    { prop: "title", type: "ReactNode", default: "—", description: "Title shown in the window chrome title bar." },
+    { prop: "open", type: "boolean", default: "—", description: "Controlled open state." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", default: "—", description: "Callback when open state changes." },
+  ]}
+/>

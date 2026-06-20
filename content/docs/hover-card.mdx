@@ -1,0 +1,83 @@
+---
+title: Hover Card
+description: A Y2K hover card with thick navy border, flat design, and Radix animations.
+---
+
+# Hover Card
+
+A flat popup card that appears when hovering over a trigger element. Built on
+Radix Hover Card, styled with a thick navy outline, pastel accents, and
+`tw-animate-css` transitions.
+
+<ComponentPreview
+  name="hover-card-demo"
+  preview={<HoverCardDemo />}
+  source={`import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+
+<HoverCard>
+  <HoverCardTrigger asChild>
+    <Button variant="blue">@kawaii_dev</Button>
+  </HoverCardTrigger>
+  <HoverCardContent className="w-72">
+    <div className="flex items-start gap-3">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[6px] border-2 border-[#1b1b3a] bg-[#ffe45e] text-sm font-bold text-[#1b1b3a]">
+        KD
+      </div>
+      <div className="flex-1 space-y-1">
+        <h4 className="font-bold text-[#1b1b3a]">@kawaii_dev</h4>
+        <p className="text-xs text-[#1b1b3a]/70">
+          Y2K UI designer & pixel art enthusiast.
+        </p>
+      </div>
+    </div>
+  </HoverCardContent>
+</HoverCard>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add hover-card" />
+
+## Usage
+
+```tsx
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+```
+
+The Hover Card is an **uncontrolled** component by default — it opens on hover
+and closes when the cursor leaves. You can optionally control it with `open`
+and `onOpenChange`.
+
+```tsx
+<HoverCard>
+  <HoverCardTrigger asChild>
+    <Button variant="mint">Hover me</Button>
+  </HoverCardTrigger>
+  <HoverCardContent className="w-72">
+    <p>Content goes here.</p>
+  </HoverCardContent>
+</HoverCard>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "open", type: "boolean", description: "Controlled open state." },
+    { prop: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Callback when open state changes." },
+    { prop: "openDelay", type: "number", default: "700", description: "Delay in ms before opening on hover." },
+    { prop: "closeDelay", type: "number", default: "300", description: "Delay in ms before closing on hover leave." },
+    { prop: "side", type: "'top' | 'right' | 'bottom' | 'left'", default: "'bottom'", description: "Preferred side relative to the trigger." },
+    { prop: "align", type: "'start' | 'center' | 'end'", default: "'center'", description: "Alignment along the chosen side." },
+    { prop: "sideOffset", type: "number", default: "6", description: "Distance between the trigger and the card." },
+  ]}
+/>

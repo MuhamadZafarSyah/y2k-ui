@@ -1,0 +1,86 @@
+---
+title: Menubar
+description: A Y2K horizontal menu bar with dropdown support — navy outline, pastel highlights, keyboard navigation.
+---
+
+# Menubar
+
+A horizontal menu bar with nested dropdown menus.
+
+<ComponentPreview
+  name="menubar-demo"
+  preview={<MenubarDemo />}
+  source={`import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+
+<Menubar>
+  <MenubarMenu>
+    <MenubarTrigger>File</MenubarTrigger>
+    <MenubarContent>
+      <MenubarItem>New <MenubarShortcut>⌘N</MenubarShortcut></MenubarItem>
+      <MenubarItem>Open <MenubarShortcut>⌘O</MenubarShortcut></MenubarItem>
+      <MenubarSeparator />
+      <MenubarItem>Save <MenubarShortcut>⌘S</MenubarShortcut></MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add menubar" />
+
+## Usage
+
+```tsx
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+
+<Menubar>
+  <MenubarMenu>
+    <MenubarTrigger>File</MenubarTrigger>
+    <MenubarContent>
+      <MenubarItem>New File</MenubarItem>
+      <MenubarItem>Open</MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>
+```
+
+## Sub-components
+
+| Component | Description |
+|-----------|-------------|
+| `<MenubarMenu />` | A menu within the menubar. |
+| `<MenubarTrigger />` | The trigger button inside the menubar. |
+| `<MenubarContent />` | The dropdown content. |
+| `<MenubarItem />` | A clickable menu item. |
+| `<MenubarCheckboxItem />` | A checkbox-style menu item. |
+| `<MenubarRadioItem />` | A radio-style menu item. |
+| `<MenubarSubTrigger />` | Opens a sub-menu. |
+| `<MenubarSubContent />` | Sub-menu content. |
+| `<MenubarSeparator />` | Visual divider. |
+| `<MenubarLabel />` | Non-interactive label. |
+| `<MenubarShortcut />` | Keyboard shortcut hint. |
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "asChild", type: "boolean", default: "false", description: "Merges the trigger into its child." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disables the item." },
+    { prop: "inset", type: "boolean", default: "false", description: "Adds left padding for icon alignment." },
+  ]}
+/>

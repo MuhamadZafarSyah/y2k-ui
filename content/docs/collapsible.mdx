@@ -1,0 +1,59 @@
+---
+title: Collapsible
+description: An expandable Y2K section with a blue title bar — click to reveal or hide content.
+---
+
+# Collapsible
+
+An interactive collapsible section for toggling content visibility.
+
+<ComponentPreview
+  name="collapsible-demo"
+  preview={<CollapsibleDemo />}
+  source={`import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+
+<Collapsible>
+  <CollapsibleTrigger>Show Details</CollapsibleTrigger>
+  <CollapsibleContent>
+    <div>Content here</div>
+  </CollapsibleContent>
+</Collapsible>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add collapsible" />
+
+## Usage
+
+```tsx
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+
+<Collapsible>
+  <CollapsibleTrigger>Toggle content</CollapsibleTrigger>
+  <CollapsibleContent>
+    <p>This content can be shown or hidden.</p>
+  </CollapsibleContent>
+</Collapsible>
+```
+
+## Props
+
+The `<Collapsible />` component is built on top of [Radix Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible). It accepts all Radix Collapsible Root props.
+
+<PropsTable
+  data={[
+    { prop: "defaultOpen", type: "boolean", default: "false", description: "Whether the collapsible is open by default." },
+    { prop: "open", type: "boolean", default: "—", description: "Controlled open state." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", default: "—", description: "Callback when open state changes." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disables the collapsible." },
+  ]}
+/>

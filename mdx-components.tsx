@@ -5,6 +5,13 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { ComponentsTable } from "@/components/docs/components-table";
 import { DialogDefaultDemo, DialogHideControlsDemo } from "@/components/demos/dialog-demo";
 import {
+  ScrollArea,
+  ScrollAreaViewport,
+  Scrollbar,
+  ScrollThumb,
+  ScrollCorner,
+} from "@/components/ui/scroll-area";
+import {
   CardDefaultDemo,
   BadgeColorsDemo,
   TooltipDemo,
@@ -44,6 +51,17 @@ import {
   TableDemo,
   BreadcrumbDemo,
   ToggleDemo,
+  DropdownMenuDemo,
+  HoverCardDemo,
+  ScrollAreaDemo,
+  PaginationDemo,
+  PaginationEllipsisDemo,
+  SonnerDemo,
+  SheetDemo,
+  MenubarDemo,
+  ContextMenuDemo,
+  ToggleGroupDemo,
+  CollapsibleDemo,
 } from "@/components/demos/all-demos";
 import type { MDXComponents } from "mdx/types";
 
@@ -95,6 +113,22 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     TableDemo,
     BreadcrumbDemo,
     ToggleDemo,
+    DropdownMenuDemo,
+    HoverCardDemo,
+    ScrollAreaDemo,
+    PaginationDemo,
+    PaginationEllipsisDemo,
+    SonnerDemo,
+    SheetDemo,
+    MenubarDemo,
+    ContextMenuDemo,
+    ToggleGroupDemo,
+    CollapsibleDemo,
+    ScrollArea,
+    ScrollAreaViewport,
+    Scrollbar,
+    ScrollThumb,
+    ScrollCorner,
     ...components,
   };
 }

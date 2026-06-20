@@ -1,0 +1,174 @@
+---
+title: Dropdown Menu
+description: A Y2K-styled dropdown menu built on Radix primitives. Supports items, checkboxes, radio groups, sub-menus, and keyboard navigation.
+---
+
+# Dropdown Menu
+
+A flat dropdown panel with a thick navy border and pink highlight on hover. Wraps `@radix-ui/react-dropdown-menu` with Y2K styling — perfect for action menus, settings, and navigation.
+
+<ComponentPreview
+  name="dropdown-menu-demo"
+  preview={<DropdownMenuDemo />}
+  source={`import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
+import { SettingsIcon, UserIcon } from "lucide-react"
+
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="blue">Menu</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="w-56">
+    <DropdownMenuLabel>Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>
+      <UserIcon className="size-4" />
+      Profile
+    </DropdownMenuItem>
+    <DropdownMenuItem>
+      <SettingsIcon className="size-4" />
+      Settings
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>`}
+/>
+
+## Installation
+
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add dropdown-menu"
+/>
+
+## Usage
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+```
+
+### Basic menu
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="pink">Actions</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>Actions</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Edit</DropdownMenuItem>
+    <DropdownMenuItem>Duplicate</DropdownMenuItem>
+    <DropdownMenuItem>Delete</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+### With checkboxes
+
+```tsx
+const [items, setItems] = React.useState<string[]>([])
+
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="mint">Filter</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuCheckboxItem
+      checked={items.includes("a")}
+      onCheckedChange={(checked) => {
+        setItems(checked ? [...items, "a"] : items.filter((i) => i !== "a"))
+      }}
+    >
+      Option A
+    </DropdownMenuCheckboxItem>
+    <DropdownMenuCheckboxItem
+      checked={items.includes("b")}
+      onCheckedChange={(checked) => {
+        setItems(checked ? [...items, "b"] : items.filter((i) => i !== "b"))
+      }}
+    >
+      Option B
+    </DropdownMenuCheckboxItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+### With radio group
+
+```tsx
+const [value, setValue] = React.useState("asc")
+
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="lilac">Sort</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>Sort order</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuRadioGroup value={value} onValueChange={setValue}>
+      <DropdownMenuRadioItem value="asc">Ascending</DropdownMenuRadioItem>
+      <DropdownMenuRadioItem value="desc">Descending</DropdownMenuRadioItem>
+    </DropdownMenuRadioGroup>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+### With sub-menus
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="blue">More</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger>Share</DropdownMenuSubTrigger>
+      <DropdownMenuPortal>
+        <DropdownMenuSubContent>
+          <DropdownMenuItem>Copy link</DropdownMenuItem>
+          <DropdownMenuItem>Email</DropdownMenuItem>
+        </DropdownMenuSubContent>
+      </DropdownMenuPortal>
+    </DropdownMenuSub>
+    <DropdownMenuItem>Report</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "open", type: "boolean", description: "Controlled open state of the dropdown." },
+    { prop: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Fired when open state changes." },
+    { prop: "side", type: "'top' | 'right' | 'bottom' | 'left'", default: "'bottom'", description: "Preferred side relative to the trigger." },
+    { prop: "align", type: "'start' | 'center' | 'end'", default: "'center'", description: "Alignment along the chosen side." },
+    { prop: "sideOffset", type: "number", default: "6", description: "Distance between the trigger and the panel." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disable the menu trigger." },
+  ]}
+/>

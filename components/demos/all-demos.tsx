@@ -52,11 +52,18 @@ import { Slider } from "@/components/ui/slider"
 import { Textarea } from "@/components/ui/textarea"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
 import { BarChart, LineChart, DonutChart } from "@/components/ui/chart"
 import { Skeleton, SkeletonCard, SkeletonAvatar, SkeletonButton } from "@/components/ui/skeleton"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { Toggle, ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle"
+import { toast } from "sonner"
+import { Toaster } from "@/components/ui/sonner"
 import {
   SearchIcon,
   MailIcon,
@@ -69,7 +76,73 @@ import {
   HeartIcon,
   StarIcon,
   SendIcon,
+  SettingsIcon,
+  UserIcon,
+  LogOutIcon,
+  HelpCircleIcon,
+  CreditCardIcon,
 } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+  DropdownMenuCheckboxItem,
+} from "@/components/ui/dropdown-menu"
+import {
+  ScrollArea,
+  ScrollAreaViewport,
+  Scrollbar,
+} from "@/components/ui/scroll-area"
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu"
+import { ToggleGroup as ToggleGroupPrimitive, ToggleGroupItem as ToggleGroupItemPrimitive } from "@/components/ui/toggle-group"
 
 export function CardDefaultDemo() {
   return (
@@ -792,5 +865,471 @@ export function ToggleDemo() {
         <ToggleGroupItem value="underline">U</ToggleGroupItem>
       </ToggleGroup>
     </div>
+  )
+}
+
+/* ─── Dropdown Menu Demo ─── */
+
+export function HoverCardDemo() {
+  return (
+    <div className="flex gap-3">
+      <HoverCard>
+        <HoverCardTrigger asChild>
+          <Button variant="blue">@kawaii_dev</Button>
+        </HoverCardTrigger>
+        <HoverCardContent className="w-72">
+          <div className="flex items-start gap-3">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[6px] border-2 border-[#1b1b3a] bg-[#ffe45e] text-sm font-bold text-[#1b1b3a]">
+              KD
+            </div>
+            <div className="flex-1 space-y-1">
+              <h4 className="font-bold text-[#1b1b3a]">@kawaii_dev</h4>
+              <p className="text-xs text-[#1b1b3a]/70">
+                Y2K UI designer &amp; pixel art enthusiast. Building pastel-
+                flavoured components since 2025.
+              </p>
+              <div className="flex gap-2 pt-1">
+                <span className="rounded border-2 border-[#1b1b3a] bg-[#8ed1fc] px-1.5 py-0.5 text-[10px] font-semibold text-[#1b1b3a]">
+                  design
+                </span>
+                <span className="rounded border-2 border-[#1b1b3a] bg-[#ff8fcf] px-1.5 py-0.5 text-[10px] font-semibold text-[#1b1b3a]">
+                  react
+                </span>
+              </div>
+            </div>
+          </div>
+        </HoverCardContent>
+      </HoverCard>
+      <HoverCard>
+        <HoverCardTrigger asChild>
+          <span className="cursor-help border-b-2 border-dotted border-[#b69cff] text-sm font-medium text-[#1b1b3a]">
+            Y2K
+          </span>
+        </HoverCardTrigger>
+        <HoverCardContent className="w-64" side="top">
+          <p className="font-bold text-[#1b1b3a]">What is Y2K?</p>
+          <p className="mt-1 text-xs text-[#1b1b3a]/70">
+            A design aesthetic inspired by the late 90s / early 2000s web —
+            pastel colours, thick outlines, flat panels, and retro-futuristic
+            flair.
+          </p>
+        </HoverCardContent>
+      </HoverCard>
+    </div>
+  )
+}
+
+/* ─── ScrollArea Demo ─── */
+
+const LONG_ITEMS = Array.from({ length: 30 }, (_, i) => ({
+  id: i + 1,
+  label: `Item ${i + 1}`,
+  color: [
+    "bg-[#8ed1fc]",
+    "bg-[#ff8fcf]",
+    "bg-[#b69cff]",
+    "bg-[#8ff0d0]",
+    "bg-[#ffe45e]",
+  ][i % 5],
+}))
+
+export function ScrollAreaDemo() {
+  return (
+    <ScrollArea className="h-60 w-72">
+      <ScrollAreaViewport>
+        <div className="space-y-1.5 p-3">
+          <h4 className="font-heading text-sm font-bold text-[#1b1b3a]">
+            Scrollable List
+          </h4>
+          <p className="text-xs text-[#1b1b3a]/70">
+            This panel scrolls — try it out!
+          </p>
+          <div className="mt-2 space-y-1">
+            {LONG_ITEMS.map((item) => (
+              <div
+                key={item.id}
+                className={`flex items-center gap-2 rounded border-2 border-[#1b1b3a] ${item.color} px-2.5 py-1.5 text-sm font-semibold text-[#1b1b3a]`}
+              >
+                <span className="flex size-5 shrink-0 items-center justify-center rounded border-2 border-[#1b1b3a] bg-white text-[10px] font-bold">
+                  {item.id}
+                </span>
+                {item.label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </ScrollAreaViewport>
+      <Scrollbar orientation="vertical" />
+    </ScrollArea>
+  )
+}
+
+/* ─── Pagination Demo ─── */
+
+export function PaginationDemo() {
+  return (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">2</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive>
+            3
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">4</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">5</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  )
+}
+
+export function PaginationEllipsisDemo() {
+  return (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive>1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">2</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">3</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">8</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">9</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">10</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  )
+}
+
+export function DropdownMenuDemo() {
+  const [bookmarks, setBookmarks] = React.useState<string[]>(["lemon"])
+  const [sortBy, setSortBy] = React.useState("name")
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="blue">Menu</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>Account</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <UserIcon className="size-4" />
+            Profile
+            <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <CreditCardIcon className="size-4" />
+            Billing
+            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <SettingsIcon className="size-4" />
+            Settings
+            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <HelpCircleIcon className="size-4" />
+              Help
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem>FAQ</DropdownMenuItem>
+                <DropdownMenuItem>Contact support</DropdownMenuItem>
+                <DropdownMenuItem>Documentation</DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuLabel className="text-[#1b1b3a]/60">
+          Bookmarks
+        </DropdownMenuLabel>
+        <DropdownMenuCheckboxItem
+          checked={bookmarks.includes("lemon")}
+          onCheckedChange={(checked) => {
+            setBookmarks(
+              checked
+                ? [...bookmarks, "lemon"]
+                : bookmarks.filter((b) => b !== "lemon")
+            )
+          }}
+        >
+          Lemon
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={bookmarks.includes("mint")}
+          onCheckedChange={(checked) => {
+            setBookmarks(
+              checked
+                ? [...bookmarks, "mint"]
+                : bookmarks.filter((b) => b !== "mint")
+            )
+          }}
+        >
+          Mint
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={bookmarks.includes("pink")}
+          onCheckedChange={(checked) => {
+            setBookmarks(
+              checked
+                ? [...bookmarks, "pink"]
+                : bookmarks.filter((b) => b !== "pink")
+            )
+          }}
+        >
+          Pink
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuLabel className="text-[#1b1b3a]/60">
+          Sort by
+        </DropdownMenuLabel>
+        <DropdownMenuRadioGroup value={sortBy} onValueChange={setSortBy}>
+          <DropdownMenuRadioItem value="name">Name</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="date">Date</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="size">Size</DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className="text-[#ff8fcf]">
+          <LogOutIcon className="size-4" />
+          Log out
+          <DropdownMenuShortcut>⌘Q</DropdownMenuShortcut>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+
+/* ─── Sonner Toast Demo ─── */
+
+export function SonnerDemo() {
+  return (
+    <>
+      <div className="flex flex-wrap gap-2">
+        <Button
+          variant="lemon"
+          onClick={() =>
+            toast.success("Changes saved", {
+              description: "Your preferences have been updated.",
+            })
+          }
+        >
+          Success toast
+        </Button>
+        <Button
+          variant="pink"
+          onClick={() =>
+            toast.error("Connection lost", {
+              description: "Check your network and try again.",
+            })
+          }
+        >
+          Error toast
+        </Button>
+        <Button
+          variant="blue"
+          onClick={() =>
+            toast.info("New update", {
+              description: "Y2K UI v0.3 is ready to install.",
+            })
+          }
+        >
+          Info toast
+        </Button>
+      </div>
+      <Toaster />
+    </>
+  )
+}
+
+/* ─── Sheet Demo ─── */
+
+export function SheetDemo() {
+  const [open, setOpen] = React.useState(false)
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button variant="blue">Open Sheet</Button>
+      </SheetTrigger>
+      <SheetContent side="right" title="settings.sys">
+        <SheetHeader>
+          <SheetTitle>Preferences</SheetTitle>
+          <SheetDescription>
+            Adjust your Y2K interface settings.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="mt-4 space-y-3">
+          <div className="flex items-center justify-between rounded border-2 border-[#1b1b3a] px-3 py-2 text-xs font-semibold">
+            <span>Sound Effects</span>
+            <Switch defaultChecked />
+          </div>
+          <div className="flex items-center justify-between rounded border-2 border-[#1b1b3a] px-3 py-2 text-xs font-semibold">
+            <span>Retro Cursor</span>
+            <Switch />
+          </div>
+          <div className="flex items-center justify-between rounded border-2 border-[#1b1b3a] px-3 py-2 text-xs font-semibold">
+            <span>Auto-Update</span>
+            <Switch defaultChecked />
+          </div>
+          <Progress value={68} label="Theme Sync" showValue />
+        </div>
+        <div className="mt-4 flex gap-2">
+          <Button size="sm" variant="lemon" className="flex-1" onClick={() => setOpen(false)}>
+            Save
+          </Button>
+          <Button size="sm" variant="outline" className="flex-1" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+        </div>
+      </SheetContent>
+    </Sheet>
+  )
+}
+
+/* ─── Menubar Demo ─── */
+
+export function MenubarDemo() {
+  return (
+    <Menubar>
+      <MenubarMenu>
+        <MenubarTrigger>File</MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem>
+            New File <MenubarShortcut>⌘N</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem>
+            Open <MenubarShortcut>⌘O</MenubarShortcut>
+          </MenubarItem>
+          <MenubarSeparator />
+          <MenubarItem>
+            Save <MenubarShortcut>⌘S</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem>
+            Save As… <MenubarShortcut>⇧⌘S</MenubarShortcut>
+          </MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+      <MenubarMenu>
+        <MenubarTrigger>Edit</MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem>Undo <MenubarShortcut>⌘Z</MenubarShortcut></MenubarItem>
+          <MenubarItem>Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut></MenubarItem>
+          <MenubarSeparator />
+          <MenubarItem>Cut <MenubarShortcut>⌘X</MenubarShortcut></MenubarItem>
+          <MenubarItem>Copy <MenubarShortcut>⌘C</MenubarShortcut></MenubarItem>
+          <MenubarItem>Paste <MenubarShortcut>⌘V</MenubarShortcut></MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+      <MenubarMenu>
+        <MenubarTrigger>View</MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem>Zoom In <MenubarShortcut>⌘+</MenubarShortcut></MenubarItem>
+          <MenubarItem>Zoom Out <MenubarShortcut>⌘-</MenubarShortcut></MenubarItem>
+          <MenubarSeparator />
+          <MenubarItem>Toggle Sidebar <MenubarShortcut>⌘B</MenubarShortcut></MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+    </Menubar>
+  )
+}
+
+/* ─── Context Menu Demo ─── */
+
+export function ContextMenuDemo() {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger asChild>
+        <div className="flex h-24 w-full cursor-context-menu items-center justify-center rounded border-2 border-dashed border-[#1b1b3a] bg-[#d7dde8]/30 text-xs font-semibold text-[#1b1b3a]/60">
+          Right-click anywhere
+        </div>
+      </ContextMenuTrigger>
+      <ContextMenuContent>
+        <ContextMenuItem inset={false}>
+          <DownloadIcon className="size-3.5" /> Download
+        </ContextMenuItem>
+        <ContextMenuItem inset={false}>
+          <HeartIcon className="size-3.5" /> Add to Favorites
+        </ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuItem inset={false}>
+          <SettingsIcon className="size-3.5" /> Properties
+        </ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  )
+}
+
+/* ─── Toggle Group Demo ─── */
+
+export function ToggleGroupDemo() {
+  return (
+    <ToggleGroupPrimitive type="single" defaultValue="bold">
+      <ToggleGroupItemPrimitive value="bold" size="sm">B</ToggleGroupItemPrimitive>
+      <ToggleGroupItemPrimitive value="italic" size="sm"><span className="italic">I</span></ToggleGroupItemPrimitive>
+      <ToggleGroupItemPrimitive value="underline" size="sm"><span className="underline">U</span></ToggleGroupItemPrimitive>
+      <ToggleGroupItemPrimitive value="strike" size="sm"><span className="line-through">S</span></ToggleGroupItemPrimitive>
+    </ToggleGroupPrimitive>
+  )
+}
+
+/* ─── Collapsible Demo ─── */
+
+export function CollapsibleDemo() {
+  return (
+    <Collapsible>
+      <CollapsibleTrigger>Show Details</CollapsibleTrigger>
+      <CollapsibleContent>
+        <div className="space-y-2">
+          <p className="text-xs text-[#1b1b3a]/70">
+            Y2K UI is a collection of retro-future components built on Radix primitives
+            with thick navy outlines, pastel fills, and a whole lot of personality.
+          </p>
+          <div className="flex gap-1.5">
+            <Badge variant="blue" size="sm">v0.2</Badge>
+            <Badge variant="pink" size="sm">15+ components</Badge>
+            <Badge variant="mint" size="sm">MIT</Badge>
+          </div>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
   )
 }

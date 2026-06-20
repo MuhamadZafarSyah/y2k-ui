@@ -4,6 +4,20 @@
   "homepage": "https://y2k-ui.dev",
   "items": [
     {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner (Toast)",
+      "description": "A Y2K-styled toast notification system powered by Sonner. Flat pastel accents, thick navy outline, monospace typography.",
+      "registryDependencies": [],
+      "dependencies": ["sonner"],
+      "files": [
+        {
+          "path": "components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
@@ -323,6 +337,34 @@
       ]
     },
     {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "A Y2K flat dropdown menu with thick navy border, pink hover highlights, and submenu support.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-dropdown-menu", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "A Y2K flat hover card with thick navy border and pastel accent fills.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-hover-card"],
+      "files": [
+        {
+          "path": "components/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "toggle",
       "type": "registry:ui",
       "title": "Toggle",
@@ -332,6 +374,118 @@
       "files": [
         {
           "path": "components/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "ScrollArea",
+      "description": "A Y2K-styled scrollable panel with thick navy outline, white viewport, and pastel-blue scrollbar thumb.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-scroll-area"],
+      "files": [
+        {
+          "path": "components/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "A Y2K pagination with thick navy borders, pastel active state, monospace numbers, and Prev/Next arrow buttons.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-slot", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "A Y2K toast notification system powered by Sonner — thick navy border, pastel accent tints, flat design.",
+      "registryDependencies": [],
+      "dependencies": ["sonner"],
+      "files": [
+        {
+          "path": "components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A Y2K slide-in side panel with window-chrome title bar. Supports top, bottom, left, and right positions.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-dialog", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "A Y2K horizontal menu bar with dropdown support — navy outline, pastel highlights, keyboard navigation.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-menubar", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "A Y2K right-click context menu with sub-menu, checkbox, and radio item support.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-context-menu", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A Y2K toggle group for selecting one or more options from a set — navy outline, pastel panel.",
+      "registryDependencies": ["toggle"],
+      "dependencies": ["@radix-ui/react-toggle-group", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "A Y2K collapsible section with blue title bar and chevron rotation on expand/collapse.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-collapsible", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/collapsible.tsx",
           "type": "registry:ui"
         }
       ]
