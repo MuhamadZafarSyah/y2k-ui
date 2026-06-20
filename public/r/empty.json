@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty",
+  "title": "Empty",
+  "description": "A Y2K empty state placeholder with dashed border, icon, title, description, and action slots.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/empty.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype EmptyProps = React.ComponentProps<\"div\"> & {\n  icon?: React.ReactNode\n  title?: React.ReactNode\n  description?: React.ReactNode\n  action?: React.ReactNode\n}\n\nfunction Empty({\n  className,\n  icon,\n  title,\n  description,\n  action,\n  children,\n  ...props\n}: EmptyProps) {\n  return (\n    <div\n      data-slot=\"empty\"\n      className={cn(\n        \"flex flex-col items-center justify-center gap-2 rounded border-2 border-dashed border-[#1b1b3a]/30 px-6 py-10 text-center\",\n        className\n      )}\n      {...props}\n    >\n      {icon && (\n        <div\n          data-slot=\"empty-icon\"\n          className=\"text-[#1b1b3a]/50 [&_svg]:size-8\"\n        >\n          {icon}\n        </div>\n      )}\n      {title && (\n        <p data-slot=\"empty-title\" className=\"text-sm font-semibold text-[#1b1b3a]\">\n          {title}\n        </p>\n      )}\n      {description && (\n        <p data-slot=\"empty-description\" className=\"max-w-xs text-xs text-[#1b1b3a]/60\">\n          {description}\n        </p>\n      )}\n      {action && <div data-slot=\"empty-action\">{action}</div>}\n      {children}\n    </div>\n  )\n}\n\nexport { Empty, type EmptyProps }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

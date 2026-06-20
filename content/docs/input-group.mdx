@@ -1,0 +1,45 @@
+---
+title: Input Group
+description: A Y2K grouped input wrapper for combining buttons and inputs.
+---
+
+# Input Group
+
+Groups adjacent inputs and buttons together with seamless borders.
+
+<ComponentPreview
+  name="input-group-demo"
+  preview={<InputGroupDemo />}
+  source={`import { InputGroup } from "@/components/ui/input-group"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+
+<InputGroup>
+  <Input placeholder="Search…" />
+  <Button size="sm">Go</Button>
+</InputGroup>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add input-group" />
+
+## Usage
+
+```tsx
+import { InputGroup } from "@/components/ui/input-group"
+
+<InputGroup>
+  <input data-slot="input" placeholder="Search..." />
+  <button data-slot="button">Go</button>
+</InputGroup>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+    { prop: "children", type: "ReactNode", description: "Inputs and buttons." },
+  ]}
+/>

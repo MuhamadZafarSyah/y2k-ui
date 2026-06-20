@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-group",
+  "title": "Input Group",
+  "description": "A Y2K grouped input wrapper for combining buttons and inputs.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/input-group.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype InputGroupProps = React.ComponentProps<\"div\">\n\nfunction InputGroup({ className, ...props }: InputGroupProps) {\n  return (\n    <div\n      data-slot=\"input-group\"\n      className={cn(\n        \"flex items-center gap-0 rounded border-2 border-[#1b1b3a] bg-white has-[>input:focus]:ring-2 has-[>input:focus]:ring-[#ff8fcf]\",\n        \"[&>[data-slot=input]]:border-none [&>[data-slot=input]]:rounded-none [&>[data-slot=input]]:focus-visible:ring-0\",\n        \"[&>[data-slot=button]:first-child]:rounded-r-none [&>[data-slot=button]:last-child]:rounded-l-none [&>[data-slot=button]]:border-0 [&>[data-slot=button]]:rounded-none\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { InputGroup, type InputGroupProps }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

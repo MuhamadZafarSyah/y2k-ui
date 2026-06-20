@@ -1,0 +1,40 @@
+---
+title: Label
+description: A Y2K label component with thick navy text and peer-disabled state support.
+---
+
+# Label
+
+A text label for form controls.
+
+<ComponentPreview
+  name="label-demo"
+  preview={<LabelDemo />}
+  source={`import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+
+<Label htmlFor="name">Full Name</Label>
+<Input id="name" placeholder="Enter your name" />`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add label" />
+
+## Usage
+
+```tsx
+import { Label } from "@/components/ui/label"
+
+<Label htmlFor="email">Email</Label>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "htmlFor", type: "string", description: "ID of the associated form control." },
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+    { prop: "children", type: "ReactNode", description: "Label content." },
+  ]}
+/>

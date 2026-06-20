@@ -1,0 +1,58 @@
+diff --git a/node_modules/fumadocs-ui/dist/layouts/docs/slots/sidebar.js b/node_modules/fumadocs-ui/dist/layouts/docs/slots/sidebar.js
+index f9f6d5a..e258537 100644
+--- a/node_modules/fumadocs-ui/dist/layouts/docs/slots/sidebar.js
++++ b/node_modules/fumadocs-ui/dist/layouts/docs/slots/sidebar.js
+@@ -34,7 +34,7 @@ function Sidebar({ footer, banner, collapsible = true, components, ...rest }) {
+ 	const viewport = /* @__PURE__ */ jsxs(SidebarViewport, { children: [menuItems.filter((v) => v.type !== "icon").map((item, i, list) => /* @__PURE__ */ jsx(SidebarLinkItem, {
+ 		item,
+ 		className: cn(i === list.length - 1 && "mb-4")
+-	}, i)), /* @__PURE__ */ jsx(SidebarPageTree, { ...components })] });
++	}, i)), /* @__PURE__ */ jsx(SidebarPageTree, { ...components }, "spt")] });
+ 	return /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsxs(SidebarContent, {
+ 		...rest,
+ 		children: [
+@@ -90,7 +90,7 @@ function Sidebar({ footer, banner, collapsible = true, components, ...rest }) {
+ 				]
+ 			})
+ 		]
+-	}), /* @__PURE__ */ jsxs(SidebarDrawer, { children: [
++	}, "sc"), /* @__PURE__ */ jsxs(SidebarDrawer, { children: [
+ 		/* @__PURE__ */ jsxs("div", {
+ 			className: "flex flex-col gap-3 p-4 pb-2",
+ 			children: [
+@@ -131,7 +131,7 @@ function Sidebar({ footer, banner, collapsible = true, components, ...rest }) {
+ 			className: "flex flex-col border-t p-4 pt-2 empty:hidden",
+ 			children: footer
+ 		})
+-	] })] });
++	] }, "sd")] });
+ }
+ function SidebarFolder(props) {
+ 	return /* @__PURE__ */ jsx(SidebarFolder$1, { ...props });
+@@ -160,7 +160,7 @@ function SidebarContent({ ref: refProp, className, children, ...props }) {
+ 			...rest,
+ 			children
+ 		})]
+-	}), /* @__PURE__ */ jsxs("div", {
++	}, "placeholder"), /* @__PURE__ */ jsxs("div", {
+ 		"data-sidebar-panel": "",
+ 		className: cn("fixed flex top-[calc(--spacing(4)+var(--fd-docs-row-3))] inset-s-4 shadow-lg transition-opacity rounded-xl p-0.5 border bg-fd-muted text-fd-muted-foreground z-10", (!collapsed || hovered) && "pointer-events-none opacity-0"),
+ 		children: [/* @__PURE__ */ jsx(SidebarCollapseTrigger$1, {
+@@ -174,14 +174,14 @@ function SidebarContent({ ref: refProp, className, children, ...props }) {
+ 			className: "rounded-lg",
+ 			hideIfDisabled: true
+ 		})]
+-	})] }) });
++	}, "panel")] }) });
+ }
+ function SidebarDrawer({ children, className, ...props }) {
+-	return /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx(SidebarDrawerOverlay, { className: "fixed z-40 inset-0 backdrop-blur-xs data-[state=open]:animate-fd-fade-in data-[state=closed]:animate-fd-fade-out" }), /* @__PURE__ */ jsx(SidebarDrawerContent, {
++	return /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx(SidebarDrawerOverlay, { className: "fixed z-40 inset-0 backdrop-blur-xs data-[state=open]:animate-fd-fade-in data-[state=closed]:animate-fd-fade-out" }, "sdo"), /* @__PURE__ */ jsx(SidebarDrawerContent, {
+ 		className: cn("fixed text-[0.9375rem] flex flex-col shadow-lg border-s inset-e-0 inset-y-0 w-[85%] max-w-[380px] z-40 bg-fd-background data-[state=open]:animate-fd-sidebar-in data-[state=closed]:animate-fd-sidebar-out", className),
+ 		...props,
+ 		children
+-	})] });
++	}, "sdc")] });
+ }
+ function SidebarSeparator({ className, style, children, ...props }) {
+ 	const depth = useFolderDepth();

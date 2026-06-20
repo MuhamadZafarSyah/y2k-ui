@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form",
+  "title": "Form",
+  "description": "A Y2K form component built on Radix primitives with native validation and accessibility.",
+  "dependencies": [
+    "@radix-ui/react-form"
+  ],
+  "registryDependencies": [
+    "label"
+  ],
+  "files": [
+    {
+      "path": "components/ui/form.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Form as FormPrimitive } from \"radix-ui\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Label } from \"@/components/ui/label\"\n\nfunction Form({ ...props }: React.ComponentProps<typeof FormPrimitive.Root>) {\n  return <FormPrimitive.Root data-slot=\"form\" {...props} />\n}\n\nfunction FormField({\n  ...props\n}: React.ComponentProps<typeof FormPrimitive.Field>) {\n  return <FormPrimitive.Field data-slot=\"form-field\" {...props} />\n}\n\nfunction FormLabel({\n  className,\n  ...props\n}: React.ComponentProps<typeof FormPrimitive.Label>) {\n  return (\n    <FormPrimitive.Label asChild>\n      <Label className={cn(\"data-invalid:text-[#ff8fcf]\", className)} {...props} />\n    </FormPrimitive.Label>\n  )\n}\n\nfunction FormControl({\n  ...props\n}: React.ComponentProps<typeof FormPrimitive.Control>) {\n  return <FormPrimitive.Control asChild {...props} />\n}\n\nfunction FormMessage({\n  className,\n  ...props\n}: React.ComponentProps<typeof FormPrimitive.Message>) {\n  return (\n    <FormPrimitive.Message\n      data-slot=\"form-message\"\n      className={cn(\"text-xs font-semibold text-[#ff8fcf]\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction FormSubmit({\n  className,\n  ...props\n}: React.ComponentProps<typeof FormPrimitive.Submit>) {\n  return (\n    <FormPrimitive.Submit\n      data-slot=\"form-submit\"\n      className={className}\n      {...props}\n    />\n  )\n}\n\nexport {\n  Form,\n  FormControl,\n  FormField,\n  FormLabel,\n  FormMessage,\n  FormSubmit,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

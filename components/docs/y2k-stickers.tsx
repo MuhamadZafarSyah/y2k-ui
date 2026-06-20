@@ -34,7 +34,7 @@ function hashString(str: string) {
 interface Sticker {
   id: string;
   src: string;
-  top: number; // in pixels
+  topPct: number;
   side: "left" | "right" | "bg";
   offset: string;
   size: number;
@@ -45,18 +45,17 @@ interface Sticker {
 export function Y2kStickers() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
-  const [pageHeight, setPageHeight] = useState(1200);
+  const [pageHeight, setPageHeight] = useState(0);
 
   useEffect(() => {
     setMounted(true);
     if (typeof window !== "undefined") {
-      const observer = new ResizeObserver((entries) => {
-        for (let entry of entries) {
-          // Use documentElement scrollHeight or entry content rect
-          setPageHeight(document.documentElement.scrollHeight || entry.target.scrollHeight);
-        }
-      });
-      observer.observe(document.body);
+      const updateHeight = () => {
+        setPageHeight(document.documentElement.scrollHeight || document.body.scrollHeight);
+      };
+      updateHeight();
+      const observer = new ResizeObserver(updateHeight);
+      observer.observe(document.documentElement);
       return () => observer.disconnect();
     }
   }, []);
@@ -70,67 +69,60 @@ export function Y2kStickers() {
 
     const svgList = Array.from({ length: 15 }, (_, i) => `/assets/images/${i + 1}.svg`);
 
-    // Vertical coordinates (pixels) for left/right margins (Total 10)
-    const verticalSteps = [
-      120, 320, 550, 780, 1020,
-      1250, 1480, 1720, 1950, 2200
-    ];
-
-    verticalSteps.forEach((baseTop, index) => {
+    for (let i = 0; i < 10; i++) {
       const svg = lcg.nextElement(svgList);
-      const top = baseTop + lcg.nextRange(-45, 45);
-      const isLeft = index % 2 === 0;
-      const offset = lcg.nextRange(-130, -45); // px from edges
-      const size = lcg.nextRange(95, 155); // px
+      const topPct = lcg.nextRange(5 + (i * 85) / 10, 10 + ((i + 1) * 85) / 10);
+      const isLeft = i % 2 === 0;
+      const offset = lcg.nextRange(-130, -45);
+      const size = lcg.nextRange(95, 155);
       const rotate = lcg.nextRange(-25, 25);
-      const opacity = lcg.nextRange(0.6, 0.85); // Increased by 20%
+      const opacity = lcg.nextRange(0.6, 0.85);
 
       generated.push({
-        id: `margin-${index}-${seed}`,
+        id: `margin-${i}-${seed}`,
         src: svg,
-        top,
+        topPct: Math.min(topPct, 88),
         side: isLeft ? "left" : "right",
         offset: `${offset}px`,
         size,
         rotate,
         opacity,
       });
-    });
+    }
 
-    // Vertical coordinates (pixels) for background (Total 5)
-    const bgSteps = [220, 680, 1150, 1620, 2080];
-    bgSteps.forEach((baseTop, index) => {
+    for (let i = 0; i < 5; i++) {
       const svg = lcg.nextElement(svgList);
-      const top = baseTop + lcg.nextRange(-60, 60);
-      const offset = lcg.nextRange(15, 80); // percentage width
+      const topPct = lcg.nextRange(10 + (i * 75) / 5, 15 + ((i + 1) * 75) / 5);
+      const offset = lcg.nextRange(15, 80);
       const size = lcg.nextRange(160, 250);
       const rotate = lcg.nextRange(-15, 15);
-      const opacity = lcg.nextRange(0.18, 0.32); // Increased by 20%
+      const opacity = lcg.nextRange(0.18, 0.32);
 
       generated.push({
-        id: `bg-${index}-${seed}`,
+        id: `bg-${i}-${seed}`,
         src: svg,
-        top,
+        topPct: Math.min(topPct, 85),
         side: "bg",
         offset: `${offset}%`,
         size,
         rotate,
         opacity,
       });
-    });
+    }
 
     return generated;
   }, [pathname]);
 
-  if (!mounted) return null;
-
-  // Filter stickers so we only render ones that actually fit within the current body height
-  const visibleStickers = stickers.filter(s => s.top < pageHeight - 120);
+  if (!mounted || pageHeight === 0) return null;
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-visible select-none z-0">
-      {visibleStickers.map((sticker) => {
+    <div
+      className="pointer-events-none overflow-clip select-none z-0"
+      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: pageHeight }}
+    >
+      {stickers.map((sticker) => {
         const isBg = sticker.side === "bg";
+        const topPx = ((sticker.topPct) / 100) * pageHeight;
 
         return (
           <div
@@ -142,7 +134,7 @@ export function Y2kStickers() {
                 : "hidden lg:block z-10 pointer-events-auto cursor-pointer hover:scale-115 hover:rotate-12 active:scale-95 active:-rotate-6"
             )}
             style={{
-              top: `${sticker.top}px`,
+              top: `${topPx}px`,
               left: sticker.side === "left" ? sticker.offset : sticker.side === "bg" ? sticker.offset : undefined,
               right: sticker.side === "right" ? sticker.offset : undefined,
               width: `${sticker.size}px`,

@@ -1,0 +1,49 @@
+---
+title: Calendar
+description: A Y2K date picker calendar with thick navy grid, pastel selection, and today highlight.
+---
+
+# Calendar
+
+A date picker calendar built on react-day-picker.
+
+<ComponentPreview
+  name="calendar-demo"
+  preview={<CalendarDemo />}
+  source={`"use client"
+import { Calendar } from "@/components/ui/calendar"
+import { useState } from "react"
+
+export function CalendarDemo() {
+  const [date, setDate] = useState<Date | undefined>(new Date())
+  return <Calendar selected={date} onSelect={setDate} mode="single" />
+}`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add calendar" />
+
+## Usage
+
+```tsx
+"use client"
+import { Calendar } from "@/components/ui/calendar"
+import { useState } from "react"
+
+export function Example() {
+  const [date, setDate] = useState<Date | undefined>(new Date())
+  return <Calendar selected={date} onSelect={setDate} mode="single" />
+}
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "mode", type: "'single' | 'multiple' | 'range'", default: "'single'", description: "Selection mode." },
+    { prop: "selected", type: "Date | Date[] | DateRange", description: "Currently selected date(s)." },
+    { prop: "onSelect", type: "function", description: "Called when a date is selected." },
+    { prop: "showOutsideDays", type: "boolean", default: "true", description: "Show days from adjacent months." },
+  ]}
+/>

@@ -1,0 +1,80 @@
+---
+title: Drawer
+description: A Y2K mobile drawer that slides up from the bottom with a drag handle.
+---
+
+# Drawer
+
+A mobile-first slide-in panel from the bottom, powered by Vaul.
+
+<ComponentPreview
+  name="drawer-demo"
+  preview={<DrawerDemo />}
+  source={`import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+} from "@/components/ui/drawer"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
+<Drawer>
+  <DrawerTrigger asChild>
+    <Button variant="blue">Open Drawer</Button>
+  </DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Edit profile</DrawerTitle>
+      <DrawerDescription>Make changes here.</DrawerDescription>
+    </DrawerHeader>
+    <Label htmlFor="uname">Username</Label>
+    <Input id="uname" defaultValue="kawaii_user" />
+  </DrawerContent>
+</Drawer>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add drawer" />
+
+## Usage
+
+```tsx
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+} from "@/components/ui/drawer"
+
+<Drawer>
+  <DrawerTrigger asChild>
+    <Button>Open</Button>
+  </DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Title</DrawerTitle>
+      <DrawerDescription>Description</DrawerDescription>
+    </DrawerHeader>
+    <p>Content goes here.</p>
+  </DrawerContent>
+</Drawer>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "Drawer", type: "see Vaul", description: "Root. Accepts open, onOpenChange, snapPoints." },
+    { prop: "DrawerContent", type: "ReactNode", description: "Slide-up panel with drag handle." },
+    { prop: "DrawerTrigger", type: "ReactNode", description: "Button that opens the drawer." },
+    { prop: "DrawerHeader", type: "ReactNode", description: "Groups title and description." },
+    { prop: "DrawerFooter", type: "ReactNode", description: "Action area at the bottom." },
+  ]}
+/>

@@ -1,0 +1,44 @@
+---
+title: Aspect Ratio
+description: A Y2K aspect ratio container for responsive media embeds.
+---
+
+# Aspect Ratio
+
+A container that maintains a specific aspect ratio for its content.
+
+<ComponentPreview
+  name="aspect-ratio-demo"
+  preview={<AspectRatioDemo />}
+  source={`import { AspectRatio } from "@/components/ui/aspect-ratio"
+
+<div className="w-72">
+  <AspectRatio ratio={16 / 9}>
+    <img src="..." alt="..." />
+  </AspectRatio>
+</div>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add aspect-ratio" />
+
+## Usage
+
+```tsx
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+
+<AspectRatio ratio={16 / 9}>
+  <img src="..." alt="..." />
+</AspectRatio>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "ratio", type: "number", default: "1", description: "Desired width/height ratio." },
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+    { prop: "children", type: "ReactNode", description: "Content to constrain." },
+  ]}
+/>

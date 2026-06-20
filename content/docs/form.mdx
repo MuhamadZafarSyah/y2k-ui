@@ -1,0 +1,64 @@
+---
+title: Form
+description: A Y2K form component built on Radix primitives with native validation and accessibility.
+---
+
+# Form
+
+A form wrapper with native HTML5 validation, powered by Radix.
+
+<ComponentPreview
+  name="form-demo"
+  preview={<FormDemo />}
+  source={`import { Form, FormField, FormLabel, FormControl, FormMessage, FormSubmit } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+
+<Form className="space-y-3">
+  <FormField name="email" serverInvalid>
+    <FormLabel>Email</FormLabel>
+    <FormControl>
+      <Input type="email" required placeholder="you@example.com" />
+    </FormControl>
+    <FormMessage>Email is required</FormMessage>
+  </FormField>
+  <FormSubmit asChild>
+    <Button type="submit">Submit</Button>
+  </FormSubmit>
+</Form>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add form" />
+
+## Usage
+
+```tsx
+import { Form, FormField, FormLabel, FormControl, FormMessage, FormSubmit } from "@/components/ui/form"
+
+<Form>
+  <FormField name="email" serverInvalid>
+    <FormLabel>Email</FormLabel>
+    <FormControl>
+      <Input type="email" required />
+    </FormControl>
+    <FormMessage>Please enter a valid email.</FormMessage>
+  </FormField>
+  <FormSubmit asChild>
+    <Button type="submit">Submit</Button>
+  </FormSubmit>
+</Form>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "FormField", type: "{ name: string }", description: "Wraps a single form field." },
+    { prop: "FormLabel", type: "ReactNode", description: "Styled label (uses Label component)." },
+    { prop: "FormControl", type: "ReactNode", description: "Wraps the input as a child." },
+    { prop: "FormMessage", type: "string", description: "Validation error message." },
+    { prop: "FormSubmit", type: "ReactNode", description: "Submit button." },
+  ]}
+/>

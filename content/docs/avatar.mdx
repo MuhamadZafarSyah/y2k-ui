@@ -44,22 +44,52 @@ sizes, image + fallback slots, and an `AvatarGroup` overlap layout.
 
 ## Installation
 
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add avatar" />
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add avatar"
+/>
 
 ## Usage
 
 ```tsx
-import { Avatar, AvatarImage, AvatarFallback, AvatarGroup } from "@/components/ui/avatar"
+import {
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+  AvatarGroup,
+} from "@/components/ui/avatar";
 ```
 
-## Props
+## Propsdsadas
 
 <PropsTable
   data={[
-    { prop: "size", type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'", default: "'md'", description: "Avatar dimensions." },
-    { prop: "AvatarImage.src", type: "string", description: "Image source URL." },
-    { prop: "AvatarImage.alt", type: "string", description: "Alt text for accessibility." },
-    { prop: "AvatarFallback", type: "ReactNode", description: "Content shown when the image fails to load." },
-    { prop: "AvatarGroup", type: "ReactNode", description: "Stacks avatars with overlapping borders." },
+    {
+      prop: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      default: "'md'",
+      description: "Avatar dimensions.",
+    },
+    {
+      prop: "AvatarImage.src",
+      type: "string",
+      description: "Image source URL.",
+    },
+    {
+      prop: "AvatarImage.alt",
+      type: "string",
+      description: "Alt text for accessibility.",
+    },
+    {
+      prop: "AvatarFallback",
+      type: "ReactNode",
+      description: "Content shown when the image fails to load.",
+    },
+    {
+      prop: "AvatarGroup",
+      type: "ReactNode",
+      description: "Stacks avatars with overlapping borders.",
+    },
   ]}
 />

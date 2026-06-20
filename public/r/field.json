@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field",
+  "title": "Field",
+  "description": "A Y2K form field wrapper with label, description, and error states.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/field.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype FieldProps = React.ComponentProps<\"div\"> & {\n  error?: string\n}\n\nfunction Field({\n  className,\n  error,\n  ...props\n}: FieldProps) {\n  return (\n    <div\n      data-slot=\"field\"\n      data-error={!!error || undefined}\n      className={cn(\n        \"flex flex-col gap-1.5\",\n        \"data-error:[&_[data-slot=input]]:border-[#ff8fcf] data-error:[&_[data-slot=input]]:ring-2 data-error:[&_[data-slot=input]]:ring-[#ff8fcf]/40\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction FieldLabel({\n  className,\n  ...props\n}: React.ComponentProps<\"label\">) {\n  return (\n    <label\n      data-slot=\"field-label\"\n      className={cn(\n        \"text-sm font-medium text-[#1b1b3a]\",\n        \"group-data-disabled:opacity-50\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction FieldControl({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"field-control\"\n      className={cn(\"flex flex-col\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction FieldDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"field-description\"\n      className={cn(\"text-xs text-[#1b1b3a]/60\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction FieldError({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"field-error\"\n      className={cn(\"text-xs font-semibold text-[#ff8fcf]\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Field, FieldControl, FieldDescription, FieldError, FieldLabel, type FieldProps }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

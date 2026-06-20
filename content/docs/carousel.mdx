@@ -1,0 +1,72 @@
+---
+title: Carousel
+description: A Y2K carousel with previous/next navigation, powered by Embla.
+---
+
+# Carousel
+
+A scrollable carousel with previous/next buttons, powered by Embla.
+
+<ComponentPreview
+  name="carousel-demo"
+  preview={<CarouselDemo />}
+  source={`import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel"
+
+<Carousel className="w-full max-w-xs">
+  <CarouselContent>
+    {["Slide 1", "Slide 2", "Slide 3"].map((item, i) => (
+      <CarouselItem key={i}>
+        <div className="flex h-32 items-center justify-center rounded border-2 border-[#1b1b3a] bg-white text-sm font-semibold text-[#1b1b3a]">
+          {item}
+        </div>
+      </CarouselItem>
+    ))}
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add carousel" />
+
+## Usage
+
+```tsx
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel"
+
+<Carousel className="w-full max-w-xs">
+  <CarouselContent>
+    {items.map((item, i) => (
+      <CarouselItem key={i}>
+        <div className="p-4">{item}</div>
+      </CarouselItem>
+    ))}
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "orientation", type: "'horizontal' | 'vertical'", default: "'horizontal'", description: "Scroll direction." },
+    { prop: "opts", type: "EmblaOptionsType", description: "Embla carousel options." },
+    { prop: "setApi", type: "(api: CarouselApi) => void", description: "Callback with the Embla API." },
+  ]}
+/>

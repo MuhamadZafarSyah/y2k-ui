@@ -4,6 +4,318 @@
   "homepage": "https://y2k-ui.dev",
   "items": [
     {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "A Y2K label component with thick navy text and peer-disabled state support.",
+      "registryDependencies": [],
+      "dependencies": ["radix-ui"],
+      "files": [
+        {
+          "path": "components/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "A Y2K aspect ratio container for responsive media embeds.",
+      "registryDependencies": [],
+      "dependencies": ["radix-ui"],
+      "files": [
+        {
+          "path": "components/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "A Y2K circular loading spinner with thick navy border animation.",
+      "registryDependencies": [],
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "KBD",
+      "description": "A Y2K keyboard shortcut badge with thick navy border and monospace font.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "title": "Native Select",
+      "description": "A Y2K native dropdown select with thick navy border and chevron icon.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/native-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "A Y2K grouped input wrapper for combining buttons and inputs.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "A Y2K empty state placeholder with dashed border, icon, title, description, and action slots.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "A Y2K list item with selected and highlighted states.",
+      "registryDependencies": [],
+      "dependencies": ["radix-ui"],
+      "files": [
+        {
+          "path": "components/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "title": "Direction Provider",
+      "description": "A Y2K direction context provider for RTL/LTR layout support.",
+      "registryDependencies": [],
+      "dependencies": ["radix-ui"],
+      "files": [
+        {
+          "path": "components/ui/direction.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "A Y2K confirmation modal with window-chrome styling, action, and cancel buttons.",
+      "registryDependencies": ["button"],
+      "dependencies": ["radix-ui"],
+      "files": [
+        {
+          "path": "components/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "A Y2K command palette with search input, grouped items, and keyboard shortcuts.",
+      "registryDependencies": [],
+      "dependencies": ["cmdk"],
+      "files": [
+        {
+          "path": "components/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "A Y2K navigation menu with dropdown submenus, thick navy borders, and pastel highlights.",
+      "registryDependencies": [],
+      "dependencies": ["radix-ui"],
+      "files": [
+        {
+          "path": "components/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "A Y2K date picker calendar with thick navy grid, pastel selection, and today highlight.",
+      "registryDependencies": ["button"],
+      "dependencies": ["react-day-picker", "date-fns"],
+      "files": [
+        {
+          "path": "components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "A Y2K mobile drawer that slides up from the bottom with a drag handle.",
+      "registryDependencies": [],
+      "dependencies": ["vaul"],
+      "files": [
+        {
+          "path": "components/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "A Y2K one-time password input with individually styled slots and caret animation.",
+      "registryDependencies": [],
+      "dependencies": ["input-otp"],
+      "files": [
+        {
+          "path": "components/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "A Y2K carousel with previous/next navigation, powered by Embla.",
+      "registryDependencies": ["button"],
+      "dependencies": ["embla-carousel-react"],
+      "files": [
+        {
+          "path": "components/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "A Y2K resizable panel layout with draggable handles.",
+      "registryDependencies": [],
+      "dependencies": ["react-resizable-panels"],
+      "files": [
+        {
+          "path": "components/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "A Y2K combobox with search filtering, popup list, and keyboard navigation.",
+      "registryDependencies": [],
+      "dependencies": ["radix-ui", "cmdk"],
+      "files": [
+        {
+          "path": "components/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "A Y2K collapsible sidebar with menu items, group labels, and responsive mobile drawer.",
+      "registryDependencies": [],
+      "dependencies": ["radix-ui", "class-variance-authority", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "hooks/use-mobile.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "A Y2K button group that connects adjacent buttons with shared borders.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "A Y2K form field wrapper with label, description, and error states.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form",
+      "description": "A Y2K form component built on Radix primitives with native validation and accessibility.",
+      "registryDependencies": ["label"],
+      "dependencies": ["@radix-ui/react-form"],
+      "files": [
+        {
+          "path": "components/ui/form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "sonner",
       "type": "registry:ui",
       "title": "Sonner (Toast)",
@@ -416,6 +728,90 @@
       "files": [
         {
           "path": "components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A Y2K slide-in side panel with window-chrome title bar. Supports top, bottom, left, and right positions.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-dialog", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "A Y2K horizontal menu bar with dropdown support — navy outline, pastel highlights, keyboard navigation.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-menubar", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "A Y2K right-click context menu with sub-menu, checkbox, and radio item support.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-context-menu", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A Y2K toggle group for selecting one or more options from a set — navy outline, pastel panel.",
+      "registryDependencies": ["toggle"],
+      "dependencies": ["@radix-ui/react-toggle-group", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "A Y2K collapsible section with blue title bar and chevron rotation on expand/collapse.",
+      "registryDependencies": [],
+      "dependencies": ["@radix-ui/react-collapsible", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "A Y2K date picker with popover calendar, thick navy borders, and pastel accents.",
+      "registryDependencies": ["button", "calendar"],
+      "dependencies": ["radix-ui", "date-fns"],
+      "files": [
+        {
+          "path": "components/ui/date-picker.tsx",
           "type": "registry:ui"
         }
       ]

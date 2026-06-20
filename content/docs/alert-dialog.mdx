@@ -1,0 +1,85 @@
+---
+title: Alert Dialog
+description: A Y2K confirmation modal with window-chrome styling, action, and cancel buttons.
+---
+
+# Alert Dialog
+
+A modal dialog for confirming destructive or important actions.
+
+<ComponentPreview
+  name="alert-dialog-demo"
+  preview={<AlertDialogDemo />}
+  source={`import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@/components/ui/alert-dialog"
+import { Button } from "@/components/ui/button"
+
+<AlertDialog>
+  <AlertDialogTrigger asChild>
+    <Button variant="destructive">Delete account</Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+      <AlertDialogDescription>
+        This action cannot be undone.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Delete</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add alert-dialog" />
+
+## Usage
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@/components/ui/alert-dialog"
+
+<AlertDialog>
+  <AlertDialogTrigger asChild>
+    <Button variant="destructive">Delete</Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    ...
+  </AlertDialogContent>
+</AlertDialog>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "AlertDialog", type: "see Radix", description: "Root. Accepts open, defaultOpen, onOpenChange." },
+    { prop: "AlertDialogContent", type: "ReactNode", description: "Modal panel with navy border and pastel panel fill." },
+    { prop: "AlertDialogHeader", type: "ReactNode", description: "Groups title and description." },
+    { prop: "AlertDialogFooter", type: "ReactNode", description: "Groups action/cancel buttons." },
+    { prop: "AlertDialogAction", type: "ReactNode", description: "Primary action button (default variant)." },
+    { prop: "AlertDialogCancel", type: "ReactNode", description: "Cancel button (outline variant)." },
+  ]}
+/>

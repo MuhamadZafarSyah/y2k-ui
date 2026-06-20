@@ -1,0 +1,53 @@
+---
+title: Field
+description: A Y2K form field wrapper with label, description, and error states.
+---
+
+# Field
+
+A layout wrapper for form controls with label, description, and error message slots.
+
+<ComponentPreview
+  name="field-demo"
+  preview={<FieldDemo />}
+  source={`import { Field, FieldLabel, FieldControl, FieldDescription } from "@/components/ui/field"
+import { Input } from "@/components/ui/input"
+
+<Field>
+  <FieldLabel htmlFor="email">Email</FieldLabel>
+  <FieldControl>
+    <Input id="email" type="email" placeholder="you@example.com" />
+  </FieldControl>
+  <FieldDescription>We'll never share your email.</FieldDescription>
+</Field>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add field" />
+
+## Usage
+
+```tsx
+import { Field, FieldLabel, FieldControl, FieldDescription, FieldError } from "@/components/ui/field"
+
+<Field>
+  <FieldLabel htmlFor="email">Email</FieldLabel>
+  <FieldControl>
+    <Input id="email" />
+  </FieldControl>
+  <FieldDescription>We'll never share your email.</FieldDescription>
+  <FieldError>Email is required.</FieldError>
+</Field>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "error", type: "string", description: "Shows error state on the input when set." },
+    { prop: "FieldLabel", type: "ReactNode", description: "Label for the form control." },
+    { prop: "FieldDescription", type: "ReactNode", description: "Helper text below the control." },
+    { prop: "FieldError", type: "ReactNode", description: "Error message in pink." },
+  ]}
+/>

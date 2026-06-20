@@ -22,8 +22,8 @@ export default async function Page(props: {
   return (
     <DocsPage toc={toc}>
       <Y2kStickers />
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      {/* <DocsTitle>{page.data.title}</DocsTitle> */}
+      {/* <DocsDescription>{page.data.description}</DocsDescription> */}
       <DocsBody>
         <MDX components={getMDXComponents()} />
       </DocsBody>

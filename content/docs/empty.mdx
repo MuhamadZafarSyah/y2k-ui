@@ -1,0 +1,53 @@
+---
+title: Empty
+description: A Y2K empty state placeholder with dashed border, icon, title, description, and action slots.
+---
+
+# Empty
+
+An empty state placeholder for when no data is available.
+
+<ComponentPreview
+  name="empty-demo"
+  preview={<EmptyDemo />}
+  source={`import { Empty } from "@/components/ui/empty"
+import { SearchIcon } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+<Empty
+  icon={<SearchIcon />}
+  title="No results found"
+  description="Try adjusting your search terms or filters."
+  action={<Button size="sm">Clear filters</Button>}
+/>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add empty" />
+
+## Usage
+
+```tsx
+import { Empty } from "@/components/ui/empty"
+
+<Empty
+  icon={<InboxIcon />}
+  title="No messages"
+  description="You have no unread messages."
+  action={<Button>New message</Button>}
+/>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "icon", type: "ReactNode", description: "Icon displayed above the title." },
+    { prop: "title", type: "ReactNode", description: "Primary heading text." },
+    { prop: "description", type: "ReactNode", description: "Supporting description." },
+    { prop: "action", type: "ReactNode", description: "Call-to-action element." },
+    { prop: "children", type: "ReactNode", description: "Additional custom content." },
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+  ]}
+/>

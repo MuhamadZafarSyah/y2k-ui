@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "A Y2K circular loading spinner with thick navy border animation.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/spinner.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst spinnerVariants = cva(\n  \"inline-block shrink-0 animate-spin rounded-full border-2 border-[#1b1b3a]/20 border-t-[#1b1b3a]\",\n  {\n    variants: {\n      size: {\n        sm: \"size-4\",\n        md: \"size-5\",\n        lg: \"size-6\",\n        xl: \"size-8\",\n      },\n    },\n    defaultVariants: {\n      size: \"md\",\n    },\n  }\n)\n\nfunction Spinner({\n  className,\n  size,\n  ...props\n}: React.ComponentProps<\"span\"> & VariantProps<typeof spinnerVariants>) {\n  return (\n    <span\n      data-slot=\"spinner\"\n      data-size={size}\n      className={cn(spinnerVariants({ size }), className)}\n      aria-hidden=\"true\"\n      {...props}\n    />\n  )\n}\n\nexport { Spinner, spinnerVariants }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -335,20 +335,20 @@
     font-size: 1.35rem !important;
     font-weight: 900 !important;
     color: #1b1b3a !important;
-    border-bottom: 3px solid #8ed1fc !important;
+    /* border-bottom: 3px solid #8ed1fc !important; */
     padding-bottom: 0.3rem !important;
-    margin-top: 2.5rem !important;
+    /* margin-top: 2.5rem !important; */
     margin-bottom: 1rem !important;
   }
   .prose h3 {
     font-size: 1.1rem !important;
     font-weight: 800 !important;
     color: #1b1b3a !important;
-    margin-top: 2rem !important;
+    /* margin-top: 2rem !important; */
   }
   .prose p {
     color: #1b1b3a !important;
-    line-height: 1.75 !important;
+    /* line-height: 1.75 !important; */
   }
   .prose a {
     color: #1b1b3a !important;
@@ -417,6 +417,22 @@
   .prose tr:nth-child(even) td {
     background: #d7dde8 !important;
   }
+  /* ── Exclude calendar from prose table styles ── */
+  .prose [data-slot="calendar"] table,
+  .prose [data-slot="calendar"] thead,
+  .prose [data-slot="calendar"] tbody,
+  .prose [data-slot="calendar"] th,
+  .prose [data-slot="calendar"] td,
+  .prose [data-slot="calendar"] tr {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+  .prose [data-slot="calendar"] tr:nth-child(even) td {
+    background: transparent !important;
+  }
+
   .prose hr {
     border-color: #b69cff !important;
     border-width: 2px !important;

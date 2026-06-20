@@ -1,0 +1,44 @@
+---
+title: Item
+description: A Y2K list item with selected and highlighted states.
+---
+
+# Item
+
+A selectable list item with selected, highlighted, and disabled states.
+
+<ComponentPreview
+  name="item-demo"
+  preview={<ItemDemo />}
+  source={`import { Item, ItemLabel, ItemIndicator } from "@/components/ui/item"
+
+<Item selected>
+  <ItemIndicator>✓</ItemIndicator>
+  <ItemLabel>Selected option</ItemLabel>
+</Item>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add item" />
+
+## Usage
+
+```tsx
+import { Item, ItemLabel, ItemIndicator } from "@/components/ui/item"
+
+<Item selected>
+  <ItemIndicator>✓</ItemIndicator>
+  <ItemLabel>Selected option</ItemLabel>
+</Item>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "selected", type: "boolean", default: "false", description: "Marks the item as selected." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disables interaction." },
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+  ]}
+/>

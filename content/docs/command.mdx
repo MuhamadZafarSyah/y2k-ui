@@ -1,0 +1,79 @@
+---
+title: Command
+description: A Y2K command palette with search input, grouped items, and keyboard shortcuts.
+---
+
+# Command
+
+A command palette and search component powered by cmdk.
+
+<ComponentPreview
+  name="command-demo"
+  preview={<CommandDemo />}
+  source={`import {
+  Command,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandShortcut,
+} from "@/components/ui/command"
+
+<Command>
+  <CommandInput placeholder="Type a command…" />
+  <CommandList>
+    <CommandEmpty>No results.</CommandEmpty>
+    <CommandGroup heading="Actions">
+      <CommandItem>
+        <span>New File</span>
+        <CommandShortcut>⌘N</CommandShortcut>
+      </CommandItem>
+      <CommandItem>
+        <span>Search</span>
+        <CommandShortcut>⌘K</CommandShortcut>
+      </CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add command" />
+
+## Usage
+
+```tsx
+import {
+  Command,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandShortcut,
+} from "@/components/ui/command"
+
+<Command className="w-72">
+  <CommandInput placeholder="Type a command..." />
+  <CommandList>
+    <CommandEmpty>No results.</CommandEmpty>
+    <CommandGroup heading="Actions">
+      <CommandItem>New File <CommandShortcut>⌘N</CommandShortcut></CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "CommandInput", type: "see cmdk", description: "Filterable search input." },
+    { prop: "CommandEmpty", type: "ReactNode", description: "Shown when no results match." },
+    { prop: "CommandGroup", type: "{ heading?: string }", description: "Groups items under a label." },
+    { prop: "CommandItem", type: "see cmdk", description: "Selectable command item." },
+    { prop: "CommandShortcut", type: "ReactNode", description: "Keyboard hint label." },
+  ]}
+/>

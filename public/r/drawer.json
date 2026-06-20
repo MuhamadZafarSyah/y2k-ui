@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer",
+  "title": "Drawer",
+  "description": "A Y2K mobile drawer that slides up from the bottom with a drag handle.",
+  "dependencies": [
+    "vaul"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/drawer.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Drawer as DrawerPrimitive } from \"vaul\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Drawer({\n  ...props\n}: React.ComponentProps<typeof DrawerPrimitive.Root>) {\n  return <DrawerPrimitive.Root data-slot=\"drawer\" {...props} />\n}\n\nfunction DrawerTrigger({\n  ...props\n}: React.ComponentProps<typeof DrawerPrimitive.Trigger>) {\n  return <DrawerPrimitive.Trigger data-slot=\"drawer-trigger\" {...props} />\n}\n\nfunction DrawerPortal({\n  ...props\n}: React.ComponentProps<typeof DrawerPrimitive.Portal>) {\n  return <DrawerPrimitive.Portal data-slot=\"drawer-portal\" {...props} />\n}\n\nfunction DrawerClose({\n  ...props\n}: React.ComponentProps<typeof DrawerPrimitive.Close>) {\n  return <DrawerPrimitive.Close data-slot=\"drawer-close\" {...props} />\n}\n\nfunction DrawerOverlay({\n  className,\n  ...props\n}: React.ComponentProps<typeof DrawerPrimitive.Overlay>) {\n  return (\n    <DrawerPrimitive.Overlay\n      data-slot=\"drawer-overlay\"\n      className={cn(\"fixed inset-0 z-50 bg-[#1b1b3a]/30\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction DrawerContent({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<typeof DrawerPrimitive.Content>) {\n  return (\n    <DrawerPortal>\n      <DrawerOverlay />\n      <DrawerPrimitive.Content\n        data-slot=\"drawer-content\"\n        className={cn(\n          \"fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-md border-2 border-b-0 border-[#1b1b3a] bg-[#d7dde8] text-[#1b1b3a] outline-none\",\n          className\n        )}\n        {...props}\n      >\n        <div className=\"mx-auto mt-2 h-1.5 w-8 shrink-0 rounded-full bg-[#1b1b3a]/30\" />\n        <div className=\"p-4\">{children}</div>\n      </DrawerPrimitive.Content>\n    </DrawerPortal>\n  )\n}\n\nfunction DrawerHeader({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"drawer-header\"\n      className={cn(\"flex flex-col gap-1\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction DrawerFooter({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"drawer-footer\"\n      className={cn(\"mt-auto flex flex-col gap-2\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction DrawerTitle({\n  className,\n  ...props\n}: React.ComponentProps<typeof DrawerPrimitive.Title>) {\n  return (\n    <DrawerPrimitive.Title\n      data-slot=\"drawer-title\"\n      className={cn(\n        \"font-heading text-base font-semibold text-[#1b1b3a]\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction DrawerDescription({\n  className,\n  ...props\n}: React.ComponentProps<typeof DrawerPrimitive.Description>) {\n  return (\n    <DrawerPrimitive.Description\n      data-slot=\"drawer-description\"\n      className={cn(\"text-sm text-[#1b1b3a]/80\", className)}\n      {...props}\n    />\n  )\n}\n\nexport {\n  Drawer,\n  DrawerClose,\n  DrawerContent,\n  DrawerDescription,\n  DrawerFooter,\n  DrawerHeader,\n  DrawerOverlay,\n  DrawerPortal,\n  DrawerTitle,\n  DrawerTrigger,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

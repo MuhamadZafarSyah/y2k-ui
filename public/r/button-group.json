@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-group",
+  "title": "Button Group",
+  "description": "A Y2K button group that connects adjacent buttons with shared borders.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/button-group.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype ButtonGroupProps = React.ComponentProps<\"div\"> & {\n  orientation?: \"horizontal\" | \"vertical\"\n}\n\nfunction ButtonGroup({\n  className,\n  orientation = \"horizontal\",\n  ...props\n}: ButtonGroupProps) {\n  return (\n    <div\n      data-slot=\"button-group\"\n      data-orientation={orientation}\n      className={cn(\n        \"flex\",\n        orientation === \"horizontal\" && \"flex-row [&>[data-slot=button]:first-child]:rounded-r-none [&>[data-slot=button]:last-child]:rounded-l-none [&>[data-slot=button]:not(:first-child)]:-ml-[2px]\",\n        orientation === \"vertical\" && \"flex-col [&>[data-slot=button]:first-child]:rounded-b-none [&>[data-slot=button]:last-child]:rounded-t-none [&>[data-slot=button]:not(:first-child)]:-mt-[2px]\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { ButtonGroup, type ButtonGroupProps }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

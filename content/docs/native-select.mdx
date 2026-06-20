@@ -1,0 +1,47 @@
+---
+title: Native Select
+description: A Y2K native dropdown select with thick navy border and chevron icon.
+---
+
+# Native Select
+
+A styled native `<select>` element with a custom chevron.
+
+<ComponentPreview
+  name="native-select-demo"
+  preview={<NativeSelectDemo />}
+  source={`import { NativeSelect } from "@/components/ui/native-select"
+
+<NativeSelect>
+  <option>Pilih warna</option>
+  <option>Blue</option>
+  <option>Pink</option>
+  <option>Mint</option>
+  <option>Lemon</option>
+</NativeSelect>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add native-select" />
+
+## Usage
+
+```tsx
+import { NativeSelect } from "@/components/ui/native-select"
+
+<NativeSelect>
+  <option>Option 1</option>
+  <option>Option 2</option>
+</NativeSelect>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "leadingIcon", type: "ReactNode", description: "Icon shown before the select text." },
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+    { prop: "children", type: "ReactNode", description: "Option elements." },
+  ]}
+/>

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-otp",
+  "title": "Input OTP",
+  "description": "A Y2K one-time password input with individually styled slots and caret animation.",
+  "dependencies": [
+    "input-otp"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/input-otp.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { OTPInput, OTPInputContext } from \"input-otp\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction InputOTP({\n  className,\n  containerClassName,\n  ...props\n}: React.ComponentProps<typeof OTPInput>) {\n  return (\n    <OTPInput\n      data-slot=\"input-otp\"\n      containerClassName={cn(\n        \"flex items-center gap-2 has-disabled:opacity-50\",\n        containerClassName\n      )}\n      className={cn(\"disabled:cursor-not-allowed\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction InputOTPGroup({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"input-otp-group\"\n      className={cn(\"flex items-center gap-0\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction InputOTPSlot({\n  index,\n  className,\n  ...props\n}: React.ComponentProps<\"div\"> & { index: number }) {\n  const inputOTPContext = React.useContext(OTPInputContext)\n  const slot = inputOTPContext.slots[index]\n  const char = slot?.char ?? \"\"\n  const hasFakeCaret = slot?.hasFakeCaret ?? false\n  const isActive = slot?.isActive ?? false\n\n  return (\n    <div\n      data-slot=\"input-otp-slot\"\n      data-active={isActive}\n      className={cn(\n        \"relative flex h-9 w-9 items-center justify-center border-2 border-[#1b1b3a] bg-white text-sm text-[#1b1b3a] font-mono font-semibold transition-all\",\n        \"first:rounded-l-[4px] first:border-r-0 last:rounded-r-[4px] last:border-l-0\",\n        \"data-active:ring-2 data-active:ring-[#ff8fcf] data-active:z-10\",\n        className\n      )}\n      {...props}\n    >\n      {char}\n      {hasFakeCaret && (\n        <div className=\"pointer-events-none absolute inset-0 flex items-center justify-center\">\n          <div className=\"h-4 w-px animate-pulse bg-[#1b1b3a]\" />\n        </div>\n      )}\n    </div>\n  )\n}\n\nfunction InputOTPSeparator({\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div data-slot=\"input-otp-separator\" {...props}>\n      <svg\n        className=\"size-3 text-[#1b1b3a]/50\"\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeWidth=\"2\"\n        aria-hidden=\"true\"\n      >\n        <circle cx=\"12\" cy=\"5\" r=\"1\" />\n        <circle cx=\"12\" cy=\"12\" r=\"1\" />\n        <circle cx=\"12\" cy=\"19\" r=\"1\" />\n      </svg>\n    </div>\n  )\n}\n\nexport { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

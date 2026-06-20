@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "KBD",
+  "description": "A Y2K keyboard shortcut badge with thick navy border and monospace font.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/kbd.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Kbd({\n  className,\n  ...props\n}: React.ComponentProps<\"kbd\">) {\n  return (\n    <kbd\n      data-slot=\"kbd\"\n      className={cn(\n        \"inline-flex items-center justify-center rounded border-2 border-[#1b1b3a] bg-white px-1.5 py-0.5 font-mono text-[10px] font-semibold text-[#1b1b3a] leading-none\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Kbd }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

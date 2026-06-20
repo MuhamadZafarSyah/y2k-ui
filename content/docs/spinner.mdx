@@ -1,0 +1,43 @@
+---
+title: Spinner
+description: A Y2K circular loading spinner with thick navy border animation.
+---
+
+# Spinner
+
+A circular loading indicator in four sizes.
+
+<ComponentPreview
+  name="spinner-demo"
+  preview={<SpinnerDemo />}
+  source={`import { Spinner } from "@/components/ui/spinner"
+
+<div className="flex items-end gap-4">
+  <Spinner size="sm" />
+  <Spinner size="md" />
+  <Spinner size="lg" />
+  <Spinner size="xl" />
+</div>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add spinner" />
+
+## Usage
+
+```tsx
+import { Spinner } from "@/components/ui/spinner"
+
+<Spinner />
+<Spinner size="lg" />
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "size", type: "'sm' | 'md' | 'lg' | 'xl'", default: "'md'", description: "Diameter of the spinner." },
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+  ]}
+/>

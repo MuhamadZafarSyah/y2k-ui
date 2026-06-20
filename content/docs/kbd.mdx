@@ -1,0 +1,42 @@
+---
+title: KBD
+description: A Y2K keyboard shortcut badge with thick navy border and monospace font.
+---
+
+# KBD
+
+Keyboard shortcut labels with a thick navy badge.
+
+<ComponentPreview
+  name="kbd-demo"
+  preview={<KbdDemo />}
+  source={`import { Kbd } from "@/components/ui/kbd"
+
+<div className="flex flex-wrap items-center gap-2">
+  <Kbd>⌘K</Kbd>
+  <Kbd>Ctrl + S</Kbd>
+  <Kbd>⇧⌘P</Kbd>
+  <Kbd>⌥⌘I</Kbd>
+</div>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add kbd" />
+
+## Usage
+
+```tsx
+import { Kbd } from "@/components/ui/kbd"
+
+<Kbd>⌘K</Kbd>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+    { prop: "children", type: "ReactNode", description: "Keyboard shortcut text." },
+  ]}
+/>

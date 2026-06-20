@@ -7,6 +7,14 @@ description: Y2K-styled interactive charts powered by Recharts with thick outlin
 
 Interactive chart components powered by [Recharts](https://recharts.org) with Y2K styling — thick navy outlines, pastel fills, custom tooltips, and retro window frames.
 
+## Installation
+
+<CodeBlock
+  language="bash"
+  filename="terminal.sh"
+  code="npx y2kui@latest add chart"
+/>
+
 ## Bar Chart
 
 A flat bar chart with thick navy outlines, pastel fills, and a custom Y2K tooltip. Great for comparing discrete values across categories.
@@ -19,11 +27,11 @@ A flat bar chart with thick navy outlines, pastel fills, and a custom Y2K toolti
   source={`import { BarChart } from "@/components/ui/chart"
 
 const data = [
-  { label: "Mon", value: 120 },
-  { label: "Tue", value: 250 },
-  { label: "Wed", value: 180 },
-  { label: "Thu", value: 320 },
-  { label: "Fri", value: 210 },
+{ label: "Mon", value: 120 },
+{ label: "Tue", value: 250 },
+{ label: "Wed", value: 180 },
+{ label: "Thu", value: 320 },
+{ label: "Fri", value: 210 },
 ]
 
 <BarChart data={data} />`}
@@ -32,7 +40,7 @@ const data = [
 ### Usage
 
 ```tsx
-import { BarChart } from "@/components/ui/chart"
+import { BarChart } from "@/components/ui/chart";
 
 const data = [
   { label: "Mon", value: 120 },
@@ -40,10 +48,10 @@ const data = [
   { label: "Wed", value: 180 },
   { label: "Thu", value: 320 },
   { label: "Fri", value: 210 },
-]
+];
 
 export function Example() {
-  return <BarChart data={data} />
+  return <BarChart data={data} />;
 }
 ```
 
@@ -51,10 +59,29 @@ export function Example() {
 
 <PropsTable
   data={[
-    { prop: "data", type: "{ label: string; value: number; color?: string }[]", description: "Array of data points for the chart." },
-    { prop: "height", type: "number", default: "280", description: "Chart height in pixels." },
-    { prop: "showGrid", type: "boolean", default: "true", description: "Show background grid lines." },
-    { prop: "showTooltip", type: "boolean", default: "true", description: "Show interactive tooltip on hover." },
+    {
+      prop: "data",
+      type: "{ label: string; value: number; color?: string }[]",
+      description: "Array of data points for the chart.",
+    },
+    {
+      prop: "height",
+      type: "number",
+      default: "280",
+      description: "Chart height in pixels.",
+    },
+    {
+      prop: "showGrid",
+      type: "boolean",
+      default: "true",
+      description: "Show background grid lines.",
+    },
+    {
+      prop: "showTooltip",
+      type: "boolean",
+      default: "true",
+      description: "Show interactive tooltip on hover.",
+    },
   ]}
 />
 
@@ -70,12 +97,12 @@ A line chart with thick navy stroke, gradient area fill, and smooth Y2K tooltips
   source={`import { LineChart } from "@/components/ui/chart"
 
 const data = [
-  { label: "Jan", value: 80 },
-  { label: "Feb", value: 195 },
-  { label: "Mar", value: 130 },
-  { label: "Apr", value: 280 },
-  { label: "May", value: 220 },
-  { label: "Jun", value: 350 },
+{ label: "Jan", value: 80 },
+{ label: "Feb", value: 195 },
+{ label: "Mar", value: 130 },
+{ label: "Apr", value: 280 },
+{ label: "May", value: 220 },
+{ label: "Jun", value: 350 },
 ]
 
 <LineChart data={data} />`}
@@ -84,7 +111,7 @@ const data = [
 ### Usage
 
 ```tsx
-import { LineChart } from "@/components/ui/chart"
+import { LineChart } from "@/components/ui/chart";
 
 const data = [
   { label: "Jan", value: 80 },
@@ -93,10 +120,10 @@ const data = [
   { label: "Apr", value: 280 },
   { label: "May", value: 220 },
   { label: "Jun", value: 350 },
-]
+];
 
 export function Example() {
-  return <LineChart data={data} />
+  return <LineChart data={data} />;
 }
 ```
 
@@ -104,12 +131,41 @@ export function Example() {
 
 <PropsTable
   data={[
-    { prop: "data", type: "{ label: string; value: number }[]", description: "Array of data points." },
-    { prop: "color", type: "string", default: "var(--y2k-pink)", description: "Line color (CSS variable or hex)." },
-    { prop: "height", type: "number", default: "280", description: "Chart height in pixels." },
-    { prop: "showArea", type: "boolean", default: "true", description: "Show gradient area fill under the line." },
-    { prop: "showGrid", type: "boolean", default: "true", description: "Show background grid lines." },
-    { prop: "showTooltip", type: "boolean", default: "true", description: "Show interactive tooltip on hover." },
+    {
+      prop: "data",
+      type: "{ label: string; value: number }[]",
+      description: "Array of data points.",
+    },
+    {
+      prop: "color",
+      type: "string",
+      default: "var(--y2k-pink)",
+      description: "Line color (CSS variable or hex).",
+    },
+    {
+      prop: "height",
+      type: "number",
+      default: "280",
+      description: "Chart height in pixels.",
+    },
+    {
+      prop: "showArea",
+      type: "boolean",
+      default: "true",
+      description: "Show gradient area fill under the line.",
+    },
+    {
+      prop: "showGrid",
+      type: "boolean",
+      default: "true",
+      description: "Show background grid lines.",
+    },
+    {
+      prop: "showTooltip",
+      type: "boolean",
+      default: "true",
+      description: "Show interactive tooltip on hover.",
+    },
   ]}
 />
 
@@ -125,10 +181,10 @@ A donut chart with thick navy outlines and pastel segments. Ideal for showing pa
   source={`import { DonutChart } from "@/components/ui/chart"
 
 const data = [
-  { label: "Blue", value: 450, color: "var(--y2k-blue)" },
-  { label: "Pink", value: 280, color: "var(--y2k-pink)" },
-  { label: "Mint", value: 180, color: "var(--y2k-mint)" },
-  { label: "Lemon", value: 120, color: "var(--y2k-lemon)" },
+{ label: "Blue", value: 450, color: "var(--y2k-blue)" },
+{ label: "Pink", value: 280, color: "var(--y2k-pink)" },
+{ label: "Mint", value: 180, color: "var(--y2k-mint)" },
+{ label: "Lemon", value: 120, color: "var(--y2k-lemon)" },
 ]
 
 <DonutChart data={data} />`}
@@ -137,17 +193,17 @@ const data = [
 ### Usage
 
 ```tsx
-import { DonutChart } from "@/components/ui/chart"
+import { DonutChart } from "@/components/ui/chart";
 
 const data = [
   { label: "Blue", value: 450, color: "var(--y2k-blue)" },
   { label: "Pink", value: 280, color: "var(--y2k-pink)" },
   { label: "Mint", value: 180, color: "var(--y2k-mint)" },
   { label: "Lemon", value: 120, color: "var(--y2k-lemon)" },
-]
+];
 
 export function Example() {
-  return <DonutChart data={data} />
+  return <DonutChart data={data} />;
 }
 ```
 
@@ -155,12 +211,22 @@ export function Example() {
 
 <PropsTable
   data={[
-    { prop: "data", type: "{ label: string; value: number; color?: string }[]", description: "Array of segments." },
-    { prop: "size", type: "number", default: "280", description: "Chart size in pixels." },
-    { prop: "showTooltip", type: "boolean", default: "true", description: "Show interactive tooltip on hover." },
+    {
+      prop: "data",
+      type: "{ label: string; value: number; color?: string }[]",
+      description: "Array of segments.",
+    },
+    {
+      prop: "size",
+      type: "number",
+      default: "280",
+      description: "Chart size in pixels.",
+    },
+    {
+      prop: "showTooltip",
+      type: "boolean",
+      default: "true",
+      description: "Show interactive tooltip on hover.",
+    },
   ]}
 />
-
-## Installation
-
-<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add chart" />

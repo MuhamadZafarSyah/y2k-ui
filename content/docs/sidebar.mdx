@@ -1,0 +1,103 @@
+---
+title: Sidebar
+description: A Y2K collapsible sidebar with menu items, group labels, and responsive mobile drawer.
+---
+
+# Sidebar
+
+A collapsible sidebar navigation panel with responsive mobile support.
+
+<ComponentPreview
+  name="sidebar-demo"
+  preview={<SidebarDemo />}
+  source={`import {
+  SidebarProvider,
+  Sidebar,
+  SidebarHeader,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarInset,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
+
+<SidebarProvider>
+  <Sidebar>
+    <SidebarHeader>
+      <SidebarTrigger />
+    </SidebarHeader>
+    <SidebarContent>
+      <SidebarGroup>
+        <SidebarGroupLabel>General</SidebarGroupLabel>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive>Dashboard</SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroup>
+    </SidebarContent>
+  </Sidebar>
+  <SidebarInset>
+    <main>Content</main>
+  </SidebarInset>
+</SidebarProvider>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add sidebar" />
+
+## Usage
+
+```tsx
+import {
+  SidebarProvider,
+  Sidebar,
+  SidebarHeader,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarTrigger,
+  SidebarInset,
+} from "@/components/ui/sidebar"
+
+<SidebarProvider>
+  <Sidebar>
+    <SidebarHeader>
+      <SidebarTrigger />
+    </SidebarHeader>
+    <SidebarContent>
+      <SidebarGroup>
+        <SidebarGroupLabel>General</SidebarGroupLabel>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive>Dashboard</SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroup>
+    </SidebarContent>
+  </Sidebar>
+  <SidebarInset>
+    <main>Content</main>
+  </SidebarInset>
+</SidebarProvider>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "side", type: "'left' | 'right'", default: "'left'", description: "Sidebar position." },
+    { prop: "variant", type: "'sidebar' | 'floating' | 'inset'", default: "'sidebar'", description: "Layout style." },
+    { prop: "collapsible", type: "'offcanvas' | 'icon' | 'none'", default: "'offcanvas'", description: "Collapse behavior." },
+    { prop: "SidebarMenuButton.isActive", type: "boolean", description: "Highlight the active menu item." },
+  ]}
+/>

@@ -1,0 +1,41 @@
+---
+title: Direction Provider
+description: A Y2K direction context provider for RTL/LTR layout support.
+---
+
+# Direction Provider
+
+Wraps your app to set text direction for RTL or LTR layouts.
+
+<ComponentPreview
+  name="direction-demo"
+  preview={<DirectionDemo />}
+  source={`import { DirectionProvider } from "@/components/ui/direction"
+
+<DirectionProvider dir="rtl">
+  <YourApp />
+</DirectionProvider>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add direction" />
+
+## Usage
+
+```tsx
+import { DirectionProvider } from "@/components/ui/direction"
+
+<DirectionProvider dir="rtl">
+  <YourApp />
+</DirectionProvider>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "dir", type: "'ltr' | 'rtl'", default: "'ltr'", description: "Text direction." },
+    { prop: "children", type: "ReactNode", description: "Child content." },
+  ]}
+/>

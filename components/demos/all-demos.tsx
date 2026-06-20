@@ -144,6 +144,102 @@ import {
 } from "@/components/ui/context-menu"
 import { ToggleGroup as ToggleGroupPrimitive, ToggleGroupItem as ToggleGroupItemPrimitive } from "@/components/ui/toggle-group"
 
+import { Label } from "@/components/ui/label"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Spinner } from "@/components/ui/spinner"
+import { Kbd } from "@/components/ui/kbd"
+import { NativeSelect } from "@/components/ui/native-select"
+import { InputGroup } from "@/components/ui/input-group"
+import { Empty } from "@/components/ui/empty"
+import { ButtonGroup } from "@/components/ui/button-group"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import {
+  Command,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandShortcut,
+} from "@/components/ui/command"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
+import { Calendar } from "@/components/ui/calendar"
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+import {
+  Field,
+  FieldControl,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/components/ui/field"
+import { Form, FormField, FormLabel, FormControl, FormMessage, FormSubmit } from "@/components/ui/form"
+import {
+  Combobox,
+  ComboboxTrigger,
+  ComboboxValue,
+  ComboboxPopup,
+  ComboboxItem,
+} from "@/components/ui/combobox"
+import { DirectionProvider } from "@/components/ui/direction"
+import { Item, ItemLabel, ItemIndicator } from "@/components/ui/item"
+import { DatePicker, DatePickerTrigger, DatePickerContent } from "@/components/ui/date-picker"
+import {
+  SidebarProvider,
+  Sidebar,
+  SidebarHeader,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarInset,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
+
 export function CardDefaultDemo() {
   return (
     <Card className="w-80">
@@ -1331,5 +1427,468 @@ export function CollapsibleDemo() {
         </div>
       </CollapsibleContent>
     </Collapsible>
+  )
+}
+
+/* ─── Label Demo ─── */
+
+export function LabelDemo() {
+  return (
+    <div className="flex flex-col gap-3">
+      <Label htmlFor="name">Full Name</Label>
+      <Input id="name" placeholder="Enter your name" />
+    </div>
+  )
+}
+
+/* ─── Spinner Demo ─── */
+
+export function SpinnerDemo() {
+  return (
+    <div className="flex items-end gap-4">
+      <div className="flex flex-col items-center gap-2">
+        <Spinner size="sm" />
+        <span className="text-[10px] font-semibold text-[#1b1b3a]/60">sm</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Spinner size="md" />
+        <span className="text-[10px] font-semibold text-[#1b1b3a]/60">md</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Spinner size="lg" />
+        <span className="text-[10px] font-semibold text-[#1b1b3a]/60">lg</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Spinner size="xl" />
+        <span className="text-[10px] font-semibold text-[#1b1b3a]/60">xl</span>
+      </div>
+    </div>
+  )
+}
+
+/* ─── KBD Demo ─── */
+
+export function KbdDemo() {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <Kbd>⌘K</Kbd>
+      <Kbd>Ctrl + S</Kbd>
+      <Kbd>⇧⌘P</Kbd>
+      <Kbd>⌥⌘I</Kbd>
+    </div>
+  )
+}
+
+/* ─── Native Select Demo ─── */
+
+export function NativeSelectDemo() {
+  return (
+    <NativeSelect className="w-60">
+      <option>Pilih warna</option>
+      <option>Blue</option>
+      <option>Pink</option>
+      <option>Mint</option>
+      <option>Lemon</option>
+    </NativeSelect>
+  )
+}
+
+/* ─── Input Group Demo ─── */
+
+export function InputGroupDemo() {
+  return (
+    <div className="flex flex-col gap-3">
+      <InputGroup>
+        <Input placeholder="Search…" className="w-48!" wrapperClassName="border-0 rounded-none" />
+        <Button size="sm">Go</Button>
+      </InputGroup>
+    </div>
+  )
+}
+
+/* ─── Empty Demo ─── */
+
+export function EmptyDemo() {
+  return (
+    <Empty
+      icon={<SearchIcon />}
+      title="No results found"
+      description="Try adjusting your search terms or filters."
+      action={<Button size="sm">Clear filters</Button>}
+    />
+  )
+}
+
+/* ─── Button Group Demo ─── */
+
+export function ButtonGroupDemo() {
+  return (
+    <ButtonGroup>
+      <Button size="sm">Left</Button>
+      <Button size="sm" variant="pink">Center</Button>
+      <Button size="sm" variant="mint">Right</Button>
+    </ButtonGroup>
+  )
+}
+
+/* ─── Alert Dialog Demo ─── */
+
+export function AlertDialogDemo() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="destructive">Delete account</Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. All your data will be permanently removed.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Delete</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  )
+}
+
+/* ─── Command Demo ─── */
+
+export function CommandDemo() {
+  return (
+    <Command className="w-72">
+      <CommandInput placeholder="Type a command…" />
+      <CommandList>
+        <CommandEmpty>No results.</CommandEmpty>
+        <CommandGroup heading="Actions">
+          <CommandItem>
+            <span>New File</span>
+            <CommandShortcut>⌘N</CommandShortcut>
+          </CommandItem>
+          <CommandItem>
+            <span>Search</span>
+            <CommandShortcut>⌘K</CommandShortcut>
+          </CommandItem>
+          <CommandItem>
+            <span>Settings</span>
+            <CommandShortcut>⌘S</CommandShortcut>
+          </CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  )
+}
+
+/* ─── Navigation Menu Demo ─── */
+
+export function NavigationMenuDemo() {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <div className="grid w-48 gap-1 p-2">
+              <NavigationMenuLink href="#">Product A</NavigationMenuLink>
+              <NavigationMenuLink href="#">Product B</NavigationMenuLink>
+              <NavigationMenuLink href="#">Product C</NavigationMenuLink>
+            </div>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <div className="grid w-48 gap-1 p-2">
+              <NavigationMenuLink href="#">Getting Started</NavigationMenuLink>
+              <NavigationMenuLink href="#">Components</NavigationMenuLink>
+            </div>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  )
+}
+
+/* ─── Calendar Demo ─── */
+
+export function CalendarDemo() {
+  const [date, setDate] = React.useState<Date | undefined>(new Date())
+  return <Calendar selected={date} onSelect={setDate} mode="single" />
+}
+
+/* ─── Drawer Demo ─── */
+
+export function DrawerDemo() {
+  return (
+    <Drawer>
+      <DrawerTrigger asChild>
+        <Button variant="blue">Open Drawer</Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Edit profile</DrawerTitle>
+          <DrawerDescription>Make changes to your profile here.</DrawerDescription>
+        </DrawerHeader>
+        <div className="space-y-3">
+          <Label htmlFor="uname">Username</Label>
+          <Input id="uname" defaultValue="kawaii_user" />
+        </div>
+      </DrawerContent>
+    </Drawer>
+  )
+}
+
+/* ─── Input OTP Demo ─── */
+
+export function InputOTPDemo() {
+  return (
+    <InputOTP maxLength={6}>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOTP>
+  )
+}
+
+/* ─── Carousel Demo ─── */
+
+export function CarouselDemo() {
+  const items = ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"]
+  return (
+    <Carousel className="w-full max-w-xs">
+      <CarouselContent>
+        {items.map((item, i) => (
+          <CarouselItem key={i}>
+            <div className="flex h-32 items-center justify-center rounded border-2 border-[#1b1b3a] bg-white text-sm font-semibold text-[#1b1b3a]">
+              {item}
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
+}
+
+/* ─── Resizable Demo ─── */
+
+export function ResizableDemo() {
+  return (
+    <ResizablePanelGroup orientation="horizontal" className="h-48 rounded border-2 border-[#1b1b3a]">
+      <ResizablePanel defaultSize={50}>
+        <div className="flex h-full items-center justify-center text-sm font-semibold text-[#1b1b3a]">Left</div>
+      </ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel defaultSize={50}>
+        <div className="flex h-full items-center justify-center text-sm font-semibold text-[#1b1b3a]">Right</div>
+      </ResizablePanel>
+    </ResizablePanelGroup>
+  )
+}
+
+/* ─── Field Demo ─── */
+
+export function FieldDemo() {
+  return (
+    <Field className="w-72">
+      <FieldLabel htmlFor="email-f">Email</FieldLabel>
+      <FieldControl>
+        <Input id="email-f" type="email" placeholder="you@example.com" />
+      </FieldControl>
+      <FieldDescription>We'll never share your email.</FieldDescription>
+    </Field>
+  )
+}
+
+/* ─── Form Demo ─── */
+
+/* ─── Combobox Demo ─── */
+
+export function ComboboxDemo() {
+  const fruits = ["Apple", "Banana", "Blueberry", "Cherry", "Grape", "Lemon", "Lychee", "Mango", "Mint", "Orange", "Peach", "Strawberry"]
+  return (
+    <Combobox defaultValue="apple">
+      <ComboboxTrigger className="w-48">
+        <ComboboxValue />
+      </ComboboxTrigger>
+      <ComboboxPopup>
+        {fruits.map((fruit) => (
+          <ComboboxItem key={fruit.toLowerCase()} value={fruit.toLowerCase()}>
+            {fruit}
+          </ComboboxItem>
+        ))}
+      </ComboboxPopup>
+    </Combobox>
+  )
+}
+
+/* ─── Aspect Ratio Demo ─── */
+
+export function AspectRatioDemo() {
+  return (
+    <div className="w-72">
+      <AspectRatio ratio={16 / 9}>
+        <div className="flex h-full items-center justify-center rounded border-2 border-[#1b1b3a] bg-[#8ed1fc] text-sm font-bold text-[#1b1b3a]">
+          16:9
+        </div>
+      </AspectRatio>
+    </div>
+  )
+}
+
+/* ─── Direction Provider Demo ─── */
+
+export function DirectionDemo() {
+  const [dir, setDir] = React.useState<"ltr" | "rtl">("ltr")
+  return (
+    <div className="flex flex-col items-center gap-3">
+      <DirectionProvider dir={dir}>
+        <div className="flex w-64 items-center justify-between rounded border-2 border-[#1b1b3a] bg-white px-3 py-2 text-sm text-[#1b1b3a]">
+          <span>{dir === "ltr" ? "←" : "→"}</span>
+          <span className="font-semibold">{dir === "ltr" ? "Left to Right" : "Right to Left"}</span>
+          <span>{dir === "ltr" ? "→" : "←"}</span>
+        </div>
+      </DirectionProvider>
+      <div className="flex gap-2">
+        <Button size="sm" variant={dir === "ltr" ? "lemon" : "outline"} onClick={() => setDir("ltr")}>LTR</Button>
+        <Button size="sm" variant={dir === "rtl" ? "lemon" : "outline"} onClick={() => setDir("rtl")}>RTL</Button>
+      </div>
+    </div>
+  )
+}
+
+/* ─── Item Demo ─── */
+
+
+
+export function ItemDemo() {
+  return (
+    <div className="w-56 rounded border-2 border-[#1b1b3a] bg-white p-1">
+      <Item selected>
+        <ItemIndicator><CheckIcon /></ItemIndicator>
+        <ItemLabel>Selected item</ItemLabel>
+      </Item>
+      <Item>
+        <ItemIndicator />
+        <ItemLabel>Regular item</ItemLabel>
+      </Item>
+      <Item>
+        <ItemIndicator />
+        <ItemLabel>Another item</ItemLabel>
+      </Item>
+      <Item disabled>
+        <ItemIndicator />
+        <ItemLabel>Disabled item</ItemLabel>
+      </Item>
+    </div>
+  )
+}
+
+/* ─── Sidebar Demo ─── */
+
+export function SidebarDemo() {
+  return (
+    <div className="w-72 overflow-hidden rounded border-2 border-[#1b1b3a]">
+      <SidebarProvider defaultOpen>
+        <div className="flex h-64">
+          <Sidebar collapsible="none">
+            <SidebarHeader>
+              <SidebarTrigger />
+            </SidebarHeader>
+            <SidebarContent>
+              <SidebarGroup>
+                <SidebarGroupLabel>General</SidebarGroupLabel>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton isActive>Dashboard</SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>Analytics</SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>Reports</SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroup>
+              <SidebarGroup>
+                <SidebarGroupLabel>Settings</SidebarGroupLabel>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>Profile</SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>Preferences</SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroup>
+            </SidebarContent>
+            <SidebarFooter>
+              <span className="px-2 text-xs font-semibold text-[#1b1b3a]/50">v1.0.0</span>
+            </SidebarFooter>
+          </Sidebar>
+          <SidebarInset className="flex items-center justify-center bg-white p-4">
+            <p className="text-sm font-semibold text-[#1b1b3a]/60">Main content</p>
+          </SidebarInset>
+        </div>
+      </SidebarProvider>
+    </div>
+  )
+}
+
+export function FormDemo() {
+  return (
+    <Form className="w-72 space-y-3">
+      <FormField name="email" serverInvalid>
+        <FormLabel>Email</FormLabel>
+        <FormControl>
+          <Input type="email" required placeholder="you@example.com" />
+        </FormControl>
+        <FormMessage>Email is required</FormMessage>
+      </FormField>
+      <FormSubmit asChild>
+        <Button type="submit">Submit</Button>
+      </FormSubmit>
+    </Form>
+  )
+}
+
+// ── DatePicker Demo ──────────────────────────────────────────────
+
+export function DatePickerDemo() {
+  return (
+    <DatePicker>
+      <DatePicker.Trigger />
+      <DatePicker.Content />
+    </DatePicker>
+  )
+}
+
+export function DatePickerWithRangeDemo() {
+  return (
+    <DatePicker>
+      <DatePicker.Trigger placeholder="Pick date range" />
+      <DatePicker.Content numberOfMonths={2} />
+    </DatePicker>
+  )
+}
+
+export function DatePickerDisabledDemo() {
+  return (
+    <DatePicker>
+      <DatePicker.Trigger />
+      <DatePicker.Content disabled={{ before: new Date() }} />
+    </DatePicker>
   )
 }

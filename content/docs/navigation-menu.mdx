@@ -1,0 +1,72 @@
+---
+title: Navigation Menu
+description: A Y2K navigation menu with dropdown submenus, thick navy borders, and pastel highlights.
+---
+
+# Navigation Menu
+
+A horizontal navigation bar with dropdown submenus.
+
+<ComponentPreview
+  name="navigation-menu-demo"
+  preview={<NavigationMenuDemo />}
+  source={`import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu"
+
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink href="#">Product A</NavigationMenuLink>
+        <NavigationMenuLink href="#">Product B</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add navigation-menu" />
+
+## Usage
+
+```tsx
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu"
+
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink href="/product-1">Product 1</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "NavigationMenuTrigger", type: "ReactNode", description: "Opens the submenu on hover/focus." },
+    { prop: "NavigationMenuContent", type: "ReactNode", description: "Dropdown panel content." },
+    { prop: "NavigationMenuLink", type: "{ href: string }", description: "Clickable link within the menu." },
+    { prop: "NavigationMenuList", type: "ReactNode", description: "Flex container for menu items." },
+  ]}
+/>

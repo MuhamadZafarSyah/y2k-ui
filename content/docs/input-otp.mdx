@@ -1,0 +1,74 @@
+---
+title: Input OTP
+description: A Y2K one-time password input with individually styled slots and caret animation.
+---
+
+# Input OTP
+
+A segmented OTP / verification code input.
+
+<ComponentPreview
+  name="input-otp-demo"
+  preview={<InputOTPDemo />}
+  source={`import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp"
+
+<InputOTP maxLength={6}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+  <InputOTPSeparator />
+  <InputOTPGroup>
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add input-otp" />
+
+## Usage
+
+```tsx
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp"
+
+<InputOTP maxLength={6}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+  <InputOTPSeparator />
+  <InputOTPGroup>
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "maxLength", type: "number", default: "6", description: "Number of digit slots." },
+    { prop: "value", type: "string", description: "Controlled value." },
+    { prop: "onChange", type: "(value: string) => void", description: "Called when value changes." },
+    { prop: "disabled", type: "boolean", default: "false", description: "Disables the input." },
+    { prop: "InputOTPSlot", type: "{ index: number }", description: "Individual character slot." },
+  ]}
+/>

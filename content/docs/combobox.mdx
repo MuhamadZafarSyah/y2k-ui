@@ -1,0 +1,72 @@
+---
+title: Combobox
+description: A Y2K combobox with search filtering, popup list, and keyboard navigation.
+---
+
+# Combobox
+
+A searchable select built on Radix UI Popover and cmdk. The popup opens below the trigger and includes a live search input.
+
+<ComponentPreview
+  name="combobox-demo"
+  preview={<ComboboxDemo />}
+  source={`import {
+  Combobox,
+  ComboboxTrigger,
+  ComboboxValue,
+  ComboboxPopup,
+  ComboboxItem,
+} from "@/components/ui/combobox"
+
+<Combobox defaultValue="apple">
+  <ComboboxTrigger className="w-48">
+    <ComboboxValue />
+  </ComboboxTrigger>
+  <ComboboxPopup>
+    <ComboboxItem value="apple">Apple</ComboboxItem>
+    <ComboboxItem value="banana">Banana</ComboboxItem>
+    <ComboboxItem value="cherry">Cherry</ComboboxItem>
+  </ComboboxPopup>
+</Combobox>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add combobox" />
+
+## Usage
+
+```tsx
+import {
+  Combobox,
+  ComboboxTrigger,
+  ComboboxValue,
+  ComboboxPopup,
+  ComboboxItem,
+} from "@/components/ui/combobox"
+
+<Combobox defaultValue="apple">
+  <ComboboxTrigger className="w-48">
+    <ComboboxValue />
+  </ComboboxTrigger>
+  <ComboboxPopup>
+    <ComboboxItem value="apple">Apple</ComboboxItem>
+    <ComboboxItem value="banana">Banana</ComboboxItem>
+    <ComboboxItem value="cherry">Cherry</ComboboxItem>
+  </ComboboxPopup>
+</Combobox>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "defaultValue", type: "string", description: "Initial selected value." },
+    { prop: "value", type: "string", description: "Controlled selected value." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called when selection changes." },
+    { prop: "open", type: "boolean", description: "Controlled open state." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Called when open state changes." },
+    { prop: "ComboboxItem", type: "{ value: string; disabled?: boolean }", description: "Selectable option." },
+    { prop: "ComboboxValue", type: "{ placeholder?: string }", description: "Displays the selected value." },
+  ]}
+/>

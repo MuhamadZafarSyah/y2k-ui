@@ -1,0 +1,67 @@
+---
+title: Date Picker
+description: A Y2K date picker with popover calendar, thick navy borders, and pastel accents.
+---
+
+# Date Picker
+
+A date picker built on Radix UI Popover and react-day-picker. The popup opens below the trigger and shows a calendar for single date selection.
+
+<ComponentPreview
+  name="date-picker-demo"
+  preview={<DatePickerDemo />}
+  source={`import { DatePicker, DatePickerTrigger, DatePickerContent } from "@/components/ui/date-picker"
+
+<DatePicker>
+  <DatePicker.Trigger />
+  <DatePicker.Content />
+</DatePicker>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add date-picker" />
+
+## Usage
+
+```tsx
+import { DatePicker, DatePickerTrigger, DatePickerContent } from "@/components/ui/date-picker"
+
+<DatePicker>
+  <DatePicker.Trigger />
+  <DatePicker.Content />
+</DatePicker>
+```
+
+## Props
+
+### DatePicker
+
+<PropsTable
+  data={[
+    { prop: "value", type: "Date", description: "Controlled selected date." },
+    { prop: "onValueChange", type: "(date: Date | undefined) => void", description: "Called when a date is selected." },
+    { prop: "defaultValue", type: "Date", description: "Initial selected date." },
+  ]}
+/>
+
+### DatePicker.Trigger
+
+<PropsTable
+  data={[
+    { prop: "placeholder", type: "string", default: '"Pick a date"', description: "Placeholder text when no date is selected." },
+    { prop: "formatStr", type: "string", default: '"PPP"', description: "Date format string (date-fns)." },
+  ]}
+/>
+
+### DatePicker.Content
+
+Accepts all Calendar props except `mode`, `selected`, and `onSelect` (managed internally).
+
+<PropsTable
+  data={[
+    { prop: "disabled", type: "Matcher", description: "Disabled dates predicate." },
+    { prop: "numberOfMonths", type: "number", default: "1", description: "Number of months to display." },
+    { prop: "showOutsideDays", type: "boolean", default: "true", description: "Show days from adjacent months." },
+  ]}
+/>

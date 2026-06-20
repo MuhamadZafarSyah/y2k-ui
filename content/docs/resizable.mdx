@@ -1,0 +1,62 @@
+---
+title: Resizable
+description: A Y2K resizable panel layout with draggable handles.
+---
+
+# Resizable
+
+Draggable split panels for resizable layouts.
+
+<ComponentPreview
+  name="resizable-demo"
+  preview={<ResizableDemo />}
+  source={`import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from "@/components/ui/resizable"
+
+<ResizablePanelGroup orientation="horizontal" className="h-48 rounded border-2 border-[#1b1b3a]">
+  <ResizablePanel defaultSize={50}>
+    <div className="flex h-full items-center justify-center text-sm font-semibold text-[#1b1b3a]">
+      Left
+    </div>
+  </ResizablePanel>
+  <ResizableHandle withHandle />
+  <ResizablePanel defaultSize={50}>
+    <div className="flex h-full items-center justify-center text-sm font-semibold text-[#1b1b3a]">
+      Right
+    </div>
+  </ResizablePanel>
+</ResizablePanelGroup>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add resizable" />
+
+## Usage
+
+```tsx
+import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from "@/components/ui/resizable"
+
+<ResizablePanelGroup orientation="horizontal" className="h-64">
+  <ResizablePanel defaultSize={50}>Left</ResizablePanel>
+  <ResizableHandle withHandle />
+  <ResizablePanel defaultSize={50}>Right</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "orientation", type: "'horizontal' | 'vertical'", description: "Layout orientation." },
+    { prop: "ResizablePanel.defaultSize", type: "number", description: "Initial size percentage." },
+    { prop: "ResizableHandle.withHandle", type: "boolean", default: "false", description: "Show a drag handle." },
+  ]}
+/>

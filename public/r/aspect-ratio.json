@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "title": "Aspect Ratio",
+  "description": "A Y2K aspect ratio container for responsive media embeds.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/aspect-ratio.tsx",
+      "content": "import * as React from \"react\"\nimport { AspectRatio as AspectRatioPrimitive } from \"radix-ui\"\n\nfunction AspectRatio({\n  ...props\n}: React.ComponentProps<typeof AspectRatioPrimitive.Root>) {\n  return <AspectRatioPrimitive.Root data-slot=\"aspect-ratio\" {...props} />\n}\n\nexport { AspectRatio }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

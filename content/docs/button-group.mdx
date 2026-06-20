@@ -1,0 +1,48 @@
+---
+title: Button Group
+description: A Y2K button group that connects adjacent buttons with shared borders.
+---
+
+# Button Group
+
+Connects buttons together with seamless shared borders.
+
+<ComponentPreview
+  name="button-group-demo"
+  preview={<ButtonGroupDemo />}
+  source={`import { ButtonGroup } from "@/components/ui/button-group"
+import { Button } from "@/components/ui/button"
+
+<ButtonGroup>
+  <Button size="sm">Left</Button>
+  <Button size="sm" variant="pink">Center</Button>
+  <Button size="sm" variant="mint">Right</Button>
+</ButtonGroup>`}
+/>
+
+## Installation
+
+<CodeBlock language="bash" filename="terminal.sh" code="npx y2kui@latest add button-group" />
+
+## Usage
+
+```tsx
+import { ButtonGroup } from "@/components/ui/button-group"
+import { Button } from "@/components/ui/button"
+
+<ButtonGroup>
+  <Button>Left</Button>
+  <Button>Center</Button>
+  <Button>Right</Button>
+</ButtonGroup>
+```
+
+## Props
+
+<PropsTable
+  data={[
+    { prop: "orientation", type: "'horizontal' | 'vertical'", default: "'horizontal'", description: "Layout direction." },
+    { prop: "className", type: "string", description: "Additional Tailwind classes." },
+    { prop: "children", type: "ReactNode", description: "Button components." },
+  ]}
+/>
