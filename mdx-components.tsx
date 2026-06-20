@@ -2,6 +2,7 @@ import defaultMdxComponents from "fumadocs-ui/mdx";
 import { ComponentPreview } from "@/components/docs/component-preview";
 import { PropsTable } from "@/components/docs/props-table";
 import { CodeBlock } from "@/components/docs/code-block";
+import { ComponentsTable } from "@/components/docs/components-table";
 import { DialogDefaultDemo, DialogHideControlsDemo } from "@/components/demos/dialog-demo";
 import {
   CardDefaultDemo,
@@ -52,6 +53,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ComponentPreview,
     PropsTable,
     CodeBlock,
+    ComponentsTable,
     DialogDefaultDemo,
     DialogHideControlsDemo,
     CardDefaultDemo,

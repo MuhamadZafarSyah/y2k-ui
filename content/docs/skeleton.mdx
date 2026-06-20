@@ -10,7 +10,7 @@ Loading placeholder components with Y2K styling — thick borders, pastel pulse,
 <ComponentPreview
   name="skeleton-demo"
   preview={<SkeletonDemo />}
-  source={`import { Skeleton, SkeletonCard, SkeletonAvatar, SkeletonButton } from "@/components/ui/skeleton"}
+  source={`import { Skeleton, SkeletonCard, SkeletonAvatar, SkeletonButton } from "@/components/ui/skeleton"
 
 <SkeletonCard />
 <div className="flex items-center gap-3">
@@ -43,9 +43,12 @@ import { Skeleton, SkeletonCard, SkeletonAvatar, SkeletonButton } from "@/compon
 
 ## Components
 
-| Component | Description |
-|-----------|-------------|
-| `Skeleton` | Basic pulse skeleton block |
-| `SkeletonCard` | Window-framed card skeleton |
-| `SkeletonAvatar` | Square avatar skeleton |
-| `SkeletonButton` | Button-shaped skeleton |
+<ComponentsTable
+  header="Components"
+  data={[
+    { name: "Skeleton", description: "Basic pulse skeleton block.", signature: "<Skeleton className=\"h-4 w-32\" />" },
+    { name: "SkeletonCard", description: "Window-framed card skeleton.", signature: "<SkeletonCard />" },
+    { name: "SkeletonAvatar", description: "Square avatar skeleton.", signature: "<SkeletonAvatar />" },
+    { name: "SkeletonButton", description: "Button-shaped skeleton.", signature: "<SkeletonButton />" },
+  ]}
+/>

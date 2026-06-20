@@ -221,3 +221,222 @@
     border: 2px solid #1b1b3a !important;
   }
 }
+
+/* ===== Y2K Sidebar Redesign ===== */
+aside[data-sidebar="true"] {
+  background-color: var(--y2k-panel) !important;
+  background-image: radial-gradient(
+    var(--y2k-ink) 1px,
+    transparent 1px
+  ) !important;
+  background-size: 14px 14px !important;
+  border-right: 3px solid var(--y2k-ink) !important;
+  box-shadow: none !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--y2k-pink) var(--y2k-ink) !important;
+  transition:
+    width 0.3s ease,
+    transform 0.3s ease !important;
+}
+
+/* Remove default gradients/masks */
+aside[data-sidebar="true"] [class*="mask-"] {
+  mask-image: none !important;
+}
+
+/* Styling for Nav Title / Sidebar Header */
+aside[data-sidebar="true"] .font-semibold {
+  font-family: var(--font-sans);
+  font-weight: 800 !important;
+  color: var(--y2k-ink) !important;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+/* Style list layout inside viewport */
+aside[data-sidebar="true"] > div {
+  padding: 1.25rem 1rem !important;
+}
+
+/* Redesign group headers / category headings to look like mini file folder labels */
+aside[data-sidebar="true"] .text-fd-muted-foreground.text-xs.font-medium {
+  display: inline-block !important;
+  text-transform: uppercase !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 900 !important;
+  font-size: 0.7rem !important;
+  color: var(--y2k-ink) !important;
+  background-color: var(--y2k-mint) !important;
+  border: 2px solid var(--y2k-ink) !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
+  transform: rotate(-1.5deg);
+}
+
+/* Alternate colors for the group headers */
+aside[data-sidebar="true"]
+  div:nth-child(even)
+  > .text-fd-muted-foreground.text-xs.font-medium {
+  background-color: var(--y2k-lilac) !important;
+  transform: rotate(1deg);
+}
+
+aside[data-sidebar="true"]
+  div:nth-child(3n)
+  > .text-fd-muted-foreground.text-xs.font-medium {
+  background-color: var(--y2k-pink) !important;
+  transform: rotate(-1deg);
+}
+
+/* Styling for folder structures / collapsible nodes */
+aside[data-sidebar="true"] button[data-collapsible-trigger],
+aside[data-sidebar="true"] [role="button"],
+aside[data-sidebar="true"] a {
+  font-family: var(--font-sans) !important;
+  color: var(--y2k-ink) !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  border: 2px solid transparent !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  margin: 3px 0 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Retro Y2K emojis for Folders vs Pages */
+aside[data-sidebar="true"] button::before {
+  content: "📁 " !important;
+  font-size: 0.95rem !important;
+}
+
+aside[data-sidebar="true"] [data-state="open"] > button::before {
+  content: "📂 " !important;
+}
+
+aside[data-sidebar="true"] a::before {
+  content: "📄 " !important;
+  font-size: 0.95rem !important;
+}
+
+aside[data-sidebar="true"] a[data-active="true"]::before {
+  content: "⚡ " !important;
+}
+
+/* Hide default link/item icons since we are rendering emojis */
+aside[data-sidebar="true"] a svg {
+  display: none !important;
+}
+
+/* Hover effect on sidebar links & buttons: Y2K raised tab style */
+aside[data-sidebar="true"] button[data-collapsible-trigger]:hover,
+aside[data-sidebar="true"] [role="button"]:hover,
+aside[data-sidebar="true"] a:hover {
+  background-color: var(--y2k-pink) !important;
+  border-color: var(--y2k-ink) !important;
+  color: var(--y2k-ink) !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
+  text-decoration: none !important;
+}
+
+/* Selected/Active item: Yellow pastel highlight */
+aside[data-sidebar="true"] a[data-active="true"] {
+  background-color: var(--y2k-lemon) !important;
+  border-color: var(--y2k-ink) !important;
+  color: var(--y2k-ink) !important;
+  font-weight: 700 !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
+}
+
+/* Custom icon sizes and style in sidebar */
+aside[data-sidebar="true"] svg {
+  color: var(--y2k-ink) !important;
+  stroke-width: 2.5px !important;
+}
+
+/* Folders open state - slightly more prominent folder text */
+aside[data-sidebar="true"] [data-state="open"] > button {
+  font-weight: 700 !important;
+}
+
+/* Sidebar Search Input Styling */
+aside[data-sidebar="true"] button[data-search-full] {
+  border: 2px solid var(--y2k-ink) !important;
+  background-color: var(--color-card) !important;
+  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
+  border-radius: 6px !important;
+  color: var(--y2k-ink) !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+}
+
+aside[data-sidebar="true"] button[data-search-full]:hover {
+  background-color: var(--y2k-lemon) !important;
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 3px 0px var(--y2k-ink) !important;
+}
+
+/* Sidebar Footer (e.g. GitHub link) */
+aside[data-sidebar="true"] .flex-col.p-4.pt-2 {
+  border-top: 2px solid var(--y2k-ink) !important;
+  background-color: var(--y2k-panel) !important;
+}
+
+/* Make sure the github link button looks like a Y2K button */
+aside[data-sidebar="true"] .flex-col.p-4.pt-2 a {
+  background-color: var(--color-card) !important;
+  border: 2px solid var(--y2k-ink) !important;
+  border-radius: 6px !important;
+  box-shadow: 2px 2px 0px var(--y2k-ink) !important;
+  transition: all 0.2s ease !important;
+}
+
+aside[data-sidebar="true"] .flex-col.p-4.pt-2 a:hover {
+  background-color: var(--y2k-mint) !important;
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 3px 0px var(--y2k-ink) !important;
+}
+
+/* ===== Y2K Next/Previous Page Buttons ===== */
+a[href^="/docs/"][class*="border"][class*="rounded"]:not(aside a) {
+  border: 2px solid var(--y2k-ink) !important;
+  background-color: var(--color-card) !important;
+  border-radius: 8px !important;
+  box-shadow: 3px 3px 0px var(--y2k-ink) !important;
+  padding: 0.85rem 1rem !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  color: var(--y2k-ink) !important;
+}
+
+a[href^="/docs/"][class*="border"][class*="rounded"]:not(aside a):hover {
+  background-color: var(--y2k-pink) !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 5px 5px 0px var(--y2k-ink) !important;
+  text-decoration: none !important;
+}
+a[href^="/docs/"][class*="border"][class*="rounded"][class*="text-end"]:not(
+    aside a
+  ):hover {
+  background-color: var(--y2k-blue) !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 5px 5px 0px var(--y2k-ink) !important;
+  text-decoration: none !important;
+}
+
+a[href^="/docs/"][class*="border"][class*="rounded"]:not(aside a)
+  [class*="text-fd-muted-foreground"],
+a[href^="/docs/"][class*="border"][class*="rounded"]:not(aside a)
+  [class*="text-xs"] {
+  font-family: var(--font-mono) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  font-weight: 700 !important;
+  font-size: 0.65rem !important;
+  color: var(--y2k-ink) !important;
+}
