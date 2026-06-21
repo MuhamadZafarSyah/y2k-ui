@@ -148,6 +148,21 @@
   }
   body {
     @apply bg-background text-foreground;
+    cursor: url("/pointer.cur"), auto;
+  }
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"],
+  [data-slot="checkbox"],
+  [data-slot="switch"],
+  [data-slot="radio"],
+  [tabindex],
+  label,
+  summary {
+    cursor: url("/pointer.cur"), auto !important;
   }
   html {
     @apply font-sans;
@@ -660,4 +675,74 @@ a[href^="/docs/"][class*="border"][class*="rounded"]:not(aside a)
 
 .animate-wiggle {
   animation: wiggle 2s ease-in-out infinite;
+}
+
+/* ── Y2K Highlight Marker Animation ── */
+@keyframes highlight-draw {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.y2k-highlight {
+  position: relative;
+  display: inline;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 45%,
+    var(--y2k-lemon) 45%,
+    var(--y2k-lemon) 55%,
+    transparent 55%
+  );
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  animation: highlight-draw 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* ── Y2K Section Reveal ── */
+@keyframes section-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Y2K Stagger Children ── */
+@keyframes stagger-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-child:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stagger-child:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stagger-child:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stagger-child:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.stagger-child:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.stagger-child:nth-child(6) {
+  animation-delay: 0.6s;
 }

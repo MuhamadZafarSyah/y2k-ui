@@ -36,6 +36,10 @@ import {
 } from "@/components/ui/menubar"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { StructuredData } from "@/components/structured-data"
+import { SectionReveal } from "@/components/animations/section-reveal"
+import { TextReveal } from "@/components/animations/text-reveal"
+import { HighlightReveal } from "@/components/animations/highlight-reveal"
+import { useScrollReveal, useStaggerReveal } from "@/components/animations/use-gsap-reveal"
 
 /* ─── Navigation ─── */
 
@@ -76,6 +80,12 @@ function Nav() {
 /* ─── Hero ─── */
 
 function Hero() {
+  const badgeRef = useScrollReveal({ y: 20, delay: 0.1 })
+  const headingRef = useScrollReveal({ y: 30, delay: 0.2 })
+  const subtitleRef = useScrollReveal({ y: 20, delay: 0.4 })
+  const ctaRef = useScrollReveal({ y: 20, delay: 0.5 })
+  const codeRef = useScrollReveal({ y: 15, delay: 0.6 })
+
   return (
     <section className="relative overflow-hidden border-b-2 border-y2k-ink">
       {/* Decorative stripes */}
@@ -90,20 +100,22 @@ function Hero() {
       <div className="relative mx-auto max-w-6xl px-4 py-20 md:py-28">
         <div className="mx-auto max-w-3xl text-center">
           {/* Eyebrow badge */}
-          <div className="mb-6 flex justify-center">
+          <div ref={badgeRef} className="mb-6 flex justify-center" style={{ visibility: "hidden" }}>
             <Badge variant="blue" size="sm" className="gap-1.5">
               <Sparkles className="size-3" />
-              v0.2 — 30+ components
+              v0.1 — 30+ components
             </Badge>
           </div>
 
-          <h1 className="text-4xl font-black tracking-tight text-y2k-ink md:text-6xl leading-[1.1]">
+          <h1 ref={headingRef} className="text-4xl font-black tracking-tight text-y2k-ink md:text-6xl leading-[1.1]" style={{ visibility: "hidden" }}>
             Build{" "}
-            <span className="bg-y2k-lemon px-2 -mx-1 border-y-2 border-y2k-ink">Retro-Future</span>{" "}
+            <HighlightReveal delay={0.8} duration={0.7}>
+              <span className="px-2  border-y-2 border-y2k-ink">Retro-Future</span>
+            </HighlightReveal>{" "}
             Interfaces
           </h1>
 
-          <p className="mt-4 text-lg text-y2k-ink/70 md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p ref={subtitleRef} className="mt-4 text-lg text-y2k-ink/70 md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ visibility: "hidden" }}>
             Modern Y2K / kawaii-retro components built on{" "}
             <span className="font-semibold text-y2k-ink">shadcn</span> +{" "}
             <span className="font-semibold text-y2k-ink">Radix UI</span>.
@@ -111,7 +123,7 @@ function Hero() {
             Flat windows, thick navy outlines, pastel fills — zero nostalgia, all personality.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div ref={ctaRef} className="mt-8 flex flex-wrap items-center justify-center gap-3" style={{ visibility: "hidden" }}>
             <Link href="/docs/installation">
               <Button size="lg" variant="lemon">
                 <Terminal className="size-4" />
@@ -127,12 +139,8 @@ function Hero() {
           </div>
 
           {/* Floating Y2K window decoration */}
-          <div className="mt-10 inline-flex items-center gap-2 rounded border-2 border-y2k-ink bg-white px-4 py-2">
-            <span className="flex items-center gap-1" aria-hidden>
-              <span className="size-2 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
-              <span className="size-2 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
-              <span className="size-2 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
-            </span>
+          <div ref={codeRef} className="mt-10 inline-flex items-center gap-2 rounded border-2 border-y2k-ink bg-white px-4 py-2" style={{ visibility: "hidden" }}>
+
             <code className="font-mono text-[10px] font-black uppercase tracking-wider text-y2k-ink">
               npx y2kui@latest init &nbsp;—&nbsp; ready in seconds
             </code>
@@ -166,6 +174,12 @@ function PreviewCard({ title, accent, children }: { title: string; accent: strin
 /* ─── Showcase Section ─── */
 
 function Showcase() {
+  const headingRef = useScrollReveal({ y: 30, delay: 0.1 })
+  const row1Ref = useStaggerReveal({ y: 25, stagger: 0.12 })
+  const row2Ref = useStaggerReveal({ y: 25, stagger: 0.12, delay: 0.1 })
+  const row3Ref = useStaggerReveal({ y: 25, stagger: 0.12, delay: 0.2 })
+  const ctaRef = useScrollReveal({ y: 20, delay: 0.3 })
+
   return (
     <section className="relative overflow-hidden border-b-2 border-y2k-ink bg-y2k-panel/20 py-16 md:py-24">
       {/* Decorative SVG background - floating Y2K art */}
@@ -189,7 +203,7 @@ function Showcase() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4">
-        <div className="mb-10 text-center">
+        <div ref={headingRef} className="mb-10 text-center" style={{ visibility: "hidden" }}>
           <div className="mb-3 flex items-center justify-center gap-2">
             <Star className="size-4 fill-y2k-lemon text-y2k-lemon animate-wiggle" />
             <h2 className="text-2xl font-black tracking-tight text-y2k-ink md:text-3xl">
@@ -203,7 +217,7 @@ function Showcase() {
         </div>
 
         {/* Row 1 — Core UI */}
-        <div className="mb-8">
+        <div ref={row1Ref} className="mb-8" style={{ visibility: "hidden" }}>
           <div className="mb-4 inline-flex items-center gap-2 border-2 border-y2k-ink bg-y2k-blue px-3 py-1">
             <MousePointer2 className="size-3.5" />
             <span className="font-mono text-[11px] font-black uppercase tracking-wider text-y2k-ink">
@@ -254,7 +268,7 @@ function Showcase() {
         </div>
 
         {/* Row 2 — Input & Navigation */}
-        <div className="mb-8">
+        <div ref={row2Ref} className="mb-8" style={{ visibility: "hidden" }}>
           <div className="mb-4 inline-flex items-center gap-2 border-2 border-y2k-ink bg-y2k-pink px-3 py-1">
             <MousePointer2 className="size-3.5" />
             <span className="font-mono text-[11px] font-black uppercase tracking-wider text-y2k-ink">
@@ -333,7 +347,7 @@ function Showcase() {
         </div>
 
         {/* Row 3 — Widgets & Utilities */}
-        <div>
+        <div ref={row3Ref}>
           <div className="mb-4 inline-flex items-center gap-2 border-2 border-y2k-ink bg-y2k-mint px-3 py-1">
             <MousePointer2 className="size-3.5" />
             <span className="font-mono text-[11px] font-black uppercase tracking-wider text-y2k-ink">
@@ -421,7 +435,7 @@ function Showcase() {
           </div>
         </div>
 
-        <div className="mt-10 text-center">
+        <div ref={ctaRef} className="mt-10 text-center" style={{ visibility: "hidden" }}>
           <Link href="/docs">
             <Button variant="outline">
               <Layers className="size-4" />
@@ -482,6 +496,10 @@ function Features() {
     },
   ]
 
+  const headingRef = useScrollReveal({ y: 30, delay: 0.1 })
+  const vinylRef = useScrollReveal({ y: 40, delay: 0.2 })
+  const cardsRef = useStaggerReveal({ y: 30, stagger: 0.15 })
+
   return (
     <section className="relative overflow-hidden border-b-2 border-y2k-ink bg-white py-16 md:py-24">
       {/* Decorative background sparkles */}
@@ -491,7 +509,7 @@ function Features() {
       <SparkleSprinkle className="absolute bottom-16 right-[12%] size-5 animate-wiggle text-y2k-mint" style={{ animationDelay: '1.5s' }} />
 
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mb-12 text-center">
+        <div ref={headingRef} className="mb-12 text-center" style={{ visibility: "hidden" }}>
           <h2 className="text-2xl font-black tracking-tight text-y2k-ink md:text-3xl">
             Everything You Need
           </h2>
@@ -502,7 +520,7 @@ function Features() {
 
         <div className="grid items-center gap-8 lg:grid-cols-5">
           {/* Left — Rotating Vinyl Record in Y2K window */}
-          <div className="lg:col-span-2">
+          <div ref={vinylRef} className="lg:col-span-2" style={{ visibility: "hidden" }}>
             <div className="overflow-hidden rounded border-2 border-y2k-ink bg-white">
               {/* Window title bar */}
               <div className="flex items-center gap-2 border-b-2 border-y2k-ink bg-y2k-mint px-3 py-1.5">
@@ -562,7 +580,7 @@ function Features() {
           </div>
 
           {/* Right — Feature cards */}
-          <div className="grid gap-4 md:grid-cols-2 lg:col-span-3">
+          <div ref={cardsRef} className="grid gap-4 md:grid-cols-2 lg:col-span-3" style={{ visibility: "hidden" }}>
             {features.map((f, i) => (
               <div
                 key={f.title}
@@ -601,6 +619,10 @@ function CTA() {
     setTimeout(() => setCopied(false), 2000)
   }
 
+  const headingRef = useScrollReveal({ y: 25, delay: 0.1 })
+  const cmdRef = useScrollReveal({ y: 15, delay: 0.3 })
+  const btnRef = useScrollReveal({ y: 15, delay: 0.4 })
+
   return (
     <section className="relative overflow-hidden border-b-2 border-y2k-ink py-16 md:py-24">
       {/* Decorative background */}
@@ -622,14 +644,16 @@ function CTA() {
             </div>
           )}
 
-          <h2 className="text-xl font-black tracking-tight text-y2k-ink md:text-2xl">
-            Ready to Build?
-          </h2>
-          <p className="mt-2 text-sm text-y2k-ink/60">
-            Start with one command — no config needed.
-          </p>
+          <div ref={headingRef} style={{ visibility: "hidden" }}>
+            <h2 className="text-xl font-black tracking-tight text-y2k-ink md:text-2xl">
+              Ready to Build?
+            </h2>
+            <p className="mt-2 text-sm text-y2k-ink/60">
+              Start with one command — no config needed.
+            </p>
+          </div>
 
-          <div className="mt-6 flex items-center justify-between gap-2 rounded border-2 border-y2k-ink bg-y2k-panel/50 px-3 py-2.5 text-left font-mono text-sm text-y2k-ink">
+          <div ref={cmdRef} className="mt-6 flex items-center justify-between gap-2 rounded border-2 border-y2k-ink bg-y2k-panel/50 px-3 py-2.5 text-left font-mono text-sm text-y2k-ink" style={{ visibility: "hidden" }}>
             <span className="truncate">{cmd}</span>
             <button
               onClick={handleCopy}
@@ -640,7 +664,7 @@ function CTA() {
             </button>
           </div>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <div ref={btnRef} className="mt-6 flex flex-wrap justify-center gap-3" style={{ visibility: "hidden" }}>
             <Link href="/docs/installation">
               <Button variant="lemon">
                 <Terminal className="size-4" />
@@ -664,18 +688,16 @@ function CTA() {
 
 function Footer() {
   return (
-    <footer className="border-t-2 border-y2k-ink py-6">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 md:flex-row">
-        <div className="flex items-center gap-2 text-xs text-y2k-ink/50">
-          <span className="font-black text-y2k-ink">Y2K UI</span>
-          <span aria-hidden>·</span>
-          <span>MIT License</span>
-          <span aria-hidden>·</span>
-          <span>© 2026</span>
+    <footer className="border-t-2 border-y2k-ink bg-white">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 md:flex-row">
+        <div className="flex flex-col items-center gap-1 md:items-start">
+          <span className="text-sm font-bold text-y2k-ink">Y2K UI</span>
+          <span className="text-xs text-y2k-ink/50">MIT License</span>
         </div>
-        <div className="flex items-center gap-4 text-xs text-y2k-ink/50">
+        <div className="flex items-center gap-6 text-xs text-y2k-ink/50">
           <Link href="/docs" className="hover:text-y2k-ink transition-colors">Docs</Link>
           <a href="https://github.com/MuhamadZafarSyah/y2k-ui" target="_blank" rel="noopener noreferrer" className="hover:text-y2k-ink transition-colors">GitHub</a>
+          <span>&copy; 2026</span>
         </div>
       </div>
     </footer>

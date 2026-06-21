@@ -69,9 +69,24 @@ export function Y2kStickers() {
 
     const svgList = Array.from({ length: 15 }, (_, i) => `/assets/images/${i + 1}.svg`);
 
-    for (let i = 0; i < 10; i++) {
-      const svg = lcg.nextElement(svgList);
-      const topPct = lcg.nextRange(5 + (i * 85) / 10, 10 + ((i + 1) * 85) / 10);
+    const shuffleArray = <T,>(arr: T[]): T[] => {
+      const shuffled = [...arr];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(lcg.next() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    };
+
+    const shuffledSvgs = shuffleArray(svgList);
+
+    const marginStickers = 7;
+    const bgStickers = 3;
+    const minGapPct = 11;
+
+    for (let i = 0; i < marginStickers; i++) {
+      const svg = shuffledSvgs[i % shuffledSvgs.length];
+      const topPct = lcg.nextRange(5 + i * minGapPct, 10 + i * minGapPct);
       const isLeft = i % 2 === 0;
       const offset = lcg.nextRange(-130, -45);
       const size = lcg.nextRange(95, 155);
@@ -90,9 +105,9 @@ export function Y2kStickers() {
       });
     }
 
-    for (let i = 0; i < 5; i++) {
-      const svg = lcg.nextElement(svgList);
-      const topPct = lcg.nextRange(10 + (i * 75) / 5, 15 + ((i + 1) * 75) / 5);
+    for (let i = 0; i < bgStickers; i++) {
+      const svg = shuffledSvgs[(marginStickers + i) % shuffledSvgs.length];
+      const topPct = lcg.nextRange(12 + i * minGapPct, 17 + i * minGapPct);
       const offset = lcg.nextRange(15, 80);
       const size = lcg.nextRange(160, 250);
       const rotate = lcg.nextRange(-15, 15);

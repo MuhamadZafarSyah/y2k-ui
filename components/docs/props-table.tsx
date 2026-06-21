@@ -24,7 +24,7 @@ export function PropsTable({ data, className }: PropsTableProps) {
   return (
     <div
       className={cn(
-        "my-8 relative select-none",
+        "my-8 relative -z-20! select-none",
         className,
       )}
       data-slot="props-table"
