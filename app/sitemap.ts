@@ -64,10 +64,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "tooltip",
   ];
 
-  const docEntries: MetadataRoute.Sitemap[] = docs.map((doc) => ({
+  const docEntries = docs.map((doc) => ({
     url: `${baseUrl}/docs/${doc}`,
     lastModified: new Date(),
-    changeFrequency: "weekly",
+    changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
