@@ -8,6 +8,16 @@ export function generateSiteMetadata(overrides?: Partial<Metadata>): Metadata {
       default: `${seoConfig.siteName} — Y2K Component Library | Retro-Future React UI`,
       template: `%s — ${seoConfig.siteName}`,
     },
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico", sizes: "any" },
+      ],
+      apple: [
+        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      ],
+      shortcut: "/favicon.svg",
+    },
     description: seoConfig.siteDescription,
     keywords: [...seoConfig.keywords],
     authors: [{ name: "Y2K UI Contributors" }],
