@@ -1,37 +1,95 @@
 import type { MetadataRoute } from "next";
-import { source } from "@/lib/source";
-import { seoConfig } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages: MetadataRoute.Sitemap = [
+  const baseUrl = "https://y2k-ui.web.id";
+
+  const docs = [
+    "accordion",
+    "alert",
+    "alert-dialog",
+    "aspect-ratio",
+    "avatar",
+    "badge",
+    "breadcrumb",
+    "button",
+    "button-group",
+    "calendar",
+    "card",
+    "carousel",
+    "chart",
+    "checkbox",
+    "collapsible",
+    "combobox",
+    "command",
+    "context-menu",
+    "date-picker",
+    "dialog",
+    "direction",
+    "drawer",
+    "dropdown-menu",
+    "empty",
+    "field",
+    "form",
+    "hover-card",
+    "input",
+    "input-group",
+    "input-otp",
+    "installation",
+    "item",
+    "kbd",
+    "label",
+    "menubar",
+    "native-select",
+    "navigation-menu",
+    "pagination",
+    "popover",
+    "progress",
+    "radio-group",
+    "resizable",
+    "scroll-area",
+    "select",
+    "separator",
+    "sheet",
+    "sidebar",
+    "skeleton",
+    "slider",
+    "sonner",
+    "spinner",
+    "switch",
+    "table",
+    "tabs",
+    "textarea",
+    "toggle",
+    "toggle-group",
+    "tooltip",
+  ];
+
+  const docEntries: MetadataRoute.Sitemap[] = docs.map((doc) => ({
+    url: `${baseUrl}/docs/${doc}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
+  return [
     {
-      url: seoConfig.siteUrl,
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 1.0,
+      priority: 1,
     },
     {
-      url: `${seoConfig.siteUrl}/docs`,
+      url: `${baseUrl}/docs`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${seoConfig.siteUrl}/docs/installation`,
+      url: `${baseUrl}/docs/installation`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.9,
     },
+    ...docEntries,
   ];
-
-  const docPages: MetadataRoute.Sitemap = source
-    .getPages()
-    .map((page) => ({
-      url: `${seoConfig.siteUrl}/docs/${page.slugs.join("/")}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    }));
-
-  return [...staticPages, ...docPages];
 }

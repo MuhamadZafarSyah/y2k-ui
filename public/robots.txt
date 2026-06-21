@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://y2k-ui.web.id/sitemap.xml
