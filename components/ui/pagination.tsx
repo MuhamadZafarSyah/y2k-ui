@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Slot } from "radix-ui"
+import { Slot } from "@radix-ui/react-slot"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -88,7 +88,7 @@ const PaginationPrevious = React.forwardRef<
   HTMLAnchorElement,
   PaginationPreviousProps
 >(({ className, asChild = false, ...props }, ref) => {
-  const Comp = asChild ? Slot : "a"
+  const Comp: React.ElementType = asChild ? Slot : "a"
   return (
     <Comp
       ref={ref}
@@ -116,7 +116,7 @@ const PaginationNext = React.forwardRef<
   HTMLAnchorElement,
   PaginationNextProps
 >(({ className, asChild = false, ...props }, ref) => {
-  const Comp = asChild ? Slot : "a"
+  const Comp: React.ElementType = asChild ? Slot : "a"
   return (
     <Comp
       ref={ref}

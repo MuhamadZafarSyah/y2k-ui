@@ -57,6 +57,9 @@ function Nav() {
           <Link href="/docs" className="text-xs font-semibold text-y2k-ink/70 hover:text-y2k-ink transition-colors">
             Docs
           </Link>
+          <Link href="/blocks" className="text-xs font-semibold text-y2k-ink/70 hover:text-y2k-ink transition-colors">
+            Blocks
+          </Link>
           <a
             href="https://github.com/MuhamadZafarSyah/y2k-ui"
             target="_blank"
@@ -153,9 +156,9 @@ function Hero() {
               {/* Title bar */}
               <div className="flex items-center gap-2 border-b-2 border-y2k-ink bg-y2k-mint px-3 py-1.5">
                 <span className="flex items-center gap-1" aria-hidden>
-                  <span className="size-2.5 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
-                  <span className="size-2.5 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
-                  <span className="size-2.5 rounded-[2px] border-[1.5px] border-y2k-ink bg-y2k-pink" />
+                  <span className="size-2.5 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
+                  <span className="size-2.5 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
+                  <span className="size-2.5 rounded-xs border-[1.5px] border-y2k-ink bg-y2k-pink" />
                 </span>
                 <span className="font-mono text-[10px] font-black uppercase tracking-tight text-y2k-ink">
                   preview.exe
@@ -251,9 +254,9 @@ function PreviewCard({ title, accent, children }: { title: string; accent: strin
     <div className="overflow-hidden rounded border-2 border-y2k-ink bg-white">
       <div className={`flex items-center gap-2 border-b-2 border-y2k-ink ${accent} px-3 py-1.5`}>
         <span className="flex items-center gap-1" aria-hidden>
-          <span className="size-2 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
-          <span className="size-2 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
-          <span className="size-2 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
+          <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
+          <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
+          <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
         </span>
         <span className="font-mono text-[10px] font-black uppercase tracking-tight text-y2k-ink">
           {title}
@@ -519,9 +522,9 @@ function Features() {
             <div className="overflow-hidden rounded border-2 border-y2k-ink bg-white">
               <div className="flex items-center gap-2 border-b-2 border-y2k-ink bg-y2k-mint px-3 py-1.5">
                 <span className="flex items-center gap-1" aria-hidden>
-                  <span className="size-2 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
-                  <span className="size-2 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
-                  <span className="size-2 rounded-[2px] border-[1.5px] border-y2k-ink bg-white" />
+                  <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
+                  <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
+                  <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
                 </span>
                 <span className="font-mono text-[10px] font-black uppercase tracking-tight text-y2k-ink">
                   now_playing.exe
@@ -614,7 +617,7 @@ function CTA() {
   return (
     <section className="relative overflow-hidden border-b-2 border-y2k-ink py-16 md:py-24">
       <div className="pointer-events-none absolute inset-0 flex">
-        <div className="h-full w-full bg-[radial-gradient(var(--y2k-ink)_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.03]" />
+        <div className="h-full w-full bg-[radial-gradient(var(--y2k-ink)_1px,transparent_1px)] bg-size-[20px_20px] opacity-[0.03]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 text-center">
