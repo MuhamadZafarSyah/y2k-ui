@@ -4,7 +4,7 @@
   "title": "Button",
   "description": "A Y2K flat button with thick navy outline and pastel fill.",
   "dependencies": [
-    "@radix-ui/react-slot"
+    "radix-ui"
   ],
   "registryDependencies": [],
   "files": [

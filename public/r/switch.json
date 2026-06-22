@@ -4,7 +4,7 @@
   "title": "Switch",
   "description": "A Y2K toggle switch — pastel track + lemon thumb with thick navy border.",
   "dependencies": [
-    "@radix-ui/react-switch"
+    "radix-ui"
   ],
   "registryDependencies": [],
   "files": [

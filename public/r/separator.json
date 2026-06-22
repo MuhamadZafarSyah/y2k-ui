@@ -4,7 +4,7 @@
   "title": "Separator",
   "description": "A simple Y2K divider with thick flat lines, pastel color variants, and Radix orientation support.",
   "dependencies": [
-    "@radix-ui/react-separator",
+    "radix-ui",
     "class-variance-authority"
   ],
   "registryDependencies": [],

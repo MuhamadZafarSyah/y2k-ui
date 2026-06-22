@@ -8,6 +8,14 @@ const REGISTRY_URL = "https://y2k-ui.web.id/r/{name}";
 const REGISTRY_NAME = "@y2k";
 const CWD = process.cwd();
 
+const BANNER = `
+ ██╗   ██╗██████╗ ██╗  ██╗     ██╗   ██╗██╗
+ ╚██╗ ██╔╝╚════██╗██║ ██╔╝     ██║   ██║██║
+  ╚████╔╝  █████╔╝█████╔╝ ████╗██║   ██║██║
+   ╚██╔╝  ██╔═══╝ ╚════██╗╚═══╝██║   ██║██║
+    ██║   ███████╗     ██║      ╚██████╔╝██║
+    ╚═╝   ╚══════╝     ╚═╝       ╚═════╝ ╚═╝`;
+
 const args = process.argv.slice(2);
 const command = args[0];
 
@@ -28,18 +36,69 @@ function detectPackageManager() {
   return "npm";
 }
 
-function installDeps(deps, devDeps) {
+function installPackages(deps, isDev) {
+  if (!deps.length) return;
   const pm = detectPackageManager();
-  const devFlag = { npm: "--save-dev", pnpm: "--save-dev", yarn: "-D", bun: "--dev" }[pm];
-  const install = { npm: "install", pnpm: "add", yarn: "add", bun: "add" }[pm];
+  const devFlag = isDev
+    ? { npm: "--save-dev", pnpm: "-D", yarn: "-D", bun: "--dev" }[pm]
+    : "";
+  const cmd =
+    pm === "npm"
+      ? `npm install ${devFlag} ${deps.join(" ")}`
+      : `${pm} add ${devFlag} ${deps.join(" ")}`;
+  run(cmd.trim());
+}
 
-  if (deps.length > 0) {
-    console.log(`\n📦 Installing dependencies with ${pm}...`);
-    run(`${pm} ${install} ${deps.join(" ")}`);
+const CORE_DEPS = [
+  "radix-ui",
+  "class-variance-authority",
+  "clsx",
+  "tailwind-merge",
+  "lucide-react",
+  "tw-animate-css",
+];
+
+const CORE_DEV_DEPS = ["tailwindcss", "@tailwindcss/postcss"];
+
+function ensureCoreDeps() {
+  const pkgPath = path.join(CWD, "package.json");
+  if (!fs.existsSync(pkgPath)) return;
+
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
+  const allDeps = {
+    ...(pkg.dependencies || {}),
+    ...(pkg.devDependencies || {}),
+  };
+
+  const missing = CORE_DEPS.filter((d) => !allDeps[d]);
+  const missingDev = CORE_DEV_DEPS.filter((d) => !allDeps[d]);
+
+  if (missing.length > 0) {
+    console.log(`\n  Installing missing deps: ${missing.join(", ")}`);
+    installPackages(missing, false);
   }
-  if (devDeps.length > 0) {
-    console.log(`\n📦 Installing dev dependencies with ${pm}...`);
-    run(`${pm} ${install} ${devFlag} ${devDeps.join(" ")}`);
+  if (missingDev.length > 0) {
+    console.log(
+      `\n  Installing missing dev deps: ${missingDev.join(", ")}`,
+    );
+    installPackages(missingDev, true);
+  }
+}
+
+// ── Setup Functions ──────────────────────────────────────────────────────────
+
+function isRegistryConfigured() {
+  const configPath = path.join(CWD, "components.json");
+  if (!fs.existsSync(configPath)) return false;
+  try {
+    const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+    return !!(
+      config.registries &&
+      config.registries[REGISTRY_NAME] &&
+      config.registries[REGISTRY_NAME].url === REGISTRY_URL
+    );
+  } catch {
+    return false;
   }
 }
 
@@ -74,7 +133,13 @@ function ensureComponentsJson() {
     changed = true;
   }
   if (!config.tailwind) {
-    config.tailwind = { config: "", css: "app/globals.css", baseColor: "neutral", cssVariables: true, prefix: "" };
+    config.tailwind = {
+      config: "",
+      css: "app/globals.css",
+      baseColor: "neutral",
+      cssVariables: true,
+      prefix: "",
+    };
     changed = true;
   }
   if (!config.iconLibrary) {
@@ -99,9 +164,7 @@ function ensureComponentsJson() {
 
   if (changed) {
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2) + "\n");
-    console.log(`✅ Created / updated components.json`);
-  } else {
-    console.log(`✅ components.json already configured`);
+    console.log("  Created / updated components.json");
   }
 }
 
@@ -113,7 +176,9 @@ function ensureGlobalsCss() {
     fs.mkdirSync(cssDir, { recursive: true });
   }
 
-  const y2kTokens = `@import "tailwindcss";
+  const y2kBlock = `
+/* ── Y2K UI Tokens ── */
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -194,82 +259,106 @@ function ensureGlobalsCss() {
   if (fs.existsSync(cssPath)) {
     const existing = fs.readFileSync(cssPath, "utf-8");
     if (existing.includes("--y2k-ink")) {
-      console.log("✅ globals.css already has Y2K tokens");
       return;
     }
-    fs.appendFileSync(cssPath, "\n" + y2kTokens);
-    console.log("✅ Appended Y2K tokens to existing globals.css");
+    fs.appendFileSync(cssPath, y2kBlock);
+    console.log("  Appended Y2K tokens to globals.css");
   } else {
-    fs.writeFileSync(cssPath, y2kTokens);
-    console.log("✅ Created app/globals.css with Y2K tokens");
+    fs.writeFileSync(cssPath, y2kBlock.trimStart());
+    console.log("  Created app/globals.css with Y2K tokens");
   }
 }
 
 function ensureUtilsTs() {
-  const utilsPath = path.join(CWD, "lib");
-  const utilsFile = path.join(utilsPath, "utils.ts");
+  const utilsDir = path.join(CWD, "lib");
+  const utilsFile = path.join(utilsDir, "utils.ts");
 
-  if (!fs.existsSync(utilsPath)) {
-    fs.mkdirSync(utilsPath, { recursive: true });
+  if (!fs.existsSync(utilsDir)) {
+    fs.mkdirSync(utilsDir, { recursive: true });
   }
 
-  if (fs.existsSync(utilsFile)) {
-    console.log("✅ lib/utils.ts already exists");
-    return;
-  }
+  if (fs.existsSync(utilsFile)) return;
 
-  const content = `import { clsx, type ClassValue } from "clsx"
+  fs.writeFileSync(
+    utilsFile,
+    `import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
-`;
+`,
+  );
+  console.log("  Created lib/utils.ts");
+}
 
-  fs.writeFileSync(utilsFile, content);
-  console.log("✅ Created lib/utils.ts");
+function fullSetup() {
+  ensureComponentsJson();
+  ensureGlobalsCss();
+  ensureUtilsTs();
 }
 
 // ── Commands ─────────────────────────────────────────────────────────────────
 
 switch (command) {
   case "init": {
-    console.log("\n🎀 Initializing Y2K UI...\n");
+    console.log(BANNER);
+    console.log("\n  Setting up Y2K UI...\n");
 
-    ensureComponentsJson();
-    ensureGlobalsCss();
-    ensureUtilsTs();
-    installDeps(
-      ["class-variance-authority", "clsx", "lucide-react", "radix-ui", "tailwind-merge", "tw-animate-css"],
-      ["tailwindcss", "@tailwindcss/postcss"]
+    fullSetup();
+
+    console.log("\n  Installing dependencies...");
+    installPackages(CORE_DEPS, false);
+    installPackages(CORE_DEV_DEPS, true);
+
+    console.log(
+      `\n  Done! Y2K UI is ready.\n`,
     );
-
-    console.log("\n🎉 Done! Y2K UI is ready. Try:\n");
-    console.log("  npx y2kuis@latest add button\n");
+    console.log(`  npx y2kuis@latest add button\n`);
     break;
   }
+
   case "add": {
     const components = args.slice(1);
     if (components.length === 0) {
-      console.error("Usage: y2kuis add <component> [component...]");
+      console.error("  Usage: y2kuis add <component> [component...]");
       process.exit(1);
     }
 
-    ensureComponentsJson();
+    console.log(BANNER);
+
+    if (!isRegistryConfigured()) {
+      console.log("\n  First time setup...\n");
+      fullSetup();
+      console.log("\n  Installing core dependencies...");
+      installPackages(CORE_DEPS, false);
+      installPackages(CORE_DEV_DEPS, true);
+    }
+
+    ensureCoreDeps();
 
     const prefixed = components.map((c) => `${REGISTRY_NAME}/${c}`);
-    console.log(`\n🎀 Adding Y2K components: ${components.join(", ")}\n`);
+    console.log(
+      `\n  Adding: ${components.join(", ")}\n`,
+    );
     run(`npx shadcn@latest add ${prefixed.join(" ")}`);
+
+    console.log(`\n  Done!\n`);
     break;
   }
+
   default: {
+    console.log(BANNER);
     if (command) {
-      console.error(`Unknown command: ${command}`);
-    } else {
-      console.error("Usage: y2kuis <init|add> [component...]");
+      console.error(`\n  Unknown command: ${command}\n`);
     }
-    console.error("\n  y2kuis init          Set up Y2K UI in your project");
-    console.error("  y2kuis add button    Add Y2K button component\n");
-    process.exit(1);
+    console.log("  Commands:\n");
+    console.log("    y2kuis init          Set up Y2K UI in your project");
+    console.log("    y2kuis add <name>    Add a Y2K component\n");
+    console.log("  Examples:\n");
+    console.log("    npx y2kuis@latest init");
+    console.log("    npx y2kuis@latest add button");
+    console.log("    npx y2kuis@latest add card dialog input\n");
+    process.exit(command ? 1 : 0);
   }
 }

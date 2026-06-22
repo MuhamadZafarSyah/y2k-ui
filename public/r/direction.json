@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "components/ui/direction.tsx",
-      "content": "import * as React from \"react\"\nimport { Direction as DirectionPrimitive } from \"radix-ui\"\n\ntype DirectionProviderProps = React.ComponentProps<typeof DirectionPrimitive.Provider>\n\nfunction DirectionProvider({ ...props }: DirectionProviderProps) {\n  return <DirectionPrimitive.Provider data-slot=\"direction-provider\" {...props} />\n}\n\nexport { DirectionProvider, type DirectionProviderProps }\n",
+      "content": "import * as React from \"react\"\r\nimport { Direction as DirectionPrimitive } from \"radix-ui\"\r\n\r\ntype DirectionProviderProps = React.ComponentProps<typeof DirectionPrimitive.Provider>\r\n\r\nfunction DirectionProvider({ ...props }: DirectionProviderProps) {\r\n  return <DirectionPrimitive.Provider data-slot=\"direction-provider\" {...props} />\r\n}\r\n\r\nexport { DirectionProvider, type DirectionProviderProps }\r\n",
       "type": "registry:ui"
     }
   ],

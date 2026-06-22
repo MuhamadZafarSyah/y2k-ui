@@ -4,7 +4,7 @@
   "title": "Accordion",
   "description": "A Y2K collapsible accordion with pastel headers, thick navy outlines, and Radix accessibility.",
   "dependencies": [
-    "@radix-ui/react-accordion",
+    "radix-ui",
     "lucide-react",
     "class-variance-authority"
   ],

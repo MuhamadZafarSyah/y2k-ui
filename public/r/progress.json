@@ -4,7 +4,7 @@
   "title": "Progress",
   "description": "A Y2K progress bar with thick navy border and pastel blue fill.",
   "dependencies": [
-    "@radix-ui/react-progress"
+    "radix-ui"
   ],
   "registryDependencies": [],
   "files": [

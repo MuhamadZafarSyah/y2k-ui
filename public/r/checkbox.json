@@ -4,7 +4,7 @@
   "title": "Checkbox",
   "description": "A Y2K checkbox with thick navy border and lemon fill when checked.",
   "dependencies": [
-    "@radix-ui/react-checkbox",
+    "radix-ui",
     "lucide-react"
   ],
   "registryDependencies": [],

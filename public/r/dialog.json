@@ -4,7 +4,7 @@
   "title": "Dialog",
   "description": "A Y2K modal with a [_ ▢ ✕] window-chrome title bar. Each control is hideable via prop.",
   "dependencies": [
-    "@radix-ui/react-dialog"
+    "radix-ui"
   ],
   "registryDependencies": [],
   "files": [

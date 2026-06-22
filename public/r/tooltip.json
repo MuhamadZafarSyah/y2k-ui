@@ -4,7 +4,7 @@
   "title": "Tooltip",
   "description": "A Y2K flat tooltip with thick navy border, perfect for hints.",
   "dependencies": [
-    "@radix-ui/react-tooltip"
+    "radix-ui"
   ],
   "registryDependencies": [],
   "files": [

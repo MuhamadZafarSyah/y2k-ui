@@ -4,7 +4,7 @@
   "title": "Avatar",
   "description": "A Y2K retro-square avatar with thick navy border. Image + fallback slots.",
   "dependencies": [
-    "@radix-ui/react-avatar"
+    "radix-ui"
   ],
   "registryDependencies": [],
   "files": [

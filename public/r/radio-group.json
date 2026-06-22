@@ -4,7 +4,7 @@
   "title": "Radio Group",
   "description": "A Y2K radio group with square retro dots, pastel checked fills, and Radix keyboard navigation.",
   "dependencies": [
-    "@radix-ui/react-radio-group",
+    "radix-ui",
     "class-variance-authority"
   ],
   "registryDependencies": [],

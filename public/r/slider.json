@@ -4,7 +4,7 @@
   "title": "Slider",
   "description": "A Y2K range slider with thick navy track border, pastel range fill, and lemon thumb.",
   "dependencies": [
-    "@radix-ui/react-slider",
+    "radix-ui",
     "class-variance-authority"
   ],
   "registryDependencies": [],

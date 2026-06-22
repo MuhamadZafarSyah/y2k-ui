@@ -4,7 +4,7 @@
   "title": "Tabs",
   "description": "Y2K file-tab style tabs — pastel active state, thick navy borders.",
   "dependencies": [
-    "@radix-ui/react-tabs"
+    "radix-ui"
   ],
   "registryDependencies": [],
   "files": [

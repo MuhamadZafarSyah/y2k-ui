@@ -4,7 +4,7 @@
   "title": "Select",
   "description": "A Y2K dropdown select with thick navy border and lemon highlight on focus.",
   "dependencies": [
-    "@radix-ui/react-select",
+    "radix-ui",
     "lucide-react"
   ],
   "registryDependencies": [],
