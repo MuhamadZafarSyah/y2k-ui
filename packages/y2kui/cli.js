@@ -4,8 +4,8 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-const REGISTRY_URL = "https://y2k-ui.web.id/r";
-const REGISTRY_NAME = "y2k";
+const REGISTRY_URL = "https://y2k-ui.web.id/r/{name}";
+const REGISTRY_NAME = "@y2k";
 const CWD = process.cwd();
 
 const args = process.argv.slice(2);
