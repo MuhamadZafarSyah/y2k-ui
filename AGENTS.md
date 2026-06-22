@@ -15,7 +15,7 @@ Setiap komponen baru WAJIB punya dokumentasi di content/docs/<name>.mdx.
 Urutan halaman: Preview -> Installation -> Usage -> Props -> Examples.
 
 - Preview pakai <ComponentPreview name="<name>-demo" />.
-- Installation selalu pakai perintah: npx y2kui@latest add <name>.
+- Installation selalu pakai perintah: npx y2kui add <name>.
 - Props WAJIB pakai <PropsTable data={[...]} /> (prop/type/default/description).
 - Jangan tinggalkan komponen tanpa dokumentasi.
 

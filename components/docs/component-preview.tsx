@@ -261,12 +261,14 @@ export function ComponentPreview({
               </PreviewFrame>
             </>
           ) : (
-            <CodeBlock
-              code={source || "// source not available"}
-              language="tsx"
-              filename={`${name}.tsx`}
-              className="my-0! rounded-none border-0"
-            />
+            <div className="[&_pre]:select-text [&_code]:select-text [&_*]:!select-text">
+              <CodeBlock
+                code={source || "// source not available"}
+                language="tsx"
+                filename={`${name}.tsx`}
+                className="my-0! rounded-none border-0"
+              />
+            </div>
           )}
         </div>
       </div>

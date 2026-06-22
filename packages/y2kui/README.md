@@ -5,8 +5,8 @@ Modern Y2K / kawaii-retro component library — flat windows, thick navy outline
 ## Quick Start
 
 ```bash
-npx y2kui@latest init
-npx y2kui@latest add button
+npx y2k-ui-lib@latest init
+npx y2kui add button
 ```
 
 No prompts. No config. Just run it.
@@ -15,15 +15,15 @@ No prompts. No config. Just run it.
 
 | Command | Description |
 |---|---|
-| `npx y2kui@latest init` | Set up Y2K UI in your project (components.json, globals.css, utils.ts, dependencies) |
-| `npx y2kui@latest add <component>` | Add one or more Y2K components |
+| `npx y2k-ui-lib@latest init` | Set up Y2K UI in your project (components.json, globals.css, utils.ts, dependencies) |
+| `npx y2kui add <component>` | Add one or more Y2K components |
 
 ### Examples
 
 ```bash
-npx y2kui@latest add button
-npx y2kui@latest add card dialog input
-npx y2kui@latest add tabs switch checkbox
+npx y2kui add button
+npx y2kui add card dialog input
+npx y2kui add tabs switch checkbox
 ```
 
 ## Documentation

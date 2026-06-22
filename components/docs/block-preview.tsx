@@ -11,6 +11,7 @@ import {
   SmartphoneIcon,
   ExternalLinkIcon,
 } from "lucide-react"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export type BlockPreviewProps = {
   name: string
@@ -42,6 +43,7 @@ export function BlockPreview({
   const [active, setActive] = React.useState<"preview" | "code">("preview")
   const [viewMode, setViewMode] = React.useState<ViewMode>("desktop")
   const [fullscreen, setFullscreen] = React.useState(false)
+  const isMobile = useIsMobile()
 
   React.useEffect(() => {
     if (fullscreen) {
@@ -118,24 +120,24 @@ export function BlockPreview({
 
       <div className="y2k-window overflow-hidden border-2 border-y2k-ink bg-card shadow-none">
         {/* ===== Title Bar ===== */}
-        <div className="flex items-center justify-between border-b-2 border-y2k-ink bg-y2k-blue px-3 py-1.5">
-          <div className="flex items-center gap-2">
-            <span className="y2k-title-dots" aria-hidden>
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-y2k-ink bg-y2k-blue px-2 py-1.5 sm:px-3">
+          <div className="flex min-w-0 items-center gap-2">
+            <span className="y2k-title-dots hidden sm:inline-flex" aria-hidden>
               <span className="rounded-full w-2 h-2" />
               <span className="rounded-full w-2 h-2" />
               <span className="rounded-full w-2 h-2" />
             </span>
-            <span className="font-mono text-xs font-black text-y2k-ink select-none tracking-tight">
+            <span className="truncate font-mono text-xs font-black text-y2k-ink select-none tracking-tight">
               {name}.block
             </span>
-            <span className="rounded border border-y2k-ink bg-white px-1.5 py-0.5 text-[10px] font-bold text-y2k-ink">
+            <span className="hidden rounded border border-y2k-ink bg-white px-1.5 py-0.5 text-[10px] font-bold text-y2k-ink sm:inline-block">
               {category}
             </span>
           </div>
           <div className="flex items-center gap-1">
             {/* View mode toggles */}
-            {active === "preview" && (
-              <div className="mr-2 flex items-center gap-0.5">
+            {active === "preview" && !isMobile && (
+              <div className="mr-1 flex items-center gap-0.5 sm:mr-2">
                 <button
                   type="button"
                   aria-label="Desktop view"
@@ -174,7 +176,7 @@ export function BlockPreview({
         </div>
 
         {/* ===== Tabs ===== */}
-        <div className="flex items-end justify-between border-b-2 border-y2k-ink bg-y2k-panel px-3 pt-1 gap-1">
+        <div className="flex items-end justify-between border-b-2 border-y2k-ink bg-y2k-panel px-2 pt-1 gap-1 sm:px-3">
           <div className="flex gap-1">
             <button
               type="button"
@@ -195,7 +197,7 @@ export function BlockPreview({
               Code
             </button>
           </div>
-          <div className="pb-1.5">
+          <div className="hidden pb-1.5 sm:block">
             <span className="text-[10px] font-semibold text-y2k-ink/50">
               {title}
             </span>
@@ -205,24 +207,26 @@ export function BlockPreview({
         {/* ===== Content ===== */}
         <div className="relative bg-card overflow-hidden">
           {active === "preview" ? (
-            <div className="overflow-auto  bg-y2k-panel p-6" style={{
+            <div className="overflow-auto bg-y2k-panel p-3 sm:p-6" style={{
               backgroundImage: "radial-gradient(#1b1b3a15 1px, transparent 1px)",
               backgroundSize: "16px 16px",
             }}>
               <div
-                className="mx-auto! flex justify-center items-center transition-all duration-300 ease-in-out"
+                className="mx-auto flex justify-center items-center transition-all duration-300 ease-in-out"
                 style={{ maxWidth: viewWidths[viewMode] }}
               >
                 {preview}
               </div>
             </div>
           ) : (
-            <CodeBlock
-              code={source}
-              language="tsx"
-              filename={`${name}.tsx`}
-              className="my-0!  rounded-none border-0"
-            />
+            <div className="[&_pre]:select-text [&_code]:select-text [&_*]:!select-text">
+              <CodeBlock
+                code={source}
+                language="tsx"
+                filename={`${name}.tsx`}
+                className="my-0! rounded-none border-0"
+              />
+            </div>
           )}
         </div>
       </div>

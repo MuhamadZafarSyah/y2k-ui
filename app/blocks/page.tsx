@@ -242,7 +242,7 @@ export default function BlocksPage() {
               <LayersIcon className="size-3" />
               Blocks
             </Badge>
-            <Badge variant="pink">{blocks.length} blocks</Badge>
+            <Badge variant="pink">20+ blocks</Badge>
           </div>
           <h1 className="text-3xl font-black tracking-tight text-y2k-ink md:text-4xl">
             Pre-built component compositions
@@ -255,7 +255,7 @@ export default function BlocksPage() {
       </div>
 
       {/* Toolbar */}
-      <div className="sticky top-12 z-40 border-b-2 px-12 border-y2k-ink bg-white">
+      <div className="sticky top-12 z-40 border-b-2 md:px-12 px-0 border-y2k-ink bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5">
           {/* Category filters */}
           <div className="flex items-center gap-1.5 py-1 overflow-x-auto">

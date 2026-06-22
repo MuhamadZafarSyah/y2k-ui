@@ -19,6 +19,47 @@ export function CodeBlock({
   className,
 }: CodeBlockProps) {
   const [copied, setCopied] = React.useState(false)
+  const [highlightedHtml, setHighlightedHtml] = React.useState<string>("")
+
+  React.useEffect(() => {
+    let cancelled = false
+
+    async function highlight() {
+      try {
+        const { codeToHtml } = await import("shiki")
+        const html = await codeToHtml(code, {
+          lang: language,
+          theme: "github-light",
+          transformers: [
+            {
+              pre(node) {
+                node.properties.style =
+                  "background: transparent; margin: 0; padding: 0;"
+              },
+              code(node) {
+                node.properties.style = "background: transparent;"
+              },
+            },
+          ],
+        })
+        if (!cancelled) setHighlightedHtml(html)
+      } catch {
+        // Fallback to plain code
+        if (!cancelled) {
+          const escaped = code
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+          setHighlightedHtml(`<pre><code>${escaped}</code></pre>`)
+        }
+      }
+    }
+
+    highlight()
+    return () => {
+      cancelled = true
+    }
+  }, [code, language])
 
   const onCopy = React.useCallback(async () => {
     try {
@@ -32,18 +73,10 @@ export function CodeBlock({
 
   return (
     <div
-      className={cn(
-        "y2k-window overflow-hidden text-sm",
-        className,
-      )}
+      className={cn("y2k-window overflow-hidden text-sm", className)}
       data-slot="code-block"
     >
       <div className="y2k-window-title rounded-none! bg-y2k-lilac/20 px-3 py-1.5 font-mono text-xs text-y2k-ink">
-        {/* <span className="y2k-title-dots" aria-hidden>
-          <span />
-          <span />
-          <span />
-        </span> */}
         <span className="flex-1 truncate">
           {filename ?? `${language}.${language === "bash" ? "sh" : "txt"}`}
         </span>
@@ -60,12 +93,21 @@ export function CodeBlock({
           )}
         </button>
       </div>
-      <pre
+      <div
         dir="ltr"
-        className="overflow-x-auto bg-card px-4 py-3 font-mono text-[13px] leading-relaxed text-y2k-ink"
+        className="overflow-x-auto bg-card px-4 py-3 font-mono text-[13px] leading-relaxed [&_pre]:!bg-transparent [&_code]:!bg-transparent"
       >
-        <code>{code}</code>
-      </pre>
+        {highlightedHtml ? (
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+          />
+        ) : (
+          <pre className="m-0 p-0">
+            <code>{code}</code>
+          </pre>
+        )}
+      </div>
     </div>
   )
 }

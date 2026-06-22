@@ -599,9 +599,9 @@ export function AccordionDemo() {
       <AccordionItem value="item-2">
         <AccordionTrigger>How do I install it?</AccordionTrigger>
         <AccordionContent>
-          Run <code className="rounded bg-[#d7dde8] px-1">npx y2kui@latest init</code>
+          Run <code className="rounded bg-[#d7dde8] px-1">npx y2k-ui-lib@latest init</code>
           then add components with{" "}
-          <code className="rounded bg-[#d7dde8] px-1">npx y2kui@latest add &lt;name&gt;</code>.
+          <code className="rounded bg-[#d7dde8] px-1">npx y2kui add &lt;name&gt;</code>.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">

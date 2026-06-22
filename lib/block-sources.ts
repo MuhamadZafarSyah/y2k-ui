@@ -896,7 +896,7 @@ export function SupportCenterBlock() {
             <AccordionItem value="q1">
               <AccordionTrigger>How do I install Y2K UI?</AccordionTrigger>
               <AccordionContent>
-                Run \`npx y2kui@latest init\` to initialize your project, then add components with \`npx y2kui@latest add <name>\`.
+                Run \`npx y2k-ui-lib@latest init\` to initialize your project, then add components with \`npx y2kui add <name>\`.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="q2">

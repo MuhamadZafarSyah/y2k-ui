@@ -105,9 +105,9 @@ export function SupportCenterBlock() {
             <AccordionItem value="q1">
               <AccordionTrigger>How do I install Y2K UI?</AccordionTrigger>
               <AccordionContent>
-                Run <code className="rounded bg-y2k-panel px-1 text-xs">npx y2kui@latest init</code> to
+                Run <code className="rounded bg-y2k-panel px-1 text-xs">npx y2k-ui-lib@latest init</code> to
                 initialize your project, then add components with{" "}
-                <code className="rounded bg-y2k-panel px-1 text-xs">npx y2kui@latest add &lt;name&gt;</code>.
+                <code className="rounded bg-y2k-panel px-1 text-xs">npx y2kui add &lt;name&gt;</code>.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="q2">

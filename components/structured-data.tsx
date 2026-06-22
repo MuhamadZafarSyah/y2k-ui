@@ -120,7 +120,7 @@ export function StructuredData({
           name: "How to install Y2K UI?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Install Y2K UI using the CLI command: npx y2kui@latest init. Then add components with: npx y2kui@latest add <component-name>.",
+            text: "Install Y2K UI using the CLI command: npx y2k-ui-lib@latest init. Then add components with: npx y2kui add <component-name>.",
           },
         },
         {

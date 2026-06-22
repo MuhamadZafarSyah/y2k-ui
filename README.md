@@ -26,7 +26,7 @@ Y2K UI is a **free, open-source React component library** that brings the Y2K ae
 
 - **30+ Components** — buttons, inputs, dialogs, forms, navigation, and more
 - **Y2K Aesthetic** — flat windows, thick 2-3px navy outlines, pastel fills, 4-8px radius
-- **CLI Installation** — `npx y2kui@latest add <component>` for zero-config setup
+- **CLI Installation** — `npx y2kui add <component>` for zero-config setup
 - **Fully Accessible** — built on Radix UI with keyboard navigation and ARIA support
 - **TypeScript First** — complete type definitions for every component
 - **Tree-Shakeable** — import only what you need
@@ -36,10 +36,10 @@ Y2K UI is a **free, open-source React component library** that brings the Y2K ae
 
 ```bash
 # Initialize your project (one time)
-npx y2kui@latest init
+npx y2k-ui-lib@latest init
 
 # Add a component
-npx y2kui@latest add button
+npx y2kui add button
 ```
 
 ### Prerequisites

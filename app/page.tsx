@@ -144,7 +144,7 @@ function Hero() {
             <div ref={windowRef} className="mt-10 flex items-center gap-2 rounded border-2 border-y2k-ink bg-y2k-panel/40 px-4 py-2.5 w-fit" style={{ visibility: "hidden" }}>
               <Terminal className="size-3.5 text-y2k-ink/50" />
               <code className="font-mono text-[10px] font-black uppercase tracking-wider text-y2k-ink">
-                npx y2kui@latest init - ready in seconds
+                npx y2k-ui-lib@latest init - ready in seconds
               </code>
             </div>
           </div>
@@ -489,7 +489,7 @@ function Features() {
     {
       icon: Terminal,
       title: "CLI Install",
-      desc: "npx y2kui@latest add <component>. Zero config, tree-shakeable, works with any Next.js app.",
+      desc: "npx y2kui add <component>. Zero config, tree-shakeable, works with any Next.js app.",
       color: "bg-y2k-pink",
     },
   ]
@@ -602,7 +602,7 @@ function CTA() {
     setMounted(true)
   }, [])
 
-  const cmd = "npx y2kui@latest init"
+  const cmd = "npx y2k-ui-lib@latest init"
 
   const handleCopy = () => {
     navigator.clipboard.writeText(cmd)

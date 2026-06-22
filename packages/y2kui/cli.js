@@ -306,11 +306,11 @@ switch (command) {
     fullSetup();
 
     console.log("\n  Installing dependencies...");
-    installPackages(CORE_DEPS, false);
+    installPackages([...CORE_DEPS, "y2k-ui-lib"], false);
     installPackages(CORE_DEV_DEPS, true);
 
     console.log(`\n  Done! Y2K UI is ready.\n`);
-    console.log(`  npx y2kui@latest add button\n`);
+    console.log(`  npx y2kui add button\n`);
     break;
   }
 
@@ -350,9 +350,9 @@ switch (command) {
     console.log("    y2kui init          Set up Y2K UI in your project");
     console.log("    y2kui add <name>    Add a Y2K component\n");
     console.log("  Examples:\n");
-    console.log("    npx y2kui@latest init");
-    console.log("    npx y2kui@latest add button");
-    console.log("    npx y2kui@latest add card dialog input\n");
+    console.log("    npx y2k-ui-lib@latest init");
+    console.log("    npx y2kui add button");
+    console.log("    npx y2kui add card dialog input\n");
     process.exit(command ? 1 : 0);
   }
 }
