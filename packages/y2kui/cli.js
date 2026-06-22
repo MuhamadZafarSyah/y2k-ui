@@ -9,12 +9,12 @@ const REGISTRY_NAME = "@y2k";
 const CWD = process.cwd();
 
 const BANNER = `
- ██╗   ██╗██████╗ ██╗  ██╗     ██╗   ██╗██╗
- ╚██╗ ██╔╝╚════██╗██║ ██╔╝     ██║   ██║██║
-  ╚████╔╝  █████╔╝█████╔╝ ████╗██║   ██║██║
-   ╚██╔╝  ██╔═══╝ ██════██╗╚═══╝██║   ██║██║
-    ██║   ███████╗██    ██║      ╚██████╔╝██║
-    ╚═╝   ╚══════╝╚═╝   ╚═╝       ╚═════╝ ╚═╝`;
+ ██╗   ██╗██████╗ ██╗  ██╗        ██╗   ██╗██╗
+ ╚██╗ ██╔╝╚════██╗██║ ██╔╝        ██║   ██║██║
+  ╚████╔╝  █████╔╝█████╔╝   ████╗ ██║   ██║██║
+   ╚██╔╝  ██╔═══╝ ██════██╗ ╚═══╝  ██║   ██║██║
+    ██║   ███████╗██    ██║        ╚██████╔╝██║
+    ╚═╝   ╚══════╝╚═╝   ╚═╝          ╚═════╝ ╚═╝`;
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -310,14 +310,14 @@ switch (command) {
     installPackages(CORE_DEV_DEPS, true);
 
     console.log(`\n  Done! Y2K UI is ready.\n`);
-    console.log(`  npx y2kuis@latest add button\n`);
+    console.log(`  npx y2kui@latest add button\n`);
     break;
   }
 
   case "add": {
     const components = args.slice(1);
     if (components.length === 0) {
-      console.error("  Usage: y2kuis add <component> [component...]");
+      console.error("  Usage: y2kui add <component> [component...]");
       process.exit(1);
     }
 
@@ -347,12 +347,12 @@ switch (command) {
       console.error(`\n  Unknown command: ${command}\n`);
     }
     console.log("  Commands:\n");
-    console.log("    y2kuis init          Set up Y2K UI in your project");
-    console.log("    y2kuis add <name>    Add a Y2K component\n");
+    console.log("    y2kui init          Set up Y2K UI in your project");
+    console.log("    y2kui add <name>    Add a Y2K component\n");
     console.log("  Examples:\n");
-    console.log("    npx y2kuis@latest init");
-    console.log("    npx y2kuis@latest add button");
-    console.log("    npx y2kuis@latest add card dialog input\n");
+    console.log("    npx y2kui@latest init");
+    console.log("    npx y2kui@latest add button");
+    console.log("    npx y2kui@latest add card dialog input\n");
     process.exit(command ? 1 : 0);
   }
 }
