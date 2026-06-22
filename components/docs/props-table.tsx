@@ -24,13 +24,13 @@ export function PropsTable({ data, className }: PropsTableProps) {
   return (
     <div
       className={cn(
-        "my-8 relative -z-20! select-none",
+        "my-8 relative  select-none",
         className,
       )}
       data-slot="props-table"
     >
       {/* ===== Retro Spiral Binding (Loops) ===== */}
-      <div className="flex justify-around px-8 -mb-3 relative z-10 pointer-events-none">
+      <div className="flex justify-around px-8 -mb-3 relative z-1 pointer-events-none">
         {Array.from({ length: 12 }).map((_, i) => (
           <div key={i} className="flex flex-col items-center">
             {/* Metal binder ring */}
