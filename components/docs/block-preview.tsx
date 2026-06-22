@@ -225,6 +225,7 @@ export function BlockPreview({
                 language="tsx"
                 filename={`${name}.tsx`}
                 className="my-0! rounded-none border-0"
+                showLineNumbers
               />
             </div>
           )}

@@ -42,7 +42,7 @@ export function ContactFormBlock() {
               </div>
               <div>
                 <p className="text-sm font-bold text-y2k-ink">Email</p>
-                <p className="text-xs text-y2k-ink/70">hello@y2kui.dev</p>
+                <p className="text-xs text-y2k-ink/70">hello@y2kui.web.id</p>
               </div>
             </div>
             <div className="flex items-start gap-3">

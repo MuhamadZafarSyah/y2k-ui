@@ -195,7 +195,7 @@ function Hero() {
                 </div>
 
                 {/* Row: input */}
-                <Input placeholder="y2k@retro.dev" />
+                <Input placeholder="y2k@retro.web.id" />
 
                 {/* Status bar */}
                 <div className="flex items-center justify-between border-t-2 border-y2k-ink pt-2 text-[9px] font-mono font-bold text-y2k-ink/50">
@@ -387,7 +387,7 @@ function Showcase() {
                       <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" />
                     </svg>
                   }
-                  placeholder="y2k@retro.dev"
+                  placeholder="y2k@retro.web.id"
                 />
               </div>
             </PreviewCard>

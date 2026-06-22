@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "y2k",
-  "homepage": "https://y2k-ui.dev",
+  "homepage": "https://y2k-ui.web.id",
   "items": [
     {
       "name": "label",
@@ -9,9 +9,7 @@
       "title": "Label",
       "description": "A Y2K label component with thick navy text and peer-disabled state support.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/label.tsx",
@@ -25,9 +23,7 @@
       "title": "Aspect Ratio",
       "description": "A Y2K aspect ratio container for responsive media embeds.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/aspect-ratio.tsx",
@@ -41,9 +37,7 @@
       "title": "Spinner",
       "description": "A Y2K circular loading spinner with thick navy border animation.",
       "registryDependencies": [],
-      "dependencies": [
-        "class-variance-authority"
-      ],
+      "dependencies": ["class-variance-authority"],
       "files": [
         {
           "path": "components/ui/spinner.tsx",
@@ -113,9 +107,7 @@
       "title": "Item",
       "description": "A Y2K list item with selected and highlighted states.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/item.tsx",
@@ -129,9 +121,7 @@
       "title": "Direction Provider",
       "description": "A Y2K direction context provider for RTL/LTR layout support.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/direction.tsx",
@@ -144,12 +134,8 @@
       "type": "registry:ui",
       "title": "Alert Dialog",
       "description": "A Y2K confirmation modal with window-chrome styling, action, and cancel buttons.",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "registryDependencies": ["button"],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/alert-dialog.tsx",
@@ -163,9 +149,7 @@
       "title": "Command",
       "description": "A Y2K command palette with search input, grouped items, and keyboard shortcuts.",
       "registryDependencies": [],
-      "dependencies": [
-        "cmdk"
-      ],
+      "dependencies": ["cmdk"],
       "files": [
         {
           "path": "components/ui/command.tsx",
@@ -179,9 +163,7 @@
       "title": "Navigation Menu",
       "description": "A Y2K navigation menu with dropdown submenus, thick navy borders, and pastel highlights.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/navigation-menu.tsx",
@@ -194,13 +176,8 @@
       "type": "registry:ui",
       "title": "Calendar",
       "description": "A Y2K date picker calendar with thick navy grid, pastel selection, and today highlight.",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "react-day-picker",
-        "date-fns"
-      ],
+      "registryDependencies": ["button"],
+      "dependencies": ["react-day-picker", "date-fns"],
       "files": [
         {
           "path": "components/ui/calendar.tsx",
@@ -214,9 +191,7 @@
       "title": "Drawer",
       "description": "A Y2K mobile drawer that slides up from the bottom with a drag handle.",
       "registryDependencies": [],
-      "dependencies": [
-        "vaul"
-      ],
+      "dependencies": ["vaul"],
       "files": [
         {
           "path": "components/ui/drawer.tsx",
@@ -230,9 +205,7 @@
       "title": "Input OTP",
       "description": "A Y2K one-time password input with individually styled slots and caret animation.",
       "registryDependencies": [],
-      "dependencies": [
-        "input-otp"
-      ],
+      "dependencies": ["input-otp"],
       "files": [
         {
           "path": "components/ui/input-otp.tsx",
@@ -245,12 +218,8 @@
       "type": "registry:ui",
       "title": "Carousel",
       "description": "A Y2K carousel with previous/next navigation, powered by Embla.",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "embla-carousel-react"
-      ],
+      "registryDependencies": ["button"],
+      "dependencies": ["embla-carousel-react"],
       "files": [
         {
           "path": "components/ui/carousel.tsx",
@@ -264,9 +233,7 @@
       "title": "Resizable",
       "description": "A Y2K resizable panel layout with draggable handles.",
       "registryDependencies": [],
-      "dependencies": [
-        "react-resizable-panels"
-      ],
+      "dependencies": ["react-resizable-panels"],
       "files": [
         {
           "path": "components/ui/resizable.tsx",
@@ -280,10 +247,7 @@
       "title": "Combobox",
       "description": "A Y2K combobox with search filtering, popup list, and keyboard navigation.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "cmdk"
-      ],
+      "dependencies": ["radix-ui", "cmdk"],
       "files": [
         {
           "path": "components/ui/combobox.tsx",
@@ -297,11 +261,7 @@
       "title": "Sidebar",
       "description": "A Y2K collapsible sidebar with menu items, group labels, and responsive mobile drawer.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "class-variance-authority",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "class-variance-authority", "lucide-react"],
       "files": [
         {
           "path": "components/ui/sidebar.tsx",
@@ -346,12 +306,8 @@
       "type": "registry:ui",
       "title": "Form",
       "description": "A Y2K form component built on Radix primitives with native validation and accessibility.",
-      "registryDependencies": [
-        "label"
-      ],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "registryDependencies": ["label"],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/form.tsx",
@@ -365,9 +321,7 @@
       "title": "Sonner (Toast)",
       "description": "A Y2K-styled toast notification system powered by Sonner. Flat pastel accents, thick navy outline, monospace typography.",
       "registryDependencies": [],
-      "dependencies": [
-        "sonner"
-      ],
+      "dependencies": ["sonner"],
       "files": [
         {
           "path": "components/ui/sonner.tsx",
@@ -381,9 +335,7 @@
       "title": "Button",
       "description": "A Y2K flat button with thick navy outline and pastel fill.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/button.tsx",
@@ -397,9 +349,7 @@
       "title": "Dialog",
       "description": "A Y2K modal with a [_ ▢ ✕] window-chrome title bar. Each control is hideable via prop.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/dialog.tsx",
@@ -445,9 +395,7 @@
       "title": "Badge",
       "description": "A Y2K pastel badge with thick outline. Six color variants.",
       "registryDependencies": [],
-      "dependencies": [
-        "class-variance-authority"
-      ],
+      "dependencies": ["class-variance-authority"],
       "files": [
         {
           "path": "components/ui/badge.tsx",
@@ -461,9 +409,7 @@
       "title": "Tooltip",
       "description": "A Y2K flat tooltip with thick navy border, perfect for hints.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/tooltip.tsx",
@@ -477,9 +423,7 @@
       "title": "Switch",
       "description": "A Y2K toggle switch — pastel track + lemon thumb with thick navy border.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/switch.tsx",
@@ -493,9 +437,7 @@
       "title": "Tabs",
       "description": "Y2K file-tab style tabs — pastel active state, thick navy borders.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/tabs.tsx",
@@ -509,9 +451,7 @@
       "title": "Alert",
       "description": "A Y2K banner for info, warning, and danger messages. Six pastel variants.",
       "registryDependencies": [],
-      "dependencies": [
-        "class-variance-authority"
-      ],
+      "dependencies": ["class-variance-authority"],
       "files": [
         {
           "path": "components/ui/alert.tsx",
@@ -525,10 +465,7 @@
       "title": "Checkbox",
       "description": "A Y2K checkbox with thick navy border and lemon fill when checked.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/checkbox.tsx",
@@ -542,9 +479,7 @@
       "title": "Avatar",
       "description": "A Y2K retro-square avatar with thick navy border. Image + fallback slots.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/avatar.tsx",
@@ -558,9 +493,7 @@
       "title": "Progress",
       "description": "A Y2K progress bar with thick navy border and pastel blue fill.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/progress.tsx",
@@ -574,10 +507,7 @@
       "title": "Select",
       "description": "A Y2K dropdown select with thick navy border and lemon highlight on focus.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/select.tsx",
@@ -591,11 +521,7 @@
       "title": "Accordion",
       "description": "A Y2K collapsible accordion with pastel headers, thick navy outlines, and Radix accessibility.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react",
-        "class-variance-authority"
-      ],
+      "dependencies": ["radix-ui", "lucide-react", "class-variance-authority"],
       "files": [
         {
           "path": "components/ui/accordion.tsx",
@@ -609,10 +535,7 @@
       "title": "Radio Group",
       "description": "A Y2K radio group with square retro dots, pastel checked fills, and Radix keyboard navigation.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "class-variance-authority"
-      ],
+      "dependencies": ["radix-ui", "class-variance-authority"],
       "files": [
         {
           "path": "components/ui/radio-group.tsx",
@@ -626,10 +549,7 @@
       "title": "Slider",
       "description": "A Y2K range slider with thick navy track border, pastel range fill, and lemon thumb.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "class-variance-authority"
-      ],
+      "dependencies": ["radix-ui", "class-variance-authority"],
       "files": [
         {
           "path": "components/ui/slider.tsx",
@@ -643,9 +563,7 @@
       "title": "Textarea",
       "description": "A Y2K multiline input with thick navy outline, pastel fill variants, and pink focus ring.",
       "registryDependencies": [],
-      "dependencies": [
-        "class-variance-authority"
-      ],
+      "dependencies": ["class-variance-authority"],
       "files": [
         {
           "path": "components/ui/textarea.tsx",
@@ -659,10 +577,7 @@
       "title": "Separator",
       "description": "A simple Y2K divider with thick flat lines, pastel color variants, and Radix orientation support.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "class-variance-authority"
-      ],
+      "dependencies": ["radix-ui", "class-variance-authority"],
       "files": [
         {
           "path": "components/ui/separator.tsx",
@@ -676,9 +591,7 @@
       "title": "Charts",
       "description": "Y2K-styled interactive bar, line, and donut charts powered by Recharts with thick outlines and pastel fills.",
       "registryDependencies": [],
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": ["recharts"],
       "files": [
         {
           "path": "components/ui/chart.tsx",
@@ -720,10 +633,7 @@
       "title": "Breadcrumb",
       "description": "Y2K breadcrumb navigation with thick outlines and chevron separators.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/breadcrumb.tsx",
@@ -737,10 +647,7 @@
       "title": "Dropdown Menu",
       "description": "A Y2K flat dropdown menu with thick navy border, pink hover highlights, and submenu support.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/dropdown-menu.tsx",
@@ -754,9 +661,7 @@
       "title": "Hover Card",
       "description": "A Y2K flat hover card with thick navy border and pastel accent fills.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/hover-card.tsx",
@@ -770,9 +675,7 @@
       "title": "Toggle",
       "description": "Y2K toggle button with thick outline, shadow press effect, and group support.",
       "registryDependencies": [],
-      "dependencies": [
-        "class-variance-authority"
-      ],
+      "dependencies": ["class-variance-authority"],
       "files": [
         {
           "path": "components/ui/toggle.tsx",
@@ -786,9 +689,7 @@
       "title": "ScrollArea",
       "description": "A Y2K-styled scrollable panel with thick navy outline, white viewport, and pastel-blue scrollbar thumb.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": ["radix-ui"],
       "files": [
         {
           "path": "components/ui/scroll-area.tsx",
@@ -802,10 +703,7 @@
       "title": "Pagination",
       "description": "A Y2K pagination with thick navy borders, pastel active state, monospace numbers, and Prev/Next arrow buttons.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/pagination.tsx",
@@ -819,9 +717,7 @@
       "title": "Sonner",
       "description": "A Y2K toast notification system powered by Sonner — thick navy border, pastel accent tints, flat design.",
       "registryDependencies": [],
-      "dependencies": [
-        "sonner"
-      ],
+      "dependencies": ["sonner"],
       "files": [
         {
           "path": "components/ui/sonner.tsx",
@@ -835,10 +731,7 @@
       "title": "Sheet",
       "description": "A Y2K slide-in side panel with window-chrome title bar. Supports top, bottom, left, and right positions.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/sheet.tsx",
@@ -852,10 +745,7 @@
       "title": "Menubar",
       "description": "A Y2K horizontal menu bar with dropdown support — navy outline, pastel highlights, keyboard navigation.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/menubar.tsx",
@@ -869,10 +759,7 @@
       "title": "Context Menu",
       "description": "A Y2K right-click context menu with sub-menu, checkbox, and radio item support.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/context-menu.tsx",
@@ -885,13 +772,8 @@
       "type": "registry:ui",
       "title": "Toggle Group",
       "description": "A Y2K toggle group for selecting one or more options from a set — navy outline, pastel panel.",
-      "registryDependencies": [
-        "toggle"
-      ],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "registryDependencies": ["toggle"],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/toggle-group.tsx",
@@ -905,10 +787,7 @@
       "title": "Collapsible",
       "description": "A Y2K collapsible section with blue title bar and chevron rotation on expand/collapse.",
       "registryDependencies": [],
-      "dependencies": [
-        "radix-ui",
-        "lucide-react"
-      ],
+      "dependencies": ["radix-ui", "lucide-react"],
       "files": [
         {
           "path": "components/ui/collapsible.tsx",
@@ -921,14 +800,8 @@
       "type": "registry:ui",
       "title": "Date Picker",
       "description": "A Y2K date picker with popover calendar, thick navy borders, and pastel accents.",
-      "registryDependencies": [
-        "button",
-        "calendar"
-      ],
-      "dependencies": [
-        "radix-ui",
-        "date-fns"
-      ],
+      "registryDependencies": ["button", "calendar"],
+      "dependencies": ["radix-ui", "date-fns"],
       "files": [
         {
           "path": "components/ui/date-picker.tsx",

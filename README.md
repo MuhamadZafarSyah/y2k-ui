@@ -50,28 +50,28 @@ npx y2kui add button
 
 ## Components
 
-| Category | Components |
-| --- | --- |
-| **Layout** | Aspect Ratio, Card, Resizable, Separator, Scroll Area |
-| **Forms** | Button, Input, Textarea, Select, Checkbox, Radio Group, Switch, Slider, Form, Field, Input OTP, Native Select, Combobox |
-| **Navigation** | Breadcrumb, Dropdown Menu, Menubar, Navigation Menu, Pagination, Tabs, Sidebar |
-| **Feedback** | Alert, Alert Dialog, Dialog, Drawer, Popover, Tooltip, Sonner, Progress, Skeleton, Spinner |
-| **Data Display** | Avatar, Badge, Table, KBD, Hover Card, Calendar, Date Picker, Chart, Carousel |
-| **Overlay** | Command, Context Menu, Sheet, Toggle, Toggle Group, Collapsible |
+| Category         | Components                                                                                                              |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Layout**       | Aspect Ratio, Card, Resizable, Separator, Scroll Area                                                                   |
+| **Forms**        | Button, Input, Textarea, Select, Checkbox, Radio Group, Switch, Slider, Form, Field, Input OTP, Native Select, Combobox |
+| **Navigation**   | Breadcrumb, Dropdown Menu, Menubar, Navigation Menu, Pagination, Tabs, Sidebar                                          |
+| **Feedback**     | Alert, Alert Dialog, Dialog, Drawer, Popover, Tooltip, Sonner, Progress, Skeleton, Spinner                              |
+| **Data Display** | Avatar, Badge, Table, KBD, Hover Card, Calendar, Date Picker, Chart, Carousel                                           |
+| **Overlay**      | Command, Context Menu, Sheet, Toggle, Toggle Group, Collapsible                                                         |
 
 ## Design Tokens
 
 The Y2K palette is exposed as CSS custom properties on `:root`:
 
-| Token | Value | Usage |
-| --- | --- | --- |
-| `--y2k-ink` | `#1b1b3a` | Outlines & body text |
-| `--y2k-blue` | `#8ed1fc` | Primary |
-| `--y2k-pink` | `#ff8fcf` | Accent |
-| `--y2k-lilac` | `#b69cff` | Secondary |
-| `--y2k-mint` | `#8ff0d0` | Success |
-| `--y2k-lemon` | `#ffe45e` | Highlight |
-| `--y2k-panel` | `#d7dde8` | Surface |
+| Token         | Value     | Usage                |
+| ------------- | --------- | -------------------- |
+| `--y2k-ink`   | `#1b1b3a` | Outlines & body text |
+| `--y2k-blue`  | `#8ed1fc` | Primary              |
+| `--y2k-pink`  | `#ff8fcf` | Accent               |
+| `--y2k-lilac` | `#b69cff` | Secondary            |
+| `--y2k-mint`  | `#8ff0d0` | Success              |
+| `--y2k-lemon` | `#ffe45e` | Highlight            |
+| `--y2k-panel` | `#d7dde8` | Surface              |
 
 ## Manual Setup
 
@@ -79,7 +79,7 @@ If you prefer to skip the CLI, copy `components/ui/*` and `lib/utils.ts` from th
 
 ## Documentation
 
-Visit [y2kui.dev](https://y2kui.dev) for full documentation, component previews, and API references.
+Visit [y2kui.web.id](https://y2kui.web.id) for full documentation, component previews, and API references.
 
 ## Development
 

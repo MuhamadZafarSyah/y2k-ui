@@ -92,21 +92,21 @@ export function WeatherWidgetBlock() {
         {/* 5-Day Forecast */}
         <div>
           <p className="mb-2 text-xs font-bold text-y2k-ink">5-Day Forecast</p>
-          <div className="flex justify-between">
+          <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
             {forecast.map((day) => (
               <div
                 key={day.day}
-                className="flex flex-col items-center gap-1 rounded border-2 border-y2k-ink bg-card px-2 py-1.5"
+                className="flex flex-col items-center gap-1 rounded border-2 border-y2k-ink bg-card px-1 py-1.5 sm:px-2"
               >
                 <span className="text-[10px] font-semibold text-y2k-ink/60">
                   {day.day}
                 </span>
                 <div
-                  className={`flex size-7 items-center justify-center rounded border border-y2k-ink ${day.color} text-y2k-ink`}
+                  className={`flex size-6 items-center justify-center rounded border border-y2k-ink ${day.color} text-y2k-ink sm:size-7`}
                 >
                   {day.icon}
                 </div>
-                <span className="text-xs font-bold text-y2k-ink">
+                <span className="text-[10px] font-bold text-y2k-ink sm:text-xs">
                   {day.temp}
                 </span>
               </div>

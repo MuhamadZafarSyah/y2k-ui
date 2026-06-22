@@ -1,4 +1,4 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://y2kui.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://y2kui.web.id";
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Y2K UI";
 const siteDescription =
   process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||

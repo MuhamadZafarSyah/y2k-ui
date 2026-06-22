@@ -32,13 +32,13 @@ export function HeroSectionBlock() {
         A modern Y2K / kawaii-retro component library for React. Flat windows,
         thick navy outlines, pastel fills. Built on shadcn and Radix UI.
       </p>
-      <div className="mt-6 flex items-center justify-center gap-3">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
         <Button variant="blue" trailingIcon={<ArrowRightIcon />}>
           Get Started
         </Button>
         <Button variant="outline">View on GitHub</Button>
       </div>
-      <div className="mt-6 flex items-center justify-center gap-4">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
         <div className="flex items-center gap-1.5">
           <span className="flex size-5 items-center justify-center rounded border-2 border-y2k-ink bg-y2k-mint text-[10px] font-bold text-y2k-ink">
             ✓

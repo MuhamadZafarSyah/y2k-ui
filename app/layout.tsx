@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { RootProvider } from "fumadocs-ui/provider/next";
+import { Suspense } from "react";
 import { generateSiteMetadata } from "@/lib/seo-helpers";
 import { Analytics } from "@/components/analytics";
 import { JsonLd } from "@/components/json-ld";
+import { ProgressBar } from "@/components/progress-bar";
 import "./globals.css";
 import "./main.css";
 
@@ -52,6 +54,9 @@ export default function RootLayout({
             ],
           }}
         >
+          <Suspense fallback={null}>
+            <ProgressBar />
+          </Suspense>
           {children}
         </RootProvider>
       </body>

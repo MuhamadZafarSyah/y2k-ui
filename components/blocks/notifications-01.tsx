@@ -77,7 +77,7 @@ export function NotificationCenterBlock() {
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <CardTitle className="flex items-center gap-2 text-base">
             <BellIcon className="size-4" />
             Notifications

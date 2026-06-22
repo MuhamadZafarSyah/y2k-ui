@@ -353,11 +353,11 @@ export function HeroSectionBlock() {
         A modern Y2K / kawaii-retro component library for React. Flat windows,
         thick navy outlines, pastel fills. Built on shadcn and Radix UI.
       </p>
-      <div className="mt-6 flex items-center justify-center gap-3">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
         <Button variant="blue" trailingIcon={<ArrowRightIcon />}>Get Started</Button>
         <Button variant="outline">View on GitHub</Button>
       </div>
-      <div className="mt-6 flex items-center justify-center gap-4">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
         <div className="flex items-center gap-1.5">
           <span className="flex size-5 items-center justify-center rounded border-2 border-y2k-ink bg-y2k-mint text-[10px] font-bold text-y2k-ink">✓</span>
           <span className="text-xs font-semibold text-y2k-ink/70">Accessible</span>
@@ -419,7 +419,7 @@ export function ProfileCardBlock() {
             <MapPinIcon className="size-3.5" /> Tokyo, Japan
           </div>
           <div className="flex items-center gap-2 text-xs text-y2k-ink/70">
-            <MailIcon className="size-3.5" /> hello@y2kui.dev
+            <MailIcon className="size-3.5" /> hello@y2kui.web.id
           </div>
         </div>
         <div className="space-y-1.5">
@@ -476,10 +476,10 @@ export function SettingsPanelBlock() {
       <Separator />
       <CardContent className="pt-4">
         <Tabs defaultValue="general">
-          <TabsList className="mb-4">
-            <TabsTrigger value="general">General</TabsTrigger>
-            <TabsTrigger value="notifications">Notifications</TabsTrigger>
-            <TabsTrigger value="appearance">Appearance</TabsTrigger>
+          <TabsList className="mb-4 w-full overflow-x-auto">
+            <TabsTrigger value="general" className="flex-1">General</TabsTrigger>
+            <TabsTrigger value="notifications" className="flex-1">Notifications</TabsTrigger>
+            <TabsTrigger value="appearance" className="flex-1">Appearance</TabsTrigger>
           </TabsList>
           <TabsContent value="general" className="space-y-4">
             <div className="grid gap-3 sm:grid-cols-2">
@@ -642,16 +642,18 @@ export function DataTableBlock() {
             ))}
           </TableBody>
         </Table>
-        <Pagination>
-          <PaginationContent>
-            <PaginationItem><PaginationPrevious href="#" /></PaginationItem>
-            <PaginationItem><PaginationLink href="#" isActive>1</PaginationLink></PaginationItem>
-            <PaginationItem><PaginationLink href="#">2</PaginationLink></PaginationItem>
-            <PaginationItem><PaginationEllipsis /></PaginationItem>
-            <PaginationItem><PaginationLink href="#">8</PaginationLink></PaginationItem>
-            <PaginationItem><PaginationNext href="#" /></PaginationItem>
-          </PaginationContent>
-        </Pagination>
+        <div className="overflow-x-auto">
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem><PaginationPrevious href="#" /></PaginationItem>
+              <PaginationItem><PaginationLink href="#" isActive>1</PaginationLink></PaginationItem>
+              <PaginationItem><PaginationLink href="#">2</PaginationLink></PaginationItem>
+              <PaginationItem><PaginationEllipsis /></PaginationItem>
+              <PaginationItem><PaginationLink href="#">8</PaginationLink></PaginationItem>
+              <PaginationItem><PaginationNext href="#" /></PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
       </CardContent>
     </Card>
   )
@@ -946,7 +948,7 @@ export function NewsletterBlock() {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row">
           <Input type="email" placeholder="you@example.com" className="flex-1" leadingIcon={<MailIcon />} />
           <Button variant="pink">Subscribe</Button>
         </div>
@@ -1034,7 +1036,7 @@ export function ContactFormBlock() {
               </div>
               <div>
                 <p className="text-sm font-bold text-y2k-ink">Email</p>
-                <p className="text-xs text-y2k-ink/70">hello@y2kui.dev</p>
+                <p className="text-xs text-y2k-ink/70">hello@y2kui.web.id</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -1121,7 +1123,7 @@ export function NotificationCenterBlock() {
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <CardTitle className="flex items-center gap-2 text-base">
             <BellIcon className="size-4" /> Notifications
           </CardTitle>
@@ -1294,7 +1296,7 @@ const posts = [
 export function BlogCardsBlock() {
   return (
     <div className="w-full max-w-4xl">
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <Badge variant="lemon" className="mb-2">Blog</Badge>
           <h2 className="text-xl font-black text-y2k-ink">Latest articles</h2>
@@ -1467,14 +1469,14 @@ export function WeatherWidgetBlock() {
         <Separator />
         <div>
           <p className="mb-2 text-xs font-bold text-y2k-ink">5-Day Forecast</p>
-          <div className="flex justify-between">
+          <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
             {forecast.map((day) => (
-              <div key={day.day} className="flex flex-col items-center gap-1 rounded border-2 border-y2k-ink bg-card px-2 py-1.5">
+              <div key={day.day} className="flex flex-col items-center gap-1 rounded border-2 border-y2k-ink bg-card px-1 py-1.5 sm:px-2">
                 <span className="text-[10px] font-semibold text-y2k-ink/60">{day.day}</span>
-                <div className={\`flex size-7 items-center justify-center rounded border border-y2k-ink \${day.color} text-y2k-ink\`}>
+                <div className={\`flex size-6 items-center justify-center rounded border border-y2k-ink \${day.color} text-y2k-ink sm:size-7\`}>
                   {day.icon}
                 </div>
-                <span className="text-xs font-bold text-y2k-ink">{day.temp}</span>
+                <span className="text-[10px] font-bold text-y2k-ink sm:text-xs">{day.temp}</span>
               </div>
             ))}
           </div>

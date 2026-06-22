@@ -54,7 +54,7 @@ export function ProfileCardBlock() {
           </div>
           <div className="flex items-center gap-2 text-xs text-y2k-ink/70">
             <MailIcon className="size-3.5" />
-            hello@y2kui.dev
+            hello@y2kui.web.id
           </div>
         </div>
         <div className="space-y-1.5">

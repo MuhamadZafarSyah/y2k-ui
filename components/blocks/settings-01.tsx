@@ -36,10 +36,10 @@ export function SettingsPanelBlock() {
       <Separator />
       <CardContent className="pt-4">
         <Tabs defaultValue="general">
-          <TabsList className="mb-4">
-            <TabsTrigger value="general">General</TabsTrigger>
-            <TabsTrigger value="notifications">Notifications</TabsTrigger>
-            <TabsTrigger value="appearance">Appearance</TabsTrigger>
+          <TabsList className="mb-4 w-full overflow-x-auto">
+            <TabsTrigger value="general" className="flex-1">General</TabsTrigger>
+            <TabsTrigger value="notifications" className="flex-1">Notifications</TabsTrigger>
+            <TabsTrigger value="appearance" className="flex-1">Appearance</TabsTrigger>
           </TabsList>
 
           <TabsContent value="general" className="space-y-4">
