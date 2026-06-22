@@ -5,6 +5,7 @@ import { generateSiteMetadata } from "@/lib/seo-helpers";
 import { Analytics } from "@/components/analytics";
 import { JsonLd } from "@/components/json-ld";
 import "./globals.css";
+import "./main.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

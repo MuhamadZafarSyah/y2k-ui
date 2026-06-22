@@ -2,19 +2,28 @@
 
 Modern Y2K / kawaii-retro component library — flat windows, thick navy outlines, pastel fills. Built on shadcn + Radix UI.
 
-## Getting Started
-
-### Init
+## Quick Start
 
 ```bash
 npx y2kuis@latest init
+npx y2kuis@latest add button
 ```
 
-### Add Components
+No prompts. No config. Just run it.
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `npx y2kuis@latest init` | Set up Y2K UI in your project (components.json, globals.css, utils.ts, dependencies) |
+| `npx y2kuis@latest add <component>` | Add one or more Y2K components |
+
+### Examples
 
 ```bash
 npx y2kuis@latest add button
 npx y2kuis@latest add card dialog input
+npx y2kuis@latest add tabs switch checkbox
 ```
 
 ## Documentation
