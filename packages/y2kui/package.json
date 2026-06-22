@@ -1,6 +1,6 @@
 {
   "name": "y2kuis",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Y2K UI component CLI — modern Y2K / kawaii-retro UI library built on shadcn + Radix UI.",
   "bin": {
     "y2kuis": "./cli.js"

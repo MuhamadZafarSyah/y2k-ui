@@ -4,7 +4,7 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-const REGISTRY_URL = "https://y2k-ui.web.id/r/{name}";
+const REGISTRY_URL = "https://y2k-ui.web.id/r/{name}.json";
 const REGISTRY_NAME = "@y2k";
 const CWD = process.cwd();
 
@@ -12,9 +12,9 @@ const BANNER = `
  ██╗   ██╗██████╗ ██╗  ██╗     ██╗   ██╗██╗
  ╚██╗ ██╔╝╚════██╗██║ ██╔╝     ██║   ██║██║
   ╚████╔╝  █████╔╝█████╔╝ ████╗██║   ██║██║
-   ╚██╔╝  ██╔═══╝ ╚════██╗╚═══╝██║   ██║██║
-    ██║   ███████╗     ██║      ╚██████╔╝██║
-    ╚═╝   ╚══════╝     ╚═╝       ╚═════╝ ╚═╝`;
+   ╚██╔╝  ██╔═══╝ ██════██╗╚═══╝██║   ██║██║
+    ██║   ███████╗██    ██║      ╚██████╔╝██║
+    ╚═╝   ╚══════╝╚═╝   ╚═╝       ╚═════╝ ╚═╝`;
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -58,29 +58,27 @@ const CORE_DEPS = [
   "tw-animate-css",
 ];
 
-const CORE_DEV_DEPS = ["tailwindcss", "@tailwindcss/postcss"];
+const CORE_DEV_DEPS = ["tailwindcss", "@tailwindcss/postcss", "shadcn"];
 
 function ensureCoreDeps() {
-  const pkgPath = path.join(CWD, "package.json");
-  if (!fs.existsSync(pkgPath)) return;
+  const nodeModules = path.join(CWD, "node_modules");
 
-  const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
-  const allDeps = {
-    ...(pkg.dependencies || {}),
-    ...(pkg.devDependencies || {}),
-  };
+  const missing = CORE_DEPS.filter((d) => {
+    const pkgDir = path.join(nodeModules, d);
+    return !fs.existsSync(pkgDir);
+  });
 
-  const missing = CORE_DEPS.filter((d) => !allDeps[d]);
-  const missingDev = CORE_DEV_DEPS.filter((d) => !allDeps[d]);
+  const missingDev = CORE_DEV_DEPS.filter((d) => {
+    const pkgDir = path.join(nodeModules, d);
+    return !fs.existsSync(pkgDir);
+  });
 
   if (missing.length > 0) {
-    console.log(`\n  Installing missing deps: ${missing.join(", ")}`);
+    console.log(`\n  Installing deps: ${missing.join(", ")}`);
     installPackages(missing, false);
   }
   if (missingDev.length > 0) {
-    console.log(
-      `\n  Installing missing dev deps: ${missingDev.join(", ")}`,
-    );
+    console.log(`\n  Installing dev deps: ${missingDev.join(", ")}`);
     installPackages(missingDev, true);
   }
 }
@@ -311,9 +309,7 @@ switch (command) {
     installPackages(CORE_DEPS, false);
     installPackages(CORE_DEV_DEPS, true);
 
-    console.log(
-      `\n  Done! Y2K UI is ready.\n`,
-    );
+    console.log(`\n  Done! Y2K UI is ready.\n`);
     console.log(`  npx y2kuis@latest add button\n`);
     break;
   }
@@ -338,9 +334,7 @@ switch (command) {
     ensureCoreDeps();
 
     const prefixed = components.map((c) => `${REGISTRY_NAME}/${c}`);
-    console.log(
-      `\n  Adding: ${components.join(", ")}\n`,
-    );
+    console.log(`\n  Adding: ${components.join(", ")}\n`);
     run(`npx shadcn@latest add ${prefixed.join(" ")}`);
 
     console.log(`\n  Done!\n`);
