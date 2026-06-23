@@ -2,42 +2,22 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { Copy, Check, ArrowUpRight, Sparkles, Palette, Package, Terminal, Layers, Star, MousePointer2, Gamepad2, Monitor, Cpu, Hash } from "lucide-react"
+import { Copy, Check, ArrowUpRight, Palette, Package, Terminal, Layers, Star, MousePointer2, Gamepad2, Monitor, Cpu, Hash } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Switch } from "@/components/ui/switch"
 import { Progress } from "@/components/ui/progress"
 import { Input } from "@/components/ui/input"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarTrigger,
-} from "@/components/ui/menubar"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { StructuredData } from "@/components/structured-data"
-import { SectionReveal } from "@/components/animations/section-reveal"
-import { TextReveal } from "@/components/animations/text-reveal"
 import { HighlightReveal } from "@/components/animations/highlight-reveal"
 import { useScrollReveal, useStaggerReveal } from "@/components/animations/use-gsap-reveal"
 
@@ -59,6 +39,15 @@ function Nav() {
           </Link>
           <Link href="/blocks" className="text-xs font-semibold text-y2k-ink/70 hover:text-y2k-ink transition-colors">
             Blocks
+          </Link>
+          <Link
+            href="/playground"
+            className="inline-flex items-center gap-1 rounded border-2 border-y2k-ink bg-y2k-lemon px-2 py-0.5 text-[10px] font-black text-y2k-ink transition-all hover:bg-y2k-pink hover:-translate-y-px"
+          >
+            Playground
+            <span className="inline-flex items-center rounded border-2 border-y2k-ink bg-y2k-pink px-1 py-px text-[8px] font-black leading-none text-y2k-ink">
+              NEW
+            </span>
           </Link>
           <a
             href="https://github.com/MuhamadZafarSyah/y2k-ui"
