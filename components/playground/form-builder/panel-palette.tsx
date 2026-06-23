@@ -295,7 +295,7 @@ export function PanelPalette() {
             fields.palette
           </span>
         </div>
-        <WindowControls hideMinimize hideMaximize />
+        {/* <WindowControls hideMinimize hideMaximize /> */}
       </div>
 
       <Tabs defaultValue="fields" className="flex flex-1 flex-col overflow-hidden">

@@ -547,7 +547,7 @@ export function PanelSettings() {
             settings.app
           </span>
         </div>
-        <WindowControls hideMinimize hideClose />
+        {/* <WindowControls hideMinimize hideClose /> */}
       </div>
 
       <Tabs defaultValue="settings" className="flex flex-1 flex-col overflow-hidden">

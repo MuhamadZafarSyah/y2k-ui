@@ -269,7 +269,7 @@ export function PanelPreview() {
               {mode === "preview" ? "Empty" : mode === "filled" ? "Filled" : "Error"}
             </button>
           ))}
-          <WindowControls hideMinimize hideClose />
+          {/* <WindowControls hideMinimize hideClose /> */}
         </div>
       </div>
 

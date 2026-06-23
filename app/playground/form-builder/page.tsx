@@ -147,9 +147,9 @@ function GlobalSettingsBar() {
           {copied ? <><CheckIcon className="size-3 text-[#8ff0d0]" /> Copied!</> : <><LinkIcon className="size-3" /> Link ready</>}
         </span>
       )}
-      <Button size="xs" variant="blue" onClick={handleShare} leadingIcon={<Share2Icon className="size-3" />}>
+      {/* <Button size="xs" variant="blue" onClick={handleShare} leadingIcon={<Share2Icon className="size-3" />}>
         Share
-      </Button>
+      </Button> */}
     </div>
   )
 }
