@@ -38,9 +38,9 @@ function Alert({
   )
 }
 
-function AlertTitle({ className, ...props }: React.ComponentProps<"h5">) {
+function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <h5
+    <div
       data-slot="alert-title"
       className={cn("mb-1 font-heading text-sm font-semibold leading-none", className)}
       {...props}

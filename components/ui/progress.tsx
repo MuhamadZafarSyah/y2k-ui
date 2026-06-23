@@ -55,7 +55,7 @@ function Progress({
     <div data-slot="progress-wrapper" className={cn("w-full space-y-1.5", wrapperClassName)}>
       {(label || showValue || trailingLabel) && (
         <div className="flex items-center justify-between gap-2 text-xs font-semibold text-[#1b1b3a]">
-          {label && <span>{label}</span>}
+          {label && <span id={`progress-label-${typeof label === 'string' ? label.replace(/\s+/g, '-') : ''}`}>{label}</span>}
           <span className="flex items-center gap-1.5">
             {showValue && (
               <span className="font-mono text-[#1b1b3a]/80">{Math.round(pct)}%</span>
@@ -70,6 +70,7 @@ function Progress({
           "relative h-4 w-full overflow-hidden rounded border-2 border-[#1b1b3a] bg-white",
           className
         )}
+        aria-label={typeof label === 'string' ? label : undefined}
         value={value}
         max={max}
         {...props}

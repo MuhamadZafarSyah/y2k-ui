@@ -50,6 +50,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   --color-y2k-ink: var(--y2k-ink);
+  --color-y2k-ink-muted: var(--y2k-ink-muted);
   --color-y2k-blue: var(--y2k-blue);
   --color-y2k-pink: var(--y2k-pink);
   --color-y2k-lilac: var(--y2k-lilac);
@@ -93,6 +94,7 @@
   --sidebar-ring: var(--y2k-pink);
 
   --y2k-ink: #1b1b3a;
+  --y2k-ink-muted: #505266;
   --y2k-blue: #8ed1fc;
   --y2k-pink: #ff8fcf;
   --y2k-lilac: #b69cff;
@@ -235,4 +237,38 @@
     background: var(--color-card);
     border: 2px solid #1b1b3a !important;
   }
+}
+
+/* ── Accessibility: Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Accessibility: Visible focus on keyboard nav ── */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--y2k-ink);
+    outline-offset: 2px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ── Performance: content-visibility for below-fold sections ── */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* ── Performance: will-change for GSAP-animated elements ── */
+.will-change-transform {
+  will-change: transform;
 }
