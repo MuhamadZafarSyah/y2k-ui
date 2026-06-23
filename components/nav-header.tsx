@@ -10,7 +10,7 @@ import { Terminal, Menu, X } from "lucide-react"
 const navLinks = [
   { href: "/docs", label: "Docs" },
   { href: "/blocks", label: "Blocks" },
-  // { href: "/playground", label: "Playground", highlight: true, badge: "NEW" },
+  { href: "/playground", label: "Playground", highlight: true, badge: "NEW" },
 ]
 
 export function NavHeader() {
