@@ -1,13 +1,13 @@
 "use client";
 
-import { Palette, Package, Terminal, Layers } from "lucide-react";
+import { Palette, Package as PackageIcon, Terminal, Layers } from "lucide-react";
 import { useScrollReveal, useStaggerReveal } from "@/components/animations/use-gsap-reveal";
 import { SparkleSprinkle } from "@/components/landing/sparkle";
 
 export function Features() {
   const features = [
     { icon: Palette, title: "Y2K Design System", desc: "Thick navy outlines, pastel fills, flat windows. Consistent tokens across every component.", color: "bg-y2k-blue" },
-    { icon: Package, title: "shadcn Compatible", desc: "Built on shadcn primitives. Drop-in replacement -- use the same CLI workflow you already know.", color: "bg-y2k-mint" },
+    { icon: PackageIcon, title: "shadcn Compatible", desc: "Built on shadcn primitives. Drop-in replacement -- use the same CLI workflow you already know.", color: "bg-y2k-mint" },
     { icon: Layers, title: "Radix-Powered", desc: "Accessible, headless Radix UI under the hood. Keyboard nav, ARIA, focus management.", color: "bg-y2k-lilac" },
     { icon: Terminal, title: "CLI Install", desc: "npx y2kui add <component>. Zero config, tree-shakeable, works with any Next.js app.", color: "bg-y2k-pink" },
   ];

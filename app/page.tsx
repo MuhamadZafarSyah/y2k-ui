@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
-import { ArrowUpRight, Palette, Package, Terminal, Layers, Star, Monitor, Cpu, Hash } from "lucide-react"
+import { ArrowUpRight, Palette, Terminal, Monitor, Cpu, Hash } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -41,7 +41,7 @@ function Hero() {
   const subtitleRef = useScrollReveal({ y: 15, delay: 0.25 })
   const ctaRef = useScrollReveal({ y: 15, delay: 0.35 })
   const windowRef = useScrollReveal({ y: 20, delay: 0.15 })
-  const rightSideRef = useScrollReveal({ y: 20, delay: 0.15 })
+  const rightSideRef = useScrollReveal({ y: 20, delay: 0.35 })
 
   return (
     <section className="relative overflow-hidden border-b-2 border-y2k-ink">
@@ -98,8 +98,8 @@ function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-2">
-            <div ref={rightSideRef} className="overflow-hidden rounded border-2 border-y2k-ink bg-white shadow-[4px_4px_0px_#1b1b3a] md:rotate-4! md:hover:rotate-0! md:transition-all md:duration-300!" style={{ visibility: 'hidden' }}>
+          <div ref={rightSideRef} className="lg:col-span-2" style={{ visibility: 'hidden' }}>
+            <div className="overflow-hidden rounded border-2 border-y2k-ink bg-white shadow-[4px_4px_0px_#1b1b3a] md:rotate-4! md:hover:rotate-0! md:transition-all md:duration-300!" >
               <div className="flex items-center gap-2 border-b-2 border-y2k-ink bg-y2k-mint px-3 py-1.5">
                 <span className="flex items-center gap-1" aria-hidden>
                   <span className="size-2.5 rounded-xs border-[1.5px] border-y2k-ink bg-white" />

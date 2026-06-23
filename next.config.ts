@@ -15,7 +15,6 @@ const nextConfig: NextConfig = {
       "recharts",
       "react-day-picker",
       "embla-carousel-react",
-      "lucide-react",
       "@radix-ui/react-icons",
     ],
   },
@@ -33,15 +32,6 @@ const nextConfig: NextConfig = {
   // ── Performance: set long cache TTL for static hashed assets ──
   async headers() {
     return [
-      {
-        source: "/_next/static/(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
       {
         source: "/assets/(.*)",
         headers: [
