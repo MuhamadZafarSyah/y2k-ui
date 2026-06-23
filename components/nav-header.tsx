@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Terminal, Menu, X } from "lucide-react"
@@ -16,8 +16,12 @@ const navLinks = [
 export function NavHeader() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
+  // ── Prevent hydration mismatch: usePathname() returns null during SSR ──
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => { setMounted(true) }, [])
 
   const isActive = (href: string) => {
+    if (!mounted || !pathname) return false
     if (href === "/docs") return pathname.startsWith("/docs")
     if (href === "/blocks") return pathname.startsWith("/blocks")
     if (href === "/playground") return pathname.startsWith("/playground")
@@ -58,12 +62,12 @@ export function NavHeader() {
                         )
                       : active
                         ? "bg-y2k-panel text-y2k-ink"
-                        : "text-y2k-ink/70 hover:bg-y2k-panel hover:text-y2k-ink"
+                        : "text-y2k-ink-muted hover:bg-y2k-panel hover:text-y2k-ink"
                   )}
                 >
                   {link.label}
                   {link.badge && (
-                    <span className="inline-flex items-center rounded border-2 border-y2k-ink bg-y2k-pink px-1 py-px text-[8px] font-black leading-none text-y2k-ink">
+                    <span className="inline-flex items-center rounded border-2 border-y2k-ink bg-y2k-pink px-1 py-px text-[10px] font-black leading-none text-y2k-ink">
                       {link.badge}
                     </span>
                   )}
@@ -100,7 +104,7 @@ export function NavHeader() {
         {/* Mobile: install + hamburger */}
         <div className="sm:hidden flex items-center gap-1.5">
           <Link href="/docs/installation">
-            <Button size="xs" variant="lemon" className="h-7">
+            <Button size="sm" variant="lemon" className="h-8 min-w-[4.5rem]">
               <Terminal className="size-3.5" />
               Install
             </Button>
@@ -110,7 +114,7 @@ export function NavHeader() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="flex size-8 items-center justify-center rounded-md border-2 border-y2k-ink bg-white text-y2k-ink hover:bg-y2k-lemon transition-all"
+            className="flex size-10 items-center justify-center rounded-md border-2 border-y2k-ink bg-white text-y2k-ink hover:bg-y2k-lemon transition-all"
           >
             {menuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
           </button>
@@ -148,7 +152,7 @@ export function NavHeader() {
                   {link.label === "Playground" && "🎮 "}
                   {link.label}
                   {link.badge && (
-                    <span className="ml-auto inline-flex items-center rounded border-2 border-y2k-ink bg-y2k-pink px-1.5 py-px text-[9px] font-black text-y2k-ink">
+                    <span className="ml-auto inline-flex items-center rounded border-2 border-y2k-ink bg-y2k-pink px-1.5 py-px text-[11px] font-black text-y2k-ink">
                       {link.badge}
                     </span>
                   )}

@@ -64,7 +64,7 @@ function TemplatePicker() {
         <p className="text-[10px] font-bold uppercase tracking-wider text-[#1b1b3a]/60">
           Quick Templates
         </p>
-        <span className="text-[9px] text-[#1b1b3a]/40">Click to apply</span>
+        <span className="text-[10px] text-y2k-ink-muted">Click to apply</span>
       </div>
       <div className="grid grid-cols-2 gap-1.5  overflow-y-auto">
         {FORM_TEMPLATES.map((template) => (
@@ -173,7 +173,7 @@ function SortableFieldItem({
     >
       {/* Drag handle — visual only */}
       <span
-        className="flex size-4 shrink-0 items-center justify-center text-[#1b1b3a]/40 pointer-events-none"
+        className="flex size-4 shrink-0 items-center justify-center text-y2k-ink-muted pointer-events-none"
         aria-hidden
       >
         <GripVerticalIcon className="size-3" />
@@ -239,7 +239,7 @@ function FieldList() {
         <p className="text-[10px] font-bold uppercase tracking-wider text-[#1b1b3a]/60">
           Your Fields ({config.fields.length})
         </p>
-        <span className="text-[10px] text-[#1b1b3a]/40 font-mono">drag to reorder</span>
+        <span className="text-[11px] text-y2k-ink-muted font-mono">drag to reorder</span>
       </div>
 
       <div className="flex-1 overflow-y-auto px-2 pb-2">
@@ -247,7 +247,7 @@ function FieldList() {
           <div className="flex flex-col items-center justify-center py-8 text-center">
             <span className="mb-2 text-2xl">📋</span>
             <p className="text-xs font-semibold text-[#1b1b3a]/50">No fields yet</p>
-            <p className="text-[10px] text-[#1b1b3a]/40">Click a field type or template above</p>
+            <p className="text-[11px] text-y2k-ink-muted">Click a field type or template above</p>
           </div>
         ) : (
           <DndContext

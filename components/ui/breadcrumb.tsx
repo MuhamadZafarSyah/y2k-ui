@@ -78,7 +78,7 @@ const BreadcrumbSeparator = ({
   <li
     role="presentation"
     aria-hidden="true"
-    className={cn("text-y2k-ink/40", className)}
+    className={cn("text-y2k-ink/55", className)}
     {...props}
   >
     {children ?? <ChevronRightIcon className="h-3.5 w-3.5" />}

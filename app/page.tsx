@@ -77,11 +77,10 @@ function Hero() {
             </p>
 
             <div ref={ctaRef} className="mt-8 flex flex-wrap items-center gap-3" style={{ visibility: "hidden" }}>
-              <Link href="/docs/installation">
+              <Link href="/docs/installation" className="group">
                 <Button size="lg" variant="lemon">
-                  <Terminal className="size-4" />
                   Get Started
-                  <ArrowUpRight className="size-3.5" />
+                  <ArrowUpRight className="size-3.5 group-hover:translate-x-1  transition-transform duration-200" />
                 </Button>
               </Link>
               <Link href="/docs">
@@ -93,8 +92,8 @@ function Hero() {
 
             <div ref={windowRef} className="mt-10 flex items-center gap-2 rounded border-2 border-y2k-ink bg-y2k-panel/40 px-4 py-2.5 w-fit" style={{ visibility: "hidden" }}>
               <Terminal className="size-3.5 text-y2k-ink/50" />
-              <code className="font-mono text-[10px] font-black uppercase tracking-wider text-y2k-ink">
-                npx y2k-ui-lib@latest init - ready in seconds
+              <code className="font-mono text-[11px] font-black uppercase tracking-wider text-y2k-ink">
+                npx y2k-ui-lib@latest init
               </code>
             </div>
           </div>
@@ -107,8 +106,8 @@ function Hero() {
                   <span className="size-2.5 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
                   <span className="size-2.5 rounded-xs border-[1.5px] border-y2k-ink bg-y2k-pink" />
                 </span>
-                <span className="font-mono text-[10px] font-black uppercase tracking-tight text-y2k-ink">preview.exe</span>
-                <span className="ml-auto font-mono text-[9px] text-y2k-ink/40">_ ▢ ✕</span>
+                <span className="font-mono text-[11px] font-black uppercase tracking-tight text-y2k-ink">preview.exe</span>
+                <span className="ml-auto font-mono text-[10px] text-y2k-ink/60" aria-hidden="true">_ ▢ ✕</span>
               </div>
 
               <div className="space-y-4 p-4">
@@ -137,7 +136,7 @@ function Hero() {
 
                 <Input placeholder="y2k@retro.web.id" />
 
-                <div className="flex items-center justify-between border-t-2 border-y2k-ink pt-2 text-[9px] font-mono font-bold text-y2k-ink-muted">
+                <div className="flex items-center justify-between border-t-2 border-y2k-ink pt-2 text-[10px] font-mono font-bold text-y2k-ink-muted">
                   <span>30+ components</span>
                   <span className="flex items-center gap-1">
                     <span className="inline-block size-1.5 rounded-full bg-y2k-mint animate-glow-pulse" />
@@ -175,7 +174,7 @@ function Stats() {
               </div>
               <div>
                 <div className="font-mono text-lg font-black text-y2k-ink leading-none">{s.value}</div>
-                <div className="text-[10px] font-semibold text-y2k-ink-muted">{s.label}</div>
+                <div className="text-[11px] font-semibold text-y2k-ink-muted">{s.label}</div>
               </div>
             </div>
           ))}

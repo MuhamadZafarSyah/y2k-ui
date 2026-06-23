@@ -181,7 +181,7 @@ function DialogDescription({
     <DialogPrimitive.Description
       data-slot="dialog-description"
       className={cn(
-        "text-sm text-[#1b1b3a]/80",
+        "text-sm text-y2k-ink-muted",
         className
       )}
       {...props}

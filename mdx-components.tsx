@@ -1,4 +1,5 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
+import dynamic from "next/dynamic";
 import { ComponentPreview } from "@/components/docs/component-preview";
 import { PropsTable } from "@/components/docs/props-table";
 import { CodeBlock } from "@/components/docs/code-block";
@@ -11,6 +12,7 @@ import {
   ScrollThumb,
   ScrollCorner,
 } from "@/components/ui/scroll-area";
+// ── Lightweight demos — static imports (no heavy transitive deps) ──
 import {
   CardDefaultDemo,
   BadgeColorsDemo,
@@ -44,9 +46,6 @@ import {
   TextareaDisabledDemo,
   SeparatorVerticalDemo,
   SeparatorColorsDemo,
-  BarChartDemo,
-  LineChartDemo,
-  DonutChartDemo,
   SkeletonDemo,
   TableDemo,
   BreadcrumbDemo,
@@ -72,10 +71,8 @@ import {
   AlertDialogDemo,
   CommandDemo,
   NavigationMenuDemo,
-  CalendarDemo,
   DrawerDemo,
   InputOTPDemo,
-  CarouselDemo,
   ResizableDemo,
   FieldDemo,
   FormDemo,
@@ -84,11 +81,47 @@ import {
   DirectionDemo,
   ItemDemo,
   SidebarDemo,
+} from "@/components/demos/all-demos";
+
+// ── Heavyweight demos — dynamic imports to avoid bloating shared chunks ──
+// recharts (~50KB), react-day-picker (~20KB), embla-carousel (~15KB)
+const BarChartDemo = dynamic(() =>
+  import("@/components/demos/all-demos").then((m) => ({ default: m.BarChartDemo })),
+);
+const LineChartDemo = dynamic(() =>
+  import("@/components/demos/all-demos").then((m) => ({ default: m.LineChartDemo })),
+);
+const DonutChartDemo = dynamic(() =>
+  import("@/components/demos/all-demos").then((m) => ({ default: m.DonutChartDemo })),
+);
+const CalendarDemo = dynamic(() =>
+  import("@/components/demos/all-demos").then((m) => ({ default: m.CalendarDemo })),
+);
+const CarouselDemo = dynamic(() =>
+  import("@/components/demos/all-demos").then((m) => ({ default: m.CarouselDemo })),
+);
+const DatePickerDemo = dynamic(() =>
+  import("@/components/demos/all-demos").then((m) => ({ default: m.DatePickerDemo })),
+);
+const DatePickerWithRangeDemo = dynamic(() =>
+  import("@/components/demos/all-demos").then((m) => ({ default: m.DatePickerWithRangeDemo })),
+);
+const DatePickerDisabledDemo = dynamic(() =>
+  import("@/components/demos/all-demos").then((m) => ({ default: m.DatePickerDisabledDemo })),
+);
+
+import type { MDXComponents } from "mdx/types";
+
+const heavyDemos = {
+  BarChartDemo,
+  LineChartDemo,
+  DonutChartDemo,
+  CalendarDemo,
+  CarouselDemo,
   DatePickerDemo,
   DatePickerWithRangeDemo,
   DatePickerDisabledDemo,
-} from "@/components/demos/all-demos";
-import type { MDXComponents } from "mdx/types";
+} as Record<string, React.ComponentType<unknown>>;
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -99,6 +132,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ComponentsTable,
     DialogDefaultDemo,
     DialogHideControlsDemo,
+    // Lightweight
     CardDefaultDemo,
     BadgeColorsDemo,
     TooltipDemo,
@@ -131,9 +165,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     TextareaDisabledDemo,
     SeparatorVerticalDemo,
     SeparatorColorsDemo,
-    BarChartDemo,
-    LineChartDemo,
-    DonutChartDemo,
     SkeletonDemo,
     TableDemo,
     BreadcrumbDemo,
@@ -159,10 +190,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     AlertDialogDemo,
     CommandDemo,
     NavigationMenuDemo,
-    CalendarDemo,
     DrawerDemo,
     InputOTPDemo,
-    CarouselDemo,
     ResizableDemo,
     FieldDemo,
     FormDemo,
@@ -171,14 +200,13 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     DirectionDemo,
     ItemDemo,
     SidebarDemo,
-    DatePickerDemo,
-    DatePickerWithRangeDemo,
-    DatePickerDisabledDemo,
+    // Heavyweight — lazy-loaded on demand
+    ...heavyDemos,
     ScrollArea,
     ScrollAreaViewport,
     Scrollbar,
     ScrollThumb,
     ScrollCorner,
     ...components,
-  };
+  } as MDXComponents;
 }

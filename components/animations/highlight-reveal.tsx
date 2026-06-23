@@ -1,11 +1,21 @@
 "use client"
 
 import { useRef, useEffect, type ReactNode } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+// ── Performance: lazy-load GSAP + ScrollTrigger ──
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let gsapModule: any = null
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let ScrollTriggerModule: any = null
+
+async function loadGSAP() {
+  if (gsapModule) return gsapModule
+  const mod = await import("gsap")
+  const st = await import("gsap/ScrollTrigger")
+  gsapModule = mod.gsap
+  ScrollTriggerModule = st.ScrollTrigger
+  gsapModule.registerPlugin(ScrollTriggerModule)
+  return gsapModule
 }
 
 interface HighlightRevealProps {
@@ -33,31 +43,45 @@ export function HighlightReveal({
     const highlight = highlightRef.current
     if (!wrapper || !highlight) return
 
-    gsap.set(highlight, {
-      scaleX: 0,
-      transformOrigin: "left center",
-    })
+    let cancelled = false
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let tl: any = null
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: wrapper,
-        start: `top ${100 - threshold * 100}%`,
-        once: true,
-      },
-    })
+    loadGSAP().then((gsap) => {
+      if (cancelled) return
 
-    tl.to(highlight, {
-      scaleX: 1,
-      duration,
-      ease: "power2.inOut",
-      delay,
+      gsap.set(highlight, {
+        scaleX: 0,
+        transformOrigin: "left center",
+      })
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: wrapper,
+          start: `top ${100 - threshold * 100}%`,
+          once: true,
+        },
+      })
+
+      timeline.to(highlight, {
+        scaleX: 1,
+        duration,
+        ease: "power2.inOut",
+        delay,
+      })
+
+      tl = timeline
     })
 
     return () => {
-      tl.kill()
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.trigger === wrapper) st.kill()
-      })
+      cancelled = true
+      if (tl) tl.kill?.()
+      if (ScrollTriggerModule) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ScrollTriggerModule.getAll().forEach((st: any) => {
+          if (st.trigger === wrapper) st.kill()
+        })
+      }
     }
   }, [delay, duration, threshold])
 

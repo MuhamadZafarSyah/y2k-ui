@@ -137,7 +137,7 @@ export function CodeBlock({
               {showLineNumbers && (
                 <div
                   aria-hidden
-                  className="select-none shrink-0 border-r border-y2k-ink/20 bg-y2k-panel/40 px-2.5 text-right text-[11px] text-y2k-ink/40"
+                  className="select-none shrink-0 border-r border-y2k-ink/20 bg-y2k-panel/40 px-2.5 text-right text-[11px] text-y2k-ink/55"
                 >
                   {tokens.map((_, i) => (
                     <div key={i} className="leading-[1.625]">

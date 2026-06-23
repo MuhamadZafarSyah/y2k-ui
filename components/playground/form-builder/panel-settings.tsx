@@ -49,11 +49,11 @@ function FieldSettingsTab() {
   if (!field) {
     return (
       <div className="flex flex-col items-center justify-center py-12 text-center">
-        <SettingsIcon className="size-8 text-[#1b1b3a]/30 mb-2" />
+        <SettingsIcon className="size-8 text-y2k-ink-muted mb-2" />
         <p className="text-xs font-semibold text-[#1b1b3a]/50">
           Select a field to edit
         </p>
-        <p className="text-[10px] text-[#1b1b3a]/30 mt-1">
+        <p className="text-[11px] text-y2k-ink-muted mt-1">
           Click a field in the preview or list
         </p>
       </div>
@@ -500,7 +500,7 @@ function CodeExportTab() {
                 <code>
                   {tokens.map((line, i) => (
                     <div key={i} {...getLineProps({ line })} className="table-row">
-                      <span className="table-cell text-right pr-3 select-none text-[#1b1b3a]/30 text-[10px] w-8">
+                      <span className="table-cell text-right pr-3 select-none text-y2k-ink/50 text-[10px] w-8">
                         {i + 1}
                       </span>
                       <span className="table-cell">

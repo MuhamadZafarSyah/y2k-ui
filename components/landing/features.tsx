@@ -38,8 +38,8 @@ export function Features() {
                   <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
                   <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
                 </span>
-                <span className="font-mono text-[10px] font-black uppercase tracking-tight text-y2k-ink">now_playing.exe</span>
-                <span className="ml-auto flex items-center gap-1.5 text-[10px] font-semibold text-y2k-ink-muted">
+                <span className="font-mono text-[11px] font-black uppercase tracking-tight text-y2k-ink">now_playing.exe</span>
+                <span className="ml-auto flex items-center gap-1.5 text-[11px] font-semibold text-y2k-ink-muted">
                   <span className="inline-block size-1.5 rounded-full bg-y2k-pink animate-glow-pulse" />LIVE
                 </span>
               </div>
@@ -50,7 +50,7 @@ export function Features() {
                   </div>
                 </div>
                 <img src="/assets/images/10.svg" alt="Y2K vinyl record spinning" width={224} height={224} className="animate-spin-slow size-56 object-contain md:size-64" style={{ animationDuration: '10s' }} />
-                <div className="absolute right-4 top-4 text-[10px] font-mono font-black text-y2k-ink/30 rotate-12 select-none">~</div>
+                <div className="absolute right-4 top-4 text-[11px] font-mono font-black text-y2k-ink/45 rotate-12 select-none" aria-hidden="true">~</div>
               </div>
               <div className="border-t-2 border-y2k-ink bg-y2k-panel/50 px-3 py-2">
                 <div className="flex items-center justify-between">

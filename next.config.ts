@@ -5,6 +5,20 @@ const withMDX = createMDX();
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
+  compress: true,
+  productionBrowserSourceMaps: false,
+
+  // ── Performance: omit large deps from server bundle when only used on client ──
+  experimental: {
+    optimizePackageImports: [
+      "recharts",
+      "react-day-picker",
+      "embla-carousel-react",
+      "lucide-react",
+      "@radix-ui/react-icons",
+    ],
+  },
 
   images: {
     formats: ["image/avif", "image/webp"],
@@ -16,8 +30,36 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  // ── Performance: set long cache TTL for static hashed assets ──
   async headers() {
     return [
+      {
+        source: "/_next/static/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/assets/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/favicon.ico",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400",
+          },
+        ],
+      },
       {
         source: "/(.*)",
         headers: [
@@ -32,10 +74,6 @@ const nextConfig: NextConfig = {
           {
             key: "X-Frame-Options",
             value: "SAMEORIGIN",
-          },
-          {
-            key: "X-XSS-Protection",
-            value: "1; mode=block",
           },
           {
             key: "Referrer-Policy",

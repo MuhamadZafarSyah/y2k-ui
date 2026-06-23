@@ -125,11 +125,11 @@ function Calendar({
           defaultClassNames.today
         ),
         outside: cn(
-          "text-y2k-ink/35 aria-selected:text-y2k-ink/35",
+          "text-y2k-ink/45 aria-selected:text-y2k-ink/45",
           defaultClassNames.outside
         ),
         disabled: cn(
-          "text-y2k-ink/30 opacity-50",
+          "text-y2k-ink/45 opacity-50",
           defaultClassNames.disabled
         ),
         hidden: cn("invisible", defaultClassNames.hidden),

@@ -1,11 +1,22 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+// ── Performance: lazy-load GSAP + ScrollTrigger to avoid
+//    blocking the main thread during initial page load ──
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let gsapModule: any = null
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let ScrollTriggerModule: any = null
+
+async function loadGSAP() {
+  if (gsapModule) return gsapModule
+  const mod = await import("gsap")
+  const st = await import("gsap/ScrollTrigger")
+  gsapModule = mod.gsap
+  ScrollTriggerModule = st.ScrollTrigger
+  gsapModule.registerPlugin(ScrollTriggerModule)
+  return gsapModule
 }
 
 interface RevealOptions {
@@ -38,39 +49,55 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
     const el = ref.current
     if (!el) return
 
-    const children = el.querySelectorAll("[data-reveal]")
-    const targets = children.length > 0 ? children : [el]
+    let cancelled = false
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let tl: any = null
 
-    gsap.set(targets, {
-      opacity: 0,
-      y,
-      x,
-      visibility: "visible",
-    })
+    loadGSAP().then((gsap) => {
+      if (cancelled || !el) return
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: el,
-        start: `top ${100 - threshold * 100}%`,
-        once,
-      },
-    })
+      const children = el.querySelectorAll("[data-reveal]")
+      const targets = children.length > 0 ? children : [el]
 
-    tl.to(targets, {
-      opacity: 1,
-      y: 0,
-      x: 0,
-      duration,
-      ease,
-      stagger,
-      delay,
+      gsap.set(targets, {
+        opacity: 0,
+        y,
+        x,
+        visibility: "visible",
+      })
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: el,
+          start: `top ${100 - threshold * 100}%`,
+          once,
+        },
+      })
+
+      timeline.to(targets, {
+        opacity: 1,
+        y: 0,
+        x: 0,
+        duration,
+        ease,
+        stagger,
+        delay,
+      })
+
+      tl = timeline
     })
 
     return () => {
-      tl.kill()
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.trigger === el) st.kill()
-      })
+      cancelled = true
+      if (tl) {
+        ;(tl as { kill?: () => void }).kill?.()
+      }
+      if (ScrollTriggerModule) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ScrollTriggerModule.getAll().forEach((st: any) => {
+          if (st.trigger === el) st.kill()
+        })
+      }
     }
   }, [y, x, duration, delay, ease, stagger, threshold, once])
 
@@ -98,34 +125,48 @@ export function useStaggerReveal<T extends HTMLElement = HTMLDivElement>(
     const children = el.children
     if (!children.length) return
 
-    gsap.set(children, {
-      opacity: 0,
-      y,
-      visibility: "visible",
-    })
+    let cancelled = false
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let tl: any = null
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: el,
-        start: `top ${100 - threshold * 100}%`,
-        once,
-      },
-    })
+    loadGSAP().then((gsap) => {
+      if (cancelled || !el) return
 
-    tl.to(children, {
-      opacity: 1,
-      y: 0,
-      duration,
-      ease,
-      stagger,
-      delay,
+      gsap.set(children, {
+        opacity: 0,
+        y,
+        visibility: "visible",
+      })
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: el,
+          start: `top ${100 - threshold * 100}%`,
+          once,
+        },
+      })
+
+      timeline.to(children, {
+        opacity: 1,
+        y: 0,
+        duration,
+        ease,
+        stagger,
+        delay,
+      })
+
+      tl = timeline
     })
 
     return () => {
-      tl.kill()
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.trigger === el) st.kill()
-      })
+      cancelled = true
+      if (tl) tl.kill?.()
+      if (ScrollTriggerModule) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ScrollTriggerModule.getAll().forEach((st: any) => {
+          if (st.trigger === el) st.kill()
+        })
+      }
     }
   }, [y, duration, delay, ease, stagger, threshold, once])
 

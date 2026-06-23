@@ -103,12 +103,12 @@ export function PropsTable({ data, className }: PropsTableProps) {
                           {row.default}
                         </code>
                       ) : (
-                        <span className="text-y2k-ink/40 font-mono">—</span>
+                        <span className="text-y2k-ink/55 font-mono">—</span>
                       )}
                     </td>
 
                     {/* Description text */}
-                    <td className="px-3 py-3 text-y2k-ink/80 leading-relaxed font-medium align-middle">
+                    <td className="px-3 py-3 text-y2k-ink-muted leading-relaxed font-medium align-middle">
                       {row.description}
                     </td>
                   </tr>

@@ -25,7 +25,7 @@ function PreviewCard({ title, accent, children }: { title: string; accent: strin
           <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
           <span className="size-2 rounded-xs border-[1.5px] border-y2k-ink bg-white" />
         </span>
-        <span className="font-mono text-[10px] font-black uppercase tracking-tight text-y2k-ink">
+        <span className="font-mono text-[11px] font-black uppercase tracking-tight text-y2k-ink">
           {title}
         </span>
       </div>

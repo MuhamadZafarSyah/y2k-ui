@@ -45,7 +45,7 @@ function CardDescription({
   return (
     <p
       data-slot="card-description"
-      className={cn("text-xs text-[#1b1b3a]/70", className)}
+      className={cn("text-xs text-y2k-ink-muted", className)}
       {...props}
     />
   )

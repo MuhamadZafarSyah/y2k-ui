@@ -140,7 +140,7 @@ export default function PlaygroundHub() {
                     {status.label}
                   </Badge>
                   {isDisabled && (
-                    <LockIcon className="size-3 text-[#1b1b3a]/40" />
+                    <LockIcon className="size-3 text-y2k-ink-muted" />
                   )}
                 </div>
               </div>

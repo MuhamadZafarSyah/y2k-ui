@@ -317,10 +317,10 @@ export function PanelPreview() {
             {/* Fields */}
             {fields.length === 0 ? (
               <div className="rounded border-2 border-dashed border-[#1b1b3a]/30 py-12 text-center">
-                <p className="text-xs font-semibold text-[#1b1b3a]/50">
+                <p className="text-xs font-semibold text-y2k-ink-muted">
                   Add fields from the palette to preview them here
                 </p>
-                <p className="mt-1 text-[10px] text-[#1b1b3a]/30">
+                <p className="mt-1 text-[11px] text-y2k-ink-muted">
                   ← Click field types in the left panel or choose a template
                 </p>
               </div>

@@ -59,13 +59,14 @@ export function CTA() {
           </div>
 
           <div ref={btnRef} className="mt-6" style={{ visibility: "hidden" }}>
-            <Link href="/docs/installation">
+            <Link href="/docs/installation" className="group">
               <Button variant="lemon">
-                <Terminal className="size-4" />
                 Get Started
-                <ArrowUpRight className="size-3.5" />
+                <ArrowUpRight className="size-3.5 group-hover:translate-x-1  transition-transform duration-200" />
               </Button>
             </Link>
+
+
           </div>
         </div>
       </div>

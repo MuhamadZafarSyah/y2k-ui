@@ -122,7 +122,7 @@ export function ComponentsTable({
                           {item.signature}
                         </code>
                       ) : (
-                        <span className="font-mono text-[11px] text-y2k-ink/30">
+                        <span className="font-mono text-[11px] text-y2k-ink/45">
                           —
                         </span>
                       )}

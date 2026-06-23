@@ -87,13 +87,13 @@ function PreviewFrame({
         {/* Y2K decorative star elements */}
         <span
           aria-hidden
-          className="pointer-events-none absolute left-3 top-3 select-none text-base text-y2k-ink/50 animate-pulse"
+          className="pointer-events-none absolute left-3 top-3 select-none text-base text-y2k-ink/60 animate-pulse"
         >
           ✦
         </span>
         <span
           aria-hidden
-          className="pointer-events-none absolute right-3 bottom-3 select-none text-xs text-y2k-ink/30"
+          className="pointer-events-none absolute right-3 bottom-3 select-none text-xs text-y2k-ink/50"
         >
           ★
         </span>
@@ -136,7 +136,7 @@ export function ComponentPreview({
           </div>
           <div>
             <h4 className="font-bold text-y2k-ink text-sm">Preview Window Closed</h4>
-            <p className="text-xs text-y2k-ink/70 mt-1">You closed the preview for &ldquo;{name}&rdquo;</p>
+            <p className="text-xs text-y2k-ink-muted mt-1">You closed the preview for &ldquo;{name}&rdquo;</p>
           </div>
           <button
             type="button"
@@ -254,7 +254,7 @@ export function ComponentPreview({
               <AlignToggle value={currentAlign} onChange={setCurrentAlign} />
               <PreviewFrame align={currentAlign} maximized={maximized}>
                 {preview ?? (
-                  <span className="inline-flex items-center gap-2 rounded-[6px] border-2 border-dashed border-y2k-ink/40 bg-card px-4 py-2 font-mono text-xs text-y2k-ink/70">
+                  <span className="inline-flex items-center gap-2 rounded-[6px] border-2 border-dashed border-y2k-ink/55 bg-card px-4 py-2 font-mono text-xs text-y2k-ink-muted">
                     No preview slot for &ldquo;{name}&rdquo;
                   </span>
                 )}
