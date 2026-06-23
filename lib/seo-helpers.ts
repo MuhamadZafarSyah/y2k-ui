@@ -72,6 +72,7 @@ export function generateSiteMetadata(overrides?: Partial<Metadata>): Metadata {
     verification: {
       // Add your Google Search Console verification token here
       // google: "your-verification-token",
+      google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
     },
     ...overrides,
   };
