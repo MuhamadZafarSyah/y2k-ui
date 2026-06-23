@@ -3,6 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { NavHeader } from "@/components/nav-header"
 import { BlockPreview } from "@/components/docs/block-preview"
 import { blockSources } from "@/lib/block-sources"
 import {
@@ -31,9 +32,7 @@ import {
   ArrowLeftIcon,
   LayoutGridIcon,
   LayoutListIcon,
-  Terminal,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
 type BlockDef = {
@@ -193,46 +192,7 @@ export default function BlocksPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b-2 border-y2k-ink bg-white/95 backdrop-blur-sm">
-        <div className="mx-auto flex h-12 max-w-6xl items-center justify-between px-4">
-          <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="flex items-center gap-2 font-black tracking-tight text-y2k-ink"
-            >
-              <span className="flex size-5 items-center justify-center rounded border-2 border-y2k-ink bg-y2k-lemon text-[10px] font-bold">
-                Y
-              </span>
-              <span className="text-sm">Y2K UI</span>
-            </Link>
-            <span className="text-y2k-ink/30">/</span>
-            <span className="text-xs font-bold text-y2k-ink">Blocks</span>
-          </div>
-          <nav className="flex items-center gap-3">
-            <Link href="/docs" className="text-xs font-semibold text-y2k-ink/70 hover:text-y2k-ink transition-colors">
-              Docs
-            </Link>
-            <Link href="/blocks" className="text-xs font-semibold text-y2k-ink/70 hover:text-y2k-ink transition-colors">
-              Blocks
-            </Link>
-            <a
-              href="https://github.com/MuhamadZafarSyah/y2k-ui"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-semibold text-y2k-ink/70 hover:text-y2k-ink transition-colors"
-            >
-              GitHub
-            </a>
-            <Link href="/docs/installation">
-              <Button size="sm" variant="lemon">
-                <Terminal className="size-3.5" />
-                Install
-              </Button>
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <NavHeader />
 
       {/* Hero Section */}
       <div className="border-b-2 border-y2k-ink bg-y2k-panel">
