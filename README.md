@@ -79,7 +79,7 @@ If you prefer to skip the CLI, copy `components/ui/*` and `lib/utils.ts` from th
 
 ## Documentation
 
-Visit [y2kui.web.id](https://y2kui.web.id) for full documentation, component previews, and API references.
+Visit [y2k-ui.web.id](https://y2k-ui.web.id) for full documentation, component previews, and API references.
 
 ## Development
 
