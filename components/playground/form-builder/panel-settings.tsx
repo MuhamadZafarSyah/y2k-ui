@@ -18,6 +18,7 @@ import {
   SettingsIcon,
 } from "lucide-react"
 import { Highlight, type PrismTheme } from "prism-react-renderer"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 // ─── Y2K Syntax Highlighting Theme ────────────────────────
 
@@ -341,18 +342,21 @@ function FieldSettingsTab() {
             />
           </div>
         ) : field.type === "select" || field.type === "radio" ? (
-          <select
-            value={String(field.defaultValue ?? "")}
-            onChange={(e) => update({ defaultValue: e.target.value || undefined })}
-            className="h-7 w-full rounded border-2 border-[#1b1b3a] bg-white px-2 text-xs text-[#1b1b3a] outline-none"
-          >
-            <option value="">None</option>
-            {field.options?.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
+          <Select onValueChange={(e) => update({ defaultValue: e || undefined })}
+            defaultValue={String(field.defaultValue ?? "")}>
+            <SelectTrigger>
+              <SelectValue placeholder="None" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="">None</SelectItem>
+              {field.options?.map((opt) => (
+                <SelectItem key={opt.value} value={opt.value}>
+                  {opt.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
         ) : (
           <input
             type={field.type === "number" ? "number" : "text"}

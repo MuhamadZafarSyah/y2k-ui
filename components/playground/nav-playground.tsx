@@ -9,6 +9,7 @@ import { Button } from "../ui/button"
 const navLinks = [
   { href: "/playground", label: "Hub", exact: true },
   { href: "/playground/form-builder", label: "Form Builder" },
+  { href: "/playground/theme-generator", label: "Theme Generator" },
 ]
 
 export function NavPlayground() {

@@ -1,0 +1,42 @@
+---
+title: Theme Generator
+description: Customize Y2K UI design tokens visually and export them as CSS, Tailwind configurations, or apply them via the CLI.
+---
+
+# Theme Generator
+
+The **Theme Generator** is an interactive playground tool that lets you customize the design tokens of Y2K UI. You can tweak color values, adjust corner radius sizes, change border thicknesses, select fonts, and observe the changes in real-time across a gallery of representative components.
+
+Once you are happy with the theme, you can export it to your project.
+
+## How to Access
+
+You can access the Theme Generator in the playground hub:
+[y2kui.com/playground/theme-generator](/playground/theme-generator)
+
+## Features
+
+- **Live Preview Canvas**: Interact with all primary Y2K UI components (Buttons, Inputs, Checkboxes, Switches, Tables, Progress, etc.) to see how your colors and borders look.
+- **A11y Contrast Guard**: Automatically checks contrast ratio (WCAG AA) between the text (ink) and backgrounds. Warns you if the contrast is too low.
+- **Presets**: Start with default presets such as Default Y2K, Minty Fresh, Vaporwave, Cyber Pink, and Mono Ink.
+- **Shareable Themes**: The complete configuration state is encoded directly in the URL hash, allowing you to copy the link and share your design.
+
+## Exporting Theme
+
+When you click **Export CSS**, you get several options:
+
+### 1. Full globals.css
+Copy the entire code structure to overwrite your existing `app/globals.css` file.
+
+### 2. Standalone @theme
+Copy only the `@theme inline` block to merge with your own CSS file.
+
+### 3. JSON Configuration
+Copy the theme metadata representation.
+
+### 4. CLI Command
+Run the initialization command to setup the theme in your project automatically:
+
+```bash
+npx y2kui init --theme="<your-serialized-theme>"
+```

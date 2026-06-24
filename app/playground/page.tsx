@@ -36,7 +36,9 @@ const tools: ToolCard[] = [
     description:
       "Customize Y2K color tokens and see your design system come alive in real time.",
     icon: <PaletteIcon className="size-5" />,
-    status: "coming-soon",
+    href: "/playground/theme-generator",
+    status: "live",
+    tag: "NEW",
   },
   {
     title: "Component Explorer",

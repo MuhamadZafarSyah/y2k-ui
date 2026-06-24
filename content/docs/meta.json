@@ -3,6 +3,7 @@
   "pages": [
     "index",
     "installation",
+    "theme-generator",
     "---Components---",
     "accordion",
     "alert",
