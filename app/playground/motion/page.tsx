@@ -14,6 +14,10 @@ import { BezierEditor } from "@/components/playground/motion/bezier-editor"
 import { serializeMotionToUrl, deserializeMotionFromUrl } from "@/components/playground/motion/url-serializer"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Slider } from "@/components/ui/slider"
 import { Switch } from "@/components/ui/switch"
 import { WindowControls } from "@/components/ui/window-controls"
 import { CodeBlock } from "@/components/docs/code-block"
@@ -396,7 +400,7 @@ export default function MotionPlaygroundPage() {
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {/* Target Select */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-y2k-ink">Preview Target</label>
+          <Label>Preview Target</Label>
           <Select
             value={config.target}
             onValueChange={(val) => setConfig(prev => ({ ...prev, target: val as TargetType }))}
@@ -465,19 +469,18 @@ export default function MotionPlaygroundPage() {
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {/* Name input */}
         <div className="space-y-1">
-          <label className="text-xs font-bold text-y2k-ink">Animation Name</label>
-          <input
-            type="text"
+          <Label>Animation Name</Label>
+          <Input
             value={config.name}
             onChange={(e) => setConfig(prev => ({ ...prev, name: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, "") }))}
-            className="h-8 w-full rounded border-2 border-y2k-ink bg-white px-2.5 text-xs font-bold focus:outline-none"
             placeholder="e.g. wiggle-fast"
+            className="h-8 text-xs font-bold"
           />
         </div>
 
         {/* Trigger Select */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-y2k-ink">Trigger Event</label>
+          <Label>Trigger Event</Label>
           <Select
             value={config.trigger}
             onValueChange={(val) => setConfig(prev => ({ ...prev, trigger: val as TriggerType }))}
@@ -495,44 +498,36 @@ export default function MotionPlaygroundPage() {
         </div>
 
         {/* Duration Slider */}
-        <div className="space-y-1">
-          <div className="flex items-center justify-between text-xs font-bold">
-            <span>Duration</span>
-            <span className="font-mono">{config.duration}ms</span>
-          </div>
-          <input
-            type="range"
-            min={100}
-            max={5000}
-            step={50}
-            value={config.duration}
-            onChange={(e) => setConfig(prev => ({ ...prev, duration: parseInt(e.target.value) }))}
-            className="w-full h-2 bg-y2k-panel rounded-lg appearance-none cursor-pointer accent-y2k-pink border border-y2k-ink"
-          />
-        </div>
+        <Slider
+          label="Duration"
+          showValue
+          trailingLabel="ms"
+          min={100}
+          max={5000}
+          step={50}
+          value={[config.duration]}
+          onValueChange={([val]) => setConfig(prev => ({ ...prev, duration: val }))}
+          variant="pink"
+        />
 
         {/* Delay Slider */}
-        <div className="space-y-1">
-          <div className="flex items-center justify-between text-xs font-bold">
-            <span>Delay</span>
-            <span className="font-mono">{config.delay}ms</span>
-          </div>
-          <input
-            type="range"
-            min={0}
-            max={3000}
-            step={50}
-            value={config.delay}
-            onChange={(e) => setConfig(prev => ({ ...prev, delay: parseInt(e.target.value) }))}
-            className="w-full h-2 bg-y2k-panel rounded-lg appearance-none cursor-pointer accent-y2k-pink border border-y2k-ink"
-          />
-        </div>
+        <Slider
+          label="Delay"
+          showValue
+          trailingLabel="ms"
+          min={0}
+          max={3000}
+          step={50}
+          value={[config.delay]}
+          onValueChange={([val]) => setConfig(prev => ({ ...prev, delay: val }))}
+          variant="pink"
+        />
 
         {/* Iteration Count */}
         <div className="space-y-1">
-          <label className="text-xs font-bold text-y2k-ink">Iteration Count</label>
+          <Label>Iteration Count</Label>
           <div className="flex items-center gap-4">
-            <input
+            <Input
               type="number"
               min={1}
               value={config.iterationCount === "infinite" ? 1 : config.iterationCount}
@@ -541,28 +536,26 @@ export default function MotionPlaygroundPage() {
                 const val = parseInt(e.target.value) || 1
                 setConfig(prev => ({ ...prev, iterationCount: val }))
               }}
-              className="h-8 w-20 rounded border-2 border-y2k-ink bg-white px-2 text-xs font-bold disabled:opacity-50"
+              className="h-8 w-20 text-xs font-bold"
             />
-            <label className="flex items-center gap-1.5 text-xs font-bold text-y2k-ink cursor-pointer">
-              <input
-                type="checkbox"
+            <Label className="flex items-center gap-1.5 text-xs font-bold text-y2k-ink cursor-pointer">
+              <Checkbox
                 checked={config.iterationCount === "infinite"}
-                onChange={(e) => {
+                onCheckedChange={(checked) => {
                   setConfig(prev => ({
                     ...prev,
-                    iterationCount: e.target.checked ? "infinite" : 1,
+                    iterationCount: checked ? "infinite" : 1,
                   }))
                 }}
-                className="size-4 rounded border-2 border-y2k-ink bg-white checked:bg-y2k-pink"
               />
               Infinite Loop
-            </label>
+            </Label>
           </div>
         </div>
 
         {/* Direction Select */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-y2k-ink">Animation Direction</label>
+          <Label>Animation Direction</Label>
           <Select
             value={config.direction}
             onValueChange={(val) => setConfig(prev => ({ ...prev, direction: val as any }))}
@@ -581,7 +574,7 @@ export default function MotionPlaygroundPage() {
 
         {/* Fill Mode Select */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-y2k-ink">Animation Fill Mode</label>
+          <Label>Animation Fill Mode</Label>
           <Select
             value={config.fillMode}
             onValueChange={(val) => setConfig(prev => ({ ...prev, fillMode: val as any }))}
