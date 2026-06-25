@@ -1,0 +1,59 @@
+---
+title: Motion Playground
+description: Design CSS animations, custom cubic-bezier timing curves, and micro-interactions visually and export them to your Tailwind or CSS project.
+---
+
+# Motion Playground
+
+The **Motion Playground** is an interactive configurator tool that lets you design animations, transitions, and timing curves visually without writing CSS boilerplate. 
+
+You can tweak animation properties, customize the easing using an interactive bezier curve editor, preview the effects in real time on standard Y2K UI components, and instantly export the output as Tailwind arbitrary classes, `@theme`/`@keyframes` blocks, or vanilla CSS.
+
+## How to Access
+
+You can access the Motion Playground at:
+[y2kui.com/playground/motion](/playground/motion)
+
+## Key Features
+
+- **Visual Easing Editor**: Drag handle coordinates visually to customize a `cubic-bezier(x1, y1, x2, y2)` timing function. Supports overshoot (spring-like animation values outside `0` to `1` range).
+- **Y2K Preset Gallery**: Load curated retro presets such as *Wiggle*, *Float*, *Spin Slow*, *Y2K Lift*, *Glow Pulse*, *Shimmer*, and *Draw Stroke*.
+- **Interactive Triggers**: Simulate how animations feel under different interaction contexts:
+  - **Autoplay**: Runs looping continuously.
+  - **Hover**: Triggers when the mouse cursor hovers over the element.
+  - **Tap**: Triggers when the element is clicked/tapped.
+  - **Scroll**: Animates once when the element scrolls into view.
+- **Multiple Preview Targets**: Test animations on various element shapes including Buttons, Badges, Window Cards, Text Blocks, Images, and simple boxes.
+- **A11y reduced-motion guard**: Automatically integrates `@media (prefers-reduced-motion: reduce)` rules into the exported styles when checked.
+
+## Exporting Animation Code
+
+When you are happy with the animation, you can choose from these export formats:
+
+### 1. Tailwind arbitrary class
+Copy the Tailwind class containing inline animations (ideal for quick one-off effects):
+```bash
+motion-safe:animate-[wiggle_500ms_cubic-bezier(0.34,1.56,0.64,1)_infinite]
+```
+
+### 2. Standalone @theme + @keyframes CSS
+Copy and paste this config to your `app/globals.css` file to define custom theme-first utility classes in Tailwind v4:
+```css
+@theme {
+  --animate-wiggle: wiggle 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+```
+
+### 3. Pure CSS
+Copy vanilla CSS rules and keyframes definitions to use with pure HTML and standard stylesheet architectures.
+
+### 4. CLI command
+Instantly add predefined presets using the Y2K UI command line utility:
+```bash
+npx y2kui add wiggle
+```

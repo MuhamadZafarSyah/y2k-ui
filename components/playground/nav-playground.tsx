@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/playground", label: "Hub", exact: true },
   { href: "/playground/form-builder", label: "Form Builder" },
   { href: "/playground/theme-generator", label: "Theme Generator" },
+  { href: "/playground/motion", label: "Motion Playground" },
 ]
 
 export function NavPlayground() {

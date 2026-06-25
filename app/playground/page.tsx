@@ -10,6 +10,7 @@ import {
   PaletteIcon,
   ComponentIcon,
   LockIcon,
+  Zap as ZapIcon,
 } from "lucide-react"
 
 type ToolCard = {
@@ -38,6 +39,15 @@ const tools: ToolCard[] = [
     icon: <PaletteIcon className="size-5" />,
     href: "/playground/theme-generator",
     status: "live",
+    tag: "NEW",
+  },
+  {
+    title: "Motion Playground",
+    description:
+      "Design CSS animations, cubic-bezier easings, and micro-interactions visually and export to your code.",
+    icon: <ZapIcon className="size-5" />,
+    href: "/playground/motion",
+    status: "beta",
     tag: "NEW",
   },
   {
