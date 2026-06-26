@@ -46,3 +46,5 @@ next-env.d.ts
 
 AGENTS.md
 /.playwright-mcp
+.opencode
+skills-lock.json
