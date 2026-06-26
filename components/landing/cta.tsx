@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image"
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Copy, Check, ArrowUpRight, Terminal } from "lucide-react";
@@ -42,7 +43,7 @@ export function CTA() {
         <div className="mx-auto max-w-xl">
           {mounted && (
             <div className="mb-4 flex justify-center gap-3">
-              <img src="/assets/images/7.svg" alt="" width={40} height={40} className="size-10 object-contain opacity-30" aria-hidden />
+              <Image src="/assets/images/7.svg" alt="Y2K star accent" width={40} height={40} className="size-10 object-contain opacity-30" aria-hidden />
             </div>
           )}
 

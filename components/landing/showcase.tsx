@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image"
 import { MousePointer2, Gamepad2, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -43,10 +44,10 @@ export function Showcase() {
     <section className="relative overflow-hidden border-b-2 border-y2k-ink bg-white py-16 md:py-24">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="animate-float absolute -right-16 -top-16 opacity-10 md:opacity-15">
-          <img src="/assets/images/7.svg" alt="" width={192} height={192} className="h-48 w-48 object-contain md:h-64 md:w-64" aria-hidden />
+          <Image src="/assets/images/7.svg" alt="Y2K decorative star shape" width={192} height={192} className="h-48 w-48 object-contain md:h-64 md:w-64" aria-hidden />
         </div>
         <div className="animate-glow-pulse absolute -bottom-12 -left-12 opacity-10" style={{ animationDelay: '2s' }}>
-          <img src="/assets/images/1.svg" alt="" width={160} height={160} className="h-40 w-40 object-contain md:h-52 md:w-52" aria-hidden />
+          <Image src="/assets/images/1.svg" alt="Y2K retro sparkle decoration" width={160} height={160} className="h-40 w-40 object-contain md:h-52 md:w-52" aria-hidden />
         </div>
       </div>
 

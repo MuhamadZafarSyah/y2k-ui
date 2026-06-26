@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image"
 import { Palette, Package as PackageIcon, Terminal, Layers } from "lucide-react";
 import { useScrollReveal, useStaggerReveal } from "@/components/animations/use-gsap-reveal";
 import { SparkleSprinkle } from "@/components/landing/sparkle";
@@ -49,7 +50,7 @@ export function Features() {
                     <span className="font-mono text-[8px] font-black text-center leading-tight text-y2k-ink">Y2K<br />UI</span>
                   </div>
                 </div>
-                <img src="/assets/images/10.svg" alt="Y2K vinyl record spinning" width={224} height={224} className="animate-spin-slow size-56 object-contain md:size-64" style={{ animationDuration: '10s' }} />
+                <Image src="/assets/images/10.svg" alt="Y2K vinyl record spinning" width={224} height={224} className="animate-spin-slow size-56 object-contain md:size-64" style={{ animationDuration: '10s' }} />
                 <div className="absolute right-4 top-4 text-[11px] font-mono font-black text-y2k-ink/45 rotate-12 select-none" aria-hidden="true">~</div>
               </div>
               <div className="border-t-2 border-y2k-ink bg-y2k-panel/50 px-3 py-2">
