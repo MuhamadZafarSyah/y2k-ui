@@ -13,6 +13,7 @@ import { serializeMotionToUrl, deserializeMotionFromUrl } from "@/components/pla
 import { PresetPanel } from "@/components/playground/motion/preset-panel"
 import { ControlsPanel } from "@/components/playground/motion/controls-panel"
 import { PreviewPanel } from "@/components/playground/motion/preview-panel"
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable"
 import { CodeBlock } from "@/components/docs/code-block"
 import {
   Zap,
@@ -118,6 +119,7 @@ export default function MotionPlaygroundPage() {
       setCopiedLink(true)
       setTimeout(() => setCopiedLink(false), 2000)
     })
+
   }, [])
 
   const handlePresetSelect = React.useCallback((preset: MotionPreset) => {
@@ -302,11 +304,10 @@ export default function MotionPlaygroundPage() {
             key={tab}
             type="button"
             onClick={() => setCodeTab(tab)}
-            className={`flex-1 py-1.5 text-[10px] font-black border-r border-y2k-ink last:border-r-0 transition-all ${
-              codeTab === tab
-                ? "bg-y2k-lemon text-y2k-ink"
-                : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
-            }`}
+            className={`flex-1 py-1.5 text-[10px] font-black border-r border-y2k-ink last:border-r-0 transition-all ${codeTab === tab
+              ? "bg-y2k-lemon text-y2k-ink"
+              : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
+              }`}
           >
             {tab.toUpperCase()}
           </button>
@@ -330,9 +331,8 @@ export default function MotionPlaygroundPage() {
             <button
               type="button"
               onClick={() => setMobileTab("preview")}
-              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black border-r border-y2k-ink transition-all flex flex-col items-center gap-0.5 ${
-                mobileTab === "preview" ? "bg-y2k-pink text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
-              }`}
+              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black border-r border-y2k-ink transition-all flex flex-col items-center gap-0.5 ${mobileTab === "preview" ? "bg-y2k-pink text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
+                }`}
             >
               <Layout className="size-3.5" />
               <span>Preview</span>
@@ -340,9 +340,8 @@ export default function MotionPlaygroundPage() {
             <button
               type="button"
               onClick={() => setMobileTab("configure")}
-              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black border-r border-y2k-ink transition-all flex flex-col items-center gap-0.5 ${
-                mobileTab === "configure" ? "bg-y2k-blue text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
-              }`}
+              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black border-r border-y2k-ink transition-all flex flex-col items-center gap-0.5 ${mobileTab === "configure" ? "bg-y2k-blue text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
+                }`}
             >
               <Zap className="size-3.5" />
               <span>Presets</span>
@@ -350,9 +349,8 @@ export default function MotionPlaygroundPage() {
             <button
               type="button"
               onClick={() => setMobileTab("properties")}
-              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black border-r border-y2k-ink transition-all flex flex-col items-center gap-0.5 ${
-                mobileTab === "properties" ? "bg-y2k-lemon text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
-              }`}
+              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black border-r border-y2k-ink transition-all flex flex-col items-center gap-0.5 ${mobileTab === "properties" ? "bg-y2k-lemon text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
+                }`}
             >
               <Sliders className="size-3.5" />
               <span>Properties</span>
@@ -360,9 +358,8 @@ export default function MotionPlaygroundPage() {
             <button
               type="button"
               onClick={() => setMobileTab("bezier")}
-              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black border-r border-y2k-ink transition-all flex flex-col items-center gap-0.5 ${
-                mobileTab === "bezier" ? "bg-[#b69cff] text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
-              }`}
+              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black border-r border-y2k-ink transition-all flex flex-col items-center gap-0.5 ${mobileTab === "bezier" ? "bg-[#b69cff] text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
+                }`}
             >
               <Activity className="size-3.5" />
               <span>Bezier</span>
@@ -370,9 +367,8 @@ export default function MotionPlaygroundPage() {
             <button
               type="button"
               onClick={() => setMobileTab("code")}
-              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black transition-all flex flex-col items-center gap-0.5 ${
-                mobileTab === "code" ? "bg-[#8ff0d0] text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
-              }`}
+              className={`flex-1 min-w-[70px] py-2.5 text-[10px] font-black transition-all flex flex-col items-center gap-0.5 ${mobileTab === "code" ? "bg-[#8ff0d0] text-y2k-ink" : "bg-white text-y2k-ink-muted hover:bg-y2k-panel"
+                }`}
             >
               <Code className="size-3.5" />
               <span>Code</span>
@@ -421,17 +417,19 @@ export default function MotionPlaygroundPage() {
           </div>
         </div>
       ) : (
-        <div className="flex-1 flex overflow-hidden p-3 gap-3">
-          <div className="w-[300px] shrink-0 h-full">
+        <ResizablePanelGroup className="flex-1 p-3 gap-3">
+          <ResizablePanel defaultSize={22} minSize={18} maxSize={300}>
             <PresetPanel
               target={config.target}
               onTargetChange={onTargetChange}
               activePreset={config.preset ?? ""}
               onPresetSelect={handlePresetSelect}
             />
-          </div>
+          </ResizablePanel>
 
-          <div className="flex-1 h-full">
+          <ResizableHandle withHandle />
+
+          <ResizablePanel defaultSize={53} minSize={300}>
             <PreviewPanel
               config={config}
               isPlaying={isPlaying}
@@ -445,9 +443,11 @@ export default function MotionPlaygroundPage() {
               codeContents={codeContents}
               observerRef={observerRef}
             />
-          </div>
+          </ResizablePanel>
 
-          <div className="w-[320px] shrink-0 h-full">
+          <ResizableHandle withHandle />
+
+          <ResizablePanel defaultSize={25} minSize={18} maxSize={300}>
             <ControlsPanel
               config={config}
               onConfigChange={setConfig}
@@ -455,8 +455,8 @@ export default function MotionPlaygroundPage() {
               onShare={handleShare}
               copiedLink={copiedLink}
             />
-          </div>
-        </div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
       )}
     </div>
   )
