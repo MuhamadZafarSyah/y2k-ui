@@ -60,10 +60,10 @@ export function BezierEditor({ value, onChange, className }: BezierEditorProps) 
 
   const handlePointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
     if (dragging === null) return
+    e.preventDefault()
     const rect = svgRef.current?.getBoundingClientRect()
     if (!rect) return
 
-    // Calculate pointer relative coordinates
     const px = e.clientX - rect.left
     const py = e.clientY - rect.top
     const [x, y] = toValueCoords(px, py)
@@ -75,7 +75,7 @@ export function BezierEditor({ value, onChange, className }: BezierEditorProps) 
     }
   }
 
-  const handlePointerUp = (e: React.PointerEvent<SVGSVGElement>) => {
+  const handlePointerUp = () => {
     if (dragging !== null) {
       setDragging(null)
     }
@@ -134,7 +134,7 @@ export function BezierEditor({ value, onChange, className }: BezierEditorProps) 
 
       <div className="flex flex-col md:flex-row items-center gap-4">
         {/* SVG Editor Grid */}
-        <div className="relative border-2 border-y2k-ink rounded-md bg-[#f7f8fc] size-[204px]">
+        <div className="relative border-2 border-y2k-ink rounded-md bg-[#f7f8fc] size-[204px]" style={{ touchAction: "none" }}>
           <svg
             ref={svgRef}
             width="200"
