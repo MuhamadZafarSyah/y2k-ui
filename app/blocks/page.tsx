@@ -3,7 +3,6 @@
 import * as React from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { NavHeader } from "@/components/nav-header"
 import { BlockPreview } from "@/components/docs/block-preview"
 import { blockSources } from "@/lib/block-sources"
 import {
@@ -192,8 +191,6 @@ export default function BlocksPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <NavHeader />
-
       {/* Hero Section */}
       <div className="border-b-2 border-y2k-ink bg-y2k-panel">
         <div className="mx-auto max-w-7xl px-4 py-10 text-center">

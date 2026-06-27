@@ -89,19 +89,19 @@ const tools: ToolCard[] = [
     status: "coming-soon",
     accent: "mint",
   },
-  {
-    title: "AI Scaffolder",
-    description:
-      "Describe your form in natural language and let Y2K AI generate the layout for you.",
-    icon: <SparklesIcon className="size-5" />,
-    status: "coming-soon",
-    accent: "lemon",
-  },
+  // {
+  //   title: "AI Scaffolder",
+  //   description:
+  //     "Describe your form in natural language and let Y2K AI generate the layout for you.",
+  //   icon: <SparklesIcon className="size-5" />,
+  //   status: "coming-soon",
+  //   accent: "lemon",
+  // },
 ]
 
 const statusConfig: Record<ToolStatus, { label: string; dotClass: string }> = {
-  live:        { label: "Live",        dotClass: "bg-[#22c55e] shadow-[0_0_6px_#22c55e]" },
-  beta:        { label: "Beta",        dotClass: "bg-[#f59e0b] shadow-[0_0_6px_#f59e0b] animate-pulse" },
+  live: { label: "Live", dotClass: "bg-[#22c55e] shadow-[0_0_6px_#22c55e]" },
+  beta: { label: "Beta", dotClass: "bg-[#f59e0b] shadow-[0_0_6px_#f59e0b] animate-pulse" },
   "coming-soon": { label: "Coming Soon", dotClass: "bg-[#a1a1aa]" },
 }
 
@@ -440,11 +440,11 @@ export default function PlaygroundHub() {
 
           // Accent color value for inline styles
           const accentVal =
-            tool.accent === "blue"  ? "#8ed1fc" :
-            tool.accent === "pink"  ? "#ff8fcf" :
-            tool.accent === "lilac" ? "#b69cff" :
-            tool.accent === "mint"  ? "#8ff0d0" :
-            "#ffe45e"
+            tool.accent === "blue" ? "#8ed1fc" :
+              tool.accent === "pink" ? "#ff8fcf" :
+                tool.accent === "lilac" ? "#b69cff" :
+                  tool.accent === "mint" ? "#8ff0d0" :
+                    "#ffe45e"
 
           return (
             <CardWrapper
@@ -454,11 +454,11 @@ export default function PlaygroundHub() {
                 "group relative flex flex-col overflow-hidden rounded-lg border-2 border-[#1b1b3a] bg-white transition-[border-color,opacity] duration-300",
                 prefersReduced
                   ? cn(isDisabled
-                      ? "cursor-not-allowed opacity-60"
-                      : "cursor-pointer hover:border-[#1b1b3a]")
+                    ? "cursor-not-allowed opacity-60"
+                    : "cursor-pointer hover:border-[#1b1b3a]")
                   : cn(isDisabled
-                      ? "cursor-not-allowed opacity-65 hover:opacity-80"
-                      : "cursor-pointer will-change-transform")
+                    ? "cursor-not-allowed opacity-65 hover:opacity-80"
+                    : "cursor-pointer will-change-transform")
               )}
               style={prefersReduced ? undefined : { transformStyle: "preserve-3d", perspective: "800px" }}
               aria-disabled={isDisabled || undefined}
