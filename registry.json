@@ -800,11 +800,67 @@
       "type": "registry:ui",
       "title": "Date Picker",
       "description": "A Y2K date picker with popover calendar, thick navy borders, and pastel accents.",
-      "registryDependencies": ["button", "calendar"],
+      "registryDependencies": ["button", "calendar", "popover"],
       "dependencies": ["radix-ui", "date-fns"],
       "files": [
         {
           "path": "components/ui/date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "A Y2K flat popover with thick navy border, pastel background, anchor, header, title, and description subcomponents.",
+      "registryDependencies": [],
+      "dependencies": ["radix-ui"],
+      "files": [
+        {
+          "path": "components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "A Y2K multi-step progress indicator with pastel completed/active/pending states, navigation buttons, and optional clickable steps.",
+      "registryDependencies": [],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/stepper.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tag-input",
+      "type": "registry:ui",
+      "title": "Tag Input",
+      "description": "A Y2K tag input field with blue tag chips, X remove buttons, Enter to add, Backspace to delete last, validation, and max tag limit.",
+      "registryDependencies": [],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/tag-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "window-controls",
+      "type": "registry:ui",
+      "title": "Window Controls",
+      "description": "A Y2K window-chrome control buttons (_ ▢ ✕) with pink background, navy border, and press animation.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/ui/window-controls.tsx",
           "type": "registry:ui"
         }
       ]

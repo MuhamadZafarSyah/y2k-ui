@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "window-controls",
+  "title": "Window Controls",
+  "description": "A Y2K window-chrome control buttons (_ ▢ ✕) with pink background, navy border, and press animation.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/window-controls.tsx",
+      "content": "import * as React from \"react\"\r\n\r\ntype WindowControlsProps = {\r\n  onMinimize?: () => void\r\n  onMaximize?: () => void\r\n  onClose?: () => void\r\n  hideMinimize?: boolean\r\n  hideMaximize?: boolean\r\n  hideClose?: boolean\r\n}\r\n\r\nexport function WindowControls({\r\n  onMinimize,\r\n  onMaximize,\r\n  onClose,\r\n  hideMinimize = false,\r\n  hideMaximize = false,\r\n  hideClose = false,\r\n}: WindowControlsProps) {\r\n  return (\r\n    <div className=\"flex items-center gap-1\">\r\n      {!hideMinimize && (\r\n        <button\r\n          type=\"button\"\r\n          aria-label=\"Minimize\"\r\n          onClick={onMinimize}\r\n          className=\"flex h-5 w-5 items-center justify-center rounded-[3px] border-2 border-[#1b1b3a] bg-[#ff8fcf] text-[#1b1b3a] text-xs leading-none active:translate-y-[1px] active:brightness-95\"\r\n        >\r\n          _\r\n        </button>\r\n      )}\r\n\r\n      {!hideMaximize && (\r\n        <button\r\n          type=\"button\"\r\n          aria-label=\"Maximize\"\r\n          onClick={onMaximize}\r\n          className=\"flex h-5 w-5 items-center justify-center rounded-[3px] border-2 border-[#1b1b3a] bg-[#ff8fcf] text-[#1b1b3a] text-xs leading-none active:translate-y-[1px] active:brightness-95\"\r\n        >\r\n          ▢\r\n        </button>\r\n      )}\r\n\r\n      {!hideClose && (\r\n        <button\r\n          type=\"button\"\r\n          aria-label=\"Close\"\r\n          onClick={onClose}\r\n          className=\"flex h-5 w-5 items-center justify-center rounded-[3px] border-2 border-[#1b1b3a] bg-[#ff8fcf] text-[#1b1b3a] text-xs leading-none active:translate-y-[1px] active:brightness-95\"\r\n        >\r\n          ✕\r\n        </button>\r\n      )}\r\n    </div>\r\n  )\r\n}",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
