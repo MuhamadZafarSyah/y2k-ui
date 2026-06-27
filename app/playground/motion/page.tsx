@@ -418,7 +418,7 @@ export default function MotionPlaygroundPage() {
         </div>
       ) : (
         <ResizablePanelGroup className="flex-1 p-3 gap-3">
-          <ResizablePanel defaultSize={22} minSize={18} maxSize={300}>
+          <ResizablePanel defaultSize={300} minSize={18} maxSize={300}>
             <PresetPanel
               target={config.target}
               onTargetChange={onTargetChange}
@@ -447,7 +447,7 @@ export default function MotionPlaygroundPage() {
 
           <ResizableHandle withHandle />
 
-          <ResizablePanel defaultSize={25} minSize={18} maxSize={300}>
+          <ResizablePanel defaultSize={300} minSize={18} maxSize={300}>
             <ControlsPanel
               config={config}
               onConfigChange={setConfig}

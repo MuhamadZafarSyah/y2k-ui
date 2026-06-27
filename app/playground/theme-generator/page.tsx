@@ -29,6 +29,7 @@ import {
   CheckIcon,
   AlertTriangleIcon,
 } from "lucide-react"
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable"
 
 // Color picker row with WCAG checker
 function ColorPickerField({
@@ -61,8 +62,8 @@ function ColorPickerField({
             </span>
             <span
               className={`rounded px-1 text-[8px] font-black leading-none border border-[#1b1b3a] ${contrast.aaNormal
-                  ? "bg-[#8ff0d0] text-[#1b1b3a]"
-                  : "bg-[#ff8fcf] text-[#1b1b3a] animate-pulse"
+                ? "bg-[#8ff0d0] text-[#1b1b3a]"
+                : "bg-[#ff8fcf] text-[#1b1b3a] animate-pulse"
                 }`}
               title={contrast.aaNormal ? "Passes WCAG AA" : "Fails WCAG AA (requires >= 4.5)"}
             >
@@ -158,8 +159,8 @@ function ControlsPane() {
                 type="button"
                 onClick={() => dispatch({ type: "SET_PRESET", presetId: preset.id })}
                 className={`rounded border-2 border-[#1b1b3a] px-2.5 py-1 text-xs font-bold transition-all hover:bg-[#8ff0d0] hover:-translate-y-px active:translate-y-0 inline-flex items-center gap-1 ${config.id === preset.id
-                    ? "bg-[#ffe45e] text-[#1b1b3a]"
-                    : "bg-white text-[#1b1b3a] hover:bg-[#d7dde8]"
+                  ? "bg-[#ffe45e] text-[#1b1b3a]"
+                  : "bg-white text-[#1b1b3a] hover:bg-[#d7dde8]"
                   }`}
               >
                 {config.id === preset.id && <CheckIcon className="size-3" />}
@@ -426,8 +427,8 @@ function MainLayout() {
             type="button"
             onClick={() => setActivePane("controls")}
             className={`flex-1 py-3 text-xs font-black border-r border-[#1b1b3a] transition-all flex items-center justify-center gap-1.5 ${activePane === "controls"
-                ? "bg-[#ffe45e] text-[#1b1b3a]"
-                : "bg-white text-y2k-ink-muted hover:bg-[#d7dde8]"
+              ? "bg-[#ffe45e] text-[#1b1b3a]"
+              : "bg-white text-y2k-ink-muted hover:bg-[#d7dde8]"
               }`}
           >
             <span>🎨</span> Configure Theme
@@ -436,8 +437,8 @@ function MainLayout() {
             type="button"
             onClick={() => setActivePane("preview")}
             className={`flex-1 py-3 text-xs font-black transition-all flex items-center justify-center gap-1.5 ${activePane === "preview"
-                ? "bg-[#ffe45e] text-[#1b1b3a]"
-                : "bg-white text-y2k-ink-muted hover:bg-[#d7dde8]"
+              ? "bg-[#ffe45e] text-[#1b1b3a]"
+              : "bg-white text-y2k-ink-muted hover:bg-[#d7dde8]"
               }`}
           >
             <span>👁️</span> Live Preview
@@ -460,19 +461,21 @@ function MainLayout() {
     )
   }
 
-  // Desktop Side-by-Side Panel (original working design)
+  // Desktop Side-by-Side Panel (resizable controls panel)
   return (
-    <div className="flex h-full w-full overflow-hidden bg-[#f7f8fc]">
-      {/* Left Side: Controls Panel */}
-      <div className="w-[360px] shrink-0 h-full p-2 bg-[#f7f8fc] border-r-2 border-[#1b1b3a]">
+    <ResizablePanelGroup orientation="horizontal" className="h-full w-full bg-[#f7f8fc]">
+      {/* Left Side: Resizable Controls Panel */}
+      <ResizablePanel defaultSize={300} minSize={22} maxSize={300} className="p-2 bg-[#f7f8fc]">
         <ControlsPane />
-      </div>
+      </ResizablePanel>
+
+      <ResizableHandle withHandle />
 
       {/* Right Side: Live Canvas Showcase */}
-      <div className="flex-1 h-full bg-[#f7f8fc]">
+      <ResizablePanel defaultSize={72} className="bg-[#f7f8fc]">
         <PreviewShowcase />
-      </div>
-    </div>
+      </ResizablePanel>
+    </ResizablePanelGroup>
   )
 }
 
