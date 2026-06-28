@@ -504,7 +504,7 @@ export function TemplateShowcase({
                 alt={screenshotAlt}
                 fill
                 priority
-                className="object-cover object-top"
+                className="object-top"
                 sizes="(max-width: 1080px) 100vw, 1080px"
               />
               <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded border-2 border-[#1b1b3a] bg-white/90 px-2.5 py-1">

@@ -76,12 +76,23 @@ const templates: TemplateCard[] = [
     cli: "npx y2kui add saas-landing",
   },
   {
+    title: "Full SaaS Dashboard",
+    description:
+      "A complete SaaS dashboard template with layout shell, overview KPIs, analytics charts, customer tables, chat logs, billing plans, settings tabs, and GSAP animations.",
+    icon: <Cpu className="size-5" />,
+    href: "/templates/dashboard",
+    status: "live",
+    tag: "NEW",
+    accent: "mint",
+    cli: "npx y2kui add dashboard",
+  },
+  {
     title: "Link-in-bio Console",
     description:
       "A retro handheld-console style link aggregator for creators. Lightweight, ultra-fast, and customisable.",
     icon: <Sparkles className="size-5" />,
     status: "coming-soon",
-    accent: "mint",
+    accent: "lemon",
   },
 ]
 

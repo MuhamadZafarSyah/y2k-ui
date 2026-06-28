@@ -10,7 +10,7 @@ import { Terminal, Menu, X } from "lucide-react"
 const navLinks = [
   { href: "/docs", label: "Docs" },
   { href: "/blocks", label: "Blocks" },
-  // { href: "/templates", label: "Templates", highlight: true, badge: "NEW" },
+  { href: "/templates", label: "Templates", highlight: true, badge: "NEW" },
   { href: "/playground", label: "Playground", highlight: true, badge: "NEW" },
 ]
 
@@ -25,7 +25,7 @@ export function NavHeader() {
     if (!mounted || !pathname) return false
     if (href === "/docs") return pathname.startsWith("/docs")
     if (href === "/blocks") return pathname.startsWith("/blocks")
-    // if (href === "/templates") return pathname.startsWith("/templates")
+    if (href === "/templates") return pathname.startsWith("/templates")
     if (href === "/playground") return pathname.startsWith("/playground")
     return pathname === href
   }
